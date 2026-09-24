@@ -1,9 +1,11 @@
-using Sokoban5.Commands;
 using Microsoft.Xna.Framework;
+using Sokoban4;
+using Sokoban4.Commands;
 using Xunit;
 
-namespace Sokoban5.Tests;
+namespace Sokoban.Tests;
 
+// Tests for undo and redo: after undoing, the level must be exactly as it was.
 public class UndoTests
 {
     private const string Corridor = """

@@ -74,6 +74,21 @@ public class Level
         return MoveResult.Walked;
     }
 
+    // Reverses a move: steps the player back, and pulls the box back if the move pushed one.
+    public void UndoMove(Point direction, MoveResult result)
+    {
+        if (result == MoveResult.Pushed)
+        {
+            _boxes.Remove(Player + direction);
+            _boxes.Add(Player);
+        }
+
+        if (result != MoveResult.Blocked)
+        {
+            Player -= direction;
+        }
+    }
+
     // Reads a level in the classic Sokoban text format, one character per cell:
     //   # wall   $ box   . goal   * box on a goal   @ player   + player on a goal
     public static Level Parse(string text)

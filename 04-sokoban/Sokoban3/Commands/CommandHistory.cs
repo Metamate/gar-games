@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Sokoban5.Commands;
+namespace Sokoban3.Commands;
 
 // Executes commands and remembers them, so they can be undone and redone.
 public class CommandHistory

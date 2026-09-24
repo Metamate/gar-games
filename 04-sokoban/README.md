@@ -10,12 +10,23 @@ steps (e.g. with a diff tool) to see exactly what changed.
 | --- | --- | --- |
 | `Sokoban0` | Levels as data | `level1.txt` is read as text and drawn character by character |
 | `Sokoban1` | Rules apart from drawing | `Level` holds the state and the rules (walk, push); `LevelView` draws it; a `GameController` maps keys to moves |
-| `Sokoban2` | Testable rules | `Sokoban2.Tests` tests the rules with xUnit, without starting the game |
-| `Sokoban3` | Command | Every move is a `MoveCommand` object; the game keeps a list of them to count the moves |
-| `Sokoban4` | Undo and redo | Commands can `Undo`; a `CommandHistory` keeps an undo stack and a redo stack (`Z` / `Y`) |
-| `Sokoban5` | The whole game | Seven levels, restart, a move counter and a level-complete message (the finished game) |
+| `Sokoban2` | Command | Every move is a `MoveCommand` object; the game keeps a list of them to count the moves |
+| `Sokoban3` | Undo and redo | Commands can `Undo`; a `CommandHistory` keeps an undo stack and a redo stack (`Z` / `Y`) |
+| `Sokoban4` | The whole game | Seven levels, restart, a move counter and a level-complete message (the finished game) |
 
-Each test project (`Sokoban2.Tests` … `Sokoban5.Tests`) tests the step of the same name.
+## Tests
+
+`Sokoban.Tests` holds unit tests for the finished game's rules (`Level`) and for undo and
+redo (`CommandHistory`). Each test sets up a small level from a string, does one thing, and
+checks the result, without starting the game. The comments in `LevelTests.cs` explain how
+a test is built.
+
+```sh
+cd 04-sokoban
+dotnet test
+```
+
+Or run them from your editor's test explorer.
 
 All steps share the **GMDCore** library.
 
@@ -32,7 +43,7 @@ All steps share the same assets and the same content builder:
 Content/Assets/
 ├── images/tiles.png         # The tilesheet: 64×64 tiles, 13 columns
 ├── levels/level1.txt …      # The levels, as plain text
-└── fonts/arial.spritefont   # The HUD font (Sokoban5)
+└── fonts/arial.spritefont   # The HUD font (Sokoban4)
 ```
 
 `Builder.cs` builds the tilesheet and the font, and copies the level files as they are,
@@ -47,17 +58,17 @@ because the game reads them itself. A level uses the classic Sokoban characters:
 | `@` | Player |
 | `+` | Player on a goal |
 
-To add a level, add `level8.txt` and raise `LevelCount` in `Sokoban5/Game1.cs`.
+To add a level, add `level8.txt` and raise `LevelCount` in `Sokoban4/Game1.cs`.
 
 ## Controls
 
 | Key | Action |
 | --- | --- |
 | Arrow keys, `W` `A` `S` `D` | Move and push (from `Sokoban1`) |
-| `Z` or `Backspace` | Undo (from `Sokoban4`) |
-| `Y` | Redo (from `Sokoban4`) |
-| `R` | Restart the level (`Sokoban5`) |
-| `Enter` | Next level, once solved (`Sokoban5`) |
+| `Z` or `Backspace` | Undo (from `Sokoban3`) |
+| `Y` | Redo (from `Sokoban3`) |
+| `R` | Restart the level (`Sokoban4`) |
+| `Enter` | Next level, once solved (`Sokoban4`) |
 | `Esc` | Quit |
 
 ## Running a step
@@ -66,8 +77,7 @@ Requires the [.NET 10 SDK](https://dotnet.microsoft.com/download).
 
 ```sh
 cd 04-sokoban
-dotnet run --project Sokoban5
-dotnet test Sokoban5.Tests
+dotnet run --project Sokoban4
 ```
 
 Or open `Sokoban.slnx` and choose the step to run.

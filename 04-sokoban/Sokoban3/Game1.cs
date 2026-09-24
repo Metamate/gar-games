@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.IO;
 using Sokoban3.Commands;
 using GMDCore;
@@ -15,7 +14,7 @@ public class Game1 : Core
 
     private LevelView _view;
     private Level _level;
-    private readonly List<ICommand> _moves = [];
+    private readonly CommandHistory _history = new();
 
     public Game1() : base("Sokoban", 1280, 720, VirtualWidth, VirtualHeight)
     {
@@ -57,9 +56,14 @@ public class Game1 : Core
         else if (GameController.Down) Move(Direction.Down);
         else if (GameController.Left) Move(Direction.Left);
         else if (GameController.Right) Move(Direction.Right);
+        else if (GameController.Undo) _history.Undo();
+        else if (GameController.Redo) _history.Redo();
+        else return;
+
+        UpdateTitle();
     }
 
-    // Only moves that change something become commands, so there is never a command that did nothing.
+    // Only moves that change something become commands, so undo never has to undo nothing.
     private void Move(Point direction)
     {
         _view.Facing = direction;
@@ -68,15 +72,11 @@ public class Game1 : Core
             return;
         }
 
-        // Each move is an object. Here we only keep a list of them, to count the moves.
-        ICommand command = new MoveCommand(_level, direction);
-        command.Execute();
-        _moves.Add(command);
-        UpdateTitle();
+        _history.Execute(new MoveCommand(_level, direction));
     }
 
     // No font yet, so the move count goes in the window title.
-    private void UpdateTitle() => Window.Title = $"Sokoban: {_moves.Count} moves";
+    private void UpdateTitle() => Window.Title = $"Sokoban: {_history.Count} moves";
 
     // Content files are opened through TitleContainer, which works on every platform.
     private string ReadText(string path)

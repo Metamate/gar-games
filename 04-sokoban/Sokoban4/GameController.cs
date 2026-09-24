@@ -12,6 +12,8 @@ public static class GameController
     public static bool Right => WasPressed(Keys.D) || WasPressed(Keys.Right);
     public static bool Undo => WasPressed(Keys.Z) || WasPressed(Keys.Back);
     public static bool Redo => WasPressed(Keys.Y);
+    public static bool Restart => WasPressed(Keys.R);
+    public static bool Continue => WasPressed(Keys.Enter) || WasPressed(Keys.Space);
 
     private static bool WasPressed(Keys key) => Core.Input.Keyboard.WasKeyJustPressed(key);
 }

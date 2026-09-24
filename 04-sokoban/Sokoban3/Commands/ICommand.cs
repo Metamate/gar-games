@@ -1,7 +1,8 @@
 namespace Sokoban3.Commands;
 
-// A request, as an object: it can be stored, counted, queued or logged.
+// A request, as an object. A command that knows how to reverse itself can be undone.
 public interface ICommand
 {
     void Execute();
+    void Undo();
 }

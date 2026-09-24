@@ -10,6 +10,8 @@ public static class GameController
     public static bool Down => WasPressed(Keys.S) || WasPressed(Keys.Down);
     public static bool Left => WasPressed(Keys.A) || WasPressed(Keys.Left);
     public static bool Right => WasPressed(Keys.D) || WasPressed(Keys.Right);
+    public static bool Undo => WasPressed(Keys.Z) || WasPressed(Keys.Back);
+    public static bool Redo => WasPressed(Keys.Y);
 
     private static bool WasPressed(Keys key) => Core.Input.Keyboard.WasKeyJustPressed(key);
 }
