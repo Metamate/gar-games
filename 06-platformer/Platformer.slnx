@@ -1,0 +1,13 @@
+<Solution>
+  <Project Path="Content/Content.csproj" />
+  <Project Path="GMDCore/GMDCore.csproj" />
+  <Project Path="Platformer0/Platformer0.csproj" />
+  <Project Path="Platformer1/Platformer1.csproj" />
+  <Project Path="Platformer2/Platformer2.csproj" />
+  <Project Path="Platformer3/Platformer3.csproj" />
+  <Project Path="Platformer4/Platformer4.csproj" />
+  <Project Path="Platformer5/Platformer5.csproj" />
+  <Project Path="Platformer6/Platformer6.csproj" />
+  <Project Path="Platformer7/Platformer7.csproj" />
+  <Project Path="Platformer8/Platformer8.csproj" />
+</Solution>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas>
+    <Texture>images/green_alien</Texture>
+    <Regions>
+        <Region name="alien1" x="0" y="0" width="16" height="20" />
+        <Region name="alien2" x="16" y="0" width="16" height="20" />
+        <Region name="alien3" x="32" y="0" width="16" height="20" />
+        <Region name="alien4" x="48" y="0" width="16" height="20" />
+        <Region name="alien5" x="64" y="0" width="16" height="20" />
+        <Region name="alien6" x="80" y="0" width="16" height="20" />
+        <Region name="alien7" x="96" y="0" width="16" height="20" />
+        <Region name="alien8" x="112" y="0" width="16" height="20" />
+        <Region name="alien9" x="128" y="0" width="16" height="20" />
+        <Region name="alien10" x="144" y="0" width="16" height="20" />
+        <Region name="alien11" x="160" y="0" width="16" height="20" />
+    </Regions>
+    <Animations>
+        <Animation name="idle-animation" delay="1000">
+            <Frame region="alien1" />
+        </Animation>
+        <Animation name="walk-animation" delay="100">
+            <Frame region="alien10" />
+            <Frame region="alien11" />
+        </Animation>
+        <Animation name="jump-animation" delay="1000">
+            <Frame region="alien3" />
+        </Animation>
+        <Animation name="fall-animation" delay="1000">
+            <Frame region="alien3" />
+        </Animation>
+        <Animation name="duck-animation" delay="1000">
+            <Frame region="alien4" />
+        </Animation>
+    </Animations>
+</TextureAtlas>

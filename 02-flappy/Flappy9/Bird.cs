@@ -1,0 +1,39 @@
+using GMDCore;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+
+namespace Flappy9;
+
+public class Bird(Vector2 position)
+{
+    private const float Gravity = 980f;
+    private const float JumpForce = 300f;
+    public Vector2 Position { get; set; } = position;
+    public Vector2 Velocity { get; set; } = Vector2.Zero;
+
+    public void Update(GameTime gameTime)
+    {
+        if (Core.Input.Keyboard.WasKeyJustPressed(Keys.Space) || Core.Input.Mouse.WasLeftButtonJustPressed)
+        {
+            Velocity = new Vector2(Velocity.X, -JumpForce);
+        }
+
+        Velocity += new Vector2(0, Gravity * (float)gameTime.ElapsedGameTime.TotalSeconds);
+        Position += Velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
+    }
+
+    public void Draw(SpriteBatch spriteBatch)
+    {
+        spriteBatch.Draw(Art.Bird, Position, Color.White);
+    }
+
+    public bool Collides(Pipe pipe)
+    {
+        // the hardcoded offsets are to make the collision box a bit smaller than the bird sprite
+        return Position.X + 1 < pipe.Position.X + Art.Pipe.Width &&
+            Position.X + Art.Bird.Width - 1 > pipe.Position.X &&
+            Position.Y + 1 < pipe.Position.Y + Art.Pipe.Height &&
+            Position.Y + Art.Bird.Height - 1 > pipe.Position.Y;
+    }
+}

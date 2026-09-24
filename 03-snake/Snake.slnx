@@ -1,0 +1,14 @@
+<Solution>
+  <Project Path="Content/Content.csproj" />
+  <Project Path="GMDCore/GMDCore.csproj" />
+  <Project Path="Snake0/Snake0.csproj" />
+  <Project Path="Snake1/Snake1.csproj" />
+  <Project Path="Snake2/Snake2.csproj" />
+  <Project Path="Snake3/Snake3.csproj" />
+  <Project Path="Snake4/Snake4.csproj" />
+  <Project Path="Snake5/Snake5.csproj" />
+  <Project Path="Snake6/Snake6.csproj" />
+  <Project Path="Snake7/Snake7.csproj" />
+  <Project Path="Snake8/Snake8.csproj" />
+  <Project Path="Snake9/Snake9.csproj" />
+</Solution>

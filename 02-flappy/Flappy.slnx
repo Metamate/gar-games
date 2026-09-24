@@ -1,0 +1,17 @@
+<Solution>
+  <Project Path="Content/Content.csproj" />
+  <Project Path="Flappy0/Flappy0.csproj" />
+  <Project Path="Flappy1/Flappy1.csproj" />
+  <Project Path="Flappy10/Flappy10.csproj" />
+  <Project Path="Flappy11/Flappy11.csproj" />
+  <Project Path="Flappy12/Flappy12.csproj" />
+  <Project Path="Flappy2/Flappy2.csproj" />
+  <Project Path="Flappy3/Flappy3.csproj" />
+  <Project Path="Flappy4/Flappy4.csproj" />
+  <Project Path="Flappy5/Flappy5.csproj" />
+  <Project Path="Flappy6/Flappy6.csproj" />
+  <Project Path="Flappy7/Flappy7.csproj" />
+  <Project Path="Flappy8/Flappy8.csproj" />
+  <Project Path="Flappy9/Flappy9.csproj" />
+  <Project Path="GMDCore/GMDCore.csproj" />
+</Solution>
