@@ -1,6 +1,6 @@
 name: Build
 
-# Builds every game (all its step projects and content), and checks that the games stay
+# Builds every game (all its step projects and content), runs its tests if it has any, and checks that the games stay
 # consistent (tools/check.py). Game folders are found automatically: 01-pong, 02-flappy, …
 
 on:
@@ -35,3 +35,6 @@ jobs:
         with:
           dotnet-version: 10.0.x
       - run: dotnet build ${{ matrix.game }}
+      - name: test
+        if: hashFiles(format('{0}/*.Tests/*.csproj', matrix.game)) != ''
+        run: dotnet test ${{ matrix.game }} --no-build

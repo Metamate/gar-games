@@ -8,12 +8,13 @@ The course site explains each session: [metamate.github.io/gar](https://metamate
 | [01-pong](01-pong/) | 01 Pong | The game loop |
 | [02-flappy](02-flappy/) | 02 Flappy Bird | Organizing a growing game |
 | [03-snake](03-snake/) | 03 Snake | Assets as data |
+| [04-sokoban](04-sokoban/) | 04 Sokoban | Command: undo and redo |
 | [06-platformer](06-platformer/) | 06 Super Mario Bros | Physics & tile collision |
 | [08-zelda](08-zelda/) | 08 The Legend of Zelda | Composition vs. inheritance |
 | [10-pokemon](10-pokemon/) | 10 Pokemon | Scenes & UI |
 | [11-geometry-wars](11-geometry-wars/) | 11 Geometry Wars | Components vs. systems |
 
-The games for sessions 04, 05, 07, 09 and 12 are being written.
+The games for sessions 05, 07, 09 and 12 are being written.
 
 ## Each game
 

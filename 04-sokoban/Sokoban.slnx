@@ -1,0 +1,14 @@
+<Solution>
+  <Project Path="Content/Content.csproj" />
+  <Project Path="GMDCore/GMDCore.csproj" />
+  <Project Path="Sokoban0/Sokoban0.csproj" />
+  <Project Path="Sokoban1/Sokoban1.csproj" />
+  <Project Path="Sokoban2/Sokoban2.csproj" />
+  <Project Path="Sokoban2.Tests/Sokoban2.Tests.csproj" />
+  <Project Path="Sokoban3/Sokoban3.csproj" />
+  <Project Path="Sokoban3.Tests/Sokoban3.Tests.csproj" />
+  <Project Path="Sokoban4/Sokoban4.csproj" />
+  <Project Path="Sokoban4.Tests/Sokoban4.Tests.csproj" />
+  <Project Path="Sokoban5/Sokoban5.csproj" />
+  <Project Path="Sokoban5.Tests/Sokoban5.Tests.csproj" />
+</Solution>
