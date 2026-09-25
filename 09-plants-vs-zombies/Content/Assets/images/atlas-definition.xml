@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas>
+    <Texture>images/sprites</Texture>
+    <Regions>
+        <Region name="peashooter" x="0" y="0" width="80" height="90" />
+        <Region name="repeater" x="82" y="0" width="80" height="90" />
+        <Region name="sunflower" x="164" y="0" width="80" height="90" />
+        <Region name="wall-nut" x="246" y="0" width="80" height="90" />
+        <Region name="cherry-bomb" x="328" y="0" width="80" height="90" />
+        <Region name="zombie" x="410" y="0" width="76" height="124" />
+        <Region name="cone" x="0" y="126" width="44" height="44" />
+        <Region name="bucket" x="46" y="126" width="48" height="40" />
+        <Region name="pea" x="96" y="126" width="20" height="20" />
+        <Region name="sun" x="118" y="126" width="64" height="64" />
+        <Region name="packet" x="184" y="126" width="84" height="110" />
+        <Region name="explosion" x="270" y="126" width="120" height="120" />
+    </Regions>
+</TextureAtlas>

@@ -1,0 +1,31 @@
+[
+  {
+    "name": "Zombie",
+    "sprite": "zombie",
+    "health": 10,
+    "speed": 16,
+    "bite": 1
+  },
+  {
+    "name": "Conehead",
+    "sprite": "zombie",
+    "health": 10,
+    "speed": 16,
+    "bite": 1,
+    "armour": {
+      "sprite": "cone",
+      "health": 18
+    }
+  },
+  {
+    "name": "Buckethead",
+    "sprite": "zombie",
+    "health": 10,
+    "speed": 16,
+    "bite": 1,
+    "armour": {
+      "sprite": "bucket",
+      "health": 55
+    }
+  }
+]

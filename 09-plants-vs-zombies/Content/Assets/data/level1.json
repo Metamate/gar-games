@@ -1,0 +1,90 @@
+{
+  "startingSun": 150,
+  "skySunInterval": 9,
+  "spawns": [
+    {
+      "time": 20,
+      "zombie": "Zombie"
+    },
+    {
+      "time": 34,
+      "zombie": "Zombie"
+    },
+    {
+      "time": 48,
+      "zombie": "Zombie"
+    },
+    {
+      "time": 62,
+      "zombie": "Zombie"
+    },
+    {
+      "time": 72,
+      "zombie": "Conehead"
+    },
+    {
+      "time": 82,
+      "zombie": "Zombie"
+    },
+    {
+      "time": 92,
+      "zombie": "Conehead"
+    },
+    {
+      "time": 102,
+      "zombie": "Zombie"
+    },
+    {
+      "time": 112,
+      "zombie": "Conehead"
+    },
+    {
+      "time": 122,
+      "zombie": "Zombie"
+    },
+    {
+      "time": 129,
+      "zombie": "Conehead"
+    },
+    {
+      "time": 136,
+      "zombie": "Buckethead"
+    },
+    {
+      "time": 143,
+      "zombie": "Zombie"
+    },
+    {
+      "time": 150,
+      "zombie": "Conehead"
+    },
+    {
+      "time": 157,
+      "zombie": "Buckethead"
+    },
+    {
+      "time": 164,
+      "zombie": "Conehead"
+    },
+    {
+      "time": 167,
+      "zombie": "Buckethead"
+    },
+    {
+      "time": 170,
+      "zombie": "Zombie"
+    },
+    {
+      "time": 173,
+      "zombie": "Conehead"
+    },
+    {
+      "time": 176,
+      "zombie": "Buckethead"
+    },
+    {
+      "time": 179,
+      "zombie": "Zombie"
+    }
+  ]
+}

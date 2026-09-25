@@ -13,10 +13,11 @@ The course site explains each session: [metamate.github.io/gar](https://metamate
 | [06-platformer](06-platformer/) | 06 Super Mario Bros | Physics & tile collision |
 | [07-angry-birds](07-angry-birds/) | 07 Angry Birds | Integrating a third-party library |
 | [08-zelda](08-zelda/) | 08 The Legend of Zelda | Composition vs. inheritance |
+| [09-plants-vs-zombies](09-plants-vs-zombies/) | 09 Plants vs. Zombies | The Component pattern |
 | [10-pokemon](10-pokemon/) | 10 Pokemon | Scenes & UI |
 | [11-geometry-wars](11-geometry-wars/) | 11 Geometry Wars | Components vs. systems |
 
-The games for sessions 09 and 12 are being written.
+The game for session 12 is being written.
 
 ## Each game
 

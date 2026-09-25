@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Sunflower",
+    "sprite": "sunflower",
+    "cost": 50,
+    "recharge": 7.5,
+    "health": 6,
+    "sunProducer": {
+      "interval": 12,
+      "amount": 25
+    }
+  },
+  {
+    "name": "Peashooter",
+    "sprite": "peashooter",
+    "cost": 100,
+    "recharge": 7.5,
+    "health": 6,
+    "shooter": {
+      "interval": 1.4,
+      "shots": 1,
+      "damage": 1
+    }
+  },
+  {
+    "name": "Wall-nut",
+    "sprite": "wall-nut",
+    "cost": 50,
+    "recharge": 30,
+    "health": 40
+  },
+  {
+    "name": "Repeater",
+    "sprite": "repeater",
+    "cost": 200,
+    "recharge": 7.5,
+    "health": 6,
+    "shooter": {
+      "interval": 1.4,
+      "shots": 2,
+      "damage": 1
+    }
+  },
+  {
+    "name": "Cherry Bomb",
+    "sprite": "cherry-bomb",
+    "cost": 150,
+    "recharge": 50,
+    "health": 100,
+    "explode": {
+      "fuse": 1.2,
+      "radius": 160,
+      "damage": 90
+    }
+  }
+]
