@@ -16,8 +16,7 @@ The course site explains each session: [metamate.github.io/gar](https://metamate
 | [09-plants-vs-zombies](09-plants-vs-zombies/) | 09 Plants vs. Zombies | The Component pattern |
 | [10-pokemon](10-pokemon/) | 10 Pokemon | Scenes & UI |
 | [11-geometry-wars](11-geometry-wars/) | 11 Geometry Wars | Components vs. systems |
-
-The game for session 12 is being written.
+| [12-vampire-survivors](12-vampire-survivors/) | 12 Vampire Survivors | Performance: data-oriented design |
 
 ## Each game
 

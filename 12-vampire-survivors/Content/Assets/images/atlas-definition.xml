@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas>
+    <Texture>images/sprites</Texture>
+    <Regions>
+        <Region name="hero" x="0" y="0" width="40" height="48" />
+        <Region name="bat" x="42" y="0" width="34" height="24" />
+        <Region name="skeleton" x="78" y="0" width="30" height="44" />
+        <Region name="ogre" x="110" y="0" width="56" height="60" />
+        <Region name="bolt" x="168" y="0" width="18" height="18" />
+        <Region name="gem" x="188" y="0" width="12" height="16" />
+        <Region name="aura" x="202" y="0" width="128" height="128" />
+    </Regions>
+</TextureAtlas>

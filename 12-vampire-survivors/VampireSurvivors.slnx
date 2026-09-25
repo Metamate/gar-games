@@ -1,0 +1,10 @@
+<Solution>
+  <Project Path="Content/Content.csproj" />
+  <Project Path="GMDCore/GMDCore.csproj" />
+  <Project Path="Survivors0/Survivors0.csproj" />
+  <Project Path="Survivors1/Survivors1.csproj" />
+  <Project Path="Survivors2/Survivors2.csproj" />
+  <Project Path="Survivors3/Survivors3.csproj" />
+  <Project Path="Survivors4/Survivors4.csproj" />
+  <Project Path="Survivors.Tests/Survivors.Tests.csproj" />
+</Solution>
