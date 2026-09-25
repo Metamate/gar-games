@@ -1,0 +1,9 @@
+<Solution>
+  <Project Path="Content/Content.csproj" />
+  <Project Path="GMDCore/GMDCore.csproj" />
+  <Project Path="Birds0/Birds0.csproj" />
+  <Project Path="Birds1/Birds1.csproj" />
+  <Project Path="Birds2/Birds2.csproj" />
+  <Project Path="Birds3/Birds3.csproj" />
+  <Project Path="Birds4/Birds4.csproj" />
+</Solution>

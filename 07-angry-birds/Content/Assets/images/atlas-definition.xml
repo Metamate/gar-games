@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas>
+    <Texture>images/sprites</Texture>
+    <Regions>
+        <Region name="bird" x="0" y="0" width="36" height="36" />
+        <Region name="pig" x="38" y="0" width="44" height="44" />
+        <Region name="big-pig" x="84" y="0" width="60" height="60" />
+        <Region name="wood-plank" x="146" y="0" width="180" height="20" />
+        <Region name="wood-post" x="328" y="0" width="20" height="100" />
+        <Region name="wood-box" x="350" y="0" width="50" height="50" />
+        <Region name="stone-plank" x="0" y="102" width="180" height="20" />
+        <Region name="stone-post" x="182" y="102" width="20" height="100" />
+        <Region name="stone-box" x="204" y="102" width="50" height="50" />
+        <Region name="glass-plank" x="256" y="102" width="180" height="20" />
+        <Region name="glass-post" x="438" y="102" width="20" height="100" />
+        <Region name="glass-box" x="460" y="102" width="50" height="50" />
+        <Region name="slingshot-back" x="0" y="204" width="48" height="130" />
+        <Region name="slingshot-front" x="50" y="204" width="48" height="130" />
+        <Region name="dot" x="100" y="204" width="10" height="10" />
+    </Regions>
+</TextureAtlas>

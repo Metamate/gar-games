@@ -1,0 +1,9 @@
+# One object per line: its prefab, x and y (its centre, in pixels) and rotation (degrees).
+# The ground is at y = 640.
+birds 3
+wood-post    880 590 0
+wood-post   1040 590 0
+wood-plank   960 530 0
+pig          960 618 0
+glass-box    960 495 0
+pig          960 448 0

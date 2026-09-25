@@ -1,0 +1,14 @@
+# A tower of glass and wood, and a lookout on a stone block.
+birds 4
+wood-post    900 590 0
+wood-post   1060 590 0
+glass-plank  980 530 0
+pig          980 618 0
+glass-post   920 470 0
+glass-post  1040 470 0
+pig          980 498 0
+wood-plank   980 410 0
+stone-box    980 375 0
+big-pig      980 320 0
+stone-box   1180 615 0
+pig         1180 568 0

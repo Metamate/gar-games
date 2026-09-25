@@ -1,0 +1,15 @@
+# Two huts, one with an upper floor.
+birds 3
+stone-post   800 590 0
+stone-post   960 590 0
+wood-plank   880 530 0
+pig          880 618 0
+wood-post    820 470 0
+wood-post    940 470 0
+wood-plank   880 410 0
+pig          880 378 0
+wood-post   1020 590 0
+wood-post   1180 590 0
+glass-plank 1100 530 0
+big-pig     1100 610 0
+glass-box   1100 495 0
