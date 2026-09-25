@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas>
+    <Texture>images/sprites</Texture>
+    <Regions>
+        <Region name="pacman-0" x="0" y="0" width="32" height="32" />
+        <Region name="pacman-1" x="32" y="0" width="32" height="32" />
+        <Region name="pacman-2" x="64" y="0" width="32" height="32" />
+        <Region name="blinky-0" x="0" y="32" width="32" height="32" />
+        <Region name="blinky-1" x="32" y="32" width="32" height="32" />
+        <Region name="pinky-0" x="64" y="32" width="32" height="32" />
+        <Region name="pinky-1" x="96" y="32" width="32" height="32" />
+        <Region name="inky-0" x="128" y="32" width="32" height="32" />
+        <Region name="inky-1" x="160" y="32" width="32" height="32" />
+        <Region name="clyde-0" x="192" y="32" width="32" height="32" />
+        <Region name="clyde-1" x="224" y="32" width="32" height="32" />
+        <Region name="frightened-0" x="0" y="64" width="32" height="32" />
+        <Region name="frightened-1" x="32" y="64" width="32" height="32" />
+        <Region name="flash-0" x="64" y="64" width="32" height="32" />
+        <Region name="flash-1" x="96" y="64" width="32" height="32" />
+        <Region name="eyes-up" x="128" y="64" width="32" height="32" />
+        <Region name="eyes-left" x="160" y="64" width="32" height="32" />
+        <Region name="eyes-down" x="192" y="64" width="32" height="32" />
+        <Region name="eyes-right" x="224" y="64" width="32" height="32" />
+        <Region name="dot" x="256" y="64" width="20" height="20" />
+        <Region name="pellet" x="288" y="64" width="20" height="20" />
+        <Region name="death-0" x="0" y="96" width="32" height="32" />
+        <Region name="death-1" x="32" y="96" width="32" height="32" />
+        <Region name="death-2" x="64" y="96" width="32" height="32" />
+        <Region name="death-3" x="96" y="96" width="32" height="32" />
+        <Region name="death-4" x="128" y="96" width="32" height="32" />
+        <Region name="death-5" x="160" y="96" width="32" height="32" />
+        <Region name="death-6" x="192" y="96" width="32" height="32" />
+        <Region name="death-7" x="224" y="96" width="32" height="32" />
+        <Region name="death-8" x="256" y="96" width="32" height="32" />
+        <Region name="death-9" x="288" y="96" width="32" height="32" />
+        <Region name="death-10" x="320" y="96" width="32" height="32" />
+    </Regions>
+    <Animations>
+        <Animation name="pacman-chomp" delay="40">
+            <Frame region="pacman-2" />
+            <Frame region="pacman-1" />
+            <Frame region="pacman-0" />
+            <Frame region="pacman-1" />
+        </Animation>
+        <Animation name="ghost-blinky" delay="150">
+            <Frame region="blinky-0" />
+            <Frame region="blinky-1" />
+        </Animation>
+        <Animation name="ghost-pinky" delay="150">
+            <Frame region="pinky-0" />
+            <Frame region="pinky-1" />
+        </Animation>
+        <Animation name="ghost-inky" delay="150">
+            <Frame region="inky-0" />
+            <Frame region="inky-1" />
+        </Animation>
+        <Animation name="ghost-clyde" delay="150">
+            <Frame region="clyde-0" />
+            <Frame region="clyde-1" />
+        </Animation>
+        <Animation name="ghost-frightened" delay="150">
+            <Frame region="frightened-0" />
+            <Frame region="frightened-1" />
+        </Animation>
+        <Animation name="ghost-flashing" delay="150">
+            <Frame region="frightened-0" />
+            <Frame region="flash-1" />
+            <Frame region="frightened-1" />
+            <Frame region="flash-0" />
+        </Animation>
+        <Animation name="pacman-death" delay="120">
+            <Frame region="death-0" />
+            <Frame region="death-1" />
+            <Frame region="death-2" />
+            <Frame region="death-3" />
+            <Frame region="death-4" />
+            <Frame region="death-5" />
+            <Frame region="death-6" />
+            <Frame region="death-7" />
+            <Frame region="death-8" />
+            <Frame region="death-9" />
+            <Frame region="death-10" />
+        </Animation>
+    </Animations>
+</TextureAtlas>

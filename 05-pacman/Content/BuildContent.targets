@@ -1,0 +1,41 @@
+<Project>
+  <!--
+    Builds the game's raw assets in Content/Assets with the content builder (Builder/Builder.cs)
+    before the game compiles, and copies the result to the game's output folder. Import it in a
+    game project:
+
+      <Import Project="..\Content\BuildContent.targets" />
+
+    Based on BuildContent.targets from MonoGame's EmptyGame template.
+  -->
+  <PropertyGroup>
+    <ContentAssets>$(MSBuildThisFileDirectory)Assets</ContentAssets>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Rebuild when an asset changes, even if no code changed. -->
+    <UpToDateCheckInput Include="$(ContentAssets)\**\*" />
+  </ItemGroup>
+  <Target Name="BuildContent" AfterTargets="BeforeBuild" Condition="'$(DesignTimeBuild)' != 'true' And Exists('$(ContentAssets)')">
+    <PropertyGroup>
+      <ContentOutput>$([MSBuild]::NormalizePath('$(ProjectDir)', '$(OutputPath)').TrimEnd('\/'))</ContentOutput>
+      <ContentTemp>$([MSBuild]::NormalizePath('$(ProjectDir)', '$(IntermediateOutputPath)').TrimEnd('\/'))</ContentTemp>
+      <ContentSource>$([MSBuild]::NormalizeDirectory('$(ContentAssets)').TrimEnd('\/'))</ContentSource>
+      <ContentArgs>build -p $(MonoGamePlatform) -s "$(ContentSource)" -o "$(ContentOutput)" -i "$(ContentTemp)"</ContentArgs>
+      <ContentCommand>$(MSBuildThisFileDirectory)bin\Debug\Content</ContentCommand>
+    </PropertyGroup>
+    <!-- Restore first, so building a single game project works on a fresh clone. -->
+    <MSBuild Projects="$(MSBuildThisFileDirectory)Content.csproj" Targets="Restore" Properties="Configuration=Debug;MSBuildRestoreSessionId=$([System.Guid]::NewGuid())" RemoveProperties="TargetFramework;RuntimeIdentifier;RuntimeIdentifiers;SelfContained" />
+    <MSBuild Projects="$(MSBuildThisFileDirectory)Content.csproj" Targets="Build" Properties="Configuration=Debug" RemoveProperties="TargetFramework;RuntimeIdentifier;RuntimeIdentifiers;SelfContained" />
+    <Exec Command="&quot;$(ContentCommand)&quot; $(ContentArgs)" WorkingDirectory="$(MSBuildThisFileDirectory)..\" CustomErrorRegularExpression="\[E\] .+" CustomWarningRegularExpression="\[W\] .+" />
+  </Target>
+  <Target Name="AddGeneratedContentAssets" AfterTargets="BuildContent" Condition="'$(DesignTimeBuild)' != 'true' And Exists('$(ContentAssets)')">
+    <ItemGroup>
+      <GeneratedAsset Include="$(ContentOutput)\Content\**\*" />
+      <!-- Copy the built content to the output folder, also for `dotnet publish`. -->
+      <Content Include="@(GeneratedAsset)">
+        <Link>Content\%(GeneratedAsset.RecursiveDir)%(GeneratedAsset.Filename)%(GeneratedAsset.Extension)</Link>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+  </Target>
+</Project>

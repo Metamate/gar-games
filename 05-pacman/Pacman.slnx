@@ -1,0 +1,10 @@
+<Solution>
+  <Project Path="Content/Content.csproj" />
+  <Project Path="GMDCore/GMDCore.csproj" />
+  <Project Path="Pacman0/Pacman0.csproj" />
+  <Project Path="Pacman1/Pacman1.csproj" />
+  <Project Path="Pacman2/Pacman2.csproj" />
+  <Project Path="Pacman3/Pacman3.csproj" />
+  <Project Path="Pacman4/Pacman4.csproj" />
+  <Project Path="Pacman.Tests/Pacman.Tests.csproj" />
+</Solution>
