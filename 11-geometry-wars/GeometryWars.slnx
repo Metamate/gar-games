@@ -8,4 +8,5 @@
   <Project Path="GeometryWars4/GeometryWars4.csproj" />
   <Project Path="GeometryWars5/GeometryWars5.csproj" />
   <Project Path="GeometryWars6/GeometryWars6.csproj" />
+  <Project Path="GeometryWars.Tests/GeometryWars.Tests.csproj" />
 </Solution>

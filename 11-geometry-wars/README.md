@@ -48,6 +48,7 @@ The repository is intentionally split into a core library and the game, plus a c
 
 - `GMDCore` contains reusable engine-style code such as the game shell, input handling, the entity/component model, generic physics/collision primitives, particle infrastructure, and pooling.
 - `GeometryWars0`–`GeometryWars6` contain the actual game, built up step by step (see [Steps](#steps)): states, gameplay systems, entity recipe composition, and Geometry Wars-specific components and rules. `GeometryWars6` is the finished game, and the one this walkthrough describes.
+- `GeometryWars.Tests` contains unit tests for the finished game (see [Tests](#tests)).
 - `Content` contains the game's raw assets (textures, fonts, sounds, shaders) and the C# rules that build them (see [Content](#content)).
 
 ## Architecture Overview
@@ -274,6 +275,21 @@ the assets into its output folder, where `Content.Load` finds them.
 
 To add an asset, put it in `Content/Assets` and, if no existing rule matches it, add a rule
 in `Builder.cs`.
+
+## Tests
+
+`GeometryWars.Tests` shows what dependency injection makes possible. Components and systems
+get their services through their constructors, so a test can pass in its own:
+
+- `AwardScoreOnDestroyedTests` gives the component a `FakeScoreTracker`, which only records
+  what it was asked to do, and checks that destroying an enemy awards its points.
+- `ScoreTrackerTests` gives the real `ScoreTracker` its own `FrameInfo`, so the test decides
+  how much time passes and can check that the multiplier expires.
+
+```sh
+cd 11-geometry-wars
+dotnet test
+```
 
 ## Running
 
