@@ -69,3 +69,7 @@ dotnet run --project Snake9
 ```
 
 Or open `Snake.slnx` and choose the step to run.
+
+## Credits
+
+The art is our own, made for the course.
