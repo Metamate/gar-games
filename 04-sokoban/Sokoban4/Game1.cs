@@ -27,7 +27,7 @@ public class Game1 : Core
     {
         Texture2D texture = Content.Load<Texture2D>("images/tiles");
         _view = new LevelView(new Tileset(new TextureRegion(texture, 0, 0, texture.Width, texture.Height), LevelView.TileSize, LevelView.TileSize));
-        _font = Content.Load<SpriteFont>("fonts/arial");
+        _font = Content.Load<SpriteFont>("fonts/hud");
         LoadLevel(0);
     }
 

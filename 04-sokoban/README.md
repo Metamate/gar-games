@@ -41,9 +41,9 @@ All steps share the same assets and the same content builder:
 
 ```text
 Content/Assets/
-├── images/tiles.png         # The tilesheet: 64×64 tiles, 13 columns
+├── images/tiles.png         # The tilesheet: 64×64 tiles, 3 columns
 ├── levels/level1.txt …      # The levels, as plain text
-└── fonts/arial.spritefont   # The HUD font (Sokoban4)
+└── fonts/hud.spritefont     # The HUD font (Sokoban4), made from retro.ttf
 ```
 
 `Builder.cs` builds the tilesheet and the font, and copies the level files as they are,
@@ -84,4 +84,6 @@ Or open `Sokoban.slnx` and choose the step to run.
 
 ## Credits
 
-The art is our own, made for the course.
+The art is our own, made for the course. The font is
+[Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P) by CodeMan38, under the
+SIL Open Font License (see `Content/Assets/fonts/retro-OFL.txt`).
