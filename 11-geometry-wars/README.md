@@ -1,16 +1,11 @@
 # Geometry Wars
 
 Source code for session **11 Geometry Wars** of the Game Architecture (GAR) course: a
-twin-stick shooter with hundreds of entities built from components. After the steps, this
-README walks through the architecture of the finished game, pointing at the source code as
-it goes.
-
-The codebase is designed to support discussion around:
-- components, and which behaviour belongs in a system instead
-- dependency injection, and testing with fakes
-- object pooling and shared (flyweight) data
-- simple event-driven decoupling
-- rendering and post-processing
+twin-stick shooter with hundreds of entities built from components. The concepts
+(components vs. systems, dependency injection and testing with fakes, object pooling,
+flyweights, shaders) are explained on the
+[session page](https://metamate.github.io/gar/sessions/11-geometry-wars/). This README is the
+map of the code.
 
 ## Steps
 
@@ -43,222 +38,54 @@ Compared with the core in [10-pokemon](../10-pokemon/):
   the game once per logic step, so quick taps are never lost.
 - `States/`: a `DrawHUD` pass after post-processing (bloom), and `Draw` is optional.
 
-## Layout
+## Code Map
 
-The game is intentionally split into a core library and the game, plus a content builder:
+The finished game, `GeometryWars6`, in layers from the outside in:
 
-- `GMDCore` contains reusable engine-style code such as the game shell, input handling, the entity/component model, generic physics/collision primitives, particle infrastructure, and pooling.
-- `GeometryWars0`–`GeometryWars6` contain the actual game, built up step by step (see [Steps](#steps)): states, gameplay systems, entity recipe composition, and Geometry Wars-specific components and rules. `GeometryWars6` is the finished game, and the one this walkthrough describes.
-- `GeometryWars.Tests` contains unit tests for the finished game (see [Tests](#tests)).
-- `Content` contains the game's raw assets (textures, fonts, sounds, shaders) and the C# rules that build them (see [Content](#content)).
+| Layer | Class | Owns |
+| --- | --- | --- |
+| Application | [Game1](GeometryWars6/Game1.cs) | Timing, input, assets, audio, the state stack, drawing |
+| Services | [PlayContext](GeometryWars6/Services/PlayContext.cs) | The shared services, passed into gameplay code |
+| Screen | [PlayState](GeometryWars6/States/PlayState.cs) | One game in progress: pause, debug, game over, world and HUD drawing |
+| Run | [PlaySession](GeometryWars6/Systems/PlaySession.cs) | Everything for one run: score, particles, grid, world, factory, enemy director, player |
+| World | [EntityWorld](GeometryWars6/Systems/EntityWorld.cs) | Adding, updating, colliding and removing entities |
+| Recipes | [EntityFactory](GeometryWars6/Systems/EntityFactory.cs) | Which components make up each kind of entity |
+| Behaviour | `Components/` | One capability each, grouped in `AI`, `Audio`, `Combat`, `Identity`, `Input`, `Lifecycle`, `Physics`, `Visuals` |
 
-## Architecture Overview
+A good order to read it in: `Game1`, `PlayState`, `PlaySession`, `EntityFactory`,
+[`GMDCore/ECS/Entity.cs`](GMDCore/ECS/Entity.cs), then a few components.
 
-At a high level, the game is structured like this:
+Where to find things:
 
-1. `Game1` owns the runtime shell.
-2. `PlayState` owns one active play session.
-3. `PlaySession` builds and updates the mutable game world for a run.
-4. `EntityWorld` updates entities and collisions.
-5. `EntityFactory` defines entity recipes by composing components.
-6. Components implement the actual behavior attached to each entity.
+| To see | Look at |
+| --- | --- |
+| The component phases, and the order they run in | `GMDCore/ECS/Components/Component.cs`, `GMDCore/ECS/Entity.cs` |
+| What the player, bullets, enemies and black holes are made of | `Systems/EntityFactory.cs` |
+| The tuning values for each kind of entity | `Definitions/GameplayDefinitions.cs` |
+| Collision detection | `Systems/CollisionSystem.cs` |
+| When enemies spawn | `Systems/EnemyDirector.cs` |
+| The bullet pool | `Systems/BulletSpawner.cs`, `GMDCore/Collections/ObjectPool.cs` |
+| What happens when the player dies | `Components/Lifecycle/RespawnState.cs`, and `PlaySession` for the arena |
+| Events inside one entity | `Components/Combat/Health.cs`, and the components that subscribe to it |
+| Score and multiplier | `Systems/ScoreTracker.cs` (behind `IScoreTracker`) |
+| The spring grid | `Systems/Grid.cs` |
+| Particles | `GMDCore/Particles/ParticleManager.cs` |
+| Shared textures and fonts | `Services/GameAssets.cs` |
+| Bloom | `Graphics/` and `Content/Assets/Shaders/` |
 
-This means the code is intentionally split between:
-- shell/runtime concerns
-- session/world concerns
-- entity composition
-- reusable gameplay behavior
+## Tests
 
-## Runtime Layer
+`GeometryWars.Tests` tests code that gets its services through its constructor, by passing
+in its own (the session page explains the idea):
 
-[Game1](GeometryWars6/Game1.cs) is the MonoGame application root.
+- `AwardScoreOnDestroyedTests`, with `FakeScoreTracker`: destroying an enemy awards its points.
+- `ScoreTrackerTests`: the test controls the frame time, so it can check that the
+  multiplier expires.
 
-Its job is to:
-- update frame timing, input, assets, audio, and performance tracking
-- own the state stack (play and game-over states)
-- coordinate drawing
-
-Mutable runtime state is grouped into small service objects and exposed through [PlayContext](GeometryWars6/Services/PlayContext.cs), which is passed into gameplay code.
-
-The shell samples raw input every rendered frame, but gameplay still runs on a fixed 60 Hz step. Button presses/releases are buffered so quick taps are still visible to the next logic tick.
-
-## State Layer
-
-[PlayState](GeometryWars6/States/PlayState.cs) represents the main gameplay state.
-
-Its job is to:
-- create a new [PlaySession](GeometryWars6/Systems/PlaySession.cs)
-- update pause/debug flow
-- switch to game-over state when a run ends
-- draw world and HUD separately
-
-This keeps menu/state transitions outside the entity/component layer.
-
-## Session Layer
-
-[PlaySession](GeometryWars6/Systems/PlaySession.cs) owns the mutable state for one run.
-
-It builds:
-- the score tracker
-- the particle manager
-- the grid
-- the entity world
-- the entity factory
-- the enemy director
-- the player entity
-
-`PlaySession` is the main composition root for gameplay.
-
-## World Layer
-
-[EntityWorld](GeometryWars6/Systems/EntityWorld.cs) coordinates:
-- entity registration and updates
-- collision handling
-- pending additions during update
-- deferred entity removal
-
-Supporting classes such as [EntityCatalog](GeometryWars6/Systems/EntityCatalog.cs) and [CollisionSystem](GeometryWars6/Systems/CollisionSystem.cs) keep those responsibilities separated.
-
-Projectile pooling lives in [BulletSpawner](GeometryWars6/Systems/BulletSpawner.cs), so the world can stay focused on generic entity lifetime and update flow.
-
-## Entity Composition
-
-[EntityFactory](GeometryWars6/Systems/EntityFactory.cs) defines the entity recipes.
-
-This is where you can read how an entity is assembled.
-
-Examples:
-- the player is composed from movement input, weapon trigger/input, weapon firing pattern, weapon feedback, collision response, respawn state, respawn effects, rendering, and physics
-- bullets are composed from physics, collision, facing velocity, viewport expiry, and grid force
-- black holes are composed from gravity, orbiting particles, grid force, health, bullet damage, expiry-on-zero-health, and hit effects
-
-This is an important teaching point: entities should emerge from composition rather than from deep inheritance trees.
-
-## Typed Definitions
-
-The project uses small typed definition records in [GameplayDefinitions.cs](GeometryWars6/Definitions/GameplayDefinitions.cs) for content variants such as the player, bullets, enemy types, and black holes. They group related tuning values by gameplay object and keep balancing data out of component code while letting the factory compose entities from shared reusable definitions.
-
-## Component Model
-
-All components inherit from [Component](GMDCore/ECS/Components/Component.cs).
-
-The lifecycle is callback-based:
-- `OnAdded`
-- `OnStart`
-- `PreUpdate`
-- `Update`
-- `Simulate`
-- `PostUpdate`
-- `OnCollision`
-- `Draw`
-- `OnRemoved`
-
-[Entity](GMDCore/ECS/Entity.cs) runs those phases in a fixed order every frame.
-
-`OnRemoved` is intended for engine-level cleanup such as unregistering subscriptions when an entity leaves the world. It is not the same as a gameplay destruction event like `Destroyable.Destroyed`.
-
-The intended design rule is:
-- each component should represent one clear capability or behavior
-- components should be reusable where practical
-- entity-specific naming should be avoided unless the behavior is genuinely unique
-
-Good examples:
-- `Health`
-- `TakeDamageOnBulletCollision`
-- `FaceVelocity`
-- `ApplyMovementInput`
-
-## Components vs. Systems
-
-This project does not use a strict ECS where components are data-only.
-
-Instead, it uses a hybrid model:
-- components may contain behavior, as long as that behavior is local to one entity
-- systems/session objects coordinate behavior that spans multiple entities or the whole run
-
-A good rule of thumb is:
-- use a component when the logic is mostly about the owner and its own state
-- use a system when the logic touches many entities, owns game/session rules, or needs central ordering
-
-Good component responsibilities:
-- `Health`
-- `RespawnState`
-- `Weapon`
-- `FaceVelocity`
-- `FadeInOnSpawn`
-- `SeekTarget`
-
-Good system/session responsibilities:
-- collision detection in `CollisionSystem`
-- spawn pacing in `EnemyDirector`
-- projectile pooling in `BulletSpawner`
-- run-level consequences in `PlaySession`
-
-Examples from this codebase:
-- `BeginRespawnOnLethalCollision` is a component because it only decides when the player has taken a lethal hit
-- `PlaySession` handles the arena-wide consequences of player death, because clearing enemies and resetting spawning are run-level rules
-- the weapon flow is split so `FireWeaponOnInput` handles trigger input, `Weapon` handles cadence, `SpawnTwinBulletsOnFired` handles the projectile pattern, and `PlaySoundOnWeaponFired` handles feedback
-
-For a larger game, prefer this rule:
-- local behavior in components
-- cross-entity orchestration in systems
-- explicit composition in `EntityFactory`
-- move hot/shared processing into systems when scale or performance demands it
-
-## Local Events
-
-The project uses small local events inside an entity's component graph, not a global event bus.
-
-Examples:
-- [Health](GeometryWars6/Components/Combat/Health.cs) publishes `Damaged` and `Depleted`
-- [RespawnState](GeometryWars6/Components/Lifecycle/RespawnState.cs) publishes `Died` and `Respawned`
-
-This allows reactive components such as:
-- [PlayHitParticlesOnDamage](GeometryWars6/Components/Visuals/PlayHitParticlesOnDamage.cs)
-- [DestroyWhenHealthDepleted](GeometryWars6/Components/Lifecycle/DestroyWhenHealthDepleted.cs)
-- [PlayRespawnEffects](GeometryWars6/Components/Lifecycle/PlayRespawnEffects.cs)
-
-to react without tightly coupling everything together.
-
-The intent is to show a simple use of events where they help, without making control flow hard to follow.
-
-## Data-Oriented Notes
-
-Not every subsystem uses the same style on purpose.
-
-- `Entity` and gameplay components favor clarity and composition.
-- [Grid](GeometryWars6/Systems/Grid.cs) is a denser simulation-oriented subsystem that favors flat arrays and tight loops for better data locality.
-- [ParticleManager](GMDCore/Particles/ParticleManager.cs) is a specialized high-volume visual system rather than a normal entity/component workflow.
-- [GameAssets](GeometryWars6/Services/GameAssets.cs) acts as a simple shared asset catalog, which is a lightweight example of a flyweight-style resource holder.
-
-[12-vampire-survivors](../12-vampire-survivors/) takes the data-oriented style all the way, for thousands of enemies.
-
-## Design Guidelines for Students
-
-When adding or changing gameplay code, prefer these rules:
-
-1. Put shell and application concerns in `Game1` or game states.
-2. Put run-specific orchestration in `PlaySession` and systems.
-3. Put entity recipe assembly in `EntityFactory`.
-4. Put reusable behavior in components.
-5. Put cross-entity or run-level orchestration in systems or `PlaySession`.
-6. Prefer capability-based component names over entity-specific names.
-7. Use direct calls for core flow, and local events only for state-change reactions.
-8. Split a component when it has multiple unrelated reasons to change.
-9. Avoid over-fragmenting behavior into tiny components if it makes the design harder to teach.
-
-## Suggested Reading Order
-
-If you are new to the project, a good reading order is:
-
-1. [Game1](GeometryWars6/Game1.cs)
-2. [PlayState](GeometryWars6/States/PlayState.cs)
-3. [PlaySession](GeometryWars6/Systems/PlaySession.cs)
-4. [EntityFactory](GeometryWars6/Systems/EntityFactory.cs)
-5. [Entity](GMDCore/ECS/Entity.cs)
-6. a few concrete components from `Components/`
-
-That gives the clearest top-down view of how the game fits together.
+```sh
+cd 11-geometry-wars
+dotnet test
+```
 
 ## Content
 
@@ -278,21 +105,6 @@ the assets into its output folder, where `Content.Load` finds them.
 
 To add an asset, put it in `Content/Assets` and, if no existing rule matches it, add a rule
 in `Builder.cs`.
-
-## Tests
-
-`GeometryWars.Tests` shows what dependency injection makes possible. Components and systems
-get their services through their constructors, so a test can pass in its own:
-
-- `AwardScoreOnDestroyedTests` gives the component a `FakeScoreTracker`, which only records
-  what it was asked to do, and checks that destroying an enemy awards its points.
-- `ScoreTrackerTests` gives the real `ScoreTracker` its own `FrameInfo`, so the test decides
-  how much time passes and can check that the multiplier expires.
-
-```sh
-cd 11-geometry-wars
-dotnet test
-```
 
 ## Controls
 
