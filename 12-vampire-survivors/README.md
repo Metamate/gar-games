@@ -82,4 +82,6 @@ choose the step to run.
 
 ## Credits
 
-The art is our own. The game is inspired by poncle's Vampire Survivors.
+The art is our own. The game is inspired by poncle's Vampire Survivors. The font is
+[Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P) by CodeMan38, under the
+SIL Open Font License (see `Content/Assets/fonts/retro-OFL.txt`).

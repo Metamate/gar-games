@@ -88,7 +88,7 @@ public sealed class Profiler
         lines.Add($"Gen 0 GCs {_collectionsPerSecond,8} per second");
 
         float height = lines.Count * font.LineSpacing + 12;
-        spriteBatch.Draw(GMDCore.Core.Pixel, new Rectangle((int)position.X - 8, (int)position.Y - 6, 440, (int)height), Color.Black * 0.6f);
+        spriteBatch.Draw(GMDCore.Core.Pixel, new Rectangle((int)position.X - 8, (int)position.Y - 6, 480, (int)height), Color.Black * 0.6f);
         for (int i = 0; i < lines.Count; i++)
             spriteBatch.DrawString(font, lines[i], position + new Vector2(0, i * font.LineSpacing), Color.Yellow);
     }
