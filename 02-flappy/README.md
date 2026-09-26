@@ -72,3 +72,9 @@ dotnet run --project Flappy12
 ```
 
 Or open `Flappy.slnx` and choose the step to run.
+
+## Credits
+
+The art, sounds and music are our own, made for the course. The font is
+[Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P) by CodeMan38, under the
+SIL Open Font License (see `Content/Assets/fonts/retro-OFL.txt`).

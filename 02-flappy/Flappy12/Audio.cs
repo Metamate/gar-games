@@ -26,7 +26,7 @@ public class Audio
         _hurt = content.Load<SoundEffect>("audio/hurt");
         _explosion = content.Load<SoundEffect>("audio/explosion");
         _score = content.Load<SoundEffect>("audio/score");
-        _music = content.Load<Song>("audio/marios_way");
+        _music = content.Load<Song>("audio/music");
     }
 
     public void PlayMusic()

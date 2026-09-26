@@ -61,3 +61,9 @@ dotnet run --project Pong11
 ```
 
 Or open `Pong.slnx` and choose the step to run.
+
+## Credits
+
+The sounds are our own, made for the course. The font is
+[Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P) by CodeMan38, under the
+SIL Open Font License (see `Content/Assets/retro-OFL.txt`).
