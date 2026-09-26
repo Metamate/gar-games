@@ -1,10 +1,10 @@
 # Regenerates the bitmap font atlases used by BitmapFont.cs.
 # Requires: pip install Pillow
-# Run from the repo root: python tools/GenerateFontAtlas.py
+# Run from the game folder: python Tools/GenerateFontAtlas.py
 
 from PIL import ImageFont, ImageDraw, Image
 
-FONT_FILE = "Content/Assets/fonts/font.ttf"
+FONT_FILE = "Content/Assets/fonts/retro.ttf"
 OUT_DIR   = "Content/Assets/fonts"
 COLS      = 16
 CHARS     = [chr(i) for i in range(32, 127)]
@@ -17,8 +17,7 @@ for pixel_size, name in [(8, "small_atlas"), (16, "medium_atlas"), (32, "large_a
     advances = []
     cell_w   = 0
     for c in CHARS:
-        bbox = font.getbbox(c)
-        w    = max(1, bbox[2]) if bbox else 1
+        w    = max(1, round(font.getlength(c)))   # the advance: the glyph plus its spacing
         advances.append(w)
         if w > cell_w:
             cell_w = w

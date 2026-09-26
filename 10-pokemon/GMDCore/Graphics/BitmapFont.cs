@@ -1,3 +1,4 @@
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -9,7 +10,8 @@ namespace GMDCore.Graphics;
 // 
 // Atlas layout: printable ASCII 32–126 (95 chars), 16 columns per row,
 // each character occupies a cell of CellW × CellH pixels.
-// Per-character advance widths are stored separately (variable-width font).
+// Per-character advance widths are stored separately, so a variable-width font works too.
+// The atlases are made from Press Start 2P (Tools/GenerateFontAtlas.py), which is monospaced.
 public sealed class BitmapFont
 {
     private readonly Texture2D _atlas;
@@ -22,13 +24,13 @@ public sealed class BitmapFont
 
     public int LineHeight => _cellH;
 
-    private static readonly int[] AdvancesSmall  = { 4,2,4,6,5,6,6,2,3,3,4,4,3,4,2,6,5,3,5,5,5,5,5,5,5,5,2,2,4,4,4,5,6,5,5,4,5,4,4,5,5,4,5,5,4,6,5,5,5,5,5,5,4,5,5,6,5,5,4,3,6,3,4,5,3,5,5,4,5,5,4,5,5,2,3,5,2,6,5,5,5,5,4,5,4,5,5,6,4,5,5,4,2,4,5 };
-    private static readonly int[] AdvancesMedium = { 8,4,8,12,10,12,12,4,6,6,8,8,6,8,4,12,10,6,10,10,10,10,10,10,10,10,4,4,8,8,8,10,12,10,10,8,10,8,8,10,10,8,10,10,8,12,10,10,10,10,10,10,8,10,10,12,10,10,8,6,12,6,8,10,6,10,10,8,10,10,8,10,10,4,6,10,4,12,10,10,10,10,8,10,8,10,10,12,8,10,10,8,4,8,10 };
-    private static readonly int[] AdvancesLarge  = { 16,8,16,24,20,24,24,8,12,12,16,16,12,16,8,24,20,12,20,20,20,20,20,20,20,20,8,8,16,16,16,20,24,20,20,16,20,16,16,20,20,16,20,20,16,24,20,20,20,20,20,20,16,20,20,24,20,20,16,12,24,12,16,20,12,20,20,16,20,20,16,20,20,8,12,20,8,24,20,20,20,20,16,20,16,20,20,24,16,20,20,16,8,16,20 };
+    private static readonly int[] AdvancesSmall  = Enumerable.Repeat(8, 95).ToArray();
+    private static readonly int[] AdvancesMedium = Enumerable.Repeat(16, 95).ToArray();
+    private static readonly int[] AdvancesLarge  = Enumerable.Repeat(32, 95).ToArray();
 
-    public static BitmapFont CreateSmall(Texture2D atlas)  => new(atlas, 6,  8,  AdvancesSmall);
-    public static BitmapFont CreateMedium(Texture2D atlas) => new(atlas, 12, 16, AdvancesMedium);
-    public static BitmapFont CreateLarge(Texture2D atlas)  => new(atlas, 24, 32, AdvancesLarge);
+    public static BitmapFont CreateSmall(Texture2D atlas)  => new(atlas, 8,  8,  AdvancesSmall);
+    public static BitmapFont CreateMedium(Texture2D atlas) => new(atlas, 16, 16, AdvancesMedium);
+    public static BitmapFont CreateLarge(Texture2D atlas)  => new(atlas, 32, 32, AdvancesLarge);
 
     private BitmapFont(Texture2D atlas, int cellW, int cellH, int[] advances)
     {

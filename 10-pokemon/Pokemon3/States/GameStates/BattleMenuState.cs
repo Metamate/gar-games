@@ -19,9 +19,9 @@ public sealed class BattleMenuState : GameStateBase
         _stack = stack;
         _battleState = battleState;
 
-        var menuPos = Layout.GetPosition(Anchor.BottomRight, 64, 64);
+        var menuPos = Layout.GetPosition(Anchor.BottomRight, 96, 64);
         _menu = new Menu(
-            menuPos.X, menuPos.Y, 64, 64,
+            menuPos.X, menuPos.Y, 96, 64,
             new List<Selection.MenuItem>
             {
                 new("Fight", OnFightSelected),

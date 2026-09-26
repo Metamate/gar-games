@@ -240,7 +240,7 @@ The guiding idea is to build a few tiny widgets and then combine them:
 
 ### `BitmapFont` — `GMDCore/Graphics/BitmapFont.cs`
 
-A pixel-perfect bitmap font backed by a pre-generated glyph atlas. The atlas covers printable ASCII (32–126) in 16-column rows. Per-character advance widths are stored in a static table, giving the font variable-width character spacing without runtime font rendering.
+A pixel-perfect bitmap font backed by a pre-generated glyph atlas. The atlas covers printable ASCII (32–126) in 16-column rows. Per-character advance widths are stored in a static table, so the class handles variable-width fonts too, without runtime font rendering. The course's font, Press Start 2P, happens to be monospaced: every character advances the same width.
 
 ```csharp
 Locator.Assets.MediumFont.Draw(spriteBatch, "Hello!", position, Color.White);
@@ -249,7 +249,7 @@ Vector2 size = Locator.Assets.MediumFont.MeasureString("Hello!");
 
 Three sizes (`SmallFont`, `MediumFont`, `LargeFont`) are loaded once in `Game1` and registered in `Locator.Assets`.
 
-The font images and the character-width data hardcoded in `BitmapFont.cs` were not written by hand — they were produced by `Tools/GenerateFontAtlas.py`. The script takes a `.ttf` font file, renders each character into a spritesheet, and prints the width of every character so the font knows how far to advance after drawing each one. If you ever want to use a different font, run the script and copy the printed widths back into `BitmapFont.cs`.
+The font images and the character-width data hardcoded in `BitmapFont.cs` were not written by hand — they were produced by `Tools/GenerateFontAtlas.py`. The script takes a `.ttf` font file, renders each character into a spritesheet, and prints the width of every character so the font knows how far to advance after drawing each one. If you ever want to use a different font, run the script (`python Tools/GenerateFontAtlas.py` from this folder) and copy the printed cell sizes and widths back into `BitmapFont.cs`.
 
 ### `Panel` — `GMDCore/GUI/Panel.cs`
 
@@ -717,3 +717,9 @@ dotnet run --project Pokemon4
 ```
 
 Or open `Pokemon.slnx` and choose the step to run.
+
+## Credits
+
+The art, sounds and music are our own, made for the course; the monsters are original designs.
+The font is [Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P) by CodeMan38,
+under the SIL Open Font License (see `Content/Assets/fonts/retro-OFL.txt`).
