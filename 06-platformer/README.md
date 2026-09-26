@@ -52,6 +52,9 @@ the assets into its output folder, where `Content.Load` finds them.
 To add an asset, put it in `Content/Assets` and, if no existing rule matches it, add a rule
 in `Builder.cs`.
 
+`Content/Assets/images/extras.png` holds art the game doesn't use yet: power-ups (a star, a
+mushroom, a heart, a coin, a key and a potion, 16 × 16 each) for the exercises.
+
 ## Controls
 
 | Key | Action |
