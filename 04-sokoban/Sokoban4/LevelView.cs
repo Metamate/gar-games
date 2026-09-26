@@ -9,16 +9,16 @@ public class LevelView(Tileset tiles)
 {
     public const int TileSize = 64;
 
-    // Tile numbers in the tilesheet (13 columns of 64×64 tiles).
-    private const int FloorTile = 89;
-    private const int WallTile = 84;
-    private const int GoalTile = 24;
-    private const int BoxTile = 6;
-    private const int BoxOnGoalTile = 19;
-    private const int PlayerDownTile = 52;
-    private const int PlayerUpTile = 55;
-    private const int PlayerRightTile = 78;
-    private const int PlayerLeftTile = 81;
+    // Tile numbers in the tilesheet (3 columns of 64×64 tiles).
+    private const int FloorTile = 0;
+    private const int WallTile = 1;
+    private const int GoalTile = 2;
+    private const int BoxTile = 3;
+    private const int BoxOnGoalTile = 4;
+    private const int PlayerDownTile = 5;
+    private const int PlayerUpTile = 6;
+    private const int PlayerRightTile = 8;
+    private const int PlayerLeftTile = 7;
 
     // Which way the player faces. This is only about drawing, so it lives here, not in Level.
     public Point Facing { get; set; } = Direction.Down;

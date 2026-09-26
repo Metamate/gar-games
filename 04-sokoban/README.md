@@ -84,4 +84,4 @@ Or open `Sokoban.slnx` and choose the step to run.
 
 ## Credits
 
-The art is [Kenney's Sokoban pack](https://kenney.nl/assets/sokoban) (CC0).
+The art is our own, made for the course.
