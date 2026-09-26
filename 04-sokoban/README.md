@@ -1,6 +1,12 @@
 # Sokoban
 
-Source code for session **04 Sokoban** of the Game Architecture (GAR) course.
+Source code for session **04 Sokoban** of the Game Architecture (GAR) course: Sokoban with
+undo and redo. The concepts (the Command pattern, undo and redo, levels as data, rules apart
+from drawing, unit tests) are explained on the [session
+page](https://metamate.github.io/gar/sessions/04-sokoban/). This README is the map of the
+code.
+
+## Steps
 
 The game is built up in steps. Each step is a separate project that builds on the previous
 one, so you can follow the code's evolution one concept at a time. Compare two neighbouring
@@ -13,6 +19,24 @@ steps (e.g. with a diff tool) to see exactly what changed.
 | `Sokoban2` | Command | Every move is a `MoveCommand` object; the game keeps a list of them to count the moves |
 | `Sokoban3` | Undo and redo | Commands can `Undo`; a `CommandHistory` keeps an undo stack and a redo stack (`Z` / `Y`) |
 | `Sokoban4` | The whole game | Seven levels, restart, a move counter and a level-complete message (the finished game) |
+
+## New in GMDCore
+
+Nothing: the core is the same as in [03-snake](../03-snake/). The new code in this game
+(levels, rules and commands) belongs to Sokoban, not to every game.
+
+## Code Map
+
+The finished game, `Sokoban4`:
+
+| To see | Look at |
+| --- | --- |
+| The rules: walking and pushing | `Level.cs` |
+| Drawing a level | `LevelView.cs` |
+| A move as a command, and the undo and redo stacks | `Commands/` |
+| Keys to moves | `GameController.cs` |
+| The levels | `Content/Assets/levels/*.txt` |
+| The tests | `Sokoban.Tests/` |
 
 ## Tests
 
@@ -27,13 +51,6 @@ dotnet test
 ```
 
 Or run them from your editor's test explorer.
-
-All steps share the **GMDCore** library.
-
-## New in GMDCore
-
-Nothing: the core is the same as in [03-snake](../03-snake/). The new code in this game
-(levels, rules and commands) belongs to Sokoban, not to every game.
 
 ## Content
 

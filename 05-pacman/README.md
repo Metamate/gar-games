@@ -1,6 +1,12 @@
 # Pac-Man
 
-Source code for session **05 Pac-Man** of the Game Architecture (GAR) course.
+Source code for session **05 Pac-Man** of the Game Architecture (GAR) course: Pac-Man with
+the arcade ghosts. The concepts (the State pattern (ghost modes), the Strategy pattern
+(targeting), testing each ghost) are explained on the [session
+page](https://metamate.github.io/gar/sessions/05-pac-man/). This README is the map of the
+code.
+
+## Steps
 
 The game is built up in steps. Each step is a separate project that builds on the previous
 one, so you can follow the code's evolution one concept at a time. Compare two neighbouring
@@ -14,7 +20,25 @@ steps (e.g. with a diff tool) to see exactly what changed.
 | `Pacman3` | The Strategy pattern | Each ghost gets its own `ITargetStrategy` for chasing (`Targeting`) |
 | `Pacman4` | The whole game | Lives, Pac-Man's death, levels, and game states: ready, play, dying, game over (the finished game) |
 
-All steps share the **GMDCore** library.
+## New in GMDCore
+
+Nothing: the core is the same as in [04-sokoban](../04-sokoban/). The maze, the ghosts and
+their states belong to Pac-Man, not to every game.
+
+## Code Map
+
+The finished game, `Pacman4`:
+
+| To see | Look at |
+| --- | --- |
+| The maze, dots and pellets | `Maze.cs`, `Content/Assets/levels/maze.txt` |
+| Everything in play, and the rules between them | `World.cs` |
+| Scatter and chase, over time | `ModeSchedule.cs` |
+| A ghost, and its modes as states | `Ghost.cs`, `GhostStates/` |
+| Where each ghost aims, as strategies | `Targeting/` |
+| Ready, playing, dying, game over | `GameStates/` |
+| Drawing, apart from the rules | `Views/` |
+| The tests | `Pacman.Tests/` |
 
 ## Tests
 
@@ -26,11 +50,6 @@ on its own (`TargetingTests`), the ghost states (`GhostStateTests`), and Pac-Man
 cd 05-pacman
 dotnet test
 ```
-
-## New in GMDCore
-
-Nothing: the core is the same as in [04-sokoban](../04-sokoban/). The maze, the ghosts and
-their states belong to Pac-Man, not to every game.
 
 ## Content
 

@@ -1,6 +1,11 @@
 # Pong
 
-Source code for session **01 Pong** of the Game Architecture (GAR) course.
+Source code for session **01 Pong** of the Game Architecture (GAR) course: a two-player
+Pong, built exercise by exercise. The concepts (the game loop, drawing, input, delta time,
+the Update Method pattern, AABB collision, game state) are explained on the [session
+page](https://metamate.github.io/gar/sessions/01-pong/). This README is the map of the code.
+
+## Steps
 
 The game is built up in steps. Each step is a separate project that builds on the previous
 one, following the exercises from the session. Compare two neighbouring steps (e.g. with a
@@ -20,6 +25,16 @@ diff tool) to see exactly what changed.
 | `Pong9` | Serve state | The player who was scored on serves |
 | `Pong10` | Victory | A done state when a player reaches 10 points |
 | `Pong11` | Audio | Sound effects for hits and scoring |
+
+## Code Map
+
+The finished game, `Pong11`:
+
+| To see | Look at |
+| --- | --- |
+| The game loop, states, scoring and drawing | `Game1.cs` |
+| A paddle: input, movement, drawing | `Paddle.cs` |
+| The ball: movement and AABB collision | `Ball.cs` |
 
 ## Content
 

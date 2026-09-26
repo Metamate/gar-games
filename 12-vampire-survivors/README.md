@@ -1,6 +1,12 @@
 # Vampire Survivors
 
-Source code for session **12 Vampire Survivors** of the Game Architecture (GAR) course.
+Source code for session **12 Vampire Survivors** of the Game Architecture (GAR) course: a
+survivor game with thousands of enemies. The concepts (profiling, spatial partitioning,
+data-oriented design) are explained on the [session
+page](https://metamate.github.io/gar/sessions/12-vampire-survivors/). This README is the map
+of the code.
+
+## Steps
 
 The game is built up in steps. Each step is a separate project that builds on the previous
 one, so you can follow the code's evolution one concept at a time. Compare two neighbouring
@@ -14,7 +20,25 @@ steps (e.g. with a diff tool) to see exactly what changed.
 | `Survivors3` | Data-oriented design | Enemies as a struct of arrays (`Enemies`), and a `FlatGrid` rebuilt each step with a counting sort |
 | `Survivors4` | The whole game | Gems and levels, upgrades on the state stack, health, and five minutes to survive (the finished game) |
 
-All steps share the **GMDCore** library.
+## New in GMDCore
+
+Nothing: the core is the same as in [11-geometry-wars](../11-geometry-wars/). Its `Core`
+runs the game logic in fixed steps (`UpdateGame`), and pauses while the window isn't active.
+
+## Code Map
+
+The finished game, `Survivors4`:
+
+| To see | Look at |
+| --- | --- |
+| Timing each part of a step | `Profiler.cs` |
+| Enemies as a struct of arrays | `Enemies.cs` |
+| The flat grid and its counting sort | `FlatGrid.cs` |
+| Moving and separating the swarm | `Swarm.cs` |
+| One run: player, weapons, gems, spawning | `Run.cs`, `Spawner.cs` |
+| Weapons | `BoltWeapon.cs`, `Aura.cs` |
+| Level-up choices | `Upgrade.cs`, `States/LevelUpState.cs` |
+| The tests | `Survivors.Tests/` |
 
 ## Tests
 
@@ -29,22 +53,14 @@ dotnet test
 
 ## Measuring
 
-Run `Survivors1`, `Survivors2` or `Survivors3`, press F3 for the profiler, and Space a few
-times to add enemies. On one laptop, moving and separating the enemies took (ms per step):
+Run `Survivors1`, `Survivors2` or `Survivors3` in Release, press F3 for the profiler, and
+Space to add a thousand enemies at a time. The session page has one laptop's numbers to
+compare with.
 
-| Enemies | Objects, every pair (`Survivors1`) | Objects + grid (`Survivors2`) | Arrays + flat grid (`Survivors3`) |
-| --- | --- | --- | --- |
-| 1,000 | 1.2 | 1.3 | 0.24 |
-| 5,000 | 27 | 1.9 | 0.64 |
-| 10,000 | 107 | 4.1 | 1.3 |
-| 20,000 | — | 14.5 | 4.9 |
-
-A step has 16.7 ms at 60 steps per second. Your numbers will differ; the shape shouldn't.
-
-## New in GMDCore
-
-Nothing: the core is the same as in [11-geometry-wars](../11-geometry-wars/). Its `Core`
-runs the game logic in fixed steps (`UpdateGame`), and pauses while the window isn't active.
+```sh
+cd 12-vampire-survivors
+dotnet run -c Release --project Survivors3
+```
 
 ## Content
 

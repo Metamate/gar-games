@@ -1,6 +1,12 @@
 # Flappy Bird
 
-Source code for session **02 Flappy Bird** of the Game Architecture (GAR) course.
+Source code for session **02 Flappy Bird** of the Game Architecture (GAR) course: Flappy
+Bird on a reusable core library. The concepts (the class library, textures, parallax,
+procedural generation, state machines, the Singleton pattern) are explained on the [session
+page](https://metamate.github.io/gar/sessions/02-flappy-bird/). This README is the map of
+the code.
+
+## Steps
 
 The game is built up in steps. Each step is a separate project that builds on the previous
 one, following the exercises from the session. Compare two neighbouring steps (e.g. with a
@@ -33,6 +39,19 @@ later repository's `GMDCore` keeps everything from the previous session and adds
 - `Core`: a `Game` base class with a window, a virtual resolution and screen scaling.
 - `Input/InputManager`, `Input/KeyboardInfo`, `Input/MouseInfo`: keyboard and mouse state
   with "just pressed" and "just released" checks.
+
+## Code Map
+
+The finished game, `Flappy12`:
+
+| To see | Look at |
+| --- | --- |
+| The shared core: window, scaling, input | `GMDCore/` |
+| Loading the textures once | `Art.cs` |
+| The bird: gravity and flapping | `Bird.cs` |
+| Pipes, and how pairs are generated | `Pipe.cs`, `PipePair.cs`, `States/PlayState.cs` |
+| The state machine and its states | `States/StateMachine.cs`, `States/*State.cs` |
+| The audio Singleton | `Audio.cs` |
 
 ## Content
 

@@ -1,6 +1,12 @@
 # Snake
 
-Source code for session **03 Snake** of the Game Architecture (GAR) course.
+Source code for session **03 Snake** of the Game Architecture (GAR) course: Snake in a room
+with bats, with its art and room defined as data. The concepts (texture atlases, sprites and
+animation from XML, tilemaps, fixed-tick movement, input as buffered actions) are explained
+on the [session page](https://metamate.github.io/gar/sessions/03-snake/). This README is the
+map of the code.
+
+## Steps
 
 The game is built up in steps. Each step is a separate project that builds on the previous
 one, so you can follow the code's evolution one concept at a time. Compare two neighbouring
@@ -30,6 +36,19 @@ Compared with the core in [02-flappy](../02-flappy/):
   of a texture, sprites and frame animation, defined in XML.
 - `Graphics/Tileset`, `Tilemap`: a grid of tile IDs drawn from a tileset, defined in XML.
 - `Circle`: circle-circle collision.
+
+## Code Map
+
+The finished game, `Snake9`:
+
+| To see | Look at |
+| --- | --- |
+| The atlas, animations and room, as data | `Content/Assets/images/*.xml` |
+| Atlas, sprite, animation and tilemap classes | `GMDCore/Graphics/` |
+| The snake: fixed-tick movement and growth | `Snake.cs` |
+| Keys to actions, with a buffer | `GameController.cs` |
+| The bats | `Bat.cs` |
+| The tick accumulator and collisions | `Game1.cs` |
 
 ## Content
 

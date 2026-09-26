@@ -29,7 +29,7 @@ Every game folder is set up like a game of its own, and like the
 ├── GMDCore/            # The course's core library, as it is after this game (from 02-flappy on)
 ├── Snake0 … Snake9/    # The game, built up in steps: one project per concept
 ├── Snake.slnx
-└── README.md           # The steps, the controls, and what's new in GMDCore
+└── README.md           # The map of the code: steps, code map, what's new in GMDCore, running
 ```
 
 Compare two neighbouring steps (e.g. with a diff tool) to see exactly what changed. The

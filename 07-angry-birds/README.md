@@ -1,6 +1,12 @@
 # Angry Birds
 
-Source code for session **07 Angry Birds** of the Game Architecture (GAR) course.
+Source code for session **07 Angry Birds** of the Game Architecture (GAR) course: Angry
+Birds on the Box2D physics engine. The concepts (a physics library behind our own interface
+(Adapter and Facade), two worlds in sync, contact events, safe destruction, prototypes) are
+explained on the [session page](https://metamate.github.io/gar/sessions/07-angry-birds/).
+This README is the map of the code.
+
+## Steps
 
 The game is built up in steps. Each step is a separate project that builds on the previous
 one, so you can follow the code's evolution one concept at a time. Compare two neighbouring
@@ -14,7 +20,24 @@ steps (e.g. with a diff tool) to see exactly what changed.
 | `Birds3` | Prototype | Configured entities (prefabs) are cloned into the world; the level is a text file of prefab names and positions |
 | `Birds4` | The whole game | Three levels, a few birds per level, an aiming curve, and game states: aim, fly, level end (the finished game) |
 
-All steps share the **GMDCore** library.
+## New in GMDCore
+
+Nothing: the core is the same as in [06-platformer](../06-platformer/). The physics adapter
+belongs to this game. Putting it in GMDCore would make every later game depend on Box2D.
+
+## Code Map
+
+The finished game, `Birds4`:
+
+| To see | Look at |
+| --- | --- |
+| Our interface to Box2D | `Physics/PhysicsWorld.cs`, `Physics/PhysicsBody.cs` |
+| Metres to pixels and back | `Physics/Units.cs` |
+| Birds, pigs and blocks, synced with their bodies | `Entities/` |
+| Materials and prototypes for level pieces | `Materials.cs`, `Prefabs.cs` |
+| Building a level from a text file | `Level.cs`, `Content/Assets/levels/*.txt` |
+| Aiming and launching | `Slingshot.cs` |
+| Aim, fly, level end | `GameStates/` |
 
 ## Box2D
 
@@ -29,11 +52,6 @@ package:
 From `Birds1` on, only the `Physics` folder uses it. Box2D works in metres with y pointing
 up; the game works in pixels with y pointing down. `Physics/Units.cs` converts between the
 two, at 50 pixels per metre.
-
-## New in GMDCore
-
-Nothing: the core is the same as in [06-platformer](../06-platformer/). The physics adapter
-belongs to this game. Putting it in GMDCore would make every later game depend on Box2D.
 
 ## Content
 

@@ -1,6 +1,12 @@
 # Plants vs. Zombies
 
-Source code for session **09 Plants vs. Zombies** of the Game Architecture (GAR) course.
+Source code for session **09 Plants vs. Zombies** of the Game Architecture (GAR) course: a
+lawn-defence game built from components. The concepts (the Component pattern, Type Object
+and game types as data, picking with the mouse) are explained on the [session
+page](https://metamate.github.io/gar/sessions/09-plants-vs-zombies/). This README is the map
+of the code.
+
+## Steps
 
 The game is built up in steps. Each step is a separate project that builds on the previous
 one, so you can follow the code's evolution one concept at a time. Compare two neighbouring
@@ -14,13 +20,26 @@ steps (e.g. with a diff tool) to see exactly what changed.
 | `Pvz3` | Type Object | Plant and zombie types come from `plants.json` and `zombies.json`; each type builds its own entities. The Cherry Bomb: one new component, and data |
 | `Pvz4` | The whole game | A level from `level1.json`, sun from the sky, recharging packets, winning and losing (the finished game) |
 
-All steps share the **GMDCore** library.
-
 ## New in GMDCore
 
 Nothing: the core is the same as in [08-zelda](../08-zelda/). The entities and components
 here are this game's own. In [11-geometry-wars](../11-geometry-wars/), a component model
 moves into GMDCore.
+
+## Code Map
+
+The finished game, `Pvz4`:
+
+| To see | Look at |
+| --- | --- |
+| An entity: a bag of components | `Entity.cs`, `Components/Component.cs` |
+| One behaviour each | `Components/` |
+| Plant and zombie types (Type Object), from JSON | `Types.cs`, `Content/Assets/data/*.json` |
+| Peas, suns and effects | `Recipes.cs` |
+| The lawn's grid, and picking a cell | `Lawn.cs` |
+| The seed packets | `SeedBar.cs` |
+| Waves of zombies | `Level.cs`, `Content/Assets/data/level1.json` |
+| Everything in play | `World.cs` |
 
 ## Content
 

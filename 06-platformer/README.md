@@ -1,7 +1,12 @@
 # Super Mario Bros
 
 Source code for session **06 Super Mario Bros** of the Game Architecture (GAR) course: a 2D
-platformer with procedural levels, the State pattern, a camera and platformer physics.
+platformer with generated levels. The concepts (platformer physics, tile collision, debug
+drawing, a camera, level makers, the State pattern) are explained on the [session
+page](https://metamate.github.io/gar/sessions/06-super-mario-bros/). This README is the map
+of the code.
+
+## Steps
 
 The game is built up in steps. Each step is a separate project that builds on the previous
 one, so you can follow the code's evolution one concept at a time. Compare two neighbouring
@@ -32,6 +37,21 @@ Compared with the core in [03-snake](../03-snake/):
   (`IsSolidAt`, `GetTileLeft`/`Right`/`Top`/`Bottom`, `TileToPoint`).
 - `Graphics/AnimatedSprite`: `Play(animation)` switches to an animation from its first frame
   (and does nothing if it is already playing).
+
+## Code Map
+
+The finished game, `Platformer8`:
+
+| To see | Look at |
+| --- | --- |
+| The level makers (Strategy) | `LevelMaker/` |
+| A level: tiles, toppers, entities | `LevelMaker/GameLevel.cs` |
+| Tile collision helpers | `GMDCore/Graphics/Tilemap.cs` |
+| The player, and its states | `Entities/Player.cs`, `States/PlayerStates/` |
+| The snail's AI, as states | `Entities/Snail.cs`, `States/SnailStates/` |
+| Boxes and gems | `Entities/MysteryBox.cs`, `Entities/Gem.cs` |
+| The camera | `Graphics/Camera.cs` |
+| Every constant | `GameSettings.cs` |
 
 ## Content
 
