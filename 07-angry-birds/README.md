@@ -85,4 +85,6 @@ Or open `AngryBirds.slnx` and choose the step to run.
 
 ## Credits
 
-The art is our own. Box2D.NET is by ikpil, after Box2D by Erin Catto (both MIT).
+The art is our own. Box2D.NET is by ikpil, after Box2D by Erin Catto (both MIT). The font is
+[Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P) by CodeMan38, under the
+SIL Open Font License (see `Content/Assets/fonts/retro-OFL.txt`).
