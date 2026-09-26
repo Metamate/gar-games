@@ -55,6 +55,13 @@ To add an asset, put it in `Content/Assets` and, if no existing rule matches it,
 in `Builder.cs`. Compare the `Content.Load` calls in neighbouring steps to see when each
 asset comes into use.
 
+## Controls
+
+| Key | Action |
+| --- | --- |
+| `Space` or a mouse click | Flap, and start |
+| `Esc` | Quit |
+
 ## Running a step
 
 Requires the [.NET 10 SDK](https://dotnet.microsoft.com/download).

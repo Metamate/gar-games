@@ -8,15 +8,15 @@ The course site explains each session: [metamate.github.io/gar](https://metamate
 | [01-pong](01-pong/) | 01 Pong | The game loop |
 | [02-flappy](02-flappy/) | 02 Flappy Bird | Organizing a growing game |
 | [03-snake](03-snake/) | 03 Snake | Assets as data |
-| [04-sokoban](04-sokoban/) | 04 Sokoban | Command: undo and redo |
-| [05-pacman](05-pacman/) | 05 Pac-Man | State |
+| [04-sokoban](04-sokoban/) | 04 Sokoban | Command pattern |
+| [05-pacman](05-pacman/) | 05 Pac-Man | State pattern |
 | [06-platformer](06-platformer/) | 06 Super Mario Bros | Physics & tile collision |
 | [07-angry-birds](07-angry-birds/) | 07 Angry Birds | Integrating a third-party library |
 | [08-zelda](08-zelda/) | 08 The Legend of Zelda | Composition vs. inheritance |
-| [09-plants-vs-zombies](09-plants-vs-zombies/) | 09 Plants vs. Zombies | The Component pattern |
+| [09-plants-vs-zombies](09-plants-vs-zombies/) | 09 Plants vs. Zombies | Component pattern |
 | [10-pokemon](10-pokemon/) | 10 Pokemon | Scenes & UI |
 | [11-geometry-wars](11-geometry-wars/) | 11 Geometry Wars | Components vs. systems |
-| [12-vampire-survivors](12-vampire-survivors/) | 12 Vampire Survivors | Performance: data-oriented design |
+| [12-vampire-survivors](12-vampire-survivors/) | 12 Vampire Survivors | Performance |
 
 ## Each game
 
@@ -26,7 +26,7 @@ Every game folder is set up like a game of its own, and like the
 ```text
 03-snake/
 ├── Content/            # The assets and the content builder
-├── GMDCore/            # The course's core library, as it is after this game
+├── GMDCore/            # The course's core library, as it is after this game (from 02-flappy on)
 ├── Snake0 … Snake9/    # The game, built up in steps: one project per concept
 ├── Snake.slnx
 └── README.md           # The steps, the controls, and what's new in GMDCore
@@ -34,6 +34,10 @@ Every game folder is set up like a game of its own, and like the
 
 Compare two neighbouring steps (e.g. with a diff tool) to see exactly what changed. The
 last step is the finished game.
+
+Some games also have a test project (`Sokoban.Tests`, `Pacman.Tests`, `GeometryWars.Tests`,
+`Survivors.Tests`) that tests the finished game. Run it with `dotnet test` in the game's
+folder.
 
 ## Running a game
 

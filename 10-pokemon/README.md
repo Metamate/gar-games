@@ -1,8 +1,10 @@
-# Pokemon: Architecture Walkthrough
+# Pokemon
 
-A top-down Pokemon-like built on **MonoGame** in C#. This document walks through the architecture from the ground up, pointing at relevant source code as it goes.
-
-Key concepts covered by this project: a state *stack* for layered game flow, a GUI layer, the Service Locator pattern, a tweening system, a turn-based battle system, and RPG mechanics.
+Source code for session **10 Pokemon** of the Game Architecture (GAR) course: a top-down
+Pokemon-like with a state stack for layered game flow, a GUI layer, the Service Locator
+pattern, turn-based battles and RPG mechanics. After the steps, this README walks through
+the architecture of the finished game from the ground up, pointing at the source code as it
+goes.
 
 ## Steps
 
@@ -696,7 +698,16 @@ the assets into its output folder, where `Content.Load` finds them.
 To add an asset, put it in `Content/Assets` and, if no existing rule matches it, add a rule
 in `Builder.cs`.
 
-## Running
+## Controls
+
+| Key | Action |
+| --- | --- |
+| Arrow keys, `W` `A` `S` `D` | Walk, and move through menus |
+| `Enter` or `Space` | Confirm |
+| `P` | Heal your Pokemon |
+| `Esc` | Quit |
+
+## Running a step
 
 Requires the [.NET 10 SDK](https://dotnet.microsoft.com/download).
 
@@ -704,3 +715,5 @@ Requires the [.NET 10 SDK](https://dotnet.microsoft.com/download).
 cd 10-pokemon
 dotnet run --project Pokemon4
 ```
+
+Or open `Pokemon.slnx` and choose the step to run.

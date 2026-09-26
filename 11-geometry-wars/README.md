@@ -1,13 +1,14 @@
 # Geometry Wars
 
-Geometry Wars-style sample project used in second-semester software engineering teaching.
+Source code for session **11 Geometry Wars** of the Game Architecture (GAR) course: a
+twin-stick shooter with hundreds of entities built from components. After the steps, this
+README walks through the architecture of the finished game, pointing at the source code as
+it goes.
 
 The codebase is designed to support discussion around:
-- software architecture
-- game loops and state management
-- component-based design
-- data locality and data-oriented thinking
-- object pooling
+- components, and which behaviour belongs in a system instead
+- dependency injection, and testing with fakes
+- object pooling and shared (flyweight) data
 - simple event-driven decoupling
 - rendering and post-processing
 
@@ -42,9 +43,9 @@ Compared with the core in [10-pokemon](../10-pokemon/):
   the game once per logic step, so quick taps are never lost.
 - `States/`: a `DrawHUD` pass after post-processing (bloom), and `Draw` is optional.
 
-## Repository Layout
+## Layout
 
-The repository is intentionally split into a core library and the game, plus a content builder:
+The game is intentionally split into a core library and the game, plus a content builder:
 
 - `GMDCore` contains reusable engine-style code such as the game shell, input handling, the entity/component model, generic physics/collision primitives, particle infrastructure, and pooling.
 - `GeometryWars0`–`GeometryWars6` contain the actual game, built up step by step (see [Steps](#steps)): states, gameplay systems, entity recipe composition, and Geometry Wars-specific components and rules. `GeometryWars6` is the finished game, and the one this walkthrough describes.
@@ -167,7 +168,7 @@ Good examples:
 - `FaceVelocity`
 - `ApplyMovementInput`
 
-## Components Vs Systems
+## Components vs. Systems
 
 This project does not use a strict ECS where components are data-only.
 
@@ -230,7 +231,9 @@ Not every subsystem uses the same style on purpose.
 - [ParticleManager](GMDCore/Particles/ParticleManager.cs) is a specialized high-volume visual system rather than a normal entity/component workflow.
 - [GameAssets](GeometryWars6/Services/GameAssets.cs) acts as a simple shared asset catalog, which is a lightweight example of a flyweight-style resource holder.
 
-## Design Guidelines For Students
+[12-vampire-survivors](../12-vampire-survivors/) takes the data-oriented style all the way, for thousands of enemies.
+
+## Design Guidelines for Students
 
 When adding or changing gameplay code, prefer these rules:
 
@@ -291,7 +294,19 @@ cd 11-geometry-wars
 dotnet test
 ```
 
-## Running
+## Controls
+
+| Input | Action |
+| --- | --- |
+| `W` `A` `S` `D`, or the left stick | Move |
+| Mouse, and hold the left button | Aim and fire |
+| Arrow keys, or the right stick | Aim and fire, without the mouse |
+| `P`, or Start | Pause |
+| `F3` | Frame rate and memory |
+| `Enter`, or A | Play again, after game over |
+| `Esc`, or Back | Quit |
+
+## Running a step
 
 Requires the [.NET 10 SDK](https://dotnet.microsoft.com/download).
 
@@ -299,3 +314,5 @@ Requires the [.NET 10 SDK](https://dotnet.microsoft.com/download).
 cd 11-geometry-wars
 dotnet run --project GeometryWars6
 ```
+
+Or open `GeometryWars.slnx` and choose the step to run.

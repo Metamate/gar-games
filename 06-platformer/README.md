@@ -33,20 +33,6 @@ Compared with the core in [03-snake](../03-snake/):
 - `Graphics/AnimatedSprite`: `Play(animation)` switches to an animation from its first frame
   (and does nothing if it is already playing).
 
-## Controls
-
-| Key | Action |
-| --- | --- |
-| `A` `D` / arrow keys | Move (from `Platformer2`) |
-| `Space` | Jump (from `Platformer2`) |
-| `S` / down arrow | Duck (from `Platformer2`) |
-| `R` | Randomize the level's graphics (from `Platformer0`) |
-| `F1` | Debug drawing: solid tiles, hitboxes and entities (from `Platformer2`) |
-| `1`–`5` | Switch level maker (`Platformer1` only) |
-| `Enter` | Start the game (from `Platformer5`) |
-| `F` | Back to the title screen (from `Platformer5`) |
-| `Esc` | Quit |
-
 ## Content
 
 All steps share the same raw assets, built by the **content builder** (MonoGame 3.8.5+):
@@ -65,6 +51,20 @@ the assets into its output folder, where `Content.Load` finds them.
 
 To add an asset, put it in `Content/Assets` and, if no existing rule matches it, add a rule
 in `Builder.cs`.
+
+## Controls
+
+| Key | Action |
+| --- | --- |
+| `A` `D` / arrow keys | Move (from `Platformer2`) |
+| `Space` | Jump (from `Platformer2`) |
+| `S` / down arrow | Duck (from `Platformer2`) |
+| `R` | Randomize the level's graphics (from `Platformer0`) |
+| `F1` | Debug drawing: solid tiles, hitboxes and entities (from `Platformer2`) |
+| `1`–`5` | Switch level maker (`Platformer1` only) |
+| `Enter` | Start the game (from `Platformer5`) |
+| `F` | Back to the title screen (from `Platformer5`) |
+| `Esc` | Quit |
 
 ## Running a step
 

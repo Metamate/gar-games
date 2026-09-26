@@ -1,6 +1,8 @@
-# The Legend of Zelda: Architecture Walkthrough
+# The Legend of Zelda
 
-A top-down Zelda-like built on **MonoGame/XNA** in C#. This document walks through the architecture from the ground up, pointing at relevant source code as it goes.
+Source code for session **08 The Legend of Zelda** of the Game Architecture (GAR) course: a
+top-down Zelda-like. After the steps, this README walks through the architecture of the
+finished game from the ground up, pointing at the source code as it goes.
 
 ## Steps
 
@@ -764,7 +766,16 @@ the assets into its output folder, where `Content.Load` finds them.
 To add an asset, put it in `Content/Assets` and, if no existing rule matches it, add a rule
 in `Builder.cs`.
 
-## Running
+## Controls
+
+| Key | Action |
+| --- | --- |
+| Arrow keys, `W` `A` `S` `D` | Walk |
+| `Space` | Swing the sword |
+| `Enter` | Start, and continue after game over |
+| `Esc` | Quit |
+
+## Running a step
 
 Requires the [.NET 10 SDK](https://dotnet.microsoft.com/download).
 
@@ -772,3 +783,5 @@ Requires the [.NET 10 SDK](https://dotnet.microsoft.com/download).
 cd 08-zelda
 dotnet run --project Zelda7
 ```
+
+Or open `Zelda.slnx` and choose the step to run.
