@@ -10,8 +10,8 @@ public class MazeView(Texture2D pixel, TextureAtlas atlas)
 {
     public static readonly Color WallColor = new(33, 33, 255);
     private static readonly Color DoorColor = new(255, 184, 255);
-    private const int Inset = 5;
-    private const int Thickness = 2;
+    private const int Inset = 6;
+    private const int Thickness = 4;
     private const int Size = Maze.TileSize;
 
     private readonly TextureRegion _dot = atlas.GetRegion("dot");
