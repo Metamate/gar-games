@@ -9,7 +9,7 @@ public interface IComponent
     bool IsActive { get; set; }
 
     // Called immediately when the component is added to an entity.
-    // Safe for self-setup only — siblings may not exist yet.
+    // Safe for self-setup only; siblings may not exist yet.
     void OnAdded(Entity owner);
 
     // Called once after the entity is fully assembled (all components added).

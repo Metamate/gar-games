@@ -79,7 +79,7 @@ public sealed class TakeTurnState : GameStateBase
 
     // Plays the full attack animation sequence for one Pokemon attacking another.
     // Each step is nested inside the previous one's completion callback so they
-    // play one after another — this is intentional: tweens don't block, so the
+    // play one after another. This is intentional: tweens don't block, so the
     // only way to say "do this, then that" is to start the next thing when the
     // current one finishes.
     private void ExecuteAttack(Mon attacker, Mon defender, Move move,

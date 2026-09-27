@@ -12,7 +12,7 @@ public static class GameSettings
 
     public const int TileSize = 16;
 
-    // Map layout — total tiles that fit on screen minus 1 border tile on each side
+    // Map layout: total tiles that fit on screen minus 1 border tile on each side
     public const int MapWidth  = VirtualWidth  / TileSize - 2;
     public const int MapHeight = VirtualHeight / TileSize - 2;
 
@@ -27,13 +27,13 @@ public static class GameSettings
     public const float PlayerSpriteOffsetY = 5f;    // sprite extends above collision box (perspective)
     public const float PlayerSwordOffsetX  = 8f;    // sword sprite (32px) centred over collision box (16px)
 
-    // Room transition — duration in seconds for the camera shift between rooms
+    // Room transition: duration in seconds for the camera shift between rooms
     public const float RoomShiftDuration = 1f;
 
-    // Door arch stencil mask — extra pixels the mask extends beyond the arch opening
+    // Door arch stencil mask: extra pixels the mask extends beyond the arch opening
     public const int DoorArchPadding = 6;
 
-    // Sword reach — how far the hitbox extends in front of the player
+    // Sword reach: how far the hitbox extends in front of the player
     public const int SwordReach         = TileSize / 2;
     public const int SwordHitboxYOffset = 2;    // vertical nudge to centre hitbox on player
 
@@ -45,12 +45,12 @@ public static class GameSettings
     // Room generation
     public const int RoomEnemyCount = 10;
 
-    // Entity AI — movement timing and idle probability
+    // Entity AI: movement timing and idle probability
     public const int EntityMoveDurationMin = 1;     // seconds (inclusive)
     public const int EntityMoveDurationMax = 6;     // seconds (exclusive upper bound for Next())
     public const int EntityIdleChance      = 3;     // 1-in-N chance to go idle after a move
 
-    // HUD — hearts
+    // HUD: hearts
     public const int HeartCount          = 3;
     public const int HeartHealthPerHeart = 2;
     public const int HeartFrameFull      = 4;

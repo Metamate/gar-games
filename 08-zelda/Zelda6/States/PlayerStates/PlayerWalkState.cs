@@ -51,7 +51,7 @@ public class PlayerWalkState(Player player, Dungeon dungeon) : EntityWalkState(p
     private void CheckDoorwayTransition(GameTime gameTime)
     {
         // Probe one step ahead in the current direction to check for an open doorway,
-        // then restore position — movement only happens via BeginShift if found.
+        // then restore position; movement only happens via BeginShift if found.
         float speed = GameSettings.PlayerWalkSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
         Vector2 step = _player.Direction.ToVector2() * speed;
 

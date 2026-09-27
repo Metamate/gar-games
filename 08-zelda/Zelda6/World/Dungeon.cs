@@ -19,7 +19,7 @@ public class Dungeon
 
     // Camera whose Transform is combined with the screen-scale matrix each frame.
     // During a shift it is tweened from (0,0) to _shiftTarget; everything rendered through
-    // the combined matrix moves automatically — no per-object offset arithmetic needed.
+    // the combined matrix moves automatically, with no per-object offset arithmetic.
     private readonly Camera _camera = new();
     private Vector2 _shiftTarget;
 
@@ -177,7 +177,7 @@ public class Dungeon
         DepthBufferEnable = false
     };
 
-    // BlendState that suppresses all colour output — used while writing the stencil mask.
+    // BlendState that suppresses all colour output, used while writing the stencil mask.
     private static readonly BlendState StencilOnlyBlend = new()
     {
         ColorWriteChannels = ColorWriteChannels.None
@@ -231,7 +231,7 @@ public class Dungeon
 
     // Draw the four arch-corridor stencil rectangles at their fixed virtual positions.
     // Because worldTransform already contains the camera translation, no manual offset
-    // is needed here — the camera shift is applied automatically by SpriteBatch.
+    // is needed here: the camera shift is applied automatically by SpriteBatch.
     private void DrawArchMasks(SpriteBatch spriteBatch, Texture2D pixel)
     {
         int ts   = GameSettings.TileSize;

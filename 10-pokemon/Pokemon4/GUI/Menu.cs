@@ -5,7 +5,7 @@ using GMDCore.GUI;
 
 namespace Pokemon4.GUI;
 
-// A Panel combined with a Selection — the standard menu widget.
+// A Panel combined with a Selection: the standard menu widget.
 public sealed class Menu
 {
     private readonly Panel _panel;

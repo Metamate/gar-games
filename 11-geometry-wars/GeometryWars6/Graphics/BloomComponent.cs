@@ -129,7 +129,7 @@ namespace GeometryWars6.Graphics
 
 
         // This is where it all happens. Grabs a scene that has already been rendered,
-        // and uses postprocess magic to add a glowing bloom effect over the top of it.
+        // and uses post-processing to add a glowing bloom effect over the top of it.
         public override void Draw(GameTime gameTime)
         {
             GraphicsDevice.SamplerStates[1] = SamplerState.LinearClamp;

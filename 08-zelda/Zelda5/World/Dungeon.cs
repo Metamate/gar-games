@@ -19,7 +19,7 @@ public class Dungeon
 
     // Camera whose Transform is combined with the screen-scale matrix each frame.
     // During a shift it is tweened from (0,0) to _shiftTarget; everything rendered through
-    // the combined matrix moves automatically — no per-object offset arithmetic needed.
+    // the combined matrix moves automatically, with no per-object offset arithmetic.
     private readonly Camera _camera = new();
     private Vector2 _shiftTarget;
 

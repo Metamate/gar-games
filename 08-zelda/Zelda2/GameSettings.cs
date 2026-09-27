@@ -12,7 +12,7 @@ public static class GameSettings
 
     public const int TileSize = 16;
 
-    // Map layout — total tiles that fit on screen minus 1 border tile on each side
+    // Map layout: total tiles that fit on screen minus 1 border tile on each side
     public const int MapWidth  = VirtualWidth  / TileSize - 2;
     public const int MapHeight = VirtualHeight / TileSize - 2;
 
@@ -30,7 +30,7 @@ public static class GameSettings
     // Room generation
     public const int RoomEnemyCount = 10;
 
-    // Entity AI — movement timing and idle probability
+    // Entity AI: movement timing and idle probability
     public const int EntityMoveDurationMin = 1;     // seconds (inclusive)
     public const int EntityMoveDurationMax = 6;     // seconds (exclusive upper bound for Next())
     public const int EntityIdleChance      = 3;     // 1-in-N chance to go idle after a move
