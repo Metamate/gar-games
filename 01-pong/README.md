@@ -82,6 +82,9 @@ Or open `Pong.slnx` and choose the step to run.
 
 ## Credits
 
-The sounds are our own, made for the course. The font is
+The sounds are our own, made for the course. The retro font is
 [Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P) by CodeMan38, under the
-SIL Open Font License (see `Content/Assets/retro-OFL.txt`).
+SIL Open Font License (see `Content/Assets/retro-OFL.txt`). The plain font in steps 1 and 2
+is [Liberation Sans](https://github.com/liberationfonts/liberation-fonts) by Red Hat, also
+under the SIL Open Font License (see `Content/Assets/sans-OFL.txt`). It ships with the game
+because a system font like Arial isn't installed on every OS.
