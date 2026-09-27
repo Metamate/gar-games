@@ -14,19 +14,19 @@ diff tool) to see exactly what changed.
 
 | Step | Exercise | What's new |
 | --- | --- | --- |
-| `Flappy0` | Consuming the class library | `Game1` derives from `Core` in GMDCore |
-| `Flappy1` | Background | Background and ground images |
-| `Flappy2` | Parallax | Infinitely scrolling layers at different speeds |
-| `Flappy3` | Bird & assets | A `Bird` class and a static `Art` class |
+| `Flappy0` | A game on the library | `Game1` derives from `Core` in GMDCore |
+| `Flappy1` | Drawing images | Background and ground images |
+| `Flappy2` | Parallax scrolling | Infinitely scrolling layers at different speeds |
+| `Flappy3` | The bird and the Art class | A `Bird` class and a static `Art` class |
 | `Flappy4` | Gravity | The bird falls |
-| `Flappy5` | Flap | `InputManager` in GMDCore (keyboard and mouse); flapping with Space or a click |
-| `Flappy6` | Infinite pipes | Pipes spawning on a timer |
-| `Flappy7` | Pipe pairs | `PipePair` with a gap at a varying height |
-| `Flappy8` | Collisions | Hitting a pipe, the ground or the ceiling |
-| `Flappy9` | State machine | `IState`, `StateMachine`, title and play states |
-| `Flappy10` | Scoring | Score while playing, and a score state |
-| `Flappy11` | Countdown | A countdown state before playing |
-| `Flappy12` | Audio | Music and sound effects, in an `Audio` Singleton |
+| `Flappy5` | An input manager | `InputManager` in GMDCore (keyboard and mouse); flapping with Space or a click |
+| `Flappy6` | Spawning on a timer | Pipes spawning on a timer |
+| `Flappy7` | A drifting gap | `PipePair` with a gap at a varying height |
+| `Flappy8` | Hitboxes | Hitting a pipe, the ground or the ceiling |
+| `Flappy9` | A state machine | `IState`, `StateMachine`, title and play states |
+| `Flappy10` | Passing data between states | Score while playing, and a score state |
+| `Flappy11` | A countdown state | A countdown state before playing |
+| `Flappy12` | Audio as a Singleton | Music and sound effects, in an `Audio` Singleton |
 
 All steps share the **GMDCore** library, which contains the final versions of the reusable
 classes (`Core`, input, …).
