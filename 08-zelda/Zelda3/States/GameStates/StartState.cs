@@ -6,7 +6,7 @@ namespace Zelda3.States.GameStates;
 
 public class StartState(Game1 game) : GameStateBase(game)
 {
-    private const string Title    = "The Legend of VIA";
+    private const string Title    = "Hollow Keep";
     private const string Subtitle = "Press Enter";
 
     private Vector2 _titlePos;

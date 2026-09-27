@@ -72,7 +72,7 @@ public sealed class StartState : GameStateBase
                     _stack.Pop(); // pop StartState
                     _stack.Push(new PlayState(_stack));
                     _stack.Push(new DialogueState(_stack,
-                        "Welcome to the world of VIAMon! Walk in the tall grass to find monsters. " +
+                        "Welcome to the world of Critters! Walk in the tall grass to find monsters. " +
                         "Press Enter or Space to dismiss messages."));
                     _stack.Push(new FadeState(_stack, Color.White, GameSettings.FadeDuration, 1f, 0f, () => { }));
                 }));
@@ -94,10 +94,10 @@ public sealed class StartState : GameStateBase
         if (_currentSprite != null)
             spriteBatch.Draw(_currentSprite, new Vector2(_spriteX, _spriteY), Color.White);
 
-        var titleSize    = Locator.Assets.LargeFont.MeasureString("VIAMon!");
+        var titleSize    = Locator.Assets.LargeFont.MeasureString("Critters!");
         var subtitleSize = Locator.Assets.MediumFont.MeasureString("Press Enter");
 
-        Locator.Assets.LargeFont.Draw(spriteBatch, "VIAMon!",
+        Locator.Assets.LargeFont.Draw(spriteBatch, "Critters!",
             new Vector2(GameSettings.VirtualWidth / 2f - titleSize.X / 2f,
                         GameSettings.VirtualHeight / 2f - 72f),
             TitleColor);

@@ -17,7 +17,7 @@ public sealed class Game1 : Core
     private RenderTarget2D _renderTarget;
 
     public Game1()
-        : base("VIAMon",
+        : base("Critters",
                GameSettings.WindowWidth,  GameSettings.WindowHeight,
                GameSettings.VirtualWidth, GameSettings.VirtualHeight)
     { }
