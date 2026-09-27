@@ -79,6 +79,9 @@ an open tile. A maze uses these characters:
 
 A row that is open at both ends is a tunnel.
 
+If you replace a font's `.ttf`, also save its `.spritefont` (or delete the step's `obj`
+folder): the content builder only rebuilds a font when the `.spritefont` itself changes.
+
 ## Controls
 
 | Key | Action |

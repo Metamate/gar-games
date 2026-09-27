@@ -77,6 +77,9 @@ because the game reads them itself. A level uses the classic Sokoban characters:
 
 To add a level, add `level8.txt` and raise `LevelCount` in `Sokoban4/Game1.cs`.
 
+If you replace a font's `.ttf`, also save its `.spritefont` (or delete the step's `obj`
+folder): the content builder only rebuilds a font when the `.spritefont` itself changes.
+
 ## Controls
 
 | Key | Action |

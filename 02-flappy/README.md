@@ -74,6 +74,9 @@ To add an asset, put it in `Content/Assets` and, if no existing rule matches it,
 in `Builder.cs`. Compare the `Content.Load` calls in neighbouring steps to see when each
 asset comes into use.
 
+If you replace a font's `.ttf`, also save its `.spritefont` (or delete the step's `obj`
+folder): the content builder only rebuilds a font when the `.spritefont` itself changes.
+
 ## Controls
 
 | Key | Action |

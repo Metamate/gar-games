@@ -75,6 +75,9 @@ in `Builder.cs`.
 `Content/Assets/images/extras.png` holds art the game doesn't use yet: power-ups (a star, a
 mushroom, a heart, a coin, a key and a potion, 16 × 16 each) for the exercises.
 
+If you replace a font's `.ttf`, also save its `.spritefont` (or delete the step's `obj`
+folder): the content builder only rebuilds a font when the `.spritefont` itself changes.
+
 ## Controls
 
 | Key | Action |
