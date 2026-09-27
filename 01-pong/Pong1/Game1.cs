@@ -31,7 +31,7 @@ public class Game1 : Game
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
-        _font = Content.Load<SpriteFont>("arial");
+        _font = Content.Load<SpriteFont>("sans");
     }
 
     protected override void Update(GameTime gameTime)

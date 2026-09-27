@@ -16,7 +16,7 @@ diff tool) to see exactly what changed.
 | `Pong0` | An empty game | An empty MonoGame project |
 | `Pong1` | Text on screen | Text centred on a 1280×720 window |
 | `Pong2` | Virtual resolution | Resolution independent of the window, point filtering |
-| `Pong3` | Rectangles from a pixel | Paddles and ball, and a custom retro font (`arial` → `font`) |
+| `Pong3` | Rectangles from a pixel | Paddles and ball, and a custom retro font (`sans` → `font`) |
 | `Pong4` | Input and delta time | Keyboard input, frame-rate independent movement |
 | `Pong5` | A moving ball | Launch the ball, keep the paddles on screen; a first game mode |
 | `Pong6` | The Update Method | `Paddle` and `Ball` classes (Update Method pattern) |
