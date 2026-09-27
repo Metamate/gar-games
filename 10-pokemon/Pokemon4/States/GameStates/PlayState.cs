@@ -2,14 +2,13 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using GMDCore;
 using Pokemon4.Entities;
-using Pokemon4.Input;
 using Pokemon4.States.PlayerStates;
 using Pokemon4.World;
 using GMDCore.States;
 
 namespace Pokemon4.States.GameStates;
 
-// The overworld play state: renders the level and player, handles the heal shortcut.
+// The overworld play state: updates and renders the level and player.
 public sealed class PlayState : GameStateBase
 {
     private readonly StateStack _stack;
@@ -37,15 +36,6 @@ public sealed class PlayState : GameStateBase
 
     public override void Update(GameTime gameTime)
     {
-        if (GameController.Heal)
-        {
-            Locator.Audio.PlayHeal();
-            _level.Player.Party.Current.Heal();
-
-            _stack.Push(new DialogueState(_stack,
-                "Your Pokemon has been healed!"));
-        }
-
         _level.Update(gameTime);
     }
 

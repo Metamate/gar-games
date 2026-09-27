@@ -75,7 +75,7 @@ public sealed class StartState : GameStateBase
                     _stack.Push(new PlayState(_stack));
                     _stack.Push(new DialogueState(_stack,
                         "Welcome to the world of Critters! Walk in the tall grass to fight monsters. " +
-                        "Press P to heal. Press Enter or Space to dismiss messages."));
+                        "Rest at the spring to heal. Press Enter or Space to dismiss messages."));
                     _stack.Push(new FadeState(_stack, Color.White, GameSettings.FadeDuration, 1f, 0f, () => { }));
                 }));
         }

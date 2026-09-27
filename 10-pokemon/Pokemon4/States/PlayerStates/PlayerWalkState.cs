@@ -10,6 +10,7 @@ using GMDCore.States;
 namespace Pokemon4.States.PlayerStates;
 
 // Moves the player one tile, then checks whether to continue walking.
+// Landing on the spring heals the party's current monster.
 // After the move visually finishes, landing on a tall-grass tile has a
 // 1-in-10 chance of triggering a random encounter.
 public sealed class PlayerWalkState : EntityWalkState
@@ -51,9 +52,25 @@ public sealed class PlayerWalkState : EntityWalkState
         return true;
     }
 
+    // Stepping onto the spring heals the monster in front of the party.
+    private bool TryHeal()
+    {
+        int tileId = Level.BaseLayer.GetTile(Entity.MapX, Entity.MapY).GraphicId;
+        if (tileId != GameSettings.TileSpring) return false;
+
+        Entity.ChangeState(new PlayerIdleState(_player, Level, _stateStack));
+        Entity.ChangeAnimation(AnimationKeys.Idle(Entity.Direction));
+
+        Locator.Audio.PlayHeal();
+        var mon = _player.Party.Current;
+        mon.Heal();
+        _stateStack.Push(new DialogueState(_stateStack, $"The spring restores {mon.Name} to full health!"));
+        return true;
+    }
+
     protected override void OnMovementComplete()
     {
-        if (TryStartEncounter())
+        if (TryHeal() || TryStartEncounter())
             return;
 
         // Continue walking if a direction key is still held

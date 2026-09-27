@@ -1,74 +1,34 @@
-using System;
-
 namespace Pokemon2.Mons;
 
-// A runtime Pokemon instance with stats calculated from its species definition and level.
+// A runtime Pokemon instance: a species at a level. Its stats follow from both.
 public sealed class Mon
 {
-    public string Name              { get; }
-    public string BattleSpriteFront { get; }
-    public string BattleSpriteBack  { get; }
+    private readonly PokemonSpecies _species;
 
-    // Individual values (determine stat growth probability per level)
-    public int HpIV      { get; }
-    public int AttackIV  { get; }
-    public int DefenseIV { get; }
-    public int SpeedIV   { get; }
+    public string Name              => _species.Name;
+    public string BattleSpriteFront => _species.BattleSpriteFront;
+    public string BattleSpriteBack  => _species.BattleSpriteBack;
 
-    // Current stats (grow on level-up)
-    public int Hp      { get; private set; }
-    public int Attack  { get; private set; }
-    public int Defense { get; private set; }
-    public int Speed   { get; private set; }
+    // Stats: the base stat plus half the growth value per level. No dice: the same
+    // species at the same level always has the same stats.
+    public int Hp      => StatAt(_species.BaseHp,      _species.HpGrowth);
+    public int Attack  => StatAt(_species.BaseAttack,  _species.AttackGrowth);
+    public int Defense => StatAt(_species.BaseDefense, _species.DefenseGrowth);
+    public int Speed   => StatAt(_species.BaseSpeed,   _species.SpeedGrowth);
 
     public int Level       { get; private set; }
     public int CurrentHp   { get; set; }
     public int CurrentExp  { get; set; }
-    public int ExpToLevel  { get; private set; }
 
-    public Mon(PokemonSpecies def, int level)
+    // Exp needed for the next level: 10 per level.
+    public int ExpToLevel => Level * 10;
+
+    public Mon(PokemonSpecies species, int level)
     {
-        Name              = def.Name;
-        BattleSpriteFront = def.BattleSpriteFront;
-        BattleSpriteBack  = def.BattleSpriteBack;
-
-        HpIV      = def.HpIV;
-        AttackIV  = def.AttackIV;
-        DefenseIV = def.DefenseIV;
-        SpeedIV   = def.SpeedIV;
-
-        Hp      = def.BaseHp;
-        Attack  = def.BaseAttack;
-        Defense = def.BaseDefense;
-        Speed   = def.BaseSpeed;
-
-        Level      = level;
-        CurrentExp = 0;
-        ExpToLevel = CalcExpToLevel(level);
-
-        // Apply level-up stat growth for each level reached
-        for (int i = 0; i < level; i++)
-            RollStatsLevelUp();
-
+        _species  = species;
+        Level     = level;
         CurrentHp = Hp;
     }
 
-    // Rolls stats for one level. Each stat's IV (1–5) is tested 3 times against a d6:
-    // if the roll is ≤ IV the stat increases by 1. Returns the four increases.
-    private (int hpGain, int atkGain, int defGain, int spdGain) RollStatsLevelUp()
-    {
-        int hpGain = 0, atkGain = 0, defGain = 0, spdGain = 0;
-        var rng = Random.Shared;
-
-        for (int i = 0; i < 3; i++) if (rng.Next(1, 7) <= HpIV)      { Hp++;      hpGain++;  }
-        for (int i = 0; i < 3; i++) if (rng.Next(1, 7) <= AttackIV)  { Attack++;  atkGain++; }
-        for (int i = 0; i < 3; i++) if (rng.Next(1, 7) <= DefenseIV) { Defense++; defGain++; }
-        for (int i = 0; i < 3; i++) if (rng.Next(1, 7) <= SpeedIV)   { Speed++;   spdGain++; }
-
-        return (hpGain, atkGain, defGain, spdGain);
-    }
-
-    // Exp required to reach the next level from level n.
-    private static int CalcExpToLevel(int level) => (int)(level * level * 5 * 0.75f);
-
+    private int StatAt(int baseStat, int growth) => baseStat + growth * Level / 2;
 }

@@ -4,34 +4,34 @@
     "battleSpriteFront": "images/pokemon/burrowby-front",
     "battleSpriteBack":  "images/pokemon/burrowby-back",
     "baseHp": 14, "baseAttack": 9, "baseDefense": 5, "baseSpeed": 6,
-    "hpIV": 3, "attackIV": 4, "defenseIV": 2, "speedIV": 3
+    "hpGrowth": 3, "attackGrowth": 4, "defenseGrowth": 2, "speedGrowth": 3
   },
   {
     "name": "Cindrel",
     "battleSpriteFront": "images/pokemon/cindrel-front",
     "battleSpriteBack":  "images/pokemon/cindrel-back",
     "baseHp": 12, "baseAttack": 7, "baseDefense": 3, "baseSpeed": 7,
-    "hpIV": 3, "attackIV": 4, "defenseIV": 2, "speedIV": 4
+    "hpGrowth": 3, "attackGrowth": 4, "defenseGrowth": 2, "speedGrowth": 4
   },
   {
     "name": "Frondle",
     "battleSpriteFront": "images/pokemon/frondle-front",
     "battleSpriteBack":  "images/pokemon/frondle-back",
     "baseHp": 11, "baseAttack": 5, "baseDefense": 5, "baseSpeed": 6,
-    "hpIV": 3, "attackIV": 3, "defenseIV": 3, "speedIV": 4
+    "hpGrowth": 3, "attackGrowth": 3, "defenseGrowth": 3, "speedGrowth": 4
   },
   {
     "name": "Caneko",
     "battleSpriteFront": "images/pokemon/caneko-front",
     "battleSpriteBack":  "images/pokemon/caneko-back",
     "baseHp": 13, "baseAttack": 6, "baseDefense": 4, "baseSpeed": 7,
-    "hpIV": 3, "attackIV": 3, "defenseIV": 2, "speedIV": 5
+    "hpGrowth": 3, "attackGrowth": 3, "defenseGrowth": 2, "speedGrowth": 5
   },
   {
     "name": "Crestling",
     "battleSpriteFront": "images/pokemon/crestling-front",
     "battleSpriteBack":  "images/pokemon/crestling-back",
     "baseHp": 14, "baseAttack": 7, "baseDefense": 3, "baseSpeed": 7,
-    "hpIV": 3, "attackIV": 4, "defenseIV": 2, "speedIV": 4
+    "hpGrowth": 3, "attackGrowth": 4, "defenseGrowth": 2, "speedGrowth": 4
   }
 ]

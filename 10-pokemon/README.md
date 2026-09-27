@@ -17,7 +17,7 @@ steps (e.g. with a diff tool) to see exactly what changed.
 | `Pokemon0` | Overworld | Two tile layers, and tile-based movement tweened between tiles |
 | `Pokemon1` | State stack | Title screen, fade transitions and dialogue boxes layered on the stack; species data from JSON |
 | `Pokemon2` | Battles | Random encounters in tall grass, the battle scene, messages and a menu; for now you can only run |
-| `Pokemon3` | Turns & RPG mechanics | Fight: turn order, damage, experience, level-up, fainting; healing with `P` |
+| `Pokemon3` | Turns & RPG mechanics | Fight: turn order, damage, experience, level-up, fainting; healing at the spring |
 | `Pokemon4` | Audio | A real audio service replaces the silent `NullAudio` in the locator (the finished game) |
 
 ## New in GMDCore
@@ -78,9 +78,10 @@ Where to find things:
 | A fade | `States/GameStates/FadeState.cs` |
 | Moving from tile to tile | `States/EntityStates/EntityWalkState.cs`, `AttemptMove` |
 | Random encounters | `States/PlayerStates/PlayerWalkState.cs`, `TryStartEncounter` |
+| The healing spring | `States/PlayerStates/PlayerWalkState.cs`, `TryHeal` |
 | The battle scene and its bars | `States/GameStates/BattleState.cs` |
 | One turn, as a chain of tweens | `States/GameStates/TakeTurnState.cs` |
-| Damage, EXP and level-ups | `Mons/Mon.cs` |
+| Stats, damage, EXP and level-ups | `Mons/Mon.cs` |
 | The species | `Content/Assets/data/pokemon_definitions.json`, loaded by `Mons/PokemonDefinitions.cs` |
 | The player's animations | `Content/Assets/data/entity_animations.json`, loaded by `Definitions/ContentLoader.cs` |
 | The services and the null object | `Locator.cs`, `Audio/NullAudio.cs` |
@@ -127,7 +128,6 @@ folder): the content builder only rebuilds a font when the `.spritefont` itself 
 | --- | --- |
 | Arrow keys, `W` `A` `S` `D` | Walk, and move through menus |
 | `Enter` or `Space` | Confirm |
-| `P` | Heal your Pokemon |
 | `Esc` | Quit |
 
 ## Running a step

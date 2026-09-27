@@ -1,6 +1,6 @@
 namespace Pokemon4.Mons;
 
-// Blueprint for a Mon species — base stats and IVs shared by all individuals of that species.
+// Blueprint for a Mon species: base stats and growth values, shared by every monster of that species.
 public sealed record PokemonSpecies(
     string Name,
     string BattleSpriteFront,
@@ -10,8 +10,8 @@ public sealed record PokemonSpecies(
     int BaseAttack,
     int BaseDefense,
     int BaseSpeed,
-    // Individual Values (1–5): higher = more likely to gain that stat on level-up
-    int HpIV,
-    int AttackIV,
-    int DefenseIV,
-    int SpeedIV);
+    // Growth values (1–5): how fast each stat grows with the level
+    int HpGrowth,
+    int AttackGrowth,
+    int DefenseGrowth,
+    int SpeedGrowth);

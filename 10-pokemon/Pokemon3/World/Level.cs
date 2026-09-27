@@ -6,7 +6,7 @@ using Pokemon3.Entities;
 
 namespace Pokemon3.World;
 
-// The overworld level: two tilemap layers (base grass + tall grass) and the player entity.
+// The overworld level: two tilemap layers (base grass with a healing spring + tall grass) and the player entity.
 public sealed class Level
 {
     public Tilemap BaseLayer  { get; }
@@ -37,6 +37,8 @@ public sealed class Level
                     GrassLayer.SetTile(x, y, new Tile(GameSettings.TileTallGrass));
             }
         }
+
+        BaseLayer.SetTile(GameSettings.SpringMapX, GameSettings.SpringMapY, new Tile(GameSettings.TileSpring));
     }
 
     public void Update(GameTime gameTime)

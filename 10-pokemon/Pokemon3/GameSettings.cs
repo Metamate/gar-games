@@ -19,6 +19,11 @@ public static class GameSettings
 
     public static readonly int[] TileGrass = { 45, 46 };
     public const int TileTallGrass = 41;
+    public const int TileSpring = 47;
+
+    // The healing spring, in tiles
+    public const int SpringMapX = 4;
+    public const int SpringMapY = 6;
 
     // Time (seconds) to tween one tile-step walk
     public const float WalkTweenDuration = 0.5f;
