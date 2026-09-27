@@ -64,15 +64,13 @@ public class Game1 : Game
             Width = 5,
             Height = 20,
         };
-        Random random = new();
         _ball = new()
         {
-            Position = new(VIRTUAL_WIDTH / 2 - 2, VIRTUAL_HEIGHT / 2 - 2),
-            Velocity = new(random.Next(2) == 1 ? 100 : -100, random.Next(-50, 51)),
             Width = 4,
             Height = 4,
         };
-        _servingPlayer = random.Next(2) + 1;
+        _ball.Reset();
+        _servingPlayer = _random.Next(2) + 1;
         _gameState = "start";
     }
 

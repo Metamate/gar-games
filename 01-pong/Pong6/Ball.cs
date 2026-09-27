@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -6,22 +6,18 @@ namespace Pong6;
 
 public class Ball
 {
-    public required Vector2 Position { get; set; }
-    public required Vector2 Velocity { get; set; }
+    public Vector2 Position { get; set; }
+    public Vector2 Velocity { get; set; }
     public required int Width { get; set; }
     public required int Height { get; set; }
     static readonly Random random = new();
-
-    public Ball()
-    {
-        Reset();
-    }
 
     public void Update(GameTime gameTime)
     {
         Position += Velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
     }
 
+    // Back to the centre, heading left or right at a random angle.
     public void Reset()
     {
         Position = new Vector2(Game1.VIRTUAL_WIDTH / 2 - Width / 2, Game1.VIRTUAL_HEIGHT / 2 - Height / 2);

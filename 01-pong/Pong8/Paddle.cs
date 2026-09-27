@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -23,16 +23,16 @@ public class Paddle
         if (PaddleIndex == 1)
         {
             if (keyboardState.IsKeyDown(Keys.W))
-                Y = Math.Max(0, Y - SPEED * deltaTime);
+                Y = Math.Clamp(Y - SPEED * deltaTime, 0, Game1.VIRTUAL_HEIGHT - Height);
             if (keyboardState.IsKeyDown(Keys.S))
-                Y = Math.Min(Game1.VIRTUAL_HEIGHT - 20, Y + SPEED * deltaTime);
+                Y = Math.Clamp(Y + SPEED * deltaTime, 0, Game1.VIRTUAL_HEIGHT - Height);
         }
         else if (PaddleIndex == 2)
         {
             if (keyboardState.IsKeyDown(Keys.Up))
-                Y = Math.Max(0, Y - SPEED * deltaTime);
+                Y = Math.Clamp(Y - SPEED * deltaTime, 0, Game1.VIRTUAL_HEIGHT - Height);
             if (keyboardState.IsKeyDown(Keys.Down))
-                Y = Math.Min(Game1.VIRTUAL_HEIGHT - 20, Y + SPEED * deltaTime);
+                Y = Math.Clamp(Y + SPEED * deltaTime, 0, Game1.VIRTUAL_HEIGHT - Height);
         }
     }
 

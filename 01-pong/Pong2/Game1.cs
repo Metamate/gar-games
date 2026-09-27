@@ -54,6 +54,8 @@ public class Game1 : Game
         Vector2 fontSize = _font.MeasureString(output);
         Vector2 position = new((float)VIRTUAL_WIDTH / 2 - fontSize.X / 2, (float)VIRTUAL_HEIGHT / 2 - fontSize.Y / 2);
 
+        GraphicsDevice.Clear(Color.Black);
+
         _spriteBatch.Begin(transformMatrix: _screenScaleMatrix, samplerState: SamplerState.PointClamp);
         _spriteBatch.DrawString(_font, output, position, Color.White);
         _spriteBatch.End();

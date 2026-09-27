@@ -93,14 +93,14 @@ public class Game1 : Game
         float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
         if (keyboardState.IsKeyDown(Keys.W))
-            _player1Y = Math.Max(0, _player1Y - PADDLE_SPEED * deltaTime);
+            _player1Y = Math.Clamp(_player1Y - PADDLE_SPEED * deltaTime, 0, VIRTUAL_HEIGHT - 20);
         if (keyboardState.IsKeyDown(Keys.S))
-            _player1Y = Math.Min(VIRTUAL_HEIGHT - 20, _player1Y + PADDLE_SPEED * deltaTime);
+            _player1Y = Math.Clamp(_player1Y + PADDLE_SPEED * deltaTime, 0, VIRTUAL_HEIGHT - 20);
 
         if (keyboardState.IsKeyDown(Keys.Up))
-            _player2Y = Math.Max(0, _player2Y - PADDLE_SPEED * deltaTime);
+            _player2Y = Math.Clamp(_player2Y - PADDLE_SPEED * deltaTime, 0, VIRTUAL_HEIGHT - 20);
         if (keyboardState.IsKeyDown(Keys.Down))
-            _player2Y = Math.Min(VIRTUAL_HEIGHT - 20, _player2Y + PADDLE_SPEED * deltaTime);
+            _player2Y = Math.Clamp(_player2Y + PADDLE_SPEED * deltaTime, 0, VIRTUAL_HEIGHT - 20);
 
         _oldKeyboardState = keyboardState;
     }
