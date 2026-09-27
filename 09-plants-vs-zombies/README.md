@@ -1,15 +1,14 @@
 # Plants vs. Zombies
 
-Source code for session **09 Plants vs. Zombies** of the Game Architecture (GAR) course: a
-lawn-defence game built from components. The concepts (the Component pattern, Type Object
-and game types as data, picking with the mouse) are explained on the [session
-page](https://metamate.github.io/gar/sessions/09-plants-vs-zombies/). This README is the map
-of the code.
+The code for session **09 Plants vs. Zombies** of the Game Architecture (GAR) course: a
+lawn-defence game built from components. The [session
+page](https://metamate.github.io/gar/sessions/09-plants-vs-zombies/) explains the ideas;
+this README shows where to find them in the code.
 
 ## Steps
 
 The game is built up in steps. Each step is a separate project that builds on the previous
-one, so you can follow the code's evolution one concept at a time. Compare two neighbouring
+one, so you can follow the game one concept at a time. Compare two neighbouring
 steps (e.g. with a diff tool) to see exactly what changed.
 
 | Step | Topic | What's new |

@@ -1,15 +1,13 @@
 # Pac-Man
 
-Source code for session **05 Pac-Man** of the Game Architecture (GAR) course: Pac-Man with
-the arcade ghosts. The concepts (the State pattern (ghost modes), the Strategy pattern
-(targeting), testing each ghost) are explained on the [session
-page](https://metamate.github.io/gar/sessions/05-pac-man/). This README is the map of the
-code.
+The code for session **05 Pac-Man** of the Game Architecture (GAR) course: Pac-Man with the
+arcade ghosts. The [session page](https://metamate.github.io/gar/sessions/05-pac-man/)
+explains the ideas; this README shows where to find them in the code.
 
 ## Steps
 
 The game is built up in steps. Each step is a separate project that builds on the previous
-one, so you can follow the code's evolution one concept at a time. Compare two neighbouring
+one, so you can follow the game one concept at a time. Compare two neighbouring
 steps (e.g. with a diff tool) to see exactly what changed.
 
 | Step | Topic | What's new |

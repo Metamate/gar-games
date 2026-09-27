@@ -1,15 +1,14 @@
 # Super Mario Bros
 
-Source code for session **06 Super Mario Bros** of the Game Architecture (GAR) course: a 2D
-platformer with generated levels. The concepts (platformer physics, tile collision, debug
-drawing, a camera, level makers, the State pattern) are explained on the [session
-page](https://metamate.github.io/gar/sessions/06-super-mario-bros/). This README is the map
-of the code.
+The code for session **06 Super Mario Bros** of the Game Architecture (GAR) course: a 2D
+platformer with generated levels. The [session
+page](https://metamate.github.io/gar/sessions/06-super-mario-bros/) explains the ideas; this
+README shows where to find them in the code.
 
 ## Steps
 
 The game is built up in steps. Each step is a separate project that builds on the previous
-one, so you can follow the code's evolution one concept at a time. Compare two neighbouring
+one, so you can follow the game one concept at a time. Compare two neighbouring
 steps (e.g. with a diff tool) to see exactly what changed.
 
 | Step | Topic | What's new |

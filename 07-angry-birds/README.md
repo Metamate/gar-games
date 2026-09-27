@@ -1,15 +1,14 @@
 # Angry Birds
 
-Source code for session **07 Angry Birds** of the Game Architecture (GAR) course: Angry
-Birds on the Box2D physics engine. The concepts (a physics library behind our own interface
-(Adapter and Facade), two worlds in sync, contact events, safe destruction, prototypes) are
-explained on the [session page](https://metamate.github.io/gar/sessions/07-angry-birds/).
-This README is the map of the code.
+The code for session **07 Angry Birds** of the Game Architecture (GAR) course: Angry Birds
+on the Box2D physics engine. The [session
+page](https://metamate.github.io/gar/sessions/07-angry-birds/) explains the ideas; this
+README shows where to find them in the code.
 
 ## Steps
 
 The game is built up in steps. Each step is a separate project that builds on the previous
-one, so you can follow the code's evolution one concept at a time. Compare two neighbouring
+one, so you can follow the game one concept at a time. Compare two neighbouring
 steps (e.g. with a diff tool) to see exactly what changed.
 
 | Step | Topic | What's new |

@@ -1,10 +1,9 @@
 # Flappy Bird
 
-Source code for session **02 Flappy Bird** of the Game Architecture (GAR) course: Flappy
-Bird on a reusable core library. The concepts (the class library, textures, parallax,
-procedural generation, state machines, the Singleton pattern) are explained on the [session
-page](https://metamate.github.io/gar/sessions/02-flappy-bird/). This README is the map of
-the code.
+The code for session **02 Flappy Bird** of the Game Architecture (GAR) course: Flappy Bird
+on a reusable core library. The [session
+page](https://metamate.github.io/gar/sessions/02-flappy-bird/) explains the ideas; this
+README shows where to find them in the code.
 
 ## Steps
 

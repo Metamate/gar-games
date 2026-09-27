@@ -1,9 +1,9 @@
 # Pong
 
-Source code for session **01 Pong** of the Game Architecture (GAR) course: a two-player
-Pong, built exercise by exercise. The concepts (the game loop, drawing, input, delta time,
-the Update Method pattern, AABB collision, game state) are explained on the [session
-page](https://metamate.github.io/gar/sessions/01-pong/). This README is the map of the code.
+The code for session **01 Pong** of the Game Architecture (GAR) course: a two-player Pong,
+built exercise by exercise. The [session
+page](https://metamate.github.io/gar/sessions/01-pong/) explains the ideas; this README
+shows where to find them in the code.
 
 ## Steps
 
