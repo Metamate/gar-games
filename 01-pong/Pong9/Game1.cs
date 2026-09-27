@@ -104,9 +104,7 @@ public class Game1 : Game
                 _ball.Velocity = new(-_ball.Velocity.X * 1.1f, _ball.Velocity.Y);
                 _ball.Position = new(_paddle1.X + _paddle1.Width, _ball.Position.Y);
 
-                float newY = _ball.Velocity.Y < 0 ?
-                    -_random.Next(80, 100) :
-                    _random.Next(80, 100);
+                float newY = BounceSpeedY(_ball, _paddle1);
 
                 _ball.Velocity = new(_ball.Velocity.X, newY);
             }
@@ -116,9 +114,7 @@ public class Game1 : Game
                 _ball.Velocity = new(-_ball.Velocity.X * 1.1f, _ball.Velocity.Y);
                 _ball.Position = new(_paddle2.X - _ball.Width, _ball.Position.Y);
 
-                float newY = _ball.Velocity.Y < 0 ?
-                    -_random.Next(80, 100) :
-                    _random.Next(80, 100);
+                float newY = BounceSpeedY(_ball, _paddle2);
 
                 _ball.Velocity = new(_ball.Velocity.X, newY);
             }
@@ -179,6 +175,13 @@ public class Game1 : Game
         _oldKeyboardState = keyboardState;
     }
 
+    // Where the ball hits the paddle sets the bounce: straight from the middle, steeply from the ends.
+    private static float BounceSpeedY(Ball ball, Paddle paddle)
+    {
+        float offset = (ball.Position.Y + ball.Height / 2f) - (paddle.Y + paddle.Height / 2f);
+        return offset / (paddle.Height / 2f) * 150;
+    }
+
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(new(40, 45, 52, 255));
@@ -187,11 +190,11 @@ public class Game1 : Game
 
         if (_gameState == "start")
         {
-            output = "Welcome to Pong!";
+            output = "First to 10 wins. Press Enter to start.";
         }
         else if (_gameState == "serve")
         {
-            output = $"Player {_servingPlayer}'s serve!";
+            output = $"Player {_servingPlayer} serves. Press Enter.";
         }
 
         Vector2 fontSize = _font.MeasureString(output);

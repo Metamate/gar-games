@@ -19,7 +19,6 @@ public class Game1 : Game
     private Paddle _paddle2;
     private Ball _ball;
     private string _gameState;
-    private readonly Random _random = new();
     private int _player1Score;
     private int _player2Score;
 
@@ -95,9 +94,7 @@ public class Game1 : Game
                 _ball.Velocity = new(-_ball.Velocity.X * 1.1f, _ball.Velocity.Y);
                 _ball.Position = new(_paddle1.X + _paddle1.Width, _ball.Position.Y);
 
-                float newY = _ball.Velocity.Y < 0 ?
-                    -_random.Next(80, 100) :
-                    _random.Next(80, 100);
+                float newY = BounceSpeedY(_ball, _paddle1);
 
                 _ball.Velocity = new(_ball.Velocity.X, newY);
             }
@@ -107,9 +104,7 @@ public class Game1 : Game
                 _ball.Velocity = new(-_ball.Velocity.X * 1.1f, _ball.Velocity.Y);
                 _ball.Position = new(_paddle2.X - _ball.Width, _ball.Position.Y);
 
-                float newY = _ball.Velocity.Y < 0 ?
-                    -_random.Next(80, 100) :
-                    _random.Next(80, 100);
+                float newY = BounceSpeedY(_ball, _paddle2);
 
                 _ball.Velocity = new(_ball.Velocity.X, newY);
             }
@@ -169,11 +164,18 @@ public class Game1 : Game
         _oldKeyboardState = keyboardState;
     }
 
+    // Where the ball hits the paddle sets the bounce: straight from the middle, steeply from the ends.
+    private static float BounceSpeedY(Ball ball, Paddle paddle)
+    {
+        float offset = (ball.Position.Y + ball.Height / 2f) - (paddle.Y + paddle.Height / 2f);
+        return offset / (paddle.Height / 2f) * 150;
+    }
+
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(new(40, 45, 52, 255));
 
-        string output = _gameState == "start" ? "Start State!" : "Play State!";
+        string output = _gameState == "start" ? "Press Enter to launch the ball" : "";
 
         Vector2 fontSize = _font.MeasureString(output);
         Vector2 position = new((float)VIRTUAL_WIDTH / 2 - fontSize.X / 2, (float)VIRTUAL_HEIGHT / 4 - fontSize.Y / 2);

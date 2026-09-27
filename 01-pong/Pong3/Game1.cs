@@ -54,7 +54,7 @@ public class Game1 : Game
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(new(40, 45, 52, 255));
-        string output = "Hello Pong!";
+        string output = "Hello, MonoGame!";
         Vector2 fontSize = _font.MeasureString(output);
         Vector2 position = new((float)VIRTUAL_WIDTH / 2 - fontSize.X / 2, (float)VIRTUAL_HEIGHT / 4 - fontSize.Y / 2);
 

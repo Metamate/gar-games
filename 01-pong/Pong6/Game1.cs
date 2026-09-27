@@ -121,11 +121,11 @@ public class Game1 : Game
 
         if (_gameState == "start")
         {
-            output = "Start State!";
+            output = "Press Enter to launch the ball";
         }
         else
         {
-            output = "Play State!";
+            output = "";
         }
 
         Vector2 fontSize = _font.MeasureString(output);

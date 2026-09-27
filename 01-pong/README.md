@@ -13,18 +13,18 @@ diff tool) to see exactly what changed.
 
 | Step | Exercise | What's new |
 | --- | --- | --- |
-| `Pong0` | New game | An empty MonoGame project |
-| `Pong1` | Hello Pong | Text centred on a 1280×720 window |
+| `Pong0` | An empty game | An empty MonoGame project |
+| `Pong1` | Text on screen | Text centred on a 1280×720 window |
 | `Pong2` | Virtual resolution | Resolution independent of the window, point filtering |
-| `Pong3` | Drawing rectangles | Paddles and ball, and a custom retro font (`arial` → `font`) |
-| `Pong4` | Paddle movement | Keyboard input, frame-rate independent movement |
-| `Pong5` | Ball movement | Launch the ball, keep the paddles on screen |
-| `Pong6` | Encapsulation | `Paddle` and `Ball` classes (Update Method pattern) |
-| `Pong7` | Collision detection | AABB bounces off paddles and walls |
+| `Pong3` | Rectangles from a pixel | Paddles and ball, and a custom retro font (`arial` → `font`) |
+| `Pong4` | Input and delta time | Keyboard input, frame-rate independent movement |
+| `Pong5` | A moving ball | Launch the ball, keep the paddles on screen; a first game mode |
+| `Pong6` | The Update Method | `Paddle` and `Ball` classes (Update Method pattern) |
+| `Pong7` | Collisions and the bounce | AABB bounces off paddles and walls; where the ball hits the paddle sets the angle |
 | `Pong8` | Scoring | Scores in a bigger font |
-| `Pong9` | Serve state | The player who was scored on serves |
-| `Pong10` | Victory | A done state when a player reaches 10 points |
-| `Pong11` | Audio | Sound effects for hits and scoring |
+| `Pong9` | A serve mode | The player who was scored on serves |
+| `Pong10` | A winner | A done mode when a player reaches 10 points |
+| `Pong11` | Sound effects | Sound effects for hits and scoring |
 
 ## Code Map
 
