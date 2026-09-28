@@ -54,6 +54,4 @@ Or open a game's `.slnx` in Visual Studio or Rider, or its folder in VS Code.
 ## GMDCore
 
 GMDCore is one library that grows through the course. Each game's `GMDCore` keeps everything
-from the previous game and adds to it; its README lists what's new. `python tools/check.py`
-shows the differences between games, and checks that the build files are identical in every
-game. The build on GitHub runs it too.
+from the previous game and adds to it; its README lists what's new.
