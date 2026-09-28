@@ -18,6 +18,10 @@ steps (e.g. with a diff tool) to see exactly what changed.
 | `Pokemon3` | Turns & RPG mechanics | Fight: turn order, damage, experience, level-up, fainting; healing at the spring |
 | `Pokemon4` | Audio | A real audio service replaces the silent `NullAudio` in the locator (the finished game) |
 
+Next to the steps, `UiSamples` puts the game's widgets on one screen, each on its own: a
+menu whose options do something you can see, a panel, a progress bar that tweens, and a
+textbox that pages through a message. It uses the widgets from `Pokemon4` itself.
+
 ## New in GMDCore
 
 Compared with the core in [08-zelda](../08-zelda/):
@@ -136,6 +140,8 @@ Requires the [.NET 10 SDK](https://dotnet.microsoft.com/download).
 cd 10-pokemon
 dotnet run --project Pokemon4
 ```
+
+The UI samples run the same way: `dotnet run --project UiSamples`.
 
 Or open `Pokemon.slnx` and choose the step to run.
 
