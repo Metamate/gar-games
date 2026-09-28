@@ -21,7 +21,7 @@ steps (e.g. with a diff tool) to see exactly what changed.
 
 ## New in GMDCore
 
-Nothing: the core is the same as in [08-zelda](../08-zelda/). The entities and components
+Nothing: the core is the same as in [07-zelda](../07-zelda/). The entities and components
 here are this game's own. In [11-geometry-wars](../11-geometry-wars/), a component model
 moves into GMDCore.
 

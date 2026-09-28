@@ -1,8 +1,8 @@
 # The Legend of Zelda
 
-The code for session **08 The Legend of Zelda** of the Game Architecture (GAR) course: a
+The code for session **07 The Legend of Zelda** of the Game Architecture (GAR) course: a
 top-down dungeon crawler. The [session
-page](https://metamate.github.io/gar/sessions/08-the-legend-of-zelda/) explains the ideas;
+page](https://metamate.github.io/gar/sessions/07-the-legend-of-zelda/) explains the ideas;
 this README shows where to find them in the code.
 
 ## Steps
@@ -79,7 +79,7 @@ The XML files refer to tiles and frames by their number in a sprite sheet.
 them up. It is a standalone script (it needs the .NET 10 SDK), not part of the game:
 
 ```sh
-cd 08-zelda/Tools
+cd 07-zelda/Tools
 dotnet run LabelTiles.cs ../Content/Assets/images/entities.png 16 16
 ```
 
@@ -100,7 +100,7 @@ main sheets.
 Requires the [.NET 10 SDK](https://dotnet.microsoft.com/download).
 
 ```sh
-cd 08-zelda
+cd 07-zelda
 dotnet run --project Zelda7
 ```
 

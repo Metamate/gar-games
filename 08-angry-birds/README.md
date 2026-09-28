@@ -1,8 +1,8 @@
 # Angry Birds
 
-The code for session **07 Angry Birds** of the Game Architecture (GAR) course: Angry Birds
+The code for session **08 Angry Birds** of the Game Architecture (GAR) course: Angry Birds
 on the Box2D physics engine. The [session
-page](https://metamate.github.io/gar/sessions/07-angry-birds/) explains the ideas; this
+page](https://metamate.github.io/gar/sessions/08-angry-birds/) explains the ideas; this
 README shows where to find them in the code.
 
 ## Steps
@@ -25,7 +25,7 @@ a box, Space a ball, R starts the scene again). Run it with `dotnet run --projec
 
 ## New in GMDCore
 
-Nothing: the core is the same as in [06-platformer](../06-platformer/). The physics adapter
+Nothing: the core is the same as in [07-zelda](../07-zelda/). The physics adapter
 belongs to this game. Putting it in GMDCore would make every later game depend on Box2D.
 
 ## Code Map
@@ -98,7 +98,7 @@ The prefabs are `wood-`, `stone-` and `glass-` followed by `plank`, `post` or `b
 Requires the [.NET 10 SDK](https://dotnet.microsoft.com/download).
 
 ```sh
-cd 07-angry-birds
+cd 08-angry-birds
 dotnet run --project Birds4
 ```
 
