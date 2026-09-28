@@ -35,10 +35,15 @@ public sealed class PhysicsWorld : IDisposable
     // Nothing is moving any more: every body has gone to sleep.
     public bool IsSettled => b2World_GetAwakeBodyCount(_world) == 0;
 
-    public PhysicsBody CreateBox(Vector2 center, Vector2 size, float rotation, PhysicsMaterial material, object owner = null, bool isStatic = false)
+    public PhysicsBody CreateBox(Vector2 center, Vector2 size, float rotation, PhysicsMaterial material, object owner = null, BodyType type = BodyType.Dynamic)
     {
         B2BodyDef bodyDef = b2DefaultBodyDef();
-        bodyDef.type = isStatic ? B2BodyType.b2_staticBody : B2BodyType.b2_dynamicBody;
+        bodyDef.type = type switch
+        {
+            BodyType.Static => B2BodyType.b2_staticBody,
+            BodyType.Kinematic => B2BodyType.b2_kinematicBody,
+            _ => B2BodyType.b2_dynamicBody,
+        };
         bodyDef.position = Units.ToMeters(center);
         bodyDef.rotation = b2MakeRot(-rotation);
         B2BodyId id = b2CreateBody(_world, in bodyDef);
@@ -47,7 +52,7 @@ public sealed class PhysicsWorld : IDisposable
         B2ShapeDef shapeDef = ShapeDef(material);
         b2CreatePolygonShape(id, in shapeDef, in box);
 
-        return Add(new PhysicsBody(id, size, 0, isStatic, owner));
+        return Add(new PhysicsBody(id, size, 0, type, owner));
     }
 
     public PhysicsBody CreateCircle(Vector2 center, float radius, PhysicsMaterial material, object owner = null, bool isBullet = false)
@@ -62,7 +67,7 @@ public sealed class PhysicsWorld : IDisposable
         B2ShapeDef shapeDef = ShapeDef(material);
         b2CreateCircleShape(id, in shapeDef, in circle);
 
-        return Add(new PhysicsBody(id, Vector2.Zero, radius, false, owner));
+        return Add(new PhysicsBody(id, Vector2.Zero, radius, BodyType.Dynamic, owner));
     }
 
     public void Destroy(PhysicsBody body)

@@ -72,7 +72,7 @@ public class Game1 : Core
         Physics?.Dispose();
         Physics = new PhysicsWorld(Gravity);
         Physics.Hit += OnHit;
-        Physics.CreateBox(new Vector2(640, 680), new Vector2(3000, 80), 0, Materials.Ground, isStatic: true);
+        Physics.CreateBox(new Vector2(640, 680), new Vector2(3000, 80), 0, Materials.Ground, type: BodyType.Static);
 
         Level level = Level.Parse(ReadText($"levels/level{index + 1}.txt"));
         _entities.Clear();

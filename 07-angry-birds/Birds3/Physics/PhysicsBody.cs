@@ -9,12 +9,12 @@ namespace Birds3.Physics;
 // pixels, rotations are clockwise, and no Box2D type leaks out.
 public sealed class PhysicsBody
 {
-    internal PhysicsBody(B2BodyId id, Vector2 size, float radius, bool isStatic, object owner)
+    internal PhysicsBody(B2BodyId id, Vector2 size, float radius, BodyType type, object owner)
     {
         Id = id;
         Size = size;
         Radius = radius;
-        IsStatic = isStatic;
+        Type = type;
         Owner = owner;
     }
 
@@ -26,7 +26,8 @@ public sealed class PhysicsBody
     public Vector2 Size { get; }    // for boxes, in pixels
     public float Radius { get; }    // for circles, in pixels (0 for boxes)
     public bool IsCircle => Radius > 0;
-    public bool IsStatic { get; }
+    public BodyType Type { get; }
+    public bool IsStatic => Type == BodyType.Static;
 
     public Vector2 Position => Units.ToPixels(b2Body_GetPosition(Id));
 

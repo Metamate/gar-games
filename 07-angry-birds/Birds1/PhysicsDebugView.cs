@@ -17,7 +17,12 @@ public class PhysicsDebugView(Texture2D pixel)
 
         foreach (PhysicsBody body in world.Bodies)
         {
-            Color color = body.IsStatic ? Color.Orange : body.IsAwake ? Color.LimeGreen : Color.Blue;
+            Color color = body.Type switch
+            {
+                BodyType.Static => Color.Orange,
+                BodyType.Kinematic => Color.Magenta,
+                _ => body.IsAwake ? Color.LimeGreen : Color.Blue,
+            };
             if (body.IsCircle)
                 DrawCircle(spriteBatch, body, color);
             else

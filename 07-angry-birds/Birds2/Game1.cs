@@ -49,7 +49,7 @@ public class Game1 : Core
         _physics?.Dispose();
         _physics = new PhysicsWorld(Gravity);
         _physics.Hit += OnHit;
-        _physics.CreateBox(new Vector2(640, 680), new Vector2(3000, 80), 0, Materials.Ground, isStatic: true);
+        _physics.CreateBox(new Vector2(640, 680), new Vector2(3000, 80), 0, Materials.Ground, type: BodyType.Static);
         _entities.Clear();
         _bird = null;
         _score = 0;

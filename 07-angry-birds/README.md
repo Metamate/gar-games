@@ -19,6 +19,10 @@ steps (e.g. with a diff tool) to see exactly what changed.
 | `Birds3` | Prototype | Configured entities (prefabs) are cloned into the world; the level is a text file of prefab names and positions |
 | `Birds4` | The whole game | Three levels, a few birds per level, an aiming curve, and game states: aim, fly, level end (the finished game) |
 
+Next to the steps, `PhysicsSamples` shows one physics idea per scene, through the game's own
+facade: body types, bounce, friction, density and sleeping (keys 1 to 5; click drops a box,
+Space a ball, R starts the scene again). Run it with `dotnet run --project PhysicsSamples`.
+
 ## New in GMDCore
 
 Nothing: the core is the same as in [06-platformer](../06-platformer/). The physics adapter
