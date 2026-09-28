@@ -15,7 +15,7 @@ steps (e.g. with a diff tool) to see exactly what changed.
 | --- | --- | --- |
 | `Snake0` | Starting point | Loads the atlas image and draws parts of it with hardcoded source rectangles |
 | `Snake1` | Texture atlas | `TextureAtlas` loads named regions from `atlas-definition.xml` |
-| `Snake2` | Sprites | `Sprite` wraps a region with color, rotation, scale and origin |
+| `Snake2` | Sprites | `Sprite` wraps a region with colour, rotation, scale and origin |
 | `Snake3` | Animation | `AnimatedSprite` plays animations defined in the atlas |
 | `Snake4` | The room | The room is drawn from `tilemap-definition.xml` |
 | `Snake5` | Fixed-tick movement | A `Snake` made of grid cells moves by itself, one cell per 200 ms tick; the game reads the keys directly |

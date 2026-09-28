@@ -21,7 +21,7 @@ steps (e.g. with a diff tool) to see exactly what changed.
 
 Next to the steps, `PhysicsSamples` shows one physics idea per scene, through the game's own
 facade: body types, bounce, friction, density, sleeping, and joints (keys 1 to 6; click drops
-a box, Space a ball, R starts the scene again). Run it with `dotnet run --project PhysicsSamples`.
+a box, Space a ball, R starts the scene again).
 
 ## New in GMDCore
 
@@ -101,6 +101,8 @@ Requires the [.NET 10 SDK](https://dotnet.microsoft.com/download).
 cd 08-angry-birds
 dotnet run --project Birds4
 ```
+
+The physics samples run the same way: `dotnet run --project PhysicsSamples`.
 
 Or open `AngryBirds.slnx` and choose the step to run.
 
