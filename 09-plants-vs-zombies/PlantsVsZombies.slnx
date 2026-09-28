@@ -6,4 +6,5 @@
   <Project Path="Pvz2/Pvz2.csproj" />
   <Project Path="Pvz3/Pvz3.csproj" />
   <Project Path="Pvz4/Pvz4.csproj" />
+  <Project Path="Pvz.Tests/Pvz.Tests.csproj" />
 </Solution>

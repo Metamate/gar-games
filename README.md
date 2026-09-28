@@ -11,7 +11,7 @@ The course site explains each session: [metamate.github.io/gar](https://metamate
 | [04-sokoban](04-sokoban/) | 04 Sokoban | Command pattern |
 | [05-pac-man](05-pac-man/) | 05 Pac-Man | State pattern |
 | [06-super-mario-bros](06-super-mario-bros/) | 06 Super Mario Bros | Physics & tile collision |
-| [07-the-legend-of-zelda](07-the-legend-of-zelda/) | 07 The Legend of Zelda | Composition vs. inheritance |
+| [07-the-legend-of-zelda](07-the-legend-of-zelda/) | 07 The Legend of Zelda | Events & the Observer pattern |
 | [08-angry-birds](08-angry-birds/) | 08 Angry Birds | Integrating a third-party library |
 | [09-plants-vs-zombies](09-plants-vs-zombies/) | 09 Plants vs. Zombies | Component pattern |
 | [10-pokemon](10-pokemon/) | 10 Pokemon | Scenes & UI |

@@ -39,6 +39,19 @@ The finished game, `Pvz4`:
 | The seed packets | `SeedBar.cs` |
 | Waves of zombies | `Level.cs`, `Content/Assets/data/level1.json` |
 | Everything in play | `World.cs` |
+| The tests | `Pvz.Tests/` |
+
+## Tests
+
+`Pvz.Tests` tests the finished game's components one at a time: health, armour that takes
+damage first, and a lifetime that runs out. Each test builds an entity with only the
+components it needs, without a lawn, textures or a running game. That is what small
+components make possible.
+
+```sh
+cd 09-plants-vs-zombies
+dotnet test
+```
 
 ## Content
 
