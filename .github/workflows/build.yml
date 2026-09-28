@@ -1,7 +1,7 @@
 name: Build
 
 # Builds every game (all its step projects and content), runs its tests if it has any, and checks that the games stay
-# consistent (tools/check.py). Game folders are found automatically: 01-pong, 02-flappy, …
+# consistent (tools/check.py). Game folders are found automatically: 01-pong, 02-flappy-bird, …
 
 on:
   push:

@@ -6,12 +6,12 @@ The course site explains each session: [metamate.github.io/gar](https://metamate
 | Folder | Session | Main topic |
 | --- | --- | --- |
 | [01-pong](01-pong/) | 01 Pong | The game loop |
-| [02-flappy](02-flappy/) | 02 Flappy Bird | Organizing a growing game |
+| [02-flappy-bird](02-flappy-bird/) | 02 Flappy Bird | Organizing a growing game |
 | [03-snake](03-snake/) | 03 Snake | Assets as data |
 | [04-sokoban](04-sokoban/) | 04 Sokoban | Command pattern |
-| [05-pacman](05-pacman/) | 05 Pac-Man | State pattern |
-| [06-platformer](06-platformer/) | 06 Super Mario Bros | Physics & tile collision |
-| [07-zelda](07-zelda/) | 07 The Legend of Zelda | Composition vs. inheritance |
+| [05-pac-man](05-pac-man/) | 05 Pac-Man | State pattern |
+| [06-super-mario-bros](06-super-mario-bros/) | 06 Super Mario Bros | Physics & tile collision |
+| [07-the-legend-of-zelda](07-the-legend-of-zelda/) | 07 The Legend of Zelda | Composition vs. inheritance |
 | [08-angry-birds](08-angry-birds/) | 08 Angry Birds | Integrating a third-party library |
 | [09-plants-vs-zombies](09-plants-vs-zombies/) | 09 Plants vs. Zombies | Component pattern |
 | [10-pokemon](10-pokemon/) | 10 Pokemon | Scenes & UI |
@@ -26,7 +26,7 @@ Every game folder is set up like a game of its own, and like the
 ```text
 03-snake/
 ├── Content/            # The assets and the content builder
-├── GMDCore/            # The course's core library, as it is after this game (from 02-flappy on)
+├── GMDCore/            # The course's core library, as it is after this game (from 02-flappy-bird on)
 ├── Snake0 … Snake9/    # The game, built up in steps: one project per concept
 ├── Snake.slnx
 └── README.md           # The steps, where things are in the code, what's new in GMDCore

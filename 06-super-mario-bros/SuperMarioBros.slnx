@@ -1,0 +1,13 @@
+<Solution>
+  <Project Path="Content/Content.csproj" />
+  <Project Path="GMDCore/GMDCore.csproj" />
+  <Project Path="Mario0/Mario0.csproj" />
+  <Project Path="Mario1/Mario1.csproj" />
+  <Project Path="Mario2/Mario2.csproj" />
+  <Project Path="Mario3/Mario3.csproj" />
+  <Project Path="Mario4/Mario4.csproj" />
+  <Project Path="Mario5/Mario5.csproj" />
+  <Project Path="Mario6/Mario6.csproj" />
+  <Project Path="Mario7/Mario7.csproj" />
+  <Project Path="Mario8/Mario8.csproj" />
+</Solution>

@@ -25,7 +25,7 @@ a box, Space a ball, R starts the scene again). Run it with `dotnet run --projec
 
 ## New in GMDCore
 
-Nothing: the core is the same as in [07-zelda](../07-zelda/). The physics adapter
+Nothing: the core is the same as in [07-the-legend-of-zelda](../07-the-legend-of-zelda/). The physics adapter
 belongs to this game. Putting it in GMDCore would make every later game depend on Box2D.
 
 ## Code Map

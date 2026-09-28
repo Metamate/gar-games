@@ -24,7 +24,7 @@ textbox that pages through a message. It uses the widgets from `Pokemon4` itself
 
 ## New in GMDCore
 
-Compared with the core in [07-zelda](../07-zelda/):
+Compared with the core in [07-the-legend-of-zelda](../07-the-legend-of-zelda/):
 
 - `States/StateStack`, `States/GameStateBase` (new): layered game states.
 - `GUI/Panel`, `GUI/ProgressBar`, `Graphics/BitmapFont`, `Graphics/TextureFactory` (new).

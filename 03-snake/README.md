@@ -29,7 +29,7 @@ classes (`TextureAtlas`, `Sprite`, `AnimatedSprite`, `Tilemap`, `Circle`, input,
 
 ## New in GMDCore
 
-Compared with the core in [02-flappy](../02-flappy/):
+Compared with the core in [02-flappy-bird](../02-flappy-bird/):
 
 - `Graphics/TextureRegion`, `TextureAtlas`, `Sprite`, `Animation`, `AnimatedSprite`: parts
   of a texture, sprites and frame animation, defined in XML.
