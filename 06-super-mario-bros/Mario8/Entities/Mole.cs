@@ -1,21 +1,21 @@
 using GMDCore.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Mario8.States.GoombaStates;
+using Mario8.States.MoleStates;
 using Mario8.States.PlayerStates;
 using Mario8.LevelMaker;
 using Mario8.Audio;
 
 namespace Mario8.Entities;
 
-public class Goomba : IEntity
+public class Mole : IEntity
 {
     public TextureAtlas Atlas { get; }
     public GameLevel Level { get; }
     public AnimatedSprite Sprite { get; set; }
     public Vector2 Position { get; set; }
     public Vector2 Velocity { get; set; }
-    public GoombaStateBase State { get; private set; }
+    public MoleStateBase State { get; private set; }
 
     public Rectangle Bounds => new(
         (int)Position.X,
@@ -28,15 +28,15 @@ public class Goomba : IEntity
     public bool IsSolid => false;
     public bool Active { get; set; } = true;
 
-    public Goomba(TextureAtlas atlas, GameLevel level, Vector2 position)
+    public Mole(TextureAtlas atlas, GameLevel level, Vector2 position)
     {
         Atlas = atlas;
         Level = level;
         Position = position;
-        ChangeState(new GoombaIdleState(this));
+        ChangeState(new MoleIdleState(this));
     }
 
-    public void ChangeState(GoombaStateBase newState)
+    public void ChangeState(MoleStateBase newState)
     {
         State?.Exit();
         State = newState;
@@ -61,7 +61,7 @@ public class Goomba : IEntity
         
         if (intersects && other is Player player)
         {
-            // STOMP CHECK: If player is falling and hits the top half of the goomba
+            // STOMP CHECK: If player is falling and hits the top half of the mole
             if (player.State is PlayerFallState && player.Bounds.Bottom <= Bounds.Top + 8)
             {
                 Active = false;

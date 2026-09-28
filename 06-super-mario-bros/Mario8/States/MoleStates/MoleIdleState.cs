@@ -1,17 +1,17 @@
 using Microsoft.Xna.Framework;
 using Mario8.Entities;
 
-namespace Mario8.States.GoombaStates;
+namespace Mario8.States.MoleStates;
 
-public class GoombaIdleState(Goomba goomba) : GoombaStateBase(goomba)
+public class MoleIdleState(Mole mole) : MoleStateBase(mole)
 {
     private float _idleTimer;
     private const float IdleDuration = 2f;
 
     public override void Enter()
     {
-        SetAnimation("goomba-idle-animation");
-        Goomba.Velocity = new Vector2(0, Goomba.Velocity.Y);
+        SetAnimation("mole-idle-animation");
+        Mole.Velocity = new Vector2(0, Mole.Velocity.Y);
         _idleTimer = 0f;
     }
 
@@ -24,15 +24,15 @@ public class GoombaIdleState(Goomba goomba) : GoombaStateBase(goomba)
 
         if (_idleTimer >= IdleDuration)
         {
-            Goomba.ChangeState(new GoombaWalkState(Goomba));
+            Mole.ChangeState(new MoleWalkState(Mole));
         }
 
-        if (Goomba.Level.Player != null)
+        if (Mole.Level.Player != null)
         {
-            float distance = Vector2.Distance(Goomba.Position, Goomba.Level.Player.Position);
+            float distance = Vector2.Distance(Mole.Position, Mole.Level.Player.Position);
             if (distance < ChaseDistance)
             {
-                Goomba.ChangeState(new GoombaChaseState(Goomba));
+                Mole.ChangeState(new MoleChaseState(Mole));
             }
         }
     }

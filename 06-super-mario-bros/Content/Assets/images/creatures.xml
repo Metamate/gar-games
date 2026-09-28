@@ -2,17 +2,17 @@
 <TextureAtlas>
     <Texture>images/creatures</Texture>
     <Regions>
-        <Region name="goomba1" x="0" y="96" width="16" height="16" />
-        <Region name="goomba2" x="16" y="96" width="16" height="16" />
-        <Region name="goomba3" x="32" y="96" width="16" height="16" />
+        <Region name="mole1" x="0" y="96" width="16" height="16" />
+        <Region name="mole2" x="16" y="96" width="16" height="16" />
+        <Region name="mole3" x="32" y="96" width="16" height="16" />
     </Regions>
     <Animations>
-        <Animation name="goomba-walk-animation" delay="1000">
-            <Frame region="goomba1" />
-            <Frame region="goomba2" />
+        <Animation name="mole-walk-animation" delay="1000">
+            <Frame region="mole1" />
+            <Frame region="mole2" />
         </Animation>
-        <Animation name="goomba-idle-animation" delay="1000">
-            <Frame region="goomba3" />
+        <Animation name="mole-idle-animation" delay="1000">
+            <Frame region="mole3" />
         </Animation>
     </Animations>
 </TextureAtlas>

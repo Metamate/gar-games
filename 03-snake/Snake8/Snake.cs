@@ -35,7 +35,7 @@ public class Snake
 
     public Point Head => _segments[0];
 
-    // The head as a circle, to test against the bat.
+    // The head as a circle, to test against the mouse.
     public Circle Bounds => new(
         Head.X * _tileSize + _tileSize / 2,
         Head.Y * _tileSize + _tileSize / 2,

@@ -1,7 +1,7 @@
 # Snake
 
-The code for session **03 Snake** of the Game Architecture (GAR) course: Snake in a room
-with bats, with its art and room defined as data. The [session
+The code for session **03 Snake** of the Game Architecture (GAR) course: a snake chasing
+mice around a walled field, with its art and room defined as data. The [session
 page](https://metamate.github.io/gar/sessions/03-snake/) explains the ideas; this README
 shows where to find them in the code.
 
@@ -21,7 +21,7 @@ steps (e.g. with a diff tool) to see exactly what changed.
 | `Snake5` | Fixed-tick movement | A `Snake` made of grid cells moves by itself, one cell per 200 ms tick; the game reads the keys directly |
 | `Snake6` | Input as actions | A `GameController` maps W/A/S/D and the arrow keys to actions |
 | `Snake7` | Input buffering | Turns are queued and used one per tick, so quick key presses aren't lost |
-| `Snake8` | The bat | A bouncing bat with circle collision; eating it makes the snake grow |
+| `Snake8` | The mouse | A bouncing mouse with circle collision; eating it makes the snake grow |
 | `Snake9` | Game over | Walls and the snake's own body end the game (the finished game) |
 
 All steps share the **GMDCore** library, which contains the final versions of the reusable
@@ -46,7 +46,7 @@ The finished game, `Snake9`:
 | Atlas, sprite, animation and tilemap classes | `GMDCore/Graphics/` |
 | The snake: fixed-tick movement and growth | `Snake.cs` |
 | Keys to actions, with a buffer | `GameController.cs` |
-| The bats | `Bat.cs` |
+| The mice | `Mouse.cs` |
 | The tick accumulator and collisions | `Game1.cs` |
 
 ## Controls

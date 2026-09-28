@@ -20,7 +20,7 @@ steps (e.g. with a diff tool) to see exactly what changed.
 | `Mario4` | Camera | A level wider than the screen, a camera following the player, and a parallax background |
 | `Mario5` | Game states | A title screen and a play state |
 | `Mario6` | Entities | `IEntity`, bushes, mystery boxes that pop out coins, and a score |
-| `Mario7` | Basic AI | Goombas with their own states (idle, walk, chase); stomp them or die |
+| `Mario7` | Basic AI | Moles with their own states (idle, walk, chase); stomp them or die |
 | `Mario8` | Audio | Music and sound effects (the finished game) |
 
 All steps share the **GMDCore** library, which contains the final versions of the reusable
@@ -47,7 +47,7 @@ The finished game, `Mario8`:
 | A level: tiles, toppers, entities | `LevelMaker/GameLevel.cs` |
 | Tile collision helpers | `GMDCore/Graphics/Tilemap.cs` |
 | The player, and its states | `Entities/Player.cs`, `States/PlayerStates/` |
-| The Goomba's AI, as states | `Entities/Goomba.cs`, `States/GoombaStates/` |
+| The mole's AI, as states | `Entities/Mole.cs`, `States/MoleStates/` |
 | Boxes and coins | `Entities/MysteryBox.cs`, `Entities/Coin.cs` |
 | The camera | `Graphics/Camera.cs` |
 | Every constant | `GameSettings.cs` |

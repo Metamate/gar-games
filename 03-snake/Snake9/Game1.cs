@@ -13,7 +13,7 @@ public class Game1 : Core
     private Rectangle _room;
     private Snake _snake;
     private Rectangle _roomBounds;
-    private Bat _bat;
+    private Mouse _mouse;
 
     public Game1() : base("Snake", 1280, 720, VirtualWidth, VirtualHeight)
     {
@@ -33,15 +33,15 @@ public class Game1 : Core
 
         int tileSize = (int)_tilemap.TileWidth;
         _roomBounds = new Rectangle(_room.X * tileSize, _room.Y * tileSize, _room.Width * tileSize, _room.Height * tileSize);
-        _bat = new Bat(atlas.CreateAnimatedSprite("bat-animation"), _roomBounds);
-        RespawnBat();
+        _mouse = new Mouse(atlas.CreateAnimatedSprite("mouse-animation"), _roomBounds);
+        RespawnMouse();
     }
 
     protected override void Update(GameTime gameTime)
     {
         HandleInput();
         _snake.Update(gameTime);
-        _bat.Update(gameTime);
+        _mouse.Update(gameTime);
 
         CollisionChecks();
 
@@ -55,7 +55,7 @@ public class Game1 : Core
         SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
         _tilemap.Draw(SpriteBatch);
         _snake.Draw(SpriteBatch);
-        _bat.Draw(SpriteBatch);
+        _mouse.Draw(SpriteBatch);
         SpriteBatch.End();
 
         base.Draw(gameTime);
@@ -87,41 +87,41 @@ public class Game1 : Core
         if (!_room.Contains(_snake.Head) || _snake.IsBitingItself)
         {
             _snake.Reset(_room.Center);
-            RespawnBat();
+            RespawnMouse();
             return;
         }
 
-        // If the snake catches the bat, it eats the bat and grows, and a new bat appears.
-        if (_snake.Bounds.Intersects(_bat.Bounds))
+        // If the snake catches the mouse, it eats the mouse and grows, and a new mouse appears.
+        if (_snake.Bounds.Intersects(_mouse.Bounds))
         {
             _snake.Grow();
-            RespawnBat();
+            RespawnMouse();
         }
 
-        // If the bat leaves the room, it has hit a wall and bounces off it.
+        // If the mouse leaves the room, it has hit a wall and bounces off it.
         // The normal points away from the wall, back into the room.
-        if (_bat.Bounds.Top < _roomBounds.Top)
+        if (_mouse.Bounds.Top < _roomBounds.Top)
         {
-            _bat.Bounce(Vector2.UnitY);
+            _mouse.Bounce(Vector2.UnitY);
         }
-        else if (_bat.Bounds.Bottom > _roomBounds.Bottom)
+        else if (_mouse.Bounds.Bottom > _roomBounds.Bottom)
         {
-            _bat.Bounce(-Vector2.UnitY);
+            _mouse.Bounce(-Vector2.UnitY);
         }
 
-        if (_bat.Bounds.Left < _roomBounds.Left)
+        if (_mouse.Bounds.Left < _roomBounds.Left)
         {
-            _bat.Bounce(Vector2.UnitX);
+            _mouse.Bounce(Vector2.UnitX);
         }
-        else if (_bat.Bounds.Right > _roomBounds.Right)
+        else if (_mouse.Bounds.Right > _roomBounds.Right)
         {
-            _bat.Bounce(-Vector2.UnitX);
+            _mouse.Bounce(-Vector2.UnitX);
         }
     }
 
-    private void RespawnBat()
+    private void RespawnMouse()
     {
-        _bat.RandomizePosition();
-        _bat.RandomizeVelocity();
+        _mouse.RandomizePosition();
+        _mouse.RandomizeVelocity();
     }
 }

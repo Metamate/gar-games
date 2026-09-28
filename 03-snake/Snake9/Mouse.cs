@@ -4,9 +4,9 @@ using GMDCore.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Snake8;
+namespace Snake9;
 
-public class Bat(AnimatedSprite sprite, Rectangle roomBounds)
+public class Mouse(AnimatedSprite sprite, Rectangle roomBounds)
 {
     private const float Speed = 100f;
     private readonly AnimatedSprite _sprite = sprite;
@@ -33,7 +33,7 @@ public class Bat(AnimatedSprite sprite, Rectangle roomBounds)
     public void Bounce(Vector2 normal)
     {
         // Move slightly away from the wall in the direction of the normal,
-        // so the bat doesn't stay stuck inside the wall.
+        // so the mouse doesn't stay stuck inside the wall.
         Position += new Vector2(normal.X * _sprite.Width, normal.Y * _sprite.Height) * 0.1f;
 
         // Reflect the velocity off the wall.
@@ -52,7 +52,7 @@ public class Bat(AnimatedSprite sprite, Rectangle roomBounds)
 
     public void RandomizePosition()
     {
-        // Divide the room into a grid of bat-sized cells and pick a random cell.
+        // Divide the room into a grid of mouse-sized cells and pick a random cell.
         int columns = _roomBounds.Width / (int)_sprite.Width;
         int rows = _roomBounds.Height / (int)_sprite.Height;
         int column = Random.Shared.Next(0, columns);

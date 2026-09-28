@@ -1,33 +1,33 @@
 using System;
 using Microsoft.Xna.Framework;
-using Mario8.Entities;
+using Mario7.Entities;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Mario8.States.GoombaStates;
+namespace Mario7.States.MoleStates;
 
-public class GoombaChaseState(Goomba goomba) : GoombaStateBase(goomba)
+public class MoleChaseState(Mole mole) : MoleStateBase(mole)
 {
     private const float ChaseSpeed = 30f;
 
     public override void Enter()
     {
-        SetAnimation("goomba-walk-animation");
+        SetAnimation("mole-walk-animation");
     }
 
     public override void Update(GameTime gameTime)
     {
-        if (Goomba.Level.Player == null)
+        if (Mole.Level.Player == null)
         {
-            Goomba.ChangeState(new GoombaIdleState(Goomba));
+            Mole.ChangeState(new MoleIdleState(Mole));
             return;
         }
 
-        float dx = Goomba.Level.Player.Position.X - Goomba.Position.X;
+        float dx = Mole.Level.Player.Position.X - Mole.Position.X;
         float distance = Math.Abs(dx);
 
         if (distance > ChaseDistance * 1.5f)
         {
-            Goomba.ChangeState(new GoombaWalkState(Goomba));
+            Mole.ChangeState(new MoleWalkState(Mole));
             return;
         }
 
@@ -35,8 +35,8 @@ public class GoombaChaseState(Goomba goomba) : GoombaStateBase(goomba)
         if (distance > 5f)
         {
             int direction = dx > 0 ? 1 : -1;
-            Goomba.Velocity = new Vector2(direction * ChaseSpeed, Goomba.Velocity.Y);
-            Goomba.Sprite.Effects = direction > 0 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+            Mole.Velocity = new Vector2(direction * ChaseSpeed, Mole.Velocity.Y);
+            Mole.Sprite.Effects = direction > 0 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
         }
 
         base.Update(gameTime);
