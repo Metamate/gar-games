@@ -16,7 +16,7 @@ public class Game1 : Core
     private float _groundScroll;
     private Bird _bird;
 
-    public Game1() : base("Flappy5", 1280, 720, VirtualWidth, VirtualHeight)
+    public Game1() : base("Flappy Bird", 1280, 720, VirtualWidth, VirtualHeight)
     {
     }
 

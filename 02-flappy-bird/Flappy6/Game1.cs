@@ -20,7 +20,7 @@ public class Game1 : Core
     private const float PipeSpawnInterval = 2f;
     private float _pipeSpawnTimer;
 
-    public Game1() : base("Flappy6", 1280, 720, VirtualWidth, VirtualHeight)
+    public Game1() : base("Flappy Bird", 1280, 720, VirtualWidth, VirtualHeight)
     {
     }
 

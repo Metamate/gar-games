@@ -12,7 +12,7 @@ public class Game1 : Core
     private Texture2D _background;
     private Texture2D _ground;
 
-    public Game1() : base("Flappy1", 1280, 720, VirtualWidth, VirtualHeight)
+    public Game1() : base("Flappy Bird", 1280, 720, VirtualWidth, VirtualHeight)
     {
     }
 

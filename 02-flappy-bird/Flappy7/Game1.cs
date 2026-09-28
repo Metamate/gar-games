@@ -22,7 +22,7 @@ public class Game1 : Core
     private float _pipeSpawnTimer;
     private float lastGapY = VirtualHeight / 2 - PipePair.PipeGap / 2;
 
-    public Game1() : base("Flappy7", 1280, 720, VirtualWidth, VirtualHeight)
+    public Game1() : base("Flappy Bird", 1280, 720, VirtualWidth, VirtualHeight)
     {
     }
 

@@ -10,7 +10,7 @@ public class Game1 : Core
     public const int VirtualWidth = 512;
     public const int VirtualHeight = 288;
 
-    public Game1() : base("Flappy0", 1280, 720, VirtualWidth, VirtualHeight)
+    public Game1() : base("Flappy Bird", 1280, 720, VirtualWidth, VirtualHeight)
     {
     }
 

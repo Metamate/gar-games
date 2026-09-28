@@ -31,6 +31,7 @@ public class Game1 : Game
         };
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
+        Window.Title = "Pong";
         Window.AllowUserResizing = true;
         Window.ClientSizeChanged += (sender, e) => UpdateScreenScaleMatrix();
     }

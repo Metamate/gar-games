@@ -18,7 +18,7 @@ public class Game1 : Core
     public bool IsScrolling { get; set; }
     public StateMachine GameState { get; set; }
 
-    public Game1() : base("Flappy11", 1280, 720, VirtualWidth, VirtualHeight)
+    public Game1() : base("Flappy Bird", 1280, 720, VirtualWidth, VirtualHeight)
     {
     }
 

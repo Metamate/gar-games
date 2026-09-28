@@ -23,7 +23,7 @@ public class Game1 : Core
     private float lastGapY = VirtualHeight / 2 - PipePair.PipeGap / 2;
     private bool isPaused;
 
-    public Game1() : base("Flappy8", 1280, 720, VirtualWidth, VirtualHeight)
+    public Game1() : base("Flappy Bird", 1280, 720, VirtualWidth, VirtualHeight)
     {
     }
 
