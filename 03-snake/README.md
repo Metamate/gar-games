@@ -49,26 +49,6 @@ The finished game, `Snake9`:
 | The bats | `Bat.cs` |
 | The tick accumulator and collisions | `Game1.cs` |
 
-## Content
-
-All steps also share the same assets and the same **content builder** (MonoGame 3.8.5+):
-
-```text
-Content/
-├── Assets/                  # The raw assets: images and XML definitions
-├── Builder/Builder.cs       # The rules for building the assets, in C#
-├── BuildContent.targets     # Runs the builder when a game project builds
-└── Content.csproj
-```
-
-There is no `.mgcb` file and no MGCB Editor. `Builder.cs` decides how each asset is
-processed: PNG images are built into textures, and the XML files are copied as they are.
-Each step project imports `BuildContent.targets`, so building a step also builds the content
-into its output folder, where `Content.Load` finds it.
-
-To add an asset, put it in `Content/Assets` and, if no existing rule matches it, add a rule
-in `Builder.cs`.
-
 ## Controls
 
 | Key | Action |

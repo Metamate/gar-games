@@ -58,7 +58,7 @@ two, at 50 pixels per metre.
 
 ## Content
 
-All steps share the same assets and the same content builder:
+The assets all steps share:
 
 ```text
 Content/Assets/
@@ -82,9 +82,6 @@ pig          960 618 0
 
 The prefabs are `wood-`, `stone-` and `glass-` followed by `plank`, `post` or `box`, and
 `pig` and `big-pig`.
-
-If you replace a font's `.ttf`, also save its `.spritefont` (or delete the step's `obj`
-folder): the content builder only rebuilds a font when the `.spritefont` itself changes.
 
 ## Controls
 

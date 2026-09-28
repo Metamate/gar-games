@@ -54,28 +54,8 @@ The finished game, `Platformer8`:
 
 ## Content
 
-All steps share the same raw assets, built by the **content builder** (MonoGame 3.8.5+):
-
-```text
-Content/
-├── Assets/                  # The raw assets: images, fonts, sounds, data files
-├── Builder/Builder.cs       # The rules for building the assets, in C#
-├── BuildContent.targets     # Runs the builder when the game project builds
-└── Content.csproj
-```
-
-There is no `.mgcb` file and no MGCB Editor. `Builder.cs` decides how each kind of asset is
-processed. Each step project imports `BuildContent.targets`, so building a step also builds
-the assets into its output folder, where `Content.Load` finds them.
-
-To add an asset, put it in `Content/Assets` and, if no existing rule matches it, add a rule
-in `Builder.cs`.
-
 `Content/Assets/images/extras.png` holds art the game doesn't use yet: power-ups (a star, a
 mushroom, a heart, a coin, a key and a potion, 16 × 16 each) for the exercises.
-
-If you replace a font's `.ttf`, also save its `.spritefont` (or delete the step's `obj`
-folder): the content builder only rebuilds a font when the `.spritefont` itself changes.
 
 ## Controls
 

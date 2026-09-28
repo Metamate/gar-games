@@ -52,30 +52,6 @@ The finished game, `Flappy12`:
 | The state machine and its states | `States/StateMachine.cs`, `States/*State.cs` |
 | The audio Singleton | `Audio.cs` |
 
-## Content
-
-All steps share one folder of raw assets (fonts, images, sounds), built by the **content
-builder** (MonoGame 3.8.5+):
-
-```text
-Content/
-├── Assets/                  # The raw assets, shared by all steps
-├── Builder/Builder.cs       # The rules for building the assets, in C#
-├── BuildContent.targets     # Runs the builder when a game project builds
-└── Content.csproj
-```
-
-There is no `.mgcb` file and no MGCB Editor. `Builder.cs` decides how each kind of asset is
-processed. Each step project imports `BuildContent.targets`, so building a step also builds
-its assets into its output folder, where `Content.Load` finds them.
-
-To add an asset, put it in `Content/Assets` and, if no existing rule matches it, add a rule
-in `Builder.cs`. Compare the `Content.Load` calls in neighbouring steps to see when each
-asset comes into use.
-
-If you replace a font's `.ttf`, also save its `.spritefont` (or delete the step's `obj`
-folder): the content builder only rebuilds a font when the `.spritefont` itself changes.
-
 ## Controls
 
 | Key | Action |

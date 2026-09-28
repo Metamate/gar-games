@@ -42,7 +42,7 @@ The finished game, `Pvz4`:
 
 ## Content
 
-All steps share the same assets and the same content builder:
+The assets all steps share:
 
 ```text
 Content/Assets/
@@ -64,9 +64,6 @@ A plant type gets a component for each kind of data it has:
 
 `shooter`, `sunProducer` and `explode` are the plant components that can be set from data;
 zombies can have `armour`.
-
-If you replace a font's `.ttf`, also save its `.spritefont` (or delete the step's `obj`
-folder): the content builder only rebuilds a font when the `.spritefont` itself changes.
 
 ## Controls
 

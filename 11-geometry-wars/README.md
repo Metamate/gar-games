@@ -85,28 +85,6 @@ cd 11-geometry-wars
 dotnet test
 ```
 
-## Content
-
-All steps share the same raw assets, built by the **content builder** (MonoGame 3.8.5+):
-
-```text
-Content/
-├── Assets/                  # The raw assets: textures, fonts, sounds, shaders
-├── Builder/Builder.cs       # The rules for building the assets, in C#
-├── BuildContent.targets     # Runs the builder when the game project builds
-└── Content.csproj
-```
-
-There is no `.mgcb` file and no MGCB Editor. `Builder.cs` decides how each kind of asset is
-processed. Each step project imports `BuildContent.targets`, so building a step also builds
-the assets into its output folder, where `Content.Load` finds them.
-
-To add an asset, put it in `Content/Assets` and, if no existing rule matches it, add a rule
-in `Builder.cs`.
-
-If you replace a font's `.ttf`, also save its `.spritefont` (or delete the step's `obj`
-folder): the content builder only rebuilds a font when the `.spritefont` itself changes.
-
 ## Controls
 
 | Input | Action |

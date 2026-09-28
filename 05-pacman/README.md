@@ -51,7 +51,7 @@ dotnet test
 
 ## Content
 
-All steps share the same assets and the same content builder:
+The assets all steps share:
 
 ```text
 Content/Assets/
@@ -76,9 +76,6 @@ an open tile. A maze uses these characters:
 | `p` `i` `c` | Pinky, Inky and Clyde (inside the house) |
 
 A row that is open at both ends is a tunnel.
-
-If you replace a font's `.ttf`, also save its `.spritefont` (or delete the step's `obj`
-folder): the content builder only rebuilds a font when the `.spritefont` itself changes.
 
 ## Controls
 
