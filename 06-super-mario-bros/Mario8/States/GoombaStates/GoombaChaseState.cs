@@ -1,33 +1,33 @@
 using System;
 using Microsoft.Xna.Framework;
-using Mario7.Entities;
+using Mario8.Entities;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Mario7.States.SnailStates;
+namespace Mario8.States.GoombaStates;
 
-public class SnailChaseState(Snail snail) : SnailStateBase(snail)
+public class GoombaChaseState(Goomba goomba) : GoombaStateBase(goomba)
 {
     private const float ChaseSpeed = 30f;
 
     public override void Enter()
     {
-        SetAnimation("snail-walk-animation");
+        SetAnimation("goomba-walk-animation");
     }
 
     public override void Update(GameTime gameTime)
     {
-        if (Snail.Level.Player == null)
+        if (Goomba.Level.Player == null)
         {
-            Snail.ChangeState(new SnailIdleState(Snail));
+            Goomba.ChangeState(new GoombaIdleState(Goomba));
             return;
         }
 
-        float dx = Snail.Level.Player.Position.X - Snail.Position.X;
+        float dx = Goomba.Level.Player.Position.X - Goomba.Position.X;
         float distance = Math.Abs(dx);
 
         if (distance > ChaseDistance * 1.5f)
         {
-            Snail.ChangeState(new SnailWalkState(Snail));
+            Goomba.ChangeState(new GoombaWalkState(Goomba));
             return;
         }
 
@@ -35,8 +35,8 @@ public class SnailChaseState(Snail snail) : SnailStateBase(snail)
         if (distance > 5f)
         {
             int direction = dx > 0 ? 1 : -1;
-            Snail.Velocity = new Vector2(direction * ChaseSpeed, Snail.Velocity.Y);
-            Snail.Sprite.Effects = direction > 0 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+            Goomba.Velocity = new Vector2(direction * ChaseSpeed, Goomba.Velocity.Y);
+            Goomba.Sprite.Effects = direction > 0 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
         }
 
         base.Update(gameTime);

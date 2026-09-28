@@ -1,17 +1,17 @@
 using Microsoft.Xna.Framework;
-using Mario7.Entities;
+using Mario8.Entities;
 
-namespace Mario7.States.SnailStates;
+namespace Mario8.States.GoombaStates;
 
-public class SnailIdleState(Snail snail) : SnailStateBase(snail)
+public class GoombaIdleState(Goomba goomba) : GoombaStateBase(goomba)
 {
     private float _idleTimer;
     private const float IdleDuration = 2f;
 
     public override void Enter()
     {
-        SetAnimation("snail-idle-animation");
-        Snail.Velocity = new Vector2(0, Snail.Velocity.Y);
+        SetAnimation("goomba-idle-animation");
+        Goomba.Velocity = new Vector2(0, Goomba.Velocity.Y);
         _idleTimer = 0f;
     }
 
@@ -24,15 +24,15 @@ public class SnailIdleState(Snail snail) : SnailStateBase(snail)
 
         if (_idleTimer >= IdleDuration)
         {
-            Snail.ChangeState(new SnailWalkState(Snail));
+            Goomba.ChangeState(new GoombaWalkState(Goomba));
         }
 
-        if (Snail.Level.Player != null)
+        if (Goomba.Level.Player != null)
         {
-            float distance = Vector2.Distance(Snail.Position, Snail.Level.Player.Position);
+            float distance = Vector2.Distance(Goomba.Position, Goomba.Level.Player.Position);
             if (distance < ChaseDistance)
             {
-                Snail.ChangeState(new SnailChaseState(Snail));
+                Goomba.ChangeState(new GoombaChaseState(Goomba));
             }
         }
     }

@@ -20,7 +20,7 @@ public class ComplexLevelMaker(ContentManager content) : LevelMakerBase(content)
         float pillarChance = 0.15f;
         float bushChance = 0.3f;
         float boxChance = 0.1f;
-        float snailChance = 0.1f;
+        float goombaChance = 0.1f;
 
         for (int x = 0; x < columns; x++)
         {
@@ -54,12 +54,12 @@ public class ComplexLevelMaker(ContentManager content) : LevelMakerBase(content)
                 level.AddEntity(new Bush(GetRandomBush(), bushPosition));
             }
 
-            // Spawn snails on flat ground (not pillars, to keep it simple)
-            if (currentHeight == groundHeight && Random.Shared.NextDouble() < snailChance)
+            // Spawn goombas on flat ground (not pillars, to keep it simple)
+            if (currentHeight == groundHeight && Random.Shared.NextDouble() < goombaChance)
             {
-                // Position snail on top of ground
-                Vector2 snailPosition = Tilemap.TileToPoint(x, (rows - currentHeight) - 1);
-                level.AddEntity(new Snail(CreaturesAtlas, level, snailPosition));
+                // Position goomba on top of ground
+                Vector2 goombaPosition = Tilemap.TileToPoint(x, (rows - currentHeight) - 1);
+                level.AddEntity(new Goomba(CreaturesAtlas, level, goombaPosition));
             }
 
             // Spawn floating mystery boxes
@@ -67,7 +67,7 @@ public class ComplexLevelMaker(ContentManager content) : LevelMakerBase(content)
             {
                 int boxHeight = (currentHeight > groundHeight) ? 3 : 4;
                 Vector2 boxPosition = Tilemap.TileToPoint(x, (rows - currentHeight) - boxHeight);
-                level.AddEntity(new MysteryBox(level, GetRandomMysteryBox(), boxPosition, Gems));
+                level.AddEntity(new MysteryBox(level, GetRandomMysteryBox(), boxPosition, Coins));
             }
         }
 

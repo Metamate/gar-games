@@ -1,11 +1,11 @@
 using GMDCore.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Mario6.LevelMaker;
+using Mario7.LevelMaker;
 
-namespace Mario6.Entities;
+namespace Mario7.Entities;
 
-public class Gem(TextureRegion region, Vector2 position, Vector2 velocity) : IEntity
+public class Coin(TextureRegion region, Vector2 position, Vector2 velocity) : IEntity
 {
     public bool Collidable { get; set; } = true;
     public bool IsSolid => false;
@@ -23,7 +23,7 @@ public class Gem(TextureRegion region, Vector2 position, Vector2 velocity) : IEn
     {
         float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-        // Simple physics for the gem animation
+        // Simple physics for the coin animation
         Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity * dt);
         Position += Velocity * dt;
 
@@ -45,7 +45,7 @@ public class Gem(TextureRegion region, Vector2 position, Vector2 velocity) : IEn
         {
             if (Bounds.Intersects(player.Bounds))
             {
-                Active = false; // Gem is collected
+                Active = false; // Coin is collected
                 player.Score++;
                 return true;
             }

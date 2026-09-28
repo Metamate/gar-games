@@ -9,9 +9,9 @@ using Mario8.Audio;
 
 namespace Mario8.Entities;
 
-public class MysteryBox(GameLevel level, TextureRegion region, Vector2 position, List<TextureRegion> gems) : IEntity
+public class MysteryBox(GameLevel level, TextureRegion region, Vector2 position, List<TextureRegion> coins) : IEntity
 {
-    private List<TextureRegion> gems = gems;
+    private List<TextureRegion> coins = coins;
     public GameLevel Level { get; } = level;
     public bool Collidable { get; set; } = true;
     public bool IsSolid => true;
@@ -75,13 +75,13 @@ public class MysteryBox(GameLevel level, TextureRegion region, Vector2 position,
         WasHit = true;
         SoundManager.PlayPowerupReveal();
 
-        if (gems != null && gems.Count > 0)
+        if (coins != null && coins.Count > 0)
         {
-            var gemRegion = gems[Random.Shared.Next(gems.Count)];
-            // Spawn gem above the box with an upward pop and slight horizontal variance
-            Vector2 gemPos = new(Position.X, Position.Y - gemRegion.Height);
+            var coinRegion = coins[Random.Shared.Next(coins.Count)];
+            // Spawn coin above the box with an upward pop and slight horizontal variance
+            Vector2 coinPos = new(Position.X, Position.Y - coinRegion.Height);
             float randomX = (float)(Random.Shared.NextDouble() * 100 - 50); // -50 to 50 spread
-            Level.AddEntity(new Gem(gemRegion, gemPos, new Vector2(randomX, -200f)));
+            Level.AddEntity(new Coin(coinRegion, coinPos, new Vector2(randomX, -200f)));
         }
     }
 }

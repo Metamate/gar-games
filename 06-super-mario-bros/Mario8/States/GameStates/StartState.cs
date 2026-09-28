@@ -9,7 +9,8 @@ namespace Mario8.States.GameStates;
 
 public class StartState(Game1 game) : GameStateBase(game)
 {
-    private string _title = "Alien Hop";
+    private string _title = "Super Mario Bros";
+    private float _titleScale = 0.7f;
     private Vector2 _titlePosition;
     private string _subtitle = "Press Enter";
     private Vector2 _subtitlePosition;
@@ -18,7 +19,7 @@ public class StartState(Game1 game) : GameStateBase(game)
 
     public override void Enter()
     {
-        Vector2 size = Game1.DefaultFont.MeasureString(_title);
+        Vector2 size = Game1.DefaultFont.MeasureString(_title) * _titleScale;
         _titlePosition = new Vector2(
             GameSettings.VirtualWidth / 2f - size.X / 2f,
             GameSettings.VirtualHeight / 2f - size.Y / 2f - 10f
@@ -47,7 +48,7 @@ public class StartState(Game1 game) : GameStateBase(game)
         _backgroundLevel.Draw(spriteBatch, Game.ScreenScaleMatrix);
 
         spriteBatch.Begin(transformMatrix: Game.ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
-        spriteBatch.DrawString(Game1.DefaultFont, _title, _titlePosition, Color.White);
+        spriteBatch.DrawString(Game1.DefaultFont, _title, _titlePosition, Color.White, 0f, Vector2.Zero, _titleScale, SpriteEffects.None, 0f);
         spriteBatch.DrawString(Game1.DefaultFont, _subtitle, _subtitlePosition, Color.White, 0f, Vector2.Zero, _subtitleScale, SpriteEffects.None, 0f);
         spriteBatch.End();
     }

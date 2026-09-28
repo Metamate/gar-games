@@ -93,10 +93,10 @@ public sealed class StartState : GameStateBase
         if (_currentSprite != null)
             spriteBatch.Draw(_currentSprite, new Vector2(_spriteX, _spriteY), Color.White);
 
-        var titleSize    = Locator.Assets.LargeFont.MeasureString("Pokemon!");
+        var titleSize    = Locator.Assets.LargeFont.MeasureString("Pokemon");
         var subtitleSize = Locator.Assets.MediumFont.MeasureString("Press Enter");
 
-        Locator.Assets.LargeFont.Draw(spriteBatch, "Pokemon!",
+        Locator.Assets.LargeFont.Draw(spriteBatch, "Pokemon",
             new Vector2(GameSettings.VirtualWidth / 2f - titleSize.X / 2f,
                         GameSettings.VirtualHeight / 2f - 72f),
             TitleColor);

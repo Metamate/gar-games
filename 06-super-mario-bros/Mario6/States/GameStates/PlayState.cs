@@ -18,8 +18,8 @@ public class PlayState(Game1 game) : GameStateBase(game)
         _levelMaker = new ComplexLevelMaker(Game.Content);
         _currentLevel = _levelMaker.Generate(50, 9);
 
-        TextureAtlas alienAtlas = TextureAtlas.FromFile(Game.Content, "images/alien.xml");
-        _player = new Player(alienAtlas, _currentLevel);
+        TextureAtlas playerAtlas = TextureAtlas.FromFile(Game.Content, "images/player.xml");
+        _player = new Player(playerAtlas, _currentLevel);
         _currentLevel.Player = _player;
     }
 

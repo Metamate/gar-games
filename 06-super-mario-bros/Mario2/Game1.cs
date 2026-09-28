@@ -30,8 +30,8 @@ public class Game1 : Core
     {
         _level = _levelMaker.Generate(Columns, Rows);
 
-        TextureAtlas alienAtlas = TextureAtlas.FromFile(Content, "images/alien.xml");
-        _player = new Player(alienAtlas, _level);
+        TextureAtlas playerAtlas = TextureAtlas.FromFile(Content, "images/player.xml");
+        _player = new Player(playerAtlas, _level);
         _level.Player = _player;
     }
 

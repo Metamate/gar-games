@@ -1,20 +1,21 @@
 using GMDCore.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Mario7.States.SnailStates;
-using Mario7.States.PlayerStates;
-using Mario7.LevelMaker;
+using Mario8.States.GoombaStates;
+using Mario8.States.PlayerStates;
+using Mario8.LevelMaker;
+using Mario8.Audio;
 
-namespace Mario7.Entities;
+namespace Mario8.Entities;
 
-public class Snail : IEntity
+public class Goomba : IEntity
 {
     public TextureAtlas Atlas { get; }
     public GameLevel Level { get; }
     public AnimatedSprite Sprite { get; set; }
     public Vector2 Position { get; set; }
     public Vector2 Velocity { get; set; }
-    public SnailStateBase State { get; private set; }
+    public GoombaStateBase State { get; private set; }
 
     public Rectangle Bounds => new(
         (int)Position.X,
@@ -27,15 +28,15 @@ public class Snail : IEntity
     public bool IsSolid => false;
     public bool Active { get; set; } = true;
 
-    public Snail(TextureAtlas atlas, GameLevel level, Vector2 position)
+    public Goomba(TextureAtlas atlas, GameLevel level, Vector2 position)
     {
         Atlas = atlas;
         Level = level;
         Position = position;
-        ChangeState(new SnailIdleState(this));
+        ChangeState(new GoombaIdleState(this));
     }
 
-    public void ChangeState(SnailStateBase newState)
+    public void ChangeState(GoombaStateBase newState)
     {
         State?.Exit();
         State = newState;
@@ -60,11 +61,12 @@ public class Snail : IEntity
         
         if (intersects && other is Player player)
         {
-            // STOMP CHECK: If player is falling and hits the top half of the snail
+            // STOMP CHECK: If player is falling and hits the top half of the goomba
             if (player.State is PlayerFallState && player.Bounds.Bottom <= Bounds.Top + 8)
             {
                 Active = false;
                 player.Score++;
+                SoundManager.PlayKill();
                 return false; // No physical collision if it's a kill
             }
             else

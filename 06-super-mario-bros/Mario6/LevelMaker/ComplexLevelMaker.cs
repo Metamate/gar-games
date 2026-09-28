@@ -58,7 +58,7 @@ public class ComplexLevelMaker(ContentManager content) : LevelMakerBase(content)
             {
                 int boxHeight = (currentHeight > groundHeight) ? 3 : 4;
                 Vector2 boxPosition = Tilemap.TileToPoint(x, (rows - currentHeight) - boxHeight);
-                level.AddEntity(new MysteryBox(level, GetRandomMysteryBox(), boxPosition, Gems));
+                level.AddEntity(new MysteryBox(level, GetRandomMysteryBox(), boxPosition, Coins));
             }
         }
 
