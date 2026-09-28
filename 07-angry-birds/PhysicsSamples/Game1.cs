@@ -9,11 +9,11 @@ using Microsoft.Xna.Framework.Input;
 namespace PhysicsSamples;
 
 // Physics ideas, one scene at a time, through the game's own facade and drawn by its debug view.
-// 1-5: choose a scene. R: start it again. Click: drop a box. Space: drop a ball.
+// 1-6: choose a scene. R: start it again. Click: drop a box. Space: drop a ball.
 public sealed class Game1 : Core
 {
     private readonly Scene[] _scenes =
-        [new BodyTypesScene(), new BounceScene(), new FrictionScene(), new DensityScene(), new SleepScene()];
+        [new BodyTypesScene(), new BounceScene(), new FrictionScene(), new DensityScene(), new SleepScene(), new JointsScene()];
 
     private PhysicsWorld _physics;
     private PhysicsDebugView _debugView;
@@ -79,7 +79,7 @@ public sealed class Game1 : Core
         _debugView.Draw(SpriteBatch, _physics);
 
         var dim = new Color(150, 150, 150);
-        Text("1 Body types   2 Bounce   3 Friction   4 Density   5 Sleep      R: again   Click: box   Space: ball",
+        Text("1 Body types  2 Bounce  3 Friction  4 Density  5 Sleep  6 Joints    R: again  Click: box  Space: ball",
             new Vector2(20, 14), dim, 0.5f);
         Text(_scene.Title, new Vector2(20, 40), Color.White, 0.8f);
         for (int i = 0; i < _scene.Notes.Length; i++)

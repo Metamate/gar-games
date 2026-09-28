@@ -4,6 +4,7 @@ using Box2D.NET;
 using Microsoft.Xna.Framework;
 using static Box2D.NET.B2Bodies;
 using static Box2D.NET.B2Geometries;
+using static Box2D.NET.B2Joints;
 using static Box2D.NET.B2MathFunction;
 using static Box2D.NET.B2Shapes;
 using static Box2D.NET.B2Types;
@@ -21,6 +22,7 @@ public sealed class PhysicsWorld : IDisposable
 
     private readonly B2WorldId _world;
     private readonly List<PhysicsBody> _bodies = [];
+    private readonly List<PhysicsJoint> _joints = [];
     private float _accumulator;
 
     public PhysicsWorld(float gravity)
@@ -77,7 +79,66 @@ public sealed class PhysicsWorld : IDisposable
     public void Destroy(PhysicsBody body)
     {
         if (_bodies.Remove(body))
+        {
+            _joints.RemoveAll(j => j.BodyA == body || j.BodyB == body);   // Box2D destroys them with the body
             b2DestroyBody(body.Id);
+        }
+    }
+
+    // Joints hold two bodies together. Anchors are points in the world, in pixels.
+
+    // Weld: the two bodies act as one, as they are now.
+    public PhysicsJoint Weld(PhysicsBody a, PhysicsBody b, Vector2 anchor)
+    {
+        B2WeldJointDef def = b2DefaultWeldJointDef();
+        SetBodies(ref def.@base, a, b, anchor, anchor);
+        return AddJoint(new PhysicsJoint(b2CreateWeldJoint(_world, in def), JointType.Weld, a, b));
+    }
+
+    // Hinge: b turns around the anchor, like a door or a pendulum.
+    public PhysicsJoint Hinge(PhysicsBody a, PhysicsBody b, Vector2 anchor)
+    {
+        B2RevoluteJointDef def = b2DefaultRevoluteJointDef();
+        SetBodies(ref def.@base, a, b, anchor, anchor);
+        return AddJoint(new PhysicsJoint(b2CreateRevoluteJoint(_world, in def), JointType.Hinge, a, b));
+    }
+
+    // Rope: the anchors can come closer, but never further apart than the length.
+    public PhysicsJoint Rope(PhysicsBody a, PhysicsBody b, Vector2 anchorA, Vector2 anchorB, float length)
+    {
+        B2DistanceJointDef def = b2DefaultDistanceJointDef();
+        SetBodies(ref def.@base, a, b, anchorA, anchorB);
+        def.length = Units.ToMeters(length);
+        def.enableSpring = true;        // a spring with no stiffness: the rope can go slack
+        def.hertz = 0;
+        def.enableLimit = true;         // but it can't stretch past its length
+        def.minLength = 0;
+        def.maxLength = Units.ToMeters(length);
+        return AddJoint(new PhysicsJoint(b2CreateDistanceJoint(_world, in def), JointType.Rope, a, b));
+    }
+
+    public IReadOnlyList<PhysicsJoint> Joints => _joints;
+
+    // Each body gets a frame at its anchor, turned so the joint starts from how the bodies are now.
+    // (Only the bodies and frames change: Box2D's defaults for the rest stay.)
+    private static void SetBodies(ref B2JointDef def, PhysicsBody a, PhysicsBody b, Vector2 anchorA, Vector2 anchorB)
+    {
+        def.bodyIdA = a.Id;
+        def.bodyIdB = b.Id;
+        def.localFrameA = Frame(a.Id, anchorA);
+        def.localFrameB = Frame(b.Id, anchorB);
+    }
+
+    private static B2Transform Frame(B2BodyId body, Vector2 anchor)
+    {
+        B2Rot rotation = b2Body_GetRotation(body);
+        return new B2Transform { p = b2Body_GetLocalPoint(body, Units.ToMeters(anchor)), q = b2MakeRot(-b2Rot_GetAngle(in rotation)) };
+    }
+
+    private PhysicsJoint AddJoint(PhysicsJoint joint)
+    {
+        _joints.Add(joint);
+        return joint;
     }
 
     public void Update(float deltaSeconds)

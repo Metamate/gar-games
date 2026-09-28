@@ -28,6 +28,13 @@ public class PhysicsDebugView(Texture2D pixel)
             else
                 DrawBox(spriteBatch, body, color);
         }
+
+        foreach (PhysicsJoint joint in world.Joints)
+        {
+            // A rope is a line between its anchors; a hinge or a weld is where the bodies meet.
+            spriteBatch.DrawLine(pixel, joint.AnchorA, joint.AnchorB, Color.Yellow, 2);
+            spriteBatch.Draw(pixel, new Rectangle((int)joint.AnchorA.X - 3, (int)joint.AnchorA.Y - 3, 6, 6), Color.Yellow);
+        }
     }
 
     private void DrawBox(SpriteBatch spriteBatch, PhysicsBody body, Color color)

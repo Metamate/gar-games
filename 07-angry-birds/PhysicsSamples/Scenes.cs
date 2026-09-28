@@ -180,3 +180,56 @@ public sealed class SleepScene : Scene
         }
     }
 }
+
+// Joints: bodies held together.
+public sealed class JointsScene : Scene
+{
+    public override string Title => "6  Joints";
+    public override string[] Notes =>
+    [
+        "A joint holds two bodies together (yellow: its anchors). A hinge lets them turn around a point,",
+        "a rope keeps them within a length but can go slack, and a weld makes two bodies act as one.",
+    ];
+
+    public override void Build(PhysicsWorld world)
+    {
+        Ground(world);
+        Labels.Clear();
+
+        // A pendulum: a ball on a hinge, started out to the side.
+        PhysicsBody pivot = Pin(world, new Vector2(200, 180));
+        PhysicsBody bob = world.CreateCircle(new Vector2(360, 180), 25, Materials.Stone);
+        PhysicsBody arm = world.CreateBox(new Vector2(280, 180), new Vector2(160, 6), 0, Materials.Wood);
+        world.Hinge(pivot, arm, new Vector2(200, 180));
+        world.Weld(arm, bob, new Vector2(360, 180));
+        Labels.Add((new Vector2(150, 140), "hinge"));
+
+        // A tether ball: a rope 220 long, slack at the start.
+        PhysicsBody hook = Pin(world, new Vector2(520, 180));
+        PhysicsBody ball = world.CreateCircle(new Vector2(620, 260), 22, Materials.Wood);
+        world.Rope(hook, ball, new Vector2(520, 180), ball.Position, 220);
+        Labels.Add((new Vector2(480, 140), "rope"));
+
+        // A chain: eight links, each hinged to the one before.
+        PhysicsBody previous = Pin(world, new Vector2(800, 180));
+        for (int i = 0; i < 8; i++)
+        {
+            float x = 800 + 20 + i * 40;
+            PhysicsBody link = world.CreateBox(new Vector2(x, 180), new Vector2(40, 8), 0, Materials.Wood);
+            world.Hinge(previous, link, new Vector2(x - 20, 180));
+            previous = link;
+        }
+        Labels.Add((new Vector2(760, 140), "hinged chain"));
+
+        // A hammer: a handle and a head, welded into one body, dropped at an angle.
+        PhysicsBody handle = world.CreateBox(new Vector2(1060, 330), new Vector2(14, 110), 0.5f, Materials.Wood);
+        Vector2 top = handle.Position + new Vector2(System.MathF.Sin(0.5f), -System.MathF.Cos(0.5f)) * 60;
+        PhysicsBody head = world.CreateBox(top, new Vector2(60, 26), 0.5f, Materials.Stone);
+        world.Weld(handle, head, top);
+        Labels.Add((new Vector2(1000, 230), "weld"));
+    }
+
+    // A small static body to hang things from.
+    private static PhysicsBody Pin(PhysicsWorld world, Vector2 at)
+        => world.CreateBox(at, new Vector2(10, 10), 0, Materials.Ground, type: BodyType.Static);
+}
