@@ -1,6 +1,6 @@
 # gar-games
 
-The games of the Game Architecture (GAR) course: one folder per game, in session order.
+The games of the Game Architecture (GAR) course, one folder per game, in session order.
 The course site explains each session: [metamate.github.io/gar](https://metamate.github.io/gar/).
 
 | Folder | Session | Main topic |
@@ -32,7 +32,7 @@ Every game folder is set up like a game of its own, and like the
 └── README.md           # The steps, where things are in the code, what's new in GARCore
 ```
 
-Compare two neighbouring steps (e.g. with a diff tool) to see exactly what changed. The
+Compare two neighbouring steps (e.g. with a diff tool) to see what changed. The
 last step is the finished game.
 
 Some games also have a test project (`Sokoban.Tests`, `Pacman.Tests`, `Pvz.Tests`, `GeometryWars.Tests`,

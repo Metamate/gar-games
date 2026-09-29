@@ -9,7 +9,7 @@ README shows where to find them in the code.
 
 The game is built up in steps. Each step is a separate project that builds on the previous
 one, mostly by adding components to the entity recipes in `EntityFactory` and the systems
-they need. Compare two neighbouring steps (e.g. with a diff tool) to see exactly what changed.
+they need. Compare two neighbouring steps (e.g. with a diff tool) to see what changed.
 
 | Step | Topic | What's new |
 | --- | --- | --- |

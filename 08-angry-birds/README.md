@@ -9,7 +9,7 @@ README shows where to find them in the code.
 
 The game is built up in steps. Each step is a separate project that builds on the previous
 one, so you can follow the game one concept at a time. Compare two neighbouring
-steps (e.g. with a diff tool) to see exactly what changed.
+steps (e.g. with a diff tool) to see what changed.
 
 | Step | Topic | What's new |
 | --- | --- | --- |
@@ -25,7 +25,7 @@ a box, Space a ball, R starts the scene again).
 
 ## New in GARCore
 
-Nothing: the core is the same as in [07-the-legend-of-zelda](../07-the-legend-of-zelda/). The physics adapter
+Nothing. The core is the same as in [07-the-legend-of-zelda](../07-the-legend-of-zelda/). The physics adapter
 belongs to this game. Putting it in GARCore would make every later game depend on Box2D.
 
 ## Code Map

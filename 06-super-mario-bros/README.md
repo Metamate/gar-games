@@ -9,7 +9,7 @@ README shows where to find them in the code.
 
 The game is built up in steps. Each step is a separate project that builds on the previous
 one, so you can follow the game one concept at a time. Compare two neighbouring
-steps (e.g. with a diff tool) to see exactly what changed.
+steps (e.g. with a diff tool) to see what changed.
 
 | Step | Topic | What's new |
 | --- | --- | --- |

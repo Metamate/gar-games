@@ -8,7 +8,7 @@ explains the ideas; this README shows where to find them in the code.
 
 The game is built up in steps. Each step is a separate project that builds on the previous
 one, so you can follow the game one concept at a time. Compare two neighbouring
-steps (e.g. with a diff tool) to see exactly what changed.
+steps (e.g. with a diff tool) to see what changed.
 
 | Step | Topic | What's new |
 | --- | --- | --- |
@@ -20,7 +20,7 @@ steps (e.g. with a diff tool) to see exactly what changed.
 
 ## New in GARCore
 
-Nothing: the core is the same as in [04-sokoban](../04-sokoban/). The maze, the ghosts and
+Nothing. The core is the same as in [04-sokoban](../04-sokoban/). The maze, the ghosts and
 their states belong to Pac-Man, not to every game.
 
 ## Code Map

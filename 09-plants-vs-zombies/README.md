@@ -9,7 +9,7 @@ this README shows where to find them in the code.
 
 The game is built up in steps. Each step is a separate project that builds on the previous
 one, so you can follow the game one concept at a time. Compare two neighbouring
-steps (e.g. with a diff tool) to see exactly what changed.
+steps (e.g. with a diff tool) to see what changed.
 
 | Step | Topic | What's new |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ steps (e.g. with a diff tool) to see exactly what changed.
 
 ## New in GARCore
 
-Nothing: the core is the same as in [07-the-legend-of-zelda](../07-the-legend-of-zelda/). The entities and components
+Nothing. The core is the same as in [07-the-legend-of-zelda](../07-the-legend-of-zelda/). The entities and components
 here are this game's own. In [11-geometry-wars](../11-geometry-wars/), a component model
 moves into GARCore.
 
@@ -43,10 +43,10 @@ The finished game, `Pvz4`:
 
 ## Tests
 
-`Pvz.Tests` tests the finished game's components one at a time: health, armour that takes
+`Pvz.Tests` tests the finished game's components one at a time, namely health, armour that takes
 damage first, and a lifetime that runs out. Each test builds an entity with only the
-components it needs, without a lawn, textures or a running game. That is what small
-components make possible.
+components it needs, without a lawn, textures or a running game. Small components make
+that possible.
 
 ```sh
 cd 09-plants-vs-zombies

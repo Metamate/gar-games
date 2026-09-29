@@ -9,7 +9,7 @@ this README shows where to find them in the code.
 
 The game is built up in steps. Each step is a separate project that builds on the previous
 one, so you can follow the game one concept at a time. Compare two neighbouring
-steps (e.g. with a diff tool) to see exactly what changed.
+steps (e.g. with a diff tool) to see what changed.
 
 | Step | Topic | What's new |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ steps (e.g. with a diff tool) to see exactly what changed.
 
 ## New in GARCore
 
-Nothing: the core is the same as in [11-geometry-wars](../11-geometry-wars/). Its `Core`
+Nothing. The core is the same as in [11-geometry-wars](../11-geometry-wars/). Its `Core`
 runs the game logic in fixed steps (`UpdateGame`), and pauses while the window isn't active.
 
 ## Code Map
@@ -42,7 +42,7 @@ The finished game, `Survivors4`:
 ## Tests
 
 `Survivors.Tests` checks the optimized code against the slow, obvious version: the flat grid
-must find exactly the points that checking every point finds, on thousands of random points.
+must find the same points as checking every point, on thousands of random points.
 It also tests removing enemies from the arrays.
 
 ```sh
