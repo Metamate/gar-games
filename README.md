@@ -6,17 +6,17 @@ The course site explains each session: [metamate.github.io/gar](https://metamate
 | Folder | Session | Main topic |
 | --- | --- | --- |
 | [01-pong](01-pong/) | 01 Pong | The game loop |
-| [02-flappy-bird](02-flappy-bird/) | 02 Flappy Bird | Organizing a growing game |
+| [02-flappy-bird](02-flappy-bird/) | 02 Flappy Bird | Structuring the code |
 | [03-snake](03-snake/) | 03 Snake | Assets as data |
-| [04-sokoban](04-sokoban/) | 04 Sokoban | Actions you can undo, replay and rebind |
-| [05-pac-man](05-pac-man/) | 05 Pac-Man | Behaviour that changes with the situation |
-| [06-super-mario-bros](06-super-mario-bros/) | 06 Super Mario Bros | The game world: tiles, entities and a camera |
-| [07-the-legend-of-zelda](07-the-legend-of-zelda/) | 07 The Legend of Zelda | Reacting to events without knowing who reacts |
-| [08-angry-birds](08-angry-birds/) | 08 Angry Birds | A library behind your own interface |
-| [09-plants-vs-zombies](09-plants-vs-zombies/) | 09 Plants vs. Zombies | Game objects built from parts |
-| [10-pokemon](10-pokemon/) | 10 Pokemon | Scenes and UI: screens that stack |
-| [11-geometry-wars](11-geometry-wars/) | 11 Geometry Wars | Where behaviour lives in a big game |
-| [12-vampire-survivors](12-vampire-survivors/) | 12 Vampire Survivors | Performance at scale |
+| [04-sokoban](04-sokoban/) | 04 Sokoban | Command and undo |
+| [05-pac-man](05-pac-man/) | 05 Pac-Man | The State pattern |
+| [06-super-mario-bros](06-super-mario-bros/) | 06 Super Mario Bros | The game world |
+| [07-the-legend-of-zelda](07-the-legend-of-zelda/) | 07 The Legend of Zelda | Events |
+| [08-angry-birds](08-angry-birds/) | 08 Angry Birds | Using a physics library |
+| [09-plants-vs-zombies](09-plants-vs-zombies/) | 09 Plants vs. Zombies | Components |
+| [10-pokemon](10-pokemon/) | 10 Pokemon | Scenes and UI |
+| [11-geometry-wars](11-geometry-wars/) | 11 Geometry Wars | Components and systems |
+| [12-vampire-survivors](12-vampire-survivors/) | 12 Vampire Survivors | Performance |
 
 ## Each game
 
