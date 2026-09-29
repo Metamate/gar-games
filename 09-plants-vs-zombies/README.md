@@ -19,11 +19,11 @@ steps (e.g. with a diff tool) to see exactly what changed.
 | `Pvz3` | Type Object | Plant and zombie types come from `plants.json` and `zombies.json`; each type builds its own entities. The Cherry Bomb: one new component, and data |
 | `Pvz4` | The whole game | A level from `level1.json`, sun from the sky, recharging packets, winning and losing (the finished game) |
 
-## New in GMDCore
+## New in GARCore
 
 Nothing: the core is the same as in [07-the-legend-of-zelda](../07-the-legend-of-zelda/). The entities and components
 here are this game's own. In [11-geometry-wars](../11-geometry-wars/), a component model
-moves into GMDCore.
+moves into GARCore.
 
 ## Code Map
 

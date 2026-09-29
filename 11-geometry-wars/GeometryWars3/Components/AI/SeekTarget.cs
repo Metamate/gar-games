@@ -1,7 +1,7 @@
 using System;
-using GMDCore.ECS.Components;
-using GMDCore.Physics;
-using GMDCore.ECS;
+using GARCore.ECS.Components;
+using GARCore.Physics;
+using GARCore.ECS;
 using GeometryWars3.Utils;
 using Microsoft.Xna.Framework;
 

@@ -1,4 +1,4 @@
-using GMDCore.ECS.Components;
+using GARCore.ECS.Components;
 
 namespace GeometryWars2.Components.Identity;
 

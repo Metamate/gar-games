@@ -1,7 +1,7 @@
 using System;
-using GMDCore.ECS.Components;
-using GMDCore.ECS;
-using GMDCore.Particles;
+using GARCore.ECS.Components;
+using GARCore.ECS;
+using GARCore.Particles;
 using GeometryWars5.Services;
 using GeometryWars5.Systems;
 using GeometryWars5.Utils;

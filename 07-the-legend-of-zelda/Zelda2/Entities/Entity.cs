@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using GMDCore.Graphics;
+using GARCore.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Zelda2.States.EntityStates;

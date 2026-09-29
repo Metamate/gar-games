@@ -1,6 +1,6 @@
 using GeometryWars5.Graphics;
-using GMDCore;
-using GMDCore.States;
+using GARCore;
+using GARCore.States;
 using GeometryWars5.Input;
 using GeometryWars5.Services;
 using GeometryWars5.Systems;

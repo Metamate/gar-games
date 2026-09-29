@@ -1,4 +1,4 @@
-using GMDCore.Tweening;
+using GARCore.Tweening;
 
 namespace Pokemon0;
 

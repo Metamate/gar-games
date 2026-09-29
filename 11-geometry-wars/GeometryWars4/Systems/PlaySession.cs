@@ -1,8 +1,8 @@
 using System;
 using System.IO;
 using GeometryWars4.Components.Lifecycle;
-using GMDCore.ECS;
-using GMDCore.Particles;
+using GARCore.ECS;
+using GARCore.Particles;
 using GeometryWars4.Services;
 using Microsoft.Xna.Framework;
 

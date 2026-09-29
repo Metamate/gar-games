@@ -1,5 +1,5 @@
-using GMDCore;
-using GMDCore.States;
+using GARCore;
+using GARCore.States;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 

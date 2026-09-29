@@ -1,4 +1,4 @@
-using GMDCore.Graphics;
+using GARCore.Graphics;
 using Microsoft.Xna.Framework;
 
 namespace Pvz1.Entities;

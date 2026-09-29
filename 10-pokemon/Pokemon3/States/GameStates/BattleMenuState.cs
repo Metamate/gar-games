@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using GMDCore;
+using GARCore;
 using Pokemon3.GUI;
-using GMDCore.States;
+using GARCore.States;
 
 namespace Pokemon3.States.GameStates;
 

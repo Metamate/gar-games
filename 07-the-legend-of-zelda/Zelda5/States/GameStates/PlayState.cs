@@ -1,4 +1,4 @@
-using GMDCore.Graphics;
+using GARCore.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Zelda5.Definitions;

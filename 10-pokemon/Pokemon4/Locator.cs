@@ -1,4 +1,4 @@
-using GMDCore.Tweening;
+using GARCore.Tweening;
 using Pokemon4.Audio;
 
 namespace Pokemon4;

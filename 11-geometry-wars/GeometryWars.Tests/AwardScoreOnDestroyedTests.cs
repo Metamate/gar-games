@@ -1,6 +1,6 @@
 using GeometryWars6.Components.Combat;
 using GeometryWars6.Components.Lifecycle;
-using GMDCore.ECS;
+using GARCore.ECS;
 using Xunit;
 
 namespace GeometryWars.Tests;

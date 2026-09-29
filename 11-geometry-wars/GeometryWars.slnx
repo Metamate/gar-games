@@ -1,6 +1,6 @@
 <Solution>
   <Project Path="Content/Content.csproj" />
-  <Project Path="GMDCore/GMDCore.csproj" />
+  <Project Path="GARCore/GARCore.csproj" />
   <Project Path="GeometryWars0/GeometryWars0.csproj" />
   <Project Path="GeometryWars1/GeometryWars1.csproj" />
   <Project Path="GeometryWars2/GeometryWars2.csproj" />

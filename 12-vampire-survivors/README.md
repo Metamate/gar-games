@@ -19,7 +19,7 @@ steps (e.g. with a diff tool) to see exactly what changed.
 | `Survivors3` | Data-oriented design | Enemies as a struct of arrays (`Enemies`), and a `FlatGrid` rebuilt each step with a counting sort |
 | `Survivors4` | The whole game | Gems and levels, upgrades on the state stack, health, and five minutes to survive (the finished game) |
 
-## New in GMDCore
+## New in GARCore
 
 Nothing: the core is the same as in [11-geometry-wars](../11-geometry-wars/). Its `Core`
 runs the game logic in fixed steps (`UpdateGame`), and pauses while the window isn't active.

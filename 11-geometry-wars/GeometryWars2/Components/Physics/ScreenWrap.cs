@@ -1,5 +1,5 @@
-using GMDCore.ECS.Components;
-using GMDCore.ECS;
+using GARCore.ECS.Components;
+using GARCore.ECS;
 using GeometryWars2.Services;
 using Microsoft.Xna.Framework;
 

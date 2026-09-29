@@ -1,5 +1,5 @@
-using GMDCore;
-using GMDCore.States;
+using GARCore;
+using GARCore.States;
 using GeometryWars2.Input;
 using GeometryWars2.Services;
 using GeometryWars2.Systems;

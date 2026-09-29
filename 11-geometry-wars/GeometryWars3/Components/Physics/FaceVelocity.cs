@@ -1,6 +1,6 @@
-using GMDCore.ECS.Components;
-using GMDCore.ECS;
-using GMDCore.Physics;
+using GARCore.ECS.Components;
+using GARCore.ECS;
+using GARCore.Physics;
 using GeometryWars3.Utils;
 
 namespace GeometryWars3.Components.Physics;

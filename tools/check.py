@@ -2,7 +2,7 @@
 
     python tools/check.py
 
-1. GMDCore lineage. GMDCore is one library that grows through the course: every game keeps
+1. GARCore lineage. GARCore is one library that grows through the course: every game keeps
    the previous game's core and adds to it (or deliberately changes it). This lists what each
    game adds, changes and removes, in session order (the folder numbers), and fails if a game
    removes a file.
@@ -24,14 +24,14 @@ def lines(path):
 
 
 def core_files(game):
-    core = game / 'GMDCore'
+    core = game / 'GARCore'
     return {p.relative_to(core).as_posix(): p for p in core.rglob('*.cs')
             if not {'bin', 'obj'} & set(p.relative_to(core).parts)}
 
 
 def check_lineage():
     ok = True
-    games = [g for g in GAMES if (g / 'GMDCore').is_dir()]
+    games = [g for g in GAMES if (g / 'GARCore').is_dir()]
     for previous, current in zip(games, games[1:]):
         old, new = core_files(previous), core_files(current)
         added = sorted(new.keys() - old.keys())
@@ -50,7 +50,7 @@ def check_lineage():
             print('  (no changes)')
         ok &= not removed
     if not ok:
-        print('A game removed files from GMDCore. Keep them, so the core only grows.')
+        print('A game removed files from GARCore. Keep them, so the core only grows.')
     return ok
 
 

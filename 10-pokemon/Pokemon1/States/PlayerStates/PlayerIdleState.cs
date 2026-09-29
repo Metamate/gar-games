@@ -4,7 +4,7 @@ using Pokemon1.Input;
 using Pokemon1.States.EntityStates;
 using Pokemon1.States.GameStates;
 using Pokemon1.World;
-using GMDCore.States;
+using GARCore.States;
 
 namespace Pokemon1.States.PlayerStates;
 

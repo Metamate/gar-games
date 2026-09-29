@@ -1,7 +1,7 @@
-using GMDCore.ECS.Components;
+using GARCore.ECS.Components;
 using GeometryWars4.Components.Lifecycle;
-using GMDCore.Physics;
-using GMDCore.ECS;
+using GARCore.Physics;
+using GARCore.ECS;
 using GeometryWars4.Input;
 using GeometryWars4.Utils;
 

@@ -1,10 +1,10 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using GMDCore;
+using GARCore;
 using Pokemon3.Entities;
 using Pokemon3.States.PlayerStates;
 using Pokemon3.World;
-using GMDCore.States;
+using GARCore.States;
 
 namespace Pokemon3.States.GameStates;
 

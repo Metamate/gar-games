@@ -1,9 +1,9 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using GMDCore;
+using GARCore;
 using Pokemon2.GUI;
-using GMDCore.States;
+using GARCore.States;
 
 namespace Pokemon2.States.GameStates;
 

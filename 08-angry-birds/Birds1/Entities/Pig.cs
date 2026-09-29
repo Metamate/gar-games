@@ -1,5 +1,5 @@
 using Birds1.Physics;
-using GMDCore.Graphics;
+using GARCore.Graphics;
 using Microsoft.Xna.Framework;
 
 namespace Birds1.Entities;

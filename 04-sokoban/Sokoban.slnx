@@ -1,6 +1,6 @@
 <Solution>
   <Project Path="Content/Content.csproj" />
-  <Project Path="GMDCore/GMDCore.csproj" />
+  <Project Path="GARCore/GARCore.csproj" />
   <Project Path="Sokoban0/Sokoban0.csproj" />
   <Project Path="Sokoban1/Sokoban1.csproj" />
   <Project Path="Sokoban2/Sokoban2.csproj" />

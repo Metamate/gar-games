@@ -1,4 +1,4 @@
-using GMDCore.Input;
+using GARCore.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 

@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Pvz1.Entities;
-using GMDCore;
-using GMDCore.Graphics;
+using GARCore;
+using GARCore.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;

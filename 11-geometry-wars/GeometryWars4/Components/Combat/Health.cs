@@ -1,5 +1,5 @@
 using System;
-using GMDCore.ECS.Components;
+using GARCore.ECS.Components;
 
 namespace GeometryWars4.Components.Combat;
 

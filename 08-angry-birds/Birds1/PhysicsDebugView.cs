@@ -1,6 +1,6 @@
 using System;
 using Birds1.Physics;
-using GMDCore.Graphics;
+using GARCore.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 

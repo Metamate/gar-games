@@ -1,4 +1,4 @@
-using GMDCore;
+using GARCore;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Mario1.LevelMaker;

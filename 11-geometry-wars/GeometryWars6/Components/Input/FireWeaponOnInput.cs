@@ -1,8 +1,8 @@
 using System;
-using GMDCore.ECS.Components;
+using GARCore.ECS.Components;
 using GeometryWars6.Components.Lifecycle;
 using GeometryWars6.Components.Combat;
-using GMDCore.ECS;
+using GARCore.ECS;
 using GeometryWars6.Input;
 using GeometryWars6.Utils;
 using Microsoft.Xna.Framework;

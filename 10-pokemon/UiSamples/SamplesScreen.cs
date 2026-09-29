@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using GMDCore.GUI;
+using GARCore.GUI;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Pokemon4;

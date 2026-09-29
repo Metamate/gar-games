@@ -18,7 +18,7 @@ steps (e.g. with a diff tool) to see exactly what changed.
 | `Pacman3` | The Strategy pattern | Each ghost gets its own `ITargetStrategy` for chasing (`Targeting`) |
 | `Pacman4` | The whole game | Lives, Pac-Man's death, levels, and game states: ready, play, dying, game over (the finished game) |
 
-## New in GMDCore
+## New in GARCore
 
 Nothing: the core is the same as in [04-sokoban](../04-sokoban/). The maze, the ghosts and
 their states belong to Pac-Man, not to every game.

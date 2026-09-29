@@ -1,11 +1,11 @@
-using GMDCore;
+using GARCore;
 using Microsoft.Xna.Framework.Input;
 using Pokemon3.Entities;
 
 namespace Pokemon3.Input;
 
 // Abstracts raw keyboard state into named game actions.
-// All properties read from the shared GMDCore InputManager.Keyboard.
+// All properties read from the shared GARCore InputManager.Keyboard.
 public static class GameController
 {
     // Movement (held)

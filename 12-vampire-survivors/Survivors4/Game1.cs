@@ -1,8 +1,8 @@
 using System;
 using Survivors4.States;
-using GMDCore;
-using GMDCore.Graphics;
-using GMDCore.States;
+using GARCore;
+using GARCore.Graphics;
+using GARCore.States;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 

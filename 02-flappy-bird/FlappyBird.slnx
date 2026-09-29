@@ -13,5 +13,5 @@
   <Project Path="Flappy7/Flappy7.csproj" />
   <Project Path="Flappy8/Flappy8.csproj" />
   <Project Path="Flappy9/Flappy9.csproj" />
-  <Project Path="GMDCore/GMDCore.csproj" />
+  <Project Path="GARCore/GARCore.csproj" />
 </Solution>

@@ -1,7 +1,7 @@
 using System;
 using GeometryWars6.Components.Combat;
-using GMDCore.ECS.Components;
-using GMDCore.ECS;
+using GARCore.ECS.Components;
+using GARCore.ECS;
 using GeometryWars6.Services;
 using GeometryWars6.Utils;
 using Microsoft.Xna.Framework.Audio;

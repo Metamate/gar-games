@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
-using GMDCore.Graphics;
-using GMDCore.GUI;
+using GARCore.Graphics;
+using GARCore.GUI;
 
 namespace Pokemon2.GUI;
 

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using GeometryWars1.Components.Identity;
 using GeometryWars1.Components.Lifecycle;
-using GMDCore.ECS;
+using GARCore.ECS;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 

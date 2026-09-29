@@ -26,16 +26,16 @@ Every game folder is set up like a game of its own, and like the
 ```text
 03-snake/
 ├── Content/            # The assets and the content builder
-├── GMDCore/            # The course's core library, as it is after this game (from 02-flappy-bird on)
+├── GARCore/            # The course's core library, as it is after this game (from 02-flappy-bird on)
 ├── Snake0 … Snake9/    # The game, built up in steps: one project per concept
 ├── Snake.slnx
-└── README.md           # The steps, where things are in the code, what's new in GMDCore
+└── README.md           # The steps, where things are in the code, what's new in GARCore
 ```
 
 Compare two neighbouring steps (e.g. with a diff tool) to see exactly what changed. The
 last step is the finished game.
 
-Some games also have a test project (`Sokoban.Tests`, `Pacman.Tests`, `GeometryWars.Tests`,
+Some games also have a test project (`Sokoban.Tests`, `Pacman.Tests`, `Pvz.Tests`, `GeometryWars.Tests`,
 `Survivors.Tests`) that tests the finished game. Run it with `dotnet test` in the game's
 folder.
 
@@ -51,7 +51,7 @@ dotnet run --project Snake9
 
 Or open a game's `.slnx` in Visual Studio or Rider, or its folder in VS Code.
 
-## GMDCore
+## GARCore
 
-GMDCore is one library that grows through the course. Each game's `GMDCore` keeps everything
+GARCore is one library that grows through the course. Each game's `GARCore` keeps everything
 from the previous game and adds to it; its README lists what's new.

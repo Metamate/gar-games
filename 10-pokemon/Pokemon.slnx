@@ -1,6 +1,6 @@
 <Solution>
   <Project Path="Content/Content.csproj" />
-  <Project Path="GMDCore/GMDCore.csproj" />
+  <Project Path="GARCore/GARCore.csproj" />
   <Project Path="Pokemon0/Pokemon0.csproj" />
   <Project Path="Pokemon1/Pokemon1.csproj" />
   <Project Path="Pokemon2/Pokemon2.csproj" />

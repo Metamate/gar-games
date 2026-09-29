@@ -1,6 +1,6 @@
 <Solution>
   <Project Path="Content/Content.csproj" />
-  <Project Path="GMDCore/GMDCore.csproj" />
+  <Project Path="GARCore/GARCore.csproj" />
   <Project Path="Zelda0/Zelda0.csproj" />
   <Project Path="Zelda1/Zelda1.csproj" />
   <Project Path="Zelda2/Zelda2.csproj" />

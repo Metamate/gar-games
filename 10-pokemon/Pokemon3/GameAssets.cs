@@ -1,4 +1,4 @@
-using GMDCore.Graphics;
+using GARCore.Graphics;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Pokemon3;

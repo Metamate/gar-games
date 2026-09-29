@@ -21,7 +21,7 @@ they need. Compare two neighbouring steps (e.g. with a diff tool) to see exactly
 | `GeometryWars5` | Bloom | Post-processing shaders for the neon glow |
 | `GeometryWars6` | Audio | Music and sound effects (the finished game) |
 
-## New in GMDCore
+## New in GARCore
 
 Compared with the core in [10-pokemon](../10-pokemon/):
 
@@ -51,23 +51,23 @@ The finished game, `GeometryWars6`, in layers from the outside in:
 | Behaviour | `Components/` | One capability each, grouped in `AI`, `Audio`, `Combat`, `Identity`, `Input`, `Lifecycle`, `Physics`, `Visuals` |
 
 A good order to read it in: `Game1`, `PlayState`, `PlaySession`, `EntityFactory`,
-[`GMDCore/ECS/Entity.cs`](GMDCore/ECS/Entity.cs), then a few components.
+[`GARCore/ECS/Entity.cs`](GARCore/ECS/Entity.cs), then a few components.
 
 Where to find things:
 
 | To see | Look at |
 | --- | --- |
-| The component phases, and the order they run in | `GMDCore/ECS/Components/Component.cs`, `GMDCore/ECS/Entity.cs` |
+| The component phases, and the order they run in | `GARCore/ECS/Components/Component.cs`, `GARCore/ECS/Entity.cs` |
 | What the player, bullets, enemies and black holes are made of | `Systems/EntityFactory.cs` |
 | The tuning values for each kind of entity | `Definitions/GameplayDefinitions.cs` |
 | Collision detection | `Systems/CollisionSystem.cs` |
 | When enemies spawn | `Systems/EnemyDirector.cs` |
-| The bullet pool | `Systems/BulletSpawner.cs`, `GMDCore/Collections/ObjectPool.cs` |
+| The bullet pool | `Systems/BulletSpawner.cs`, `GARCore/Collections/ObjectPool.cs` |
 | What happens when the player dies | `Components/Lifecycle/RespawnState.cs`, and `PlaySession` for the arena |
 | Events inside one entity | `Components/Combat/Health.cs`, and the components that subscribe to it |
 | Score and multiplier | `Systems/ScoreTracker.cs` (behind `IScoreTracker`) |
 | The spring grid | `Systems/Grid.cs` |
-| Particles | `GMDCore/Particles/ParticleManager.cs` |
+| Particles | `GARCore/Particles/ParticleManager.cs` |
 | Shared textures and fonts | `Services/GameAssets.cs` |
 | Bloom | `Graphics/` and `Content/Assets/Shaders/` |
 

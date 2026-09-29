@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Pvz4.Components;
-using GMDCore.Graphics;
+using GARCore.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 

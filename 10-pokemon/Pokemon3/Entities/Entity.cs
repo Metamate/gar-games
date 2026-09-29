@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using GMDCore.Graphics;
+using GARCore.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Pokemon3.States.EntityStates;

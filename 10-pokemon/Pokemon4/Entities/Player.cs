@@ -1,4 +1,4 @@
-using GMDCore.Graphics;
+using GARCore.Graphics;
 using Pokemon4.Definitions;
 using Pokemon4.Mons;
 

@@ -2,9 +2,9 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Pokemon3.Battle;
-using GMDCore.GUI;
+using GARCore.GUI;
 using Pokemon3.Mons;
-using GMDCore.States;
+using GARCore.States;
 
 namespace Pokemon3.States.GameStates;
 

@@ -13,12 +13,12 @@ diff tool) to see exactly what changed.
 
 | Step | Exercise | What's new |
 | --- | --- | --- |
-| `Flappy0` | A game on the library | `Game1` derives from `Core` in GMDCore |
+| `Flappy0` | A game on the library | `Game1` derives from `Core` in GARCore |
 | `Flappy1` | Drawing images | Background and ground images |
 | `Flappy2` | Parallax scrolling | Infinitely scrolling layers at different speeds |
 | `Flappy3` | The bird and the Art class | A `Bird` class and a static `Art` class |
 | `Flappy4` | Gravity | The bird falls |
-| `Flappy5` | An input manager | `InputManager` in GMDCore (keyboard and mouse); flapping with Space or a click |
+| `Flappy5` | An input manager | `InputManager` in GARCore (keyboard and mouse); flapping with Space or a click |
 | `Flappy6` | Spawning on a timer | Pipes spawning on a timer |
 | `Flappy7` | A drifting gap | `PipePair` with a gap at a varying height |
 | `Flappy8` | Hitboxes | Hitting a pipe, the ground or the ceiling |
@@ -27,13 +27,13 @@ diff tool) to see exactly what changed.
 | `Flappy11` | A countdown state | A countdown state before playing |
 | `Flappy12` | Audio as a Singleton | Music and sound effects, in an `Audio` Singleton |
 
-All steps share the **GMDCore** library, which contains the final versions of the reusable
+All steps share the **GARCore** library, which contains the final versions of the reusable
 classes (`Core`, input, …).
 
-## New in GMDCore
+## New in GARCore
 
-`GMDCore` starts in this session: reusable code that every later game builds on. Each
-later repository's `GMDCore` keeps everything from the previous session and adds to it.
+`GARCore` starts in this session: reusable code that every later game builds on. Each
+later repository's `GARCore` keeps everything from the previous session and adds to it.
 
 - `Core`: a `Game` base class with a window, a virtual resolution and screen scaling.
 - `Input/InputManager`, `Input/KeyboardInfo`, `Input/MouseInfo`: keyboard and mouse state
@@ -45,7 +45,7 @@ The finished game, `Flappy12`:
 
 | To see | Look at |
 | --- | --- |
-| The shared core: window, scaling, input | `GMDCore/` |
+| The shared core: window, scaling, input | `GARCore/` |
 | Loading the textures once | `Art.cs` |
 | The bird: gravity and flapping | `Bird.cs` |
 | Pipes, and how pairs are generated | `Pipe.cs`, `PipePair.cs`, `States/PlayState.cs` |

@@ -1,6 +1,6 @@
 <Solution>
   <Project Path="Content/Content.csproj" />
-  <Project Path="GMDCore/GMDCore.csproj" />
+  <Project Path="GARCore/GARCore.csproj" />
   <Project Path="Pvz0/Pvz0.csproj" />
   <Project Path="Pvz1/Pvz1.csproj" />
   <Project Path="Pvz2/Pvz2.csproj" />

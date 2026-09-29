@@ -23,10 +23,10 @@ steps (e.g. with a diff tool) to see exactly what changed.
 | `Mario7` | Basic AI | Moles with their own states (idle, walk, chase); stomp them or die |
 | `Mario8` | Audio | Music and sound effects (the finished game) |
 
-All steps share the **GMDCore** library, which contains the final versions of the reusable
+All steps share the **GARCore** library, which contains the final versions of the reusable
 classes (`Tilemap`, `Tile`, `Tileset`, `TextureAtlas`, `AnimatedSprite`, input, …).
 
-## New in GMDCore
+## New in GARCore
 
 Compared with the core in [03-snake](../03-snake/):
 
@@ -45,7 +45,7 @@ The finished game, `Mario8`:
 | --- | --- |
 | The level makers (Strategy) | `LevelMaker/` |
 | A level: tiles, toppers, entities | `LevelMaker/GameLevel.cs` |
-| Tile collision helpers | `GMDCore/Graphics/Tilemap.cs` |
+| Tile collision helpers | `GARCore/Graphics/Tilemap.cs` |
 | The player, and its states | `Entities/Player.cs`, `States/PlayerStates/` |
 | The mole's AI, as states | `Entities/Mole.cs`, `States/MoleStates/` |
 | Boxes and coins | `Entities/MysteryBox.cs`, `Entities/Coin.cs` |

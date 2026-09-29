@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using GMDCore.Collision;
-using GMDCore.Physics;
-using GMDCore.ECS;
+using GARCore.Collision;
+using GARCore.Physics;
+using GARCore.ECS;
 
 namespace GeometryWars0.Systems;
 

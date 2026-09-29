@@ -1,5 +1,5 @@
 using System;
-using GMDCore.Graphics;
+using GARCore.Graphics;
 using Microsoft.Xna.Framework.Content;
 
 namespace Mario1.LevelMaker;

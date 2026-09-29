@@ -1,4 +1,4 @@
-using GMDCore;
+using GARCore;
 using Microsoft.Xna.Framework.Input;
 
 namespace Zelda0.Input;

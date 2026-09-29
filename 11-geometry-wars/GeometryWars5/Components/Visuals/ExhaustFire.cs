@@ -1,9 +1,9 @@
 using System;
-using GMDCore.ECS.Components;
+using GARCore.ECS.Components;
 using GeometryWars5.Components.Lifecycle;
-using GMDCore.Physics;
-using GMDCore.ECS;
-using GMDCore.Particles;
+using GARCore.Physics;
+using GARCore.ECS;
+using GARCore.Particles;
 using GeometryWars5.Services;
 using GeometryWars5.Systems;
 using GeometryWars5.Utils;

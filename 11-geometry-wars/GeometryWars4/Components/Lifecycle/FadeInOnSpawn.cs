@@ -1,6 +1,6 @@
-using GMDCore.ECS.Components;
+using GARCore.ECS.Components;
 using GeometryWars4.Components.Visuals;
-using GMDCore.ECS;
+using GARCore.ECS;
 using Microsoft.Xna.Framework;
 
 namespace GeometryWars4.Components.Lifecycle;

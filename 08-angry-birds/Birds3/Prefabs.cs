@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Birds3.Entities;
 using Birds3.Physics;
-using GMDCore.Graphics;
+using GARCore.Graphics;
 using Microsoft.Xna.Framework;
 
 namespace Birds3;

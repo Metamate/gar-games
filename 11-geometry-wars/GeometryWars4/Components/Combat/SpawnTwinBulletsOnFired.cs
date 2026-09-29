@@ -1,6 +1,6 @@
 using System;
-using GMDCore.ECS.Components;
-using GMDCore.ECS;
+using GARCore.ECS.Components;
+using GARCore.ECS;
 using GeometryWars4.Definitions;
 using GeometryWars4.Systems;
 using GeometryWars4.Utils;

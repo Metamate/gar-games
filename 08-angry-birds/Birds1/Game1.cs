@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using Birds1.Entities;
 using Birds1.Physics;
-using GMDCore;
-using GMDCore.Graphics;
+using GARCore;
+using GARCore.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;

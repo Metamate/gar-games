@@ -22,7 +22,7 @@ Next to the steps, `UiSamples` puts the game's widgets on one screen, each on it
 menu whose options do something you can see, a panel, a progress bar that tweens, and a
 textbox that pages through a message. It uses the widgets from `Pokemon4` itself.
 
-## New in GMDCore
+## New in GARCore
 
 Compared with the core in [07-the-legend-of-zelda](../07-the-legend-of-zelda/):
 
@@ -60,7 +60,7 @@ Pokemon4/
 A good order to read it in:
 
 1. `Game1.cs`: the big picture.
-2. `GMDCore/States/StateStack.cs` and `GameStateBase.cs`: how the game's screens are layered.
+2. `GARCore/States/StateStack.cs` and `GameStateBase.cs`: how the game's screens are layered.
 3. `States/GameStates/PlayState.cs`: the overworld, as one state.
 4. `Entities/Entity.cs`, `States/EntityStates/EntityWalkState.cs` and
    `States/PlayerStates/PlayerWalkState.cs`: tile movement and encounters.
@@ -68,7 +68,7 @@ A good order to read it in:
    battle, as states that work together.
 6. `Mons/Mon.cs`: stats, damage, experience and levelling.
 
-On a first read, skip the rest of `GMDCore/Graphics`, the bitmap font, the audio and the
+On a first read, skip the rest of `GARCore/Graphics`, the bitmap font, the audio and the
 tween internals: they support the game, but the architecture is in the files above.
 
 Where to find things:
@@ -76,7 +76,7 @@ Where to find things:
 | To see | Look at |
 | --- | --- |
 | The order of updates each frame | `Game1.cs`, `UpdateGame` |
-| Pushing, popping and drawing states | `GMDCore/States/StateStack.cs` |
+| Pushing, popping and drawing states | `GARCore/States/StateStack.cs` |
 | A fade | `States/GameStates/FadeState.cs` |
 | Moving from tile to tile | `States/EntityStates/EntityWalkState.cs`, `AttemptMove` |
 | Random encounters | `States/PlayerStates/PlayerWalkState.cs`, `TryStartEncounter` |
@@ -87,15 +87,15 @@ Where to find things:
 | The species | `Content/Assets/data/pokemon_definitions.json`, loaded by `Mons/PokemonDefinitions.cs` |
 | The player's animations | `Content/Assets/data/entity_animations.json`, loaded by `Definitions/ContentLoader.cs` |
 | The services and the null object | `Locator.cs`, `Audio/NullAudio.cs` |
-| The widgets | `GMDCore/GUI/`, and `GUI/` for the game's own |
-| The tween system | `GMDCore/Tweening/TweenManager.cs` |
+| The widgets | `GARCore/GUI/`, and `GUI/` for the game's own |
+| The tween system | `GARCore/Tweening/TweenManager.cs` |
 
 ## Tools
 
 The bitmap fonts in `Content/Assets/fonts/` are atlases made from `retro.ttf` by
 `Tools/GenerateFontAtlas.py` (it needs Python and Pillow). To use another font, point the
 script at it, run it from this folder, and copy the cell sizes and advance widths it prints
-into `GMDCore/Graphics/BitmapFont.cs`:
+into `GARCore/Graphics/BitmapFont.cs`:
 
 ```sh
 cd 10-pokemon

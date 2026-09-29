@@ -1,6 +1,6 @@
 <Solution>
   <Project Path="Content/Content.csproj" />
-  <Project Path="GMDCore/GMDCore.csproj" />
+  <Project Path="GARCore/GARCore.csproj" />
   <Project Path="Mario0/Mario0.csproj" />
   <Project Path="Mario1/Mario1.csproj" />
   <Project Path="Mario2/Mario2.csproj" />

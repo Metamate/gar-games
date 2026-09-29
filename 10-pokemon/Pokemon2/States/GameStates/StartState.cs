@@ -4,8 +4,8 @@ using Pokemon2;
 using Pokemon2.Definitions;
 using Pokemon2.Input;
 using Pokemon2.Mons;
-using GMDCore.States;
-using GMDCore;
+using GARCore.States;
+using GARCore;
 
 namespace Pokemon2.States.GameStates;
 

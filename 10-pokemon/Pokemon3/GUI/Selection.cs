@@ -4,8 +4,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Pokemon3;
 using Pokemon3.Input;
-using GMDCore.Graphics;
-using GMDCore.GUI;
+using GARCore.Graphics;
+using GARCore.GUI;
 
 namespace Pokemon3.GUI;
 

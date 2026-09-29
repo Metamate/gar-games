@@ -22,7 +22,7 @@ steps (e.g. with a diff tool) to see exactly what changed.
 | `Zelda6` | Stencil | The player disappears into the door arches (stencil buffer) |
 | `Zelda7` | Audio | Music and sound effects (the finished game) |
 
-## New in GMDCore
+## New in GARCore
 
 Compared with the core in [06-super-mario-bros](../06-super-mario-bros/):
 
@@ -70,7 +70,7 @@ Where to find things:
 | Enemy types and animations | `Content/Assets/data/enemy_animations.xml`, loaded by `Definitions/EntityDefinitions.cs` |
 | Objects and doorway tiles | `Content/Assets/data/object_definitions.xml` and `door_layouts.xml` |
 | The player's animations | `Content/Assets/data/player_animations.xml` |
-| The tween system | `GMDCore/Tweening/TweenManager.cs` |
+| The tween system | `GARCore/Tweening/TweenManager.cs` |
 
 ## Tools
 

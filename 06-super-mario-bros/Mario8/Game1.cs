@@ -1,4 +1,4 @@
-using GMDCore;
+using GARCore;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Mario8.States.GameStates;

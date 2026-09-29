@@ -18,7 +18,7 @@ steps (e.g. with a diff tool) to see exactly what changed.
 | `Sokoban3` | Undo and redo | Commands can `Undo`; a `CommandHistory` keeps an undo stack and a redo stack (`Z` / `Y`) |
 | `Sokoban4` | The whole game | Seven levels, restart, a move counter and a level-complete message (the finished game) |
 
-## New in GMDCore
+## New in GARCore
 
 Nothing: the core is the same as in [03-snake](../03-snake/). The new code in this game
 (levels, rules and commands) belongs to Sokoban, not to every game.

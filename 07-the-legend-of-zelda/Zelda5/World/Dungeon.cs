@@ -1,5 +1,5 @@
 using System;
-using GMDCore.Tweening;
+using GARCore.Tweening;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Zelda5.Entities;

@@ -1,9 +1,9 @@
 using System;
 using GeometryWars6.Components.Identity;
 using GeometryWars6.Utils;
-using GMDCore.Collections;
-using GMDCore.ECS;
-using GMDCore.Physics;
+using GARCore.Collections;
+using GARCore.ECS;
+using GARCore.Physics;
 using Microsoft.Xna.Framework;
 
 namespace GeometryWars6.Systems;

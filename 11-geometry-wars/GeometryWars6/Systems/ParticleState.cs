@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using GMDCore.ECS;
-using GMDCore.Particles;
+using GARCore.ECS;
+using GARCore.Particles;
 using GeometryWars6.Services;
 using GeometryWars6.Utils;
 using Microsoft.Xna.Framework;

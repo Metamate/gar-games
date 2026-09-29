@@ -1,5 +1,5 @@
 ﻿using Flappy12.States;
-using GMDCore;
+using GARCore;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;

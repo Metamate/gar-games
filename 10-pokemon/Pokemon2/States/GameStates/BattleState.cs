@@ -4,11 +4,11 @@ using Pokemon2;
 using Pokemon2.Battle;
 using Pokemon2.Definitions;
 using Pokemon2.Entities;
-using GMDCore.GUI;
+using GARCore.GUI;
 using Pokemon2.GUI;
 using Pokemon2.Mons;
-using GMDCore.States;
-using GMDCore;
+using GARCore.States;
+using GARCore;
 
 namespace Pokemon2.States.GameStates;
 

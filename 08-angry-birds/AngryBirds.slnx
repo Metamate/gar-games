@@ -1,6 +1,6 @@
 <Solution>
   <Project Path="Content/Content.csproj" />
-  <Project Path="GMDCore/GMDCore.csproj" />
+  <Project Path="GARCore/GARCore.csproj" />
   <Project Path="Birds0/Birds0.csproj" />
   <Project Path="Birds1/Birds1.csproj" />
   <Project Path="Birds2/Birds2.csproj" />

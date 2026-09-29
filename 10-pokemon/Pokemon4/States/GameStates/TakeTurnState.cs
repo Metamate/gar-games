@@ -2,9 +2,9 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Pokemon4.Battle;
-using GMDCore.GUI;
+using GARCore.GUI;
 using Pokemon4.Mons;
-using GMDCore.States;
+using GARCore.States;
 
 namespace Pokemon4.States.GameStates;
 

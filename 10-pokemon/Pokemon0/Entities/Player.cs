@@ -1,4 +1,4 @@
-using GMDCore.Graphics;
+using GARCore.Graphics;
 using Pokemon0.Definitions;
 
 namespace Pokemon0.Entities;

@@ -1,5 +1,5 @@
 using Pvz4.Components;
-using GMDCore.Graphics;
+using GARCore.Graphics;
 using Microsoft.Xna.Framework;
 
 namespace Pvz4;

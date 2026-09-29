@@ -1,6 +1,6 @@
-using GMDCore.ECS.Components;
+using GARCore.ECS.Components;
 using GeometryWars6.Components.Lifecycle;
-using GMDCore.ECS;
+using GARCore.ECS;
 using GeometryWars6.Systems;
 
 namespace GeometryWars6.Components.Combat;

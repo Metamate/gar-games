@@ -1,10 +1,10 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using GMDCore;
+using GARCore;
 using Pokemon4.Entities;
 using Pokemon4.States.PlayerStates;
 using Pokemon4.World;
-using GMDCore.States;
+using GARCore.States;
 
 namespace Pokemon4.States.GameStates;
 

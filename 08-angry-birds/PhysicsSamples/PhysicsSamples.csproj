@@ -6,7 +6,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.*" />
-    <ProjectReference Include="..\GMDCore\GMDCore.csproj" />
+    <ProjectReference Include="..\GARCore\GARCore.csproj" />
     <!-- The samples go through the game's own physics facade, from the finished game. -->
     <ProjectReference Include="..\Birds4\Birds4.csproj" />
   </ItemGroup>

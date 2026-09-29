@@ -1,4 +1,4 @@
-using GMDCore.States;
+using GARCore.States;
 using GeometryWars0.Services;
 using GeometryWars0.Systems;
 using Microsoft.Xna.Framework;

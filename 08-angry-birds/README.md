@@ -23,10 +23,10 @@ Next to the steps, `PhysicsSamples` shows one physics idea per scene, through th
 facade: body types, bounce, friction, density, sleeping, and joints (keys 1 to 6; click drops
 a box, Space a ball, R starts the scene again).
 
-## New in GMDCore
+## New in GARCore
 
 Nothing: the core is the same as in [07-the-legend-of-zelda](../07-the-legend-of-zelda/). The physics adapter
-belongs to this game. Putting it in GMDCore would make every later game depend on Box2D.
+belongs to this game. Putting it in GARCore would make every later game depend on Box2D.
 
 ## Code Map
 

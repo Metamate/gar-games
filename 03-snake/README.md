@@ -24,10 +24,10 @@ steps (e.g. with a diff tool) to see exactly what changed.
 | `Snake8` | The mouse | A bouncing mouse with circle collision; eating it makes the snake grow |
 | `Snake9` | Game over | Walls and the snake's own body end the game (the finished game) |
 
-All steps share the **GMDCore** library, which contains the final versions of the reusable
+All steps share the **GARCore** library, which contains the final versions of the reusable
 classes (`TextureAtlas`, `Sprite`, `AnimatedSprite`, `Tilemap`, `Circle`, input, …).
 
-## New in GMDCore
+## New in GARCore
 
 Compared with the core in [02-flappy-bird](../02-flappy-bird/):
 
@@ -43,7 +43,7 @@ The finished game, `Snake9`:
 | To see | Look at |
 | --- | --- |
 | The atlas, animations and room, as data | `Content/Assets/images/*.xml` |
-| Atlas, sprite, animation and tilemap classes | `GMDCore/Graphics/` |
+| Atlas, sprite, animation and tilemap classes | `GARCore/Graphics/` |
 | The snake: fixed-tick movement and growth | `Snake.cs` |
 | Keys to actions, with a buffer | `GameController.cs` |
 | The mice | `Mouse.cs` |
