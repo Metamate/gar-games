@@ -21,7 +21,7 @@ steps (e.g. with a diff tool) to see what changed.
 ## New in GARCore
 
 Nothing. The core is the same as in [03-snake](../03-snake/). The new code in this game
-(levels, rules and commands) belongs to Sokoban, not to every game.
+(levels, rules and commands) belongs to Sokoban only.
 
 ## Code Map
 

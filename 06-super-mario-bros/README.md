@@ -30,7 +30,7 @@ classes (`Tilemap`, `Tile`, `Tileset`, `TextureAtlas`, `AnimatedSprite`, input, 
 
 Compared with the core in [03-snake](../03-snake/):
 
-- `Graphics/Tile` (new): a tile knows whether it is solid, not just its graphic.
+- `Graphics/Tile` (new): a tile knows its graphic and whether it is solid.
 - `Graphics/DebugDraw` (new): outlines for hitboxes and solid tiles, drawn only when enabled.
 - `Graphics/Tilemap`: stores `Tile` values, has a `Position`, and adds collision helpers
   (`IsSolidAt`, `GetTileLeft`/`Right`/`Top`/`Bottom`, `TileToPoint`).

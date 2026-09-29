@@ -15,7 +15,7 @@ steps (e.g. with a diff tool) to see what changed.
 | --- | --- | --- |
 | `Birds0` | Box2D, used directly | A hut, two pigs and a slingshot, with Box2D's types, functions and unit conversions all through `Game1` |
 | `Birds1` | Adapter & Facade | `PhysicsWorld` and `PhysicsBody` wrap Box2D; the game works in pixels and never sees a Box2D type. Entities own a body. `F1` shows the physics bodies |
-| `Birds2` | Contact events | Hits damage blocks and pigs; destroyed entities are removed after the step, not during it. A score |
+| `Birds2` | Contact events | Hits damage blocks and pigs; destroyed entities are removed once the step is over. A score |
 | `Birds3` | Prototype | Configured entities (prefabs) are cloned into the world; the level is a text file of prefab names and positions |
 | `Birds4` | The whole game | Three levels, a few birds per level, an aiming curve, and game states: aim, fly, level end (the finished game) |
 
