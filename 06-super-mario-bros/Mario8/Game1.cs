@@ -14,7 +14,7 @@ public class Game1 : Core
     public static SpriteFont DefaultFont { get; private set; }
     public static SpriteFont TitleFont { get; private set; }
 
-    public Game1() : base("Super Mario Bros", 1280, 720, GameSettings.VirtualWidth, GameSettings.VirtualHeight)
+    public Game1() : base("Super Mario Bros", 1152, 648, GameSettings.VirtualWidth, GameSettings.VirtualHeight)
     {
     }
 

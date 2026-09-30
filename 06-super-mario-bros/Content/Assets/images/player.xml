@@ -2,34 +2,26 @@
 <TextureAtlas>
     <Texture>images/player</Texture>
     <Regions>
-        <Region name="player1" x="0" y="0" width="16" height="20" />
-        <Region name="player2" x="16" y="0" width="16" height="20" />
-        <Region name="player3" x="32" y="0" width="16" height="20" />
-        <Region name="player4" x="48" y="0" width="16" height="20" />
-        <Region name="player5" x="64" y="0" width="16" height="20" />
-        <Region name="player6" x="80" y="0" width="16" height="20" />
-        <Region name="player7" x="96" y="0" width="16" height="20" />
-        <Region name="player8" x="112" y="0" width="16" height="20" />
-        <Region name="player9" x="128" y="0" width="16" height="20" />
-        <Region name="player10" x="144" y="0" width="16" height="20" />
-        <Region name="player11" x="160" y="0" width="16" height="20" />
+        <Region name="stand" x="2" y="0" width="20" height="24" />
+        <Region name="walk" x="26" y="0" width="20" height="24" />
+        <Region name="duck" x="50" y="0" width="20" height="24" />
     </Regions>
     <Animations>
         <Animation name="idle-animation" delay="1000">
-            <Frame region="player1" />
+            <Frame region="stand" />
         </Animation>
-        <Animation name="walk-animation" delay="100">
-            <Frame region="player10" />
-            <Frame region="player11" />
+        <Animation name="walk-animation" delay="150">
+            <Frame region="walk" />
+            <Frame region="stand" />
         </Animation>
         <Animation name="jump-animation" delay="1000">
-            <Frame region="player3" />
+            <Frame region="walk" />
         </Animation>
         <Animation name="fall-animation" delay="1000">
-            <Frame region="player3" />
+            <Frame region="walk" />
         </Animation>
         <Animation name="duck-animation" delay="1000">
-            <Frame region="player4" />
+            <Frame region="duck" />
         </Animation>
     </Animations>
 </TextureAtlas>

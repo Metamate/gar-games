@@ -3,31 +3,31 @@ using Microsoft.Xna.Framework;
 using Mario7.Entities;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Mario7.States.MoleStates;
+namespace Mario7.States.SlimeStates;
 
-public class MoleChaseState(Mole mole) : MoleStateBase(mole)
+public class SlimeChaseState(Slime slime) : SlimeStateBase(slime)
 {
     private const float ChaseSpeed = 30f;
 
     public override void Enter()
     {
-        SetAnimation("mole-walk-animation");
+        SetAnimation("slime-walk-animation");
     }
 
     public override void Update(GameTime gameTime)
     {
-        if (Mole.Level.Player == null)
+        if (Slime.Level.Player == null)
         {
-            Mole.ChangeState(new MoleIdleState(Mole));
+            Slime.ChangeState(new SlimeIdleState(Slime));
             return;
         }
 
-        float dx = Mole.Level.Player.Position.X - Mole.Position.X;
+        float dx = Slime.Level.Player.Position.X - Slime.Position.X;
         float distance = Math.Abs(dx);
 
         if (distance > ChaseDistance * 1.5f)
         {
-            Mole.ChangeState(new MoleWalkState(Mole));
+            Slime.ChangeState(new SlimeWalkState(Slime));
             return;
         }
 
@@ -35,8 +35,8 @@ public class MoleChaseState(Mole mole) : MoleStateBase(mole)
         if (distance > 5f)
         {
             int direction = dx > 0 ? 1 : -1;
-            Mole.Velocity = new Vector2(direction * ChaseSpeed, Mole.Velocity.Y);
-            Mole.Sprite.Effects = direction > 0 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+            Slime.Velocity = new Vector2(direction * ChaseSpeed, Slime.Velocity.Y);
+            Slime.Sprite.Effects = direction > 0 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
         }
 
         base.Update(gameTime);

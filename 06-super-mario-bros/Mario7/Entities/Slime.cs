@@ -1,21 +1,20 @@
 using GARCore.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Mario8.States.MoleStates;
-using Mario8.States.PlayerStates;
-using Mario8.LevelMaker;
-using Mario8.Audio;
+using Mario7.States.SlimeStates;
+using Mario7.States.PlayerStates;
+using Mario7.LevelMaker;
 
-namespace Mario8.Entities;
+namespace Mario7.Entities;
 
-public class Mole : IEntity
+public class Slime : IEntity
 {
     public TextureAtlas Atlas { get; }
     public GameLevel Level { get; }
     public AnimatedSprite Sprite { get; set; }
     public Vector2 Position { get; set; }
     public Vector2 Velocity { get; set; }
-    public MoleStateBase State { get; private set; }
+    public SlimeStateBase State { get; private set; }
 
     public Rectangle Bounds => new(
         (int)Position.X,
@@ -28,15 +27,15 @@ public class Mole : IEntity
     public bool IsSolid => false;
     public bool Active { get; set; } = true;
 
-    public Mole(TextureAtlas atlas, GameLevel level, Vector2 position)
+    public Slime(TextureAtlas atlas, GameLevel level, Vector2 position)
     {
         Atlas = atlas;
         Level = level;
         Position = position;
-        ChangeState(new MoleIdleState(this));
+        ChangeState(new SlimeIdleState(this));
     }
 
-    public void ChangeState(MoleStateBase newState)
+    public void ChangeState(SlimeStateBase newState)
     {
         State?.Exit();
         State = newState;
@@ -61,12 +60,11 @@ public class Mole : IEntity
         
         if (intersects && other is Player player)
         {
-            // STOMP CHECK: If player is falling and hits the top half of the mole
+            // STOMP CHECK: If player is falling and hits the top half of the slime
             if (player.State is PlayerFallState && player.Bounds.Bottom <= Bounds.Top + 8)
             {
                 Active = false;
                 player.Score++;
-                SoundManager.PlayKill();
                 return false; // No physical collision if it's a kill
             }
             else

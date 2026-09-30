@@ -1,17 +1,17 @@
 using Microsoft.Xna.Framework;
 using Mario7.Entities;
 
-namespace Mario7.States.MoleStates;
+namespace Mario7.States.SlimeStates;
 
-public class MoleIdleState(Mole mole) : MoleStateBase(mole)
+public class SlimeIdleState(Slime slime) : SlimeStateBase(slime)
 {
     private float _idleTimer;
     private const float IdleDuration = 2f;
 
     public override void Enter()
     {
-        SetAnimation("mole-idle-animation");
-        Mole.Velocity = new Vector2(0, Mole.Velocity.Y);
+        SetAnimation("slime-idle-animation");
+        Slime.Velocity = new Vector2(0, Slime.Velocity.Y);
         _idleTimer = 0f;
     }
 
@@ -24,15 +24,15 @@ public class MoleIdleState(Mole mole) : MoleStateBase(mole)
 
         if (_idleTimer >= IdleDuration)
         {
-            Mole.ChangeState(new MoleWalkState(Mole));
+            Slime.ChangeState(new SlimeWalkState(Slime));
         }
 
-        if (Mole.Level.Player != null)
+        if (Slime.Level.Player != null)
         {
-            float distance = Vector2.Distance(Mole.Position, Mole.Level.Player.Position);
+            float distance = Vector2.Distance(Slime.Position, Slime.Level.Player.Position);
             if (distance < ChaseDistance)
             {
-                Mole.ChangeState(new MoleChaseState(Mole));
+                Slime.ChangeState(new SlimeChaseState(Slime));
             }
         }
     }

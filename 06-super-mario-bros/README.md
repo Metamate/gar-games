@@ -20,7 +20,7 @@ steps (e.g. with a diff tool) to see what changed.
 | `Mario4` | Camera | A level wider than the screen, a camera following the player, and a parallax background |
 | `Mario5` | Game states | A title screen and a play state |
 | `Mario6` | Entities | `IEntity`, bushes, mystery boxes that pop out coins, and a score |
-| `Mario7` | Basic AI | Moles with their own states (idle, walk, chase); stomp them or die |
+| `Mario7` | Basic AI | Slimes with their own states (idle, walk, chase); stomp them or die |
 | `Mario8` | Audio | Music and sound effects (the finished game) |
 
 All steps share the **GARCore** library, which contains the final versions of the reusable
@@ -47,15 +47,15 @@ The finished game, `Mario8`:
 | A level: tiles, toppers, entities | `LevelMaker/GameLevel.cs` |
 | Tile collision helpers | `GARCore/Graphics/Tilemap.cs` |
 | The player, and its states | `Entities/Player.cs`, `States/PlayerStates/` |
-| The mole's AI, as states | `Entities/Mole.cs`, `States/MoleStates/` |
+| The slime's AI, as states | `Entities/Slime.cs`, `States/SlimeStates/` |
 | Boxes and coins | `Entities/MysteryBox.cs`, `Entities/Coin.cs` |
 | The camera | `Graphics/Camera.cs` |
 | Every constant | `GameSettings.cs` |
 
 ## Content
 
-`Content/Assets/images/extras.png` holds art the game doesn't use yet: power-ups (a star, a
-mushroom, a heart, a coin, a key and a potion, 16 × 16 each) for the exercises.
+`Content/Assets/images/extras.png` holds art the game doesn't use yet: power-ups (a diamond,
+a mushroom, a heart, a key and a coin, 18 × 18 each) for the exercises.
 
 ## Controls
 
@@ -84,6 +84,8 @@ Or open `SuperMarioBros.slnx` and choose the step to run.
 
 ## Credits
 
-The art, sounds and music are our own, made for the course. The font is
+The art is Kenney's [Pixel Platformer](https://kenney.nl/assets/pixel-platformer) (CC0): the
+ground in four colours, the toppers cut from its ground tiles, and the alien's ducking frame
+are ours, made from it. The sounds and music are our own, made for the course. The font is
 [Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P) by CodeMan38, under the
 SIL Open Font License (see `Content/Assets/fonts/retro-OFL.txt`).

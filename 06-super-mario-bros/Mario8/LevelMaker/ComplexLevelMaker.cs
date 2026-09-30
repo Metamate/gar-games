@@ -20,7 +20,7 @@ public class ComplexLevelMaker(ContentManager content) : LevelMakerBase(content)
         float pillarChance = 0.15f;
         float bushChance = 0.3f;
         float boxChance = 0.1f;
-        float moleChance = 0.1f;
+        float slimeChance = 0.1f;
 
         for (int x = 0; x < columns; x++)
         {
@@ -54,12 +54,12 @@ public class ComplexLevelMaker(ContentManager content) : LevelMakerBase(content)
                 level.AddEntity(new Bush(GetRandomBush(), bushPosition));
             }
 
-            // Spawn moles on flat ground (not pillars, to keep it simple)
-            if (currentHeight == groundHeight && Random.Shared.NextDouble() < moleChance)
+            // Spawn slimes on flat ground (not pillars, to keep it simple)
+            if (currentHeight == groundHeight && Random.Shared.NextDouble() < slimeChance)
             {
-                // Position mole on top of ground
-                Vector2 molePosition = Tilemap.TileToPoint(x, (rows - currentHeight) - 1);
-                level.AddEntity(new Mole(CreaturesAtlas, level, molePosition));
+                // Position slime on top of ground
+                Vector2 slimePosition = Tilemap.TileToPoint(x, (rows - currentHeight) - 1);
+                level.AddEntity(new Slime(CreaturesAtlas, level, slimePosition));
             }
 
             // Spawn floating mystery boxes

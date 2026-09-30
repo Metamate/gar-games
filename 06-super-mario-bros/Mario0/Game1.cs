@@ -10,32 +10,29 @@ namespace Mario0;
 
 public class Game1 : Core
 {
-    private const int TileSize = 16;
+    private const int TileSize = 18;
     private const int Columns = GameSettings.VirtualWidth / TileSize;
     private const int Rows = GameSettings.VirtualHeight / TileSize;
     private const int GroundHeight = 3;
-    private const int GroundTile = 12;
+    private const int GroundTile = 0;
 
     private readonly List<Tileset> _tilesets = [];
     private Tilemap _tilemap;
 
-    public Game1() : base("Super Mario Bros", 1280, 720, GameSettings.VirtualWidth, GameSettings.VirtualHeight)
+    public Game1() : base("Super Mario Bros", 1152, 648, GameSettings.VirtualWidth, GameSettings.VirtualHeight)
     {
     }
 
     protected override void LoadContent()
     {
-        // tiles.png is a 6x10 grid of tilesets. Each tileset is a small sheet of 16x16 tiles
-        // in its own colour scheme, so the same level can be drawn in 60 different styles.
+        // tiles.png holds four tilesets, one under the other. Each is a row of 18x18 tiles in
+        // its own colours, so the same level can be drawn in four different styles.
         Texture2D texture = Content.Load<Texture2D>("images/tiles");
-        int tilesetWidth = texture.Width / 6;
-        int tilesetHeight = texture.Height / 10;
+        int tilesetHeight = texture.Height / 4;
 
-        for (int i = 0; i < 6 * 10; i++)
+        for (int i = 0; i < 4; i++)
         {
-            int x = i % 6 * tilesetWidth;
-            int y = i / 6 * tilesetHeight;
-            _tilesets.Add(new Tileset(new TextureRegion(texture, x, y, tilesetWidth, tilesetHeight), TileSize, TileSize));
+            _tilesets.Add(new Tileset(new TextureRegion(texture, 0, i * tilesetHeight, texture.Width, tilesetHeight), TileSize, TileSize));
         }
 
         GenerateLevel();

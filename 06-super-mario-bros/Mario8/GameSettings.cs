@@ -2,6 +2,6 @@ namespace Mario8;
 
 public static class GameSettings
 {
-    public const int VirtualWidth = 256;
-    public const int VirtualHeight = 144;
+    public const int VirtualWidth = 288;
+    public const int VirtualHeight = 162;
 }

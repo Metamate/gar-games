@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using GARCore.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -9,11 +8,11 @@ namespace Mario8.LevelMaker;
 
 public abstract class LevelMakerBase
 {
-    private const int TileSize = 16;
-    private const int TilesetsColumns = 6;
-    private const int TilesetsRows = 10;
-    private const int ToppersetsColumns = 6;
-    private const int ToppersetsRows = 18;
+    private const int TileSize = 18;
+    private const int TilesetsColumns = 1;
+    private const int TilesetsRows = 4;
+    private const int ToppersetsColumns = 1;
+    private const int ToppersetsRows = 3;
 
     private readonly ContentManager _content;
 
@@ -33,10 +32,9 @@ public abstract class LevelMakerBase
         Tilesets = CreateTilesetsFromFile("images/tiles", TilesetsColumns, TilesetsRows, TileSize);
         Toppersets = CreateTilesetsFromFile("images/tile_tops", ToppersetsColumns, ToppersetsRows, TileSize);
         Backgrounds = GetTextureRegionsFromFile("images/backgrounds", 1, 3);
-        Bushes = GetTextureRegionsFromFile("images/bushes", 7, 5)
-            .Where((_, i) => new[] { 0, 1, 4, 5, 6 }.Contains(i % 7)).ToList(); // we only want graphics 0, 1, 4, 5, 6 per row
-        Coins = GetTextureRegionsFromFile("images/coins", 4, 2);
-        MysteryBoxes = GetTextureRegionsFromFile("images/jump_blocks", 6, 5);
+        Bushes = GetTextureRegionsFromFile("images/bushes", 7, 1);
+        Coins = GetTextureRegionsFromFile("images/coins", 1, 1);
+        MysteryBoxes = GetTextureRegionsFromFile("images/jump_blocks", 2, 1);
         CreaturesAtlas = TextureAtlas.FromFile(_content, "images/creatures.xml");
     }
 
@@ -78,12 +76,12 @@ public abstract class LevelMakerBase
             {
                 if (y == Tilemap.Rows - groundHeight)
                 {
-                    Tilemap.SetTile(x, y, new Tile(12, true));
+                    Tilemap.SetTile(x, y, new Tile(0, true));
                     Toppers.SetTile(x, y, new Tile(0));
                 }
                 else
                 {
-                    Tilemap.SetTile(x, y, new Tile(12, true));
+                    Tilemap.SetTile(x, y, new Tile(0, true));
                 }
             }
         }

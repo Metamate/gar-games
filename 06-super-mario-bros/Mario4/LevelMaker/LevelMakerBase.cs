@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using GARCore.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -9,11 +8,11 @@ namespace Mario4.LevelMaker;
 
 public abstract class LevelMakerBase
 {
-    private const int TileSize = 16;
-    private const int TilesetsColumns = 6;
-    private const int TilesetsRows = 10;
-    private const int ToppersetsColumns = 6;
-    private const int ToppersetsRows = 18;
+    private const int TileSize = 18;
+    private const int TilesetsColumns = 1;
+    private const int TilesetsRows = 4;
+    private const int ToppersetsColumns = 1;
+    private const int ToppersetsRows = 3;
 
     private readonly ContentManager _content;
 
@@ -66,12 +65,12 @@ public abstract class LevelMakerBase
             {
                 if (y == Tilemap.Rows - groundHeight)
                 {
-                    Tilemap.SetTile(x, y, new Tile(12, true));
+                    Tilemap.SetTile(x, y, new Tile(0, true));
                     Toppers.SetTile(x, y, new Tile(0));
                 }
                 else
                 {
-                    Tilemap.SetTile(x, y, new Tile(12, true));
+                    Tilemap.SetTile(x, y, new Tile(0, true));
                 }
             }
         }
