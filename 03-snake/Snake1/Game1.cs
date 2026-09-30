@@ -7,12 +7,14 @@ namespace Snake1;
 
 public class Game1 : Core
 {
-    public const int VirtualWidth = 320;
-    public const int VirtualHeight = 180;
-    private TextureRegion _snake;
-    private TextureRegion _apple;
+    public const int VirtualWidth = 160;
+    public const int VirtualHeight = 88;
+    // The colour of the screen where no dot is lit.
+    private static readonly Color ScreenColor = new(20, 24, 20);
+    private TextureRegion _head;
+    private TextureRegion _food;
 
-    public Game1() : base("Snake", 1280, 720, VirtualWidth, VirtualHeight)
+    public Game1() : base("Snake", 1280, 704, VirtualWidth, VirtualHeight)
     {
     }
 
@@ -21,17 +23,17 @@ public class Game1 : Core
         // The atlas definition names each region of the atlas texture,
         // so the rectangles live in data instead of in code.
         TextureAtlas atlas = TextureAtlas.FromFile(Content, "images/atlas-definition.xml");
-        _snake = atlas.GetRegion("snake-1");
-        _apple = atlas.GetRegion("apple-1");
+        _head = atlas.GetRegion("head-1");
+        _food = atlas.GetRegion("food-1");
     }
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.Clear(Color.CornflowerBlue);
+        GraphicsDevice.Clear(ScreenColor);
 
         SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
-        _snake.Draw(SpriteBatch, new Vector2(140, 80), Color.White);
-        _apple.Draw(SpriteBatch, new Vector2(180, 80), Color.White);
+        _head.Draw(SpriteBatch, new Vector2(72, 40), Color.White);
+        _food.Draw(SpriteBatch, new Vector2(88, 40), Color.White);
         SpriteBatch.End();
 
         base.Draw(gameTime);

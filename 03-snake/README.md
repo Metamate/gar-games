@@ -1,7 +1,8 @@
 # Snake
 
-The code for session **03 Snake** of the Game Architecture (GAR) course: a snake chasing
-mice around a walled field, with its art and room defined as data. The [session
+The code for session **03 Snake** of the Game Architecture (GAR) course: a snake eating
+its way around a walled room in lit dots, like the phone game, with its art and room
+defined as data. The [session
 page](https://metamate.github.io/gar/sessions/03-snake/) explains the ideas; this README
 shows where to find them in the code.
 
@@ -15,14 +16,14 @@ steps (e.g. with a diff tool) to see what changed.
 | --- | --- | --- |
 | `Snake0` | Starting point | Loads the atlas image and draws parts of it with hardcoded source rectangles |
 | `Snake1` | Texture atlas | `TextureAtlas` loads named regions from `atlas-definition.xml` |
-| `Snake2` | Sprites | `Sprite` wraps a region with colour, rotation, scale and origin |
+| `Snake2` | Sprites | `Sprite` wraps a region with colour, rotation, scale and origin; the head spins |
 | `Snake3` | Animation | `AnimatedSprite` plays animations defined in the atlas |
 | `Snake4` | The room | The room is drawn from `tilemap-definition.xml` |
-| `Snake5` | Fixed-tick movement | A `Snake` made of grid cells moves by itself, one cell per 200 ms tick; the game reads the keys directly |
+| `Snake5` | Fixed-tick movement | A `Snake` made of grid cells moves by itself, one cell per 200 ms tick, its head turned to face where it goes; the game reads the keys directly |
 | `Snake6` | Input as actions | A `GameController` maps W/A/S/D and the arrow keys to actions |
 | `Snake7` | Input buffering | Turns are queued and used one per tick, so quick key presses aren't lost |
-| `Snake8` | The apple | An apple on a free cell, with circle collision; eating it makes the snake grow |
-| `Snake9` | Game over | Walls and the snake's own body end the game (the finished game) |
+| `Snake8` | Food and score | Food on a free cell, with circle collision; eating it makes the snake grow and adds a point, drawn with digits from the atlas |
+| `Snake9` | Game over | Walls and the snake's own body end the game and reset the score (the finished game) |
 
 All steps share the **GARCore** library, which contains the final versions of the reusable
 classes (`TextureAtlas`, `Sprite`, `AnimatedSprite`, `Tilemap`, `Circle`, input, …).
@@ -46,8 +47,8 @@ The finished game, `Snake9`:
 | Atlas, sprite, animation and tilemap classes | `GARCore/Graphics/` |
 | The snake: fixed-tick movement and growth | `Snake.cs` |
 | Keys to actions, with a buffer | `GameController.cs` |
-| The apple | `Apple.cs` |
-| The tick accumulator and collisions | `Game1.cs` |
+| The food | `Food.cs` |
+| Collisions and the score | `Game1.cs` |
 
 ## Controls
 

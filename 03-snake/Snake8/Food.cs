@@ -4,10 +4,10 @@ using GARCore.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Snake9;
+namespace Snake8;
 
-// An apple on one cell of the room. When the snake eats it, it moves to another free cell.
-public class Apple(AnimatedSprite sprite, Rectangle room, int tileSize)
+// Food on one cell of the room. When the snake eats it, it moves to another free cell.
+public class Food(AnimatedSprite sprite, Rectangle room, int tileSize)
 {
     private readonly AnimatedSprite _sprite = sprite;
     private readonly Rectangle _room = room;
@@ -15,7 +15,7 @@ public class Apple(AnimatedSprite sprite, Rectangle room, int tileSize)
 
     public Point Cell { get; private set; }
 
-    // The apple as a circle, to test against the snake's head.
+    // The food as a circle, to test against the snake's head.
     public Circle Bounds => new(
         Cell.X * _tileSize + _tileSize / 2,
         Cell.Y * _tileSize + _tileSize / 2,
@@ -29,7 +29,7 @@ public class Apple(AnimatedSprite sprite, Rectangle room, int tileSize)
         _sprite.Draw(spriteBatch, new Vector2(Cell.X * _tileSize, Cell.Y * _tileSize));
     }
 
-    // Put the apple on a random cell of the room that the snake isn't on.
+    // Put the food on a random cell of the room that the snake isn't on.
     public void MoveToFreeCell(Snake snake)
     {
         do

@@ -7,13 +7,15 @@ namespace Snake2;
 
 public class Game1 : Core
 {
-    public const int VirtualWidth = 320;
-    public const int VirtualHeight = 180;
-    private const float AppleRotationSpeed = 2f;
-    private Sprite _snake;
-    private Sprite _apple;
+    public const int VirtualWidth = 160;
+    public const int VirtualHeight = 88;
+    // The colour of the screen where no dot is lit.
+    private static readonly Color ScreenColor = new(20, 24, 20);
+    private const float HeadRotationSpeed = 2f;
+    private Sprite _body;
+    private Sprite _head;
 
-    public Game1() : base("Snake", 1280, 720, VirtualWidth, VirtualHeight)
+    public Game1() : base("Snake", 1280, 704, VirtualWidth, VirtualHeight)
     {
     }
 
@@ -23,28 +25,28 @@ public class Game1 : Core
 
         // A Sprite wraps a region together with everything needed to draw it:
         // color, rotation, scale, origin, effects and layer depth.
-        _snake = atlas.CreateSprite("snake-1");
-        _apple = atlas.CreateSprite("apple-1");
+        _body = atlas.CreateSprite("body");
+        _head = atlas.CreateSprite("head-1");
 
-        // Rotate and scale around the center of the apple instead of its top-left corner.
-        _apple.CenterOrigin();
-        _apple.Scale = new Vector2(2f, 2f);
+        // Rotate and scale around the center of the head instead of its top-left corner.
+        _head.CenterOrigin();
+        _head.Scale = new Vector2(4f, 4f);
     }
 
     protected override void Update(GameTime gameTime)
     {
-        _apple.Rotation += AppleRotationSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+        _head.Rotation += HeadRotationSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
         base.Update(gameTime);
     }
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.Clear(Color.CornflowerBlue);
+        GraphicsDevice.Clear(ScreenColor);
 
         SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
-        _snake.Draw(SpriteBatch, new Vector2(140, 80));
-        _apple.Draw(SpriteBatch, new Vector2(200, 90));
+        _body.Draw(SpriteBatch, new Vector2(56, 40));
+        _head.Draw(SpriteBatch, new Vector2(96, 44));
         SpriteBatch.End();
 
         base.Draw(gameTime);

@@ -7,13 +7,15 @@ namespace Snake7;
 
 public class Game1 : Core
 {
-    public const int VirtualWidth = 320;
-    public const int VirtualHeight = 180;
+    public const int VirtualWidth = 160;
+    public const int VirtualHeight = 88;
+    // The colour of the screen where no dot is lit.
+    private static readonly Color ScreenColor = new(20, 24, 20);
     private Tilemap _tilemap;
     private Rectangle _room;
     private Snake _snake;
 
-    public Game1() : base("Snake", 1280, 720, VirtualWidth, VirtualHeight)
+    public Game1() : base("Snake", 1280, 704, VirtualWidth, VirtualHeight)
     {
     }
 
@@ -24,10 +26,9 @@ public class Game1 : Core
         // The room is data too: the tilemap definition lists the tile for every cell.
         _tilemap = Tilemap.FromFile(Content, "images/tilemap-definition.xml");
 
-        // The room is the area inside the walls. The walls are one cell thick, except the top
-        // wall, which is two cells tall.
-        _room = new Rectangle(1, 2, _tilemap.Columns - 2, _tilemap.Rows - 3);
-        _snake = new Snake(atlas.CreateAnimatedSprite("snake-animation"), (int)_tilemap.TileWidth, _room);
+        // The room is the area inside the walls, which are one cell thick.
+        _room = new Rectangle(1, 1, _tilemap.Columns - 2, _tilemap.Rows - 2);
+        _snake = new Snake(atlas.CreateSprite("body"), atlas.CreateAnimatedSprite("head-animation"), (int)_tilemap.TileWidth, _room);
     }
 
     protected override void Update(GameTime gameTime)
@@ -40,7 +41,7 @@ public class Game1 : Core
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.Clear(Color.CornflowerBlue);
+        GraphicsDevice.Clear(ScreenColor);
 
         SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
         _tilemap.Draw(SpriteBatch);

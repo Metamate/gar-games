@@ -16,7 +16,8 @@ public class Snake
     private const int StartLength = 3;
     private const int MaxBufferedTurns = 2;
 
-    private readonly AnimatedSprite _sprite;
+    private readonly Sprite _body;
+    private readonly AnimatedSprite _head;
     private readonly int _tileSize;
     private readonly Rectangle _room;
     private readonly List<Point> _segments = [];
@@ -25,9 +26,12 @@ public class Snake
     private TimeSpan _elapsed;
     private int _growth;
 
-    public Snake(AnimatedSprite sprite, int tileSize, Rectangle room)
+    public Snake(Sprite body, AnimatedSprite head, int tileSize, Rectangle room)
     {
-        _sprite = sprite;
+        _body = body;
+        _head = head;
+        // The head turns around its centre to face where the snake goes.
+        _head.CenterOrigin();
         _tileSize = tileSize;
         _room = room;
         Reset(room.Center);
@@ -35,7 +39,7 @@ public class Snake
 
     public Point Head => _segments[0];
 
-    // The head as a circle, to test against the apple.
+    // The head as a circle, to test against the food.
     public Circle Bounds => new(
         Head.X * _tileSize + _tileSize / 2,
         Head.Y * _tileSize + _tileSize / 2,
@@ -77,7 +81,7 @@ public class Snake
 
     public void Update(GameTime gameTime)
     {
-        _sprite.Update(gameTime);
+        _head.Update(gameTime);
 
         // Collect the time since the last move, and move once for every full tick.
         _elapsed += gameTime.ElapsedGameTime;
@@ -90,10 +94,14 @@ public class Snake
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        foreach (Point segment in _segments)
+        for (int i = 1; i < _segments.Count; i++)
         {
-            _sprite.Draw(spriteBatch, new Vector2(segment.X * _tileSize, segment.Y * _tileSize));
+            _body.Draw(spriteBatch, CellPosition(_segments[i]));
         }
+
+        // The head is drawn around its origin, so it is placed at the cell's corner plus the origin.
+        _head.Rotation = MathF.Atan2(_direction.Y, _direction.X);
+        _head.Draw(spriteBatch, CellPosition(Head) + _head.Origin);
     }
 
     private void Move()
@@ -119,6 +127,8 @@ public class Snake
             _segments.RemoveAt(_segments.Count - 1);
         }
     }
+
+    private Vector2 CellPosition(Point cell) => new(cell.X * _tileSize, cell.Y * _tileSize);
 
     private static Point Opposite(Point direction) => new(-direction.X, -direction.Y);
 
