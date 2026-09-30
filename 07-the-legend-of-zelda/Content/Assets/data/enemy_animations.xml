@@ -8,7 +8,7 @@
 -->
 <EnemyAnimations atlas="images/entities" frameWidth="16" frameHeight="16">
 
-  <Enemy type="skeleton" width="16" height="16" walkSpeed="20" health="1">
+  <Enemy type="rat" width="16" height="16" walkSpeed="20" health="1">
     <Animation name="walk-down"  frames="9,10,11,10"   interval="0.2" />
     <Animation name="walk-left"  frames="21,22,23,22"  interval="0.2" />
     <Animation name="walk-right" frames="33,34,35,34"  interval="0.2" />

@@ -21,10 +21,10 @@ public static class GameSettings
 
     // Player
     public const int   PlayerWidth         = 16;
-    public const int   PlayerHeight        = 22;
+    public const int   PlayerHeight        = 12;
     public const int   PlayerWalkSpeed     = 60;
     public const int   PlayerStartHealth   = 6;     // three hearts × 2 per heart
-    public const float PlayerSpriteOffsetY = 5f;    // sprite extends above collision box (perspective)
+    public const float PlayerSpriteOffsetY = 12f;   // 8 px of room in the frame for the sword, and the head 4 px above the collision box (perspective)
     public const float PlayerSwordOffsetX  = 8f;    // sword sprite (32px) centred over collision box (16px)
 
     // Sword reach: how far the hitbox extends in front of the player

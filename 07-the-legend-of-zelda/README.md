@@ -108,6 +108,9 @@ Or open `TheLegendOfZelda.slnx` and choose the step to run.
 
 ## Credits
 
-The art, sounds and music are our own, made for the course. The font is
+The art is Kenney's [Tiny Dungeon](https://kenney.nl/assets/tiny-dungeon) (CC0), laid out in
+the game's sheets: the walking bob, the sword swing, the turned doors, the hearts, the key and
+the pressed switch are ours, made from it. The sounds and music are our own, made for the
+course. The font is
 [Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P) by CodeMan38, under the
 SIL Open Font License (see `Content/Assets/fonts/retro-OFL.txt`).
