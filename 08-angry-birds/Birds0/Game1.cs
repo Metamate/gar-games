@@ -164,7 +164,7 @@ public class Game1 : Core
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
-        SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
+        SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.LinearClamp);
         SpriteBatch.Draw(_background, Vector2.Zero, Color.White);
 
         TextureRegion slingshotBack = _atlas.GetRegion("slingshot-back"), slingshotFront = _atlas.GetRegion("slingshot-front");

@@ -125,7 +125,7 @@ public class Game1 : Core
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
-        SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
+        SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.LinearClamp);
         SpriteBatch.Draw(_background, Vector2.Zero, Color.White);
         _slingshot.DrawBack(SpriteBatch);
         foreach (Entity entity in _entities)
@@ -144,7 +144,7 @@ public class Game1 : Core
 
     private void DrawText(string text, Vector2 position)
     {
-        SpriteBatch.DrawString(_font, text, position + new Vector2(2, 2), Color.Black * 0.4f);
+        SpriteBatch.DrawString(_font, text, position + new Vector2(2, 2), new Color(40, 52, 72));
         SpriteBatch.DrawString(_font, text, position, Color.White);
     }
 

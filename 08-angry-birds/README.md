@@ -108,6 +108,7 @@ Or open `AngryBirds.slnx` and choose the step to run.
 
 ## Credits
 
-The art is our own. Box2D.NET is by ikpil, after Box2D by Erin Catto (both MIT). The font is
+The art is Kenney's [Physics Assets](https://kenney.nl/assets/physics-assets) (CC0), with a slingshot
+of ours in its colours: the birds and pigs are its aliens. Box2D.NET is by ikpil, after Box2D by Erin Catto (both MIT). The font is
 [Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P) by CodeMan38, under the
 SIL Open Font License (see `Content/Assets/fonts/retro-OFL.txt`).
