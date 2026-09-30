@@ -12,7 +12,7 @@ public class Game1 : Core
     public const int VirtualHeight = 288;
     private const int BackgroundScrollSpeed = 30;
     private const int GroundScrollSpeed = 60;
-    private const int BackgroundLoopingPoint = 413;
+    private const int BackgroundLoopingPoint = 412;
     private float _backgroundScroll;
     private float _groundScroll;
     private Bird _bird;

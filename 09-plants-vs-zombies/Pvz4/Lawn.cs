@@ -8,9 +8,9 @@ public static class Lawn
     public const int Columns = 9;
     public const int Rows = 5;
     public const int CellWidth = 100;
-    public const int CellHeight = 110;
+    public const int CellHeight = 112;
 
-    public static readonly Rectangle Bounds = new(260, 150, Columns * CellWidth, Rows * CellHeight);
+    public static readonly Rectangle Bounds = new(260, 148, Columns * CellWidth, Rows * CellHeight);
 
     // Picking: which cell is this point in? Null when it's not on the lawn.
     public static Point? CellAt(Vector2 position)

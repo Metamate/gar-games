@@ -65,7 +65,7 @@ public class SeedBar(TextureAtlas atlas, Texture2D pixel, SpriteFont font)
 
             TextureRegion icon = packet.Icon;
             icon.Draw(spriteBatch, new Vector2(packet.Bounds.Center.X, packet.Bounds.Y + 42), tint, 0,
-                new Vector2(icon.Width / 2f, icon.Height / 2f), 0.72f, SpriteEffects.None, 0);
+                new Vector2(icon.Width / 2f, icon.Height / 2f), 0.5f, SpriteEffects.None, 0);
 
             string cost = packet.Cost.ToString();
             Vector2 size = font.MeasureString(cost);
