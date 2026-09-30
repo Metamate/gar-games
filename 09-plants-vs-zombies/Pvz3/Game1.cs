@@ -58,7 +58,7 @@ public class Game1 : Core
 
     protected override void Update(GameTime gameTime)
     {
-        if (Input.Keyboard.WasKeyJustPressed(Keys.R))
+        if (Input.Keyboard.WasKeyJustPressed(Keys.R) || (_lost && Input.Keyboard.WasKeyJustPressed(Keys.Enter)))
             NewGame();
 
         if (!_lost)
@@ -109,7 +109,7 @@ public class Game1 : Core
         _seedBar.Draw(SpriteBatch, _world.Sun);
         DrawSun();
         if (_lost)
-            DrawMessage("The zombies ate your brains!  Press R to try again");
+            DrawMessage("The zombies ate your brains! Press Enter to try again.");
         SpriteBatch.End();
 
         base.Draw(gameTime);

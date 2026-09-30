@@ -62,7 +62,6 @@ public static class GameSettings
     // UI text layout
     public const float  UiTitleYOffset    = -10f;
     public const float  UiSubtitleSpacing =   5f;
-    public const float  UiSubtitleScale   =  0.5f;
     public static readonly Color GameOverColor = new(175, 53, 42);
 
     // Tile IDs (0-based)

@@ -73,7 +73,7 @@ public class PlayState(Game1 game) : IState
             pipePair.Draw(spriteBatch);
         }
 
-        spriteBatch.DrawString(Art.Font, $"Score: {Score}", new Vector2(5, 5), Color.White, 0f, Vector2.Zero, 0.2f, SpriteEffects.None, 0f);
+        Art.DrawText(spriteBatch, Art.SmallFont, $"Score: {Score}", new Vector2(8, 8));
     }
 
     private void SpawnPipePair()

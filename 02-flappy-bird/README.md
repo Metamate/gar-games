@@ -56,7 +56,8 @@ The finished game, `Flappy12`:
 
 | Key | Action |
 | --- | --- |
-| `Space` or a mouse click | Flap, and start |
+| `Space` or a mouse click | Flap |
+| `Enter` (or `Space`, or a click) | Start, and play again after the score (from `Flappy9`) |
 | `Esc` | Quit |
 
 ## Running a step

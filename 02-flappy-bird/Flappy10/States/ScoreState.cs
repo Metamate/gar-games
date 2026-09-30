@@ -18,7 +18,7 @@ public class ScoreState(Game1 game) : IState
 
     public void Update(GameTime gameTime)
     {
-        if (Core.Input.Keyboard.WasKeyJustPressed(Keys.Space) || Core.Input.Mouse.WasLeftButtonJustPressed)
+        if (Core.Input.Keyboard.WasKeyJustPressed(Keys.Enter) || Core.Input.Keyboard.WasKeyJustPressed(Keys.Space) || Core.Input.Mouse.WasLeftButtonJustPressed)
         {
             game.GameState.ChangeState(game.GameState.PlayState);
         }
@@ -27,8 +27,8 @@ public class ScoreState(Game1 game) : IState
     public void Draw(SpriteBatch spriteBatch)
     {
         var scoreText = $"Score: {game.GameState.PlayState.Score}";
-        var scoreTextOrigin = Art.Font.MeasureString(scoreText) * 0.5f;
-        var scoreTextPosition = new Vector2(Game1.VirtualWidth, Game1.VirtualHeight) / 2f;
-        spriteBatch.DrawString(Art.Font, scoreText, scoreTextPosition, Color.White, 0f, scoreTextOrigin, 0.6f, SpriteEffects.None, 0f);
+        Art.DrawCentred(spriteBatch, Art.Font, scoreText, new Vector2(Game1.VirtualWidth / 2, Game1.VirtualHeight / 2 - 20));
+        string prompt = "Press Enter to play again";
+        Art.DrawCentred(spriteBatch, Art.SmallFont, prompt, new Vector2(Game1.VirtualWidth / 2, Game1.VirtualHeight / 2 + 20));
     }
 }

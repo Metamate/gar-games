@@ -17,7 +17,7 @@ public class TitleState(Game1 game) : IState
 
     public void Update(GameTime gameTime)
     {
-        if (Core.Input.Keyboard.WasKeyJustPressed(Keys.Space) || Core.Input.Mouse.WasLeftButtonJustPressed)
+        if (Core.Input.Keyboard.WasKeyJustPressed(Keys.Enter) || Core.Input.Keyboard.WasKeyJustPressed(Keys.Space) || Core.Input.Mouse.WasLeftButtonJustPressed)
         {
             game.GameState.ChangeState(game.GameState.PlayState);
         }
@@ -26,8 +26,8 @@ public class TitleState(Game1 game) : IState
     public void Draw(SpriteBatch spriteBatch)
     {
         string title = "Flappy Bird";
-        spriteBatch.DrawString(Art.Font, title, new Vector2(Game1.VirtualWidth / 2f, Game1.VirtualHeight / 2f - 40), Color.White, 0f, Art.Font.MeasureString(title) * 0.5f, 0.6f, SpriteEffects.None, 0f);
-        string prompt = "Press Space or Click to Start!";
-        spriteBatch.DrawString(Art.Font, prompt, new Vector2(Game1.VirtualWidth / 2f, Game1.VirtualHeight / 2f + 20), Color.White, 0f, Art.Font.MeasureString(prompt) * 0.5f, 0.2f, SpriteEffects.None, 0f);
+        Art.DrawCentred(spriteBatch, Art.Font, title, new Vector2(Game1.VirtualWidth / 2, Game1.VirtualHeight / 2 - 40));
+        string prompt = "Press Enter";
+        Art.DrawCentred(spriteBatch, Art.SmallFont, prompt, new Vector2(Game1.VirtualWidth / 2, Game1.VirtualHeight / 2 + 12));
     }
 }

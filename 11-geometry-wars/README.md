@@ -94,7 +94,7 @@ dotnet test
 | Arrow keys, or the right stick | Aim and fire, without the mouse |
 | `P`, or Start | Pause |
 | `F3` | Frame rate and memory |
-| `Enter`, or A | Play again, after game over |
+| `Enter`, or A | Start, and play again after game over |
 | `Esc`, or Back | Quit |
 
 ## Running a step

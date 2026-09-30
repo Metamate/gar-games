@@ -26,6 +26,7 @@ public class Game1 : Core
     private Texture2D _pixel;
     private TextureAtlas _atlas;
     private SpriteFont _font;
+    private SpriteFont _titleFont;
     private float _time;
     private float _skySunTimer;
     private int _nextSpawn;
@@ -36,6 +37,7 @@ public class Game1 : Core
 
     public World World { get; private set; }
     public SeedBar SeedBar { get; private set; }
+    public TitleState TitleState { get; private set; }
     public PlayState PlayState { get; private set; }
     public EndState EndState { get; private set; }
 
@@ -49,6 +51,7 @@ public class Game1 : Core
         _background = Content.Load<Texture2D>("images/background");
         _atlas = TextureAtlas.FromFile(Content, "images/atlas-definition.xml");
         _font = Content.Load<SpriteFont>("fonts/hud");
+        _titleFont = Content.Load<SpriteFont>("fonts/title");
         _pixel = new Texture2D(GraphicsDevice, 1, 1);
         _pixel.SetData([Color.White]);
 
@@ -58,9 +61,11 @@ public class Game1 : Core
         _zombieTypes = GameData.Load<ZombieType>(ReadText("data/zombies.json")).ToDictionary(type => type.Name);
         _level = GameData.LoadOne<Level>(ReadText("data/level1.json"));
 
+        TitleState = new TitleState(this);
         PlayState = new PlayState(this);
         EndState = new EndState(this);
         NewGame();
+        ChangeState(TitleState);
     }
 
     public void NewGame()
@@ -173,6 +178,17 @@ public class Game1 : Core
         string text = World.Sun.ToString();
         Vector2 size = _font.MeasureString(text);
         SpriteBatch.DrawString(_font, text, new Vector2(70 - size.X / 2, 88), Color.White);
+    }
+
+    // The title screen's text: the name in the title font over a dark band, "Press Enter" below.
+    public void DrawTitle(string title)
+    {
+        SpriteBatch.Draw(_pixel, new Rectangle(260, 300, 900, 160), Color.Black * 0.6f);
+        Vector2 size = _titleFont.MeasureString(title);
+        SpriteBatch.DrawString(_titleFont, title, new Vector2((int)((VirtualWidth - size.X) / 2), 332), Color.White);
+        const string prompt = "Press Enter";
+        size = _font.MeasureString(prompt);
+        SpriteBatch.DrawString(_font, prompt, new Vector2((int)((VirtualWidth - size.X) / 2), 404), Color.White);
     }
 
     public void DrawMessage(string text)

@@ -24,10 +24,10 @@ public class LevelEndState(Game1 game) : IState
     {
         game.DrawWorld();
         if (!Won)
-            game.DrawMessage("Out of birds!  Press Enter to try again");
+            game.DrawMessage("Out of birds! Press Enter to try again.");
         else if (game.LevelIndex == Game1.LevelCount - 1)
-            game.DrawMessage($"You beat every level!  Score {game.Score}.  Press Enter to start over");
+            game.DrawMessage($"You beat every level! Score {game.Score}. Press Enter to start over.");
         else
-            game.DrawMessage($"Level cleared!  Score {game.Score}.  Press Enter for the next level");
+            game.DrawMessage($"Level cleared! Score {game.Score}. Press Enter for the next level.");
     }
 }

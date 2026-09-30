@@ -29,6 +29,7 @@ public class Game1 : Core
     private Texture2D _pixel;
     private TextureAtlas _atlas;
     private SpriteFont _font;
+    private SpriteFont _titleFont;
     private Prefabs _prefabs;
 
     public Game1() : base("Angry Birds", 1280, 720, VirtualWidth, VirtualHeight)
@@ -43,6 +44,7 @@ public class Game1 : Core
     public int Score { get; set; }
     public int PigsLeft => _entities.OfType<Pig>().Count();
 
+    public TitleState TitleState { get; private set; }
     public AimState AimState { get; private set; }
     public FlyState FlyState { get; private set; }
     public LevelEndState LevelEndState { get; private set; }
@@ -54,16 +56,19 @@ public class Game1 : Core
         _background = Content.Load<Texture2D>("images/background");
         _atlas = TextureAtlas.FromFile(Content, "images/atlas-definition.xml");
         _font = Content.Load<SpriteFont>("fonts/hud");
+        _titleFont = Content.Load<SpriteFont>("fonts/title");
         _pixel = new Texture2D(GraphicsDevice, 1, 1);
         _pixel.SetData([Color.White]);
         Slingshot = new Slingshot(_atlas, _pixel);
         _debugView = new PhysicsDebugView(_pixel);
         _prefabs = new Prefabs(_atlas);
 
+        TitleState = new TitleState(this);
         AimState = new AimState(this);
         FlyState = new FlyState(this);
         LevelEndState = new LevelEndState(this);
         StartLevel(0);
+        ChangeState(TitleState);
     }
 
     public void StartLevel(int index)
@@ -183,6 +188,17 @@ public class Game1 : Core
     {
         Vector2 size = _font.MeasureString(text);
         DrawText(text, new Vector2((VirtualWidth - size.X) / 2, 200));
+    }
+
+    // The title screen's text: the name in the title font over a dark band, "Press Enter" below.
+    public void DrawTitle(string title)
+    {
+        SpriteBatch.Draw(_pixel, new Rectangle(0, 232, VirtualWidth, 160), Color.Black * 0.6f);
+        Vector2 size = _titleFont.MeasureString(title);
+        SpriteBatch.DrawString(_titleFont, title, new Vector2((int)((VirtualWidth - size.X) / 2), 264), Color.White);
+        const string prompt = "Press Enter";
+        size = _font.MeasureString(prompt);
+        DrawText(prompt, new Vector2((int)((VirtualWidth - size.X) / 2), 336));
     }
 
     private void DrawText(string text, Vector2 position)

@@ -39,6 +39,6 @@ public class CountdownState(Game1 game) : IState
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        spriteBatch.DrawString(Art.Font, _currentCount.ToString(), new Vector2(Game1.VirtualWidth, Game1.VirtualHeight) / 2f, Color.White, 0f, Art.Font.MeasureString(_currentCount.ToString()) * 0.5f, 0.8f, SpriteEffects.None, 0f);
+        Art.DrawCentred(spriteBatch, Art.Font, _currentCount.ToString(), new Vector2(Game1.VirtualWidth / 2, Game1.VirtualHeight / 2));
     }
 }

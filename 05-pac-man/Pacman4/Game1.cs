@@ -8,8 +8,8 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Pacman4;
 
-// Game1 loads everything and hands the game over to its states (GameStates): ready, play,
-// dying and game over. The drawing that all states share lives here.
+// Game1 loads everything and hands the game over to its states (GameStates): title, ready,
+// play, dying and game over. The drawing that all states share lives here.
 public class Game1 : Core
 {
     public const int VirtualWidth = 560;
@@ -19,6 +19,7 @@ public class Game1 : Core
     private readonly StateMachine _states = new();
     private Texture2D _pixel;
     private SpriteFont _font;
+    private SpriteFont _titleFont;
     private TextureAtlas _atlas;
 
     public Game1() : base("Pac-Man", VirtualWidth, VirtualHeight, VirtualWidth, VirtualHeight)
@@ -30,6 +31,7 @@ public class Game1 : Core
     public PacManView PacManView { get; private set; }
     public GhostView GhostView { get; private set; }
 
+    public TitleState TitleState { get; private set; }
     public ReadyState ReadyState { get; private set; }
     public PlayState PlayState { get; private set; }
     public DyingState DyingState { get; private set; }
@@ -42,6 +44,7 @@ public class Game1 : Core
         _pixel = new Texture2D(GraphicsDevice, 1, 1);
         _pixel.SetData([Color.White]);
         _font = Content.Load<SpriteFont>("fonts/hud");
+        _titleFont = Content.Load<SpriteFont>("fonts/title");
 
         _atlas = TextureAtlas.FromFile(Content, "images/atlas-definition.xml");
         MazeView = new MazeView(_pixel, _atlas);
@@ -50,11 +53,12 @@ public class Game1 : Core
 
         World = new World(ReadText("levels/maze.txt"));
 
+        TitleState = new TitleState(this);
         ReadyState = new ReadyState(this);
         PlayState = new PlayState(this);
         DyingState = new DyingState(this);
         GameOverState = new GameOverState(this);
-        ChangeState(ReadyState);
+        ChangeState(TitleState);
     }
 
     protected override void Update(GameTime gameTime)
@@ -106,6 +110,19 @@ public class Game1 : Core
         Vector2 size = _font.MeasureString(text);
         float y = MazeTop + 16 * Maze.TileSize + (Maze.TileSize - size.Y) / 2;
         SpriteBatch.DrawString(_font, text, new Vector2((VirtualWidth - size.X) / 2, y), color);
+        SpriteBatch.End();
+    }
+
+    // The title screen's text: the name in the title font over a dark band, "Press Enter" below.
+    public void DrawTitle(string title, Color color)
+    {
+        SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
+        SpriteBatch.Draw(_pixel, new Rectangle(0, VirtualHeight / 2 - 72, VirtualWidth, 128), Color.Black * 0.75f);
+        Vector2 size = _titleFont.MeasureString(title);
+        SpriteBatch.DrawString(_titleFont, title, new Vector2((int)((VirtualWidth - size.X) / 2), VirtualHeight / 2 - 48), color);
+        const string prompt = "Press Enter";
+        size = _font.MeasureString(prompt);
+        SpriteBatch.DrawString(_font, prompt, new Vector2((int)((VirtualWidth - size.X) / 2), VirtualHeight / 2 + 16), Color.White);
         SpriteBatch.End();
     }
 

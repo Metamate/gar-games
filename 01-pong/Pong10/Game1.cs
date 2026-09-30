@@ -7,8 +7,8 @@ namespace Pong10;
 
 public class Game1 : Game
 {
-    private const int WINDOW_WIDTH = 1280;
-    private const int WINDOW_HEIGHT = 720;
+    private const int WINDOW_WIDTH = 1296;
+    private const int WINDOW_HEIGHT = 729;
     private Matrix _screenScaleMatrix;
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;

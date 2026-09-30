@@ -26,9 +26,8 @@ public class StartState(Game1 game) : GameStateBase(game)
     public override void Draw(SpriteBatch spriteBatch)
     {
         spriteBatch.Begin(transformMatrix: Game.ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
-        spriteBatch.DrawString(Game1.DefaultFont, Title,    _titlePos,    Color.White);
-        spriteBatch.DrawString(Game1.DefaultFont, Subtitle, _subtitlePos, Color.White,
-            0f, Vector2.Zero, GameSettings.UiSubtitleScale, SpriteEffects.None, 0f);
+        spriteBatch.DrawString(Game1.TitleFont, Title,    _titlePos,    Color.White);
+        spriteBatch.DrawString(Game1.DefaultFont, Subtitle, _subtitlePos, Color.White);
         spriteBatch.End();
     }
 }

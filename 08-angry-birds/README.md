@@ -90,7 +90,7 @@ The prefabs are `wood-`, `stone-` and `glass-` followed by `plank`, `post` or `b
 | Mouse | Drag back from the slingshot, and let go to shoot |
 | `R` | Restart the level |
 | `F1` | Show the physics bodies (`Birds1` on) |
-| `Enter` | Next level, or try again (`Birds4`) |
+| `Enter` | Start, the next level, or try again (`Birds4`) |
 | `Esc` | Quit |
 
 ## Running a step

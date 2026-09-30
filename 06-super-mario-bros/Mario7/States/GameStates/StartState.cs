@@ -9,28 +9,12 @@ namespace Mario7.States.GameStates;
 
 public class StartState(Game1 game) : GameStateBase(game)
 {
-    private string _title = "Super Mario Bros";
-    private float _titleScale = 0.7f;
-    private Vector2 _titlePosition;
-    private string _subtitle = "Press Enter";
-    private Vector2 _subtitlePosition;
-    private float _subtitleScale = 0.5f;
+    private readonly string[] _title = ["Super Mario", "Bros"];
+    private const string Subtitle = "Press Enter";
     private GameLevel _backgroundLevel;
 
     public override void Enter()
     {
-        Vector2 size = Game1.DefaultFont.MeasureString(_title) * _titleScale;
-        _titlePosition = new Vector2(
-            GameSettings.VirtualWidth / 2f - size.X / 2f,
-            GameSettings.VirtualHeight / 2f - size.Y / 2f - 10f
-        );
-
-        Vector2 subtitleSize = Game1.DefaultFont.MeasureString(_subtitle) * _subtitleScale;
-        _subtitlePosition = new Vector2(
-            GameSettings.VirtualWidth / 2f - subtitleSize.X / 2f,
-            _titlePosition.Y + size.Y + 5f
-        );
-
         var levelMaker = new ComplexLevelMaker(Game.Content);
         _backgroundLevel = levelMaker.Generate(30, 9);
     }
@@ -48,8 +32,21 @@ public class StartState(Game1 game) : GameStateBase(game)
         _backgroundLevel.Draw(spriteBatch, Game.ScreenScaleMatrix);
 
         spriteBatch.Begin(transformMatrix: Game.ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
-        spriteBatch.DrawString(Game1.DefaultFont, _title, _titlePosition, Color.White, 0f, Vector2.Zero, _titleScale, SpriteEffects.None, 0f);
-        spriteBatch.DrawString(Game1.DefaultFont, _subtitle, _subtitlePosition, Color.White, 0f, Vector2.Zero, _subtitleScale, SpriteEffects.None, 0f);
+        float y = 36;
+        foreach (string line in _title)
+        {
+            DrawCentred(spriteBatch, Game1.TitleFont, line, y);
+            y += Game1.TitleFont.LineSpacing;
+        }
+        DrawCentred(spriteBatch, Game1.DefaultFont, Subtitle, y + 8);
         spriteBatch.End();
+    }
+
+    // Centred, on whole pixels, with a dark shadow so it reads over the clouds.
+    private static void DrawCentred(SpriteBatch spriteBatch, SpriteFont font, string text, float y)
+    {
+        var position = new Vector2((int)((GameSettings.VirtualWidth - font.MeasureString(text).X) / 2), (int)y);
+        spriteBatch.DrawString(font, text, position + Vector2.One, Color.Black * 0.6f);
+        spriteBatch.DrawString(font, text, position, Color.White);
     }
 }

@@ -61,7 +61,7 @@ public class PlayState(Game1 game) : GameStateBase(game)
         _currentLevel.Draw(spriteBatch, Game.ScreenScaleMatrix);
 
         spriteBatch.Begin(transformMatrix: Game.ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
-        spriteBatch.DrawString(Game1.DefaultFont, $"Score: {_player.Score}", new Vector2(5, 5), Color.White, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 0f);
+        spriteBatch.DrawString(Game1.DefaultFont, $"Score: {_player.Score}", new Vector2(4, 4), Color.White);
         spriteBatch.End();
     }
 }

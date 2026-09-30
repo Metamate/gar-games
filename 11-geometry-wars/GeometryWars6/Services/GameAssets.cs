@@ -22,6 +22,7 @@ public sealed class GameAssets
     public Texture2D Pixel { get; private set; }
     public Texture2D Pointer { get; private set; }
     public SpriteFont Font { get; private set; }
+    public SpriteFont TitleFont { get; private set; }
 
     public Song Music { get; private set; }
 
@@ -61,6 +62,7 @@ public sealed class GameAssets
         Pixel.SetData([Color.White]);
 
         Font = content.Load<SpriteFont>("font");
+        TitleFont = content.Load<SpriteFont>("font-title");
 
         Music = content.Load<Song>("Audio/Music");
         _explosions = [.. Enumerable.Range(1, 8).Select(i => content.Load<SoundEffect>($"Audio/explosion-{i:D2}"))];

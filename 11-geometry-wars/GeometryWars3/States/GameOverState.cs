@@ -53,7 +53,7 @@ public sealed class GameOverState : GameStateBase
         DrawCentered(spriteBatch, "GAME OVER",               center + new Vector2(0, -lineSpacing * 2), Color.White);
         DrawCentered(spriteBatch, "Score: " + _session.Score.Score,    center + new Vector2(0, -lineSpacing),     Color.LightGray);
         DrawCentered(spriteBatch, "High Score: " + _session.Score.HighScore, center,                           Color.LightGray);
-        DrawCentered(spriteBatch, "Press Enter to Restart",  center + new Vector2(0,  lineSpacing * 1.5f),   Color.Gray);
+        DrawCentered(spriteBatch, "Press Enter to play again",  center + new Vector2(0,  lineSpacing * 1.5f),   Color.Gray);
 
         spriteBatch.End();
     }

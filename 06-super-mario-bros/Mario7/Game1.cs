@@ -11,6 +11,7 @@ public class Game1 : Core
     public new Matrix ScreenScaleMatrix => base.ScreenScaleMatrix;
     
     public static SpriteFont DefaultFont { get; private set; }
+    public static SpriteFont TitleFont { get; private set; }
 
     public Game1() : base("Super Mario Bros", 1280, 720, GameSettings.VirtualWidth, GameSettings.VirtualHeight)
     {
@@ -26,6 +27,7 @@ public class Game1 : Core
     {
         base.LoadContent();
         DefaultFont = Content.Load<SpriteFont>("fonts/font");
+        TitleFont = Content.Load<SpriteFont>("fonts/font-big");
     }
 
     public void SetState(GameStateBase newState)

@@ -70,7 +70,7 @@ dotnet run -c Release --project Survivors3
 | `F3` | Profiler (`Survivors1` on) |
 | `1` `2` `3` | Choose an upgrade (`Survivors4`) |
 | `R` | Restart |
-| `Enter` | Play again, after the end (`Survivors4`) |
+| `Enter` | Start, and play again after the end (`Survivors4`) |
 | `Esc` | Quit |
 
 ## Running a step

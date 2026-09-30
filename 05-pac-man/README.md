@@ -16,7 +16,7 @@ steps (e.g. with a diff tool) to see what changed.
 | `Pacman1` | Ghosts, with an enum | Four ghosts with five modes (in the house, scatter, chase, frightened, eaten) as a `GhostMode` enum, and a `switch` in every method |
 | `Pacman2` | The State pattern | Each mode becomes a class in `GhostStates`; `Ghost` forwards to its current state |
 | `Pacman3` | The Strategy pattern | Each ghost gets its own `ITargetStrategy` for chasing (`Targeting`) |
-| `Pacman4` | The whole game | Lives, Pac-Man's death, levels, and game states: ready, play, dying, game over (the finished game) |
+| `Pacman4` | The whole game | Lives, Pac-Man's death, levels, and game states: title, ready, play, dying, game over (the finished game) |
 
 ## New in GARCore
 
@@ -82,7 +82,7 @@ A row that is open at both ends is a tunnel.
 | Key | Action |
 | --- | --- |
 | Arrow keys, `W` `A` `S` `D` | Steer |
-| `Enter` or `Space` | New game, after game over (`Pacman4`) |
+| `Enter` or `Space` | Start, and a new game after game over (`Pacman4`) |
 | `Esc` | Quit |
 
 ## Running a step

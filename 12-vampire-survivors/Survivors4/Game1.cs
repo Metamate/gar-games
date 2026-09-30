@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Survivors4;
 
 // Game1 loads the content and starts runs. A run is played by the states on the state stack:
-// play, level up (on top of play), and game over.
+// the title, play, level up (on top of play), and game over.
 public class Game1 : Core
 {
     public const int VirtualWidth = 1280;
@@ -28,6 +28,7 @@ public class Game1 : Core
     public Random Random { get; } = new();
     public Profiler Profiler { get; } = new() { IsVisible = false };
     public SpriteFont Font { get; private set; }
+    public SpriteFont TitleFont { get; private set; }
     public Run CurrentRun { get; private set; }
 
     protected override void LoadContent()
@@ -35,8 +36,12 @@ public class Game1 : Core
         _ground = Content.Load<Texture2D>("images/ground");
         _atlas = TextureAtlas.FromFile(Content, "images/atlas-definition.xml");
         Font = Content.Load<SpriteFont>("fonts/hud");
+        TitleFont = Content.Load<SpriteFont>("fonts/title");
         _debugFont = Content.Load<SpriteFont>("fonts/debug");
-        NewGame();
+
+        // The title screen, over a run that hasn't started yet.
+        CurrentRun = new Run(_atlas, _ground, Random, Profiler);
+        StateStack.Push(new TitleState(this));
     }
 
     public void NewGame()

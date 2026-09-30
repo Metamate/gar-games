@@ -12,25 +12,23 @@ public abstract class GameStateBase(Game1 game)
     public abstract void Update(GameTime gameTime);
     public abstract void Draw(SpriteBatch spriteBatch);
 
-    // Returns the position that centres text horizontally and vertically,
-    // with an optional Y offset from dead centre.  Scale applies to the
-    // measured size so scaled DrawString calls position correctly.
-    protected static Vector2 ScreenCenter(string text, float yOffset = 0f, float scale = 1f)
+    // Returns the position that centres text horizontally and vertically, with an optional Y
+    // offset from dead centre, on whole pixels so the pixel font stays crisp.
+    protected static Vector2 ScreenCenter(SpriteFont font, string text, float yOffset = 0f)
     {
-        Vector2 size = Game1.DefaultFont.MeasureString(text) * scale;
-        return new Vector2(
+        Vector2 size = font.MeasureString(text);
+        return Vector2.Floor(new Vector2(
             GameSettings.VirtualWidth  / 2f - size.X / 2f,
-            GameSettings.VirtualHeight / 2f - size.Y / 2f + yOffset);
+            GameSettings.VirtualHeight / 2f - size.Y / 2f + yOffset));
     }
 
-    // Returns positions for a centred title + subtitle pair.
-    // The subtitle sits below the title, independently centred at subtitle scale.
+    // Returns positions for a centred title (in the title font) and a subtitle below it.
     protected static (Vector2 TitlePos, Vector2 SubtitlePos) CalculateTitleLayout(string title, string subtitle)
     {
-        var titlePos    = ScreenCenter(title, GameSettings.UiTitleYOffset);
-        float titleHeight = Game1.DefaultFont.MeasureString(title).Y;
+        var titlePos    = ScreenCenter(Game1.TitleFont, title, GameSettings.UiTitleYOffset);
+        float titleHeight = Game1.TitleFont.MeasureString(title).Y;
         var subtitlePos = new Vector2(
-            ScreenCenter(subtitle, scale: GameSettings.UiSubtitleScale).X,
+            ScreenCenter(Game1.DefaultFont, subtitle).X,
             titlePos.Y + titleHeight + GameSettings.UiSubtitleSpacing);
         return (titlePos, subtitlePos);
     }

@@ -18,6 +18,7 @@ public sealed class Game1 : Core
     private PhysicsWorld _physics;
     private PhysicsDebugView _debugView;
     private SpriteFont _font;
+    private SpriteFont _small;
     private Texture2D _pixel;
     private Scene _scene;
 
@@ -27,6 +28,7 @@ public sealed class Game1 : Core
     {
         base.LoadContent();
         _font = Content.Load<SpriteFont>("fonts/hud");
+        _small = Content.Load<SpriteFont>("fonts/small");
         _pixel = new Texture2D(GraphicsDevice, 1, 1);
         _pixel.SetData([Color.White]);
         _debugView = new PhysicsDebugView(_pixel);
@@ -69,8 +71,8 @@ public sealed class Game1 : Core
     }
 
     // The retro font is large at the game's size: the samples draw their text smaller.
-    private void Text(string text, Vector2 position, Color color, float scale)
-        => SpriteBatch.DrawString(_font, text, position, color, 0, Vector2.Zero, scale, SpriteEffects.None, 0);
+    private void Text(SpriteFont font, string text, Vector2 position, Color color)
+        => SpriteBatch.DrawString(font, text, Vector2.Floor(position), color);
 
     protected override void Draw(GameTime gameTime)
     {
@@ -79,13 +81,13 @@ public sealed class Game1 : Core
         _debugView.Draw(SpriteBatch, _physics);
 
         var dim = new Color(150, 150, 150);
-        Text("1 Body types  2 Bounce  3 Friction  4 Density  5 Sleep  6 Joints    R: again  Click: box  Space: ball",
-            new Vector2(20, 14), dim, 0.5f);
-        Text(_scene.Title, new Vector2(20, 40), Color.White, 0.8f);
+        Text(_small, "1 Body types  2 Bounce  3 Friction  4 Density  5 Sleep  6 Joints    R: again  Click: box  Space: ball",
+            new Vector2(20, 14), dim);
+        Text(_font, _scene.Title, new Vector2(20, 36), Color.White);
         for (int i = 0; i < _scene.Notes.Length; i++)
-            Text(_scene.Notes[i], new Vector2(20, 76 + i * 20), dim, 0.5f);
+            Text(_small, _scene.Notes[i], new Vector2(20, 72 + i * 16), dim);
         foreach (var (at, text) in _scene.Labels)
-            Text(text, at, Color.White, 0.55f);
+            Text(_small, text, at, Color.White);
         SpriteBatch.End();
         base.Draw(gameTime);
     }

@@ -6,8 +6,8 @@ namespace Pong2;
 
 public class Game1 : Game
 {
-    private const int WINDOW_WIDTH = 1280;
-    private const int WINDOW_HEIGHT = 720;
+    private const int WINDOW_WIDTH = 1296;
+    private const int WINDOW_HEIGHT = 729;
     private const int VIRTUAL_WIDTH = 432;
     private const int VIRTUAL_HEIGHT = 243;
     private Matrix _screenScaleMatrix;

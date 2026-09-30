@@ -83,7 +83,8 @@ zombies can have `armour`.
 | Key | Action |
 | --- | --- |
 | Mouse | Click a seed packet, then a cell to plant. Click sun to collect it |
-| `R` | New game |
+| `R` | New game, at any time |
+| `Enter` | Start, and a new game at the end |
 | `Esc` | Quit |
 
 ## Running a step
