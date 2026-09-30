@@ -66,7 +66,7 @@ public class Game1 : Core
         }
 
         Profiler.EndFrame((float)gameTime.ElapsedGameTime.TotalSeconds);
-        SpriteBatch.Begin();
+        SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
         Profiler.Draw(SpriteBatch, _debugFont, new Vector2(20, 60), CurrentRun.Swarm.Count);
         SpriteBatch.End();
         base.Draw(gameTime);

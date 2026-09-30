@@ -10,7 +10,7 @@ public class Game1 : Core
     public const int VirtualWidth = 512;
     public const int VirtualHeight = 288;
 
-    public Game1() : base("Flappy Bird", 1280, 720, VirtualWidth, VirtualHeight)
+    public Game1() : base("Flappy Bird", 1024, 576, VirtualWidth, VirtualHeight)
     {
     }
 
@@ -28,7 +28,7 @@ public class Game1 : Core
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
 
-        SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix);
+        SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
         SpriteBatch.End();
 
         base.Draw(gameTime);

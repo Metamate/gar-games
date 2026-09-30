@@ -72,14 +72,14 @@ public sealed class Run(TextureAtlas atlas, Texture2D ground, Random random, Pro
         int width = Game1.VirtualWidth, height = Game1.VirtualHeight;
 
         // The ground: one texture, repeated, and scrolled with the camera.
-        spriteBatch.Begin(samplerState: SamplerState.LinearWrap);
+        spriteBatch.Begin(samplerState: SamplerState.PointWrap);
         Rectangle view = new((int)Player.Position.X - width / 2, (int)Player.Position.Y - height / 2, width, height);
         spriteBatch.Draw(ground, new Rectangle(0, 0, width, height), view, Color.White);
         spriteBatch.End();
 
         // The world, with the camera centred on the player.
         Matrix camera = Matrix.CreateTranslation(width / 2 - Player.Position.X, height / 2 - Player.Position.Y, 0);
-        spriteBatch.Begin(transformMatrix: camera);
+        spriteBatch.Begin(transformMatrix: camera, samplerState: SamplerState.PointClamp);
         Aura.Draw(spriteBatch, Player.Position);
         Gems.Draw(spriteBatch);
         Swarm.Draw(spriteBatch);
@@ -91,7 +91,7 @@ public sealed class Run(TextureAtlas atlas, Texture2D ground, Random random, Pro
     public void DrawHud(SpriteBatch spriteBatch, SpriteFont font)
     {
         int width = Game1.VirtualWidth, height = Game1.VirtualHeight;
-        spriteBatch.Begin();
+        spriteBatch.Begin(samplerState: SamplerState.PointClamp);
 
         // Experience along the top, health under the player.
         spriteBatch.Draw(Core.Pixel, new Rectangle(0, 0, width, 12), new Color(20, 20, 40));

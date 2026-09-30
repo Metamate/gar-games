@@ -44,7 +44,7 @@ public class Game1 : Core
         Matrix centre = Matrix.CreateTranslation(
             (VirtualWidth - _level.Width * LevelView.TileSize) / 2,
             (VirtualHeight - _level.Height * LevelView.TileSize) / 2, 0);
-        SpriteBatch.Begin(transformMatrix: centre * ScreenScaleMatrix);
+        SpriteBatch.Begin(transformMatrix: centre * ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
         _view.Draw(SpriteBatch, _level);
         SpriteBatch.End();
 

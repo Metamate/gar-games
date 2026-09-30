@@ -75,7 +75,7 @@ public sealed class Game1 : Core
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(new Color(24, 26, 30));
-        SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix);
+        SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
         _debugView.Draw(SpriteBatch, _physics);
 
         var dim = new Color(150, 150, 150);

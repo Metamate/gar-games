@@ -27,8 +27,8 @@ public class Armour(float health, TextureRegion sprite) : Component
         if (!IsIntact)
             return;
 
-        float breathe = Owner.Get<SpriteRenderer>()?.Breathe ?? 1;
-        Vector2 head = Owner.Position + new Vector2(-2, -HeadHeight * breathe);
+        float rise = Owner.Get<SpriteRenderer>()?.Rise ?? 0;
+        Vector2 head = Owner.Position + new Vector2(-2, -HeadHeight - rise);
         sprite.Draw(spriteBatch, head, Color.White, 0, new Vector2(sprite.Width / 2f, sprite.Height), 1, SpriteEffects.None, 0);
     }
 }

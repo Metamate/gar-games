@@ -18,7 +18,7 @@ public class Game1 : Core
     public bool IsScrolling { get; set; }
     public StateMachine GameState { get; set; }
 
-    public Game1() : base("Flappy Bird", 1280, 720, VirtualWidth, VirtualHeight)
+    public Game1() : base("Flappy Bird", 1024, 576, VirtualWidth, VirtualHeight)
     {
     }
 
@@ -53,7 +53,7 @@ public class Game1 : Core
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
 
-        SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix);
+        SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
         SpriteBatch.Draw(Art.Background, new Vector2(-_backgroundScroll, 0), Color.White);
         SpriteBatch.Draw(Art.Ground, new Vector2(-_groundScroll, VirtualHeight - Art.Ground.Height), Color.White);
 

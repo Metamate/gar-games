@@ -9,7 +9,8 @@ public class Camera
 
     public void Follow(Vector2 target, int viewportWidth, int viewportHeight)
     {
-        Position = target;
+        // Whole pixels only: at a fractional offset, the scaled-up tiles show seams between them.
+        Position = Vector2.Round(target);
 
         var center = new Vector2(viewportWidth / 2f, viewportHeight / 2f);
         Transform = Matrix.CreateTranslation(new Vector3(-Position, 0)) * // Shifts the world based on target position

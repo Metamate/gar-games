@@ -89,28 +89,28 @@ public class Game1 : Core
             GraphicsDevice.Clear(Color.Black);
 
             // The ground: one texture, repeated, and scrolled with the camera.
-            SpriteBatch.Begin(samplerState: SamplerState.LinearWrap);
+            SpriteBatch.Begin(samplerState: SamplerState.PointWrap);
             Rectangle view = new((int)_player.Position.X - VirtualWidth / 2, (int)_player.Position.Y - VirtualHeight / 2, VirtualWidth, VirtualHeight);
             SpriteBatch.Draw(_ground, new Rectangle(0, 0, VirtualWidth, VirtualHeight), view, Color.White);
             SpriteBatch.End();
 
             // The world, with the camera centred on the player.
             Matrix camera = Matrix.CreateTranslation(VirtualWidth / 2 - _player.Position.X, VirtualHeight / 2 - _player.Position.Y, 0);
-            SpriteBatch.Begin(transformMatrix: camera);
+            SpriteBatch.Begin(transformMatrix: camera, samplerState: SamplerState.PointClamp);
             _aura.Draw(SpriteBatch, _player.Position);
             _swarm.Draw(SpriteBatch);
             _bolts.Draw(SpriteBatch);
             _player.Draw(SpriteBatch);
             SpriteBatch.End();
 
-            SpriteBatch.Begin();
+            SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
             SpriteBatch.DrawString(_font, $"Enemies {_swarm.Count}   Time {(int)_spawner.Time} s", new Vector2(20, 16), Color.White);
             SpriteBatch.DrawString(_font, "Space: +1000 enemies   R: restart   F3: profiler", new Vector2(20, VirtualHeight - 40), Color.White * 0.7f);
             SpriteBatch.End();
         }
 
         _profiler.EndFrame((float)gameTime.ElapsedGameTime.TotalSeconds);
-        SpriteBatch.Begin();
+        SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
         _profiler.Draw(SpriteBatch, _debugFont, new Vector2(20, 60), _swarm.Count);
         SpriteBatch.End();
         base.Draw(gameTime);

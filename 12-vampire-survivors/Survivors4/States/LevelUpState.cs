@@ -25,7 +25,7 @@ public sealed class LevelUpState(Game1 game) : GameStateBase
     public override void DrawHUD(SpriteBatch spriteBatch)
     {
         SpriteFont font = game.Font;
-        spriteBatch.Begin();
+        spriteBatch.Begin(samplerState: SamplerState.PointClamp);
         spriteBatch.Draw(Core.Pixel, new Rectangle(0, 0, Game1.VirtualWidth, Game1.VirtualHeight), Color.Black * 0.5f);
         var panel = new Rectangle(Game1.VirtualWidth / 2 - 260, 200, 520, 70 + _choices.Length * 50);
         spriteBatch.Draw(Core.Pixel, panel, new Color(30, 30, 50));

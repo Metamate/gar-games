@@ -102,7 +102,7 @@ public class Game1 : Core
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(Color.Black);
-        SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix);
+        SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
         SpriteBatch.Draw(_background, Vector2.Zero, Color.White);
         _world.Draw(SpriteBatch);
         DrawCursor(MousePosition());

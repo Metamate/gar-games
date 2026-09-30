@@ -22,7 +22,7 @@ public class Game1 : Core
     private float _pipeSpawnTimer;
     private float lastGapY = VirtualHeight / 2 - PipePair.PipeGap / 2;
 
-    public Game1() : base("Flappy Bird", 1280, 720, VirtualWidth, VirtualHeight)
+    public Game1() : base("Flappy Bird", 1024, 576, VirtualWidth, VirtualHeight)
     {
     }
 
@@ -68,7 +68,7 @@ public class Game1 : Core
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
 
-        SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix);
+        SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
         SpriteBatch.Draw(Art.Background, new Vector2(-_backgroundScroll, 0), Color.White);
         SpriteBatch.Draw(Art.Ground, new Vector2(-_groundScroll, VirtualHeight - Art.Ground.Height), Color.White);
 

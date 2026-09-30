@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework;
 
 namespace Zelda5.Graphics;
@@ -10,6 +11,7 @@ public class Camera
 
     // Translates draw coordinates so the point at Position appears at the
     // origin of the viewport. Combines with the screen-scale matrix:
-    // camera.Transform * screenScaleMatrix
-    public Matrix Transform => Matrix.CreateTranslation(-Position.X, -Position.Y, 0);
+    // camera.Transform * screenScaleMatrix. Rounded to whole pixels: at a fractional offset,
+    // the scaled-up tiles show seams between them while the room scrolls.
+    public Matrix Transform => Matrix.CreateTranslation(-MathF.Round(Position.X), -MathF.Round(Position.Y), 0);
 }

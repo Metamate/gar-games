@@ -84,7 +84,7 @@ public class Game1 : Core
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
-        SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix);
+        SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
         SpriteBatch.Draw(_background, Vector2.Zero, Color.White);
         _slingshot.DrawBack(SpriteBatch);
         foreach (Entity entity in _entities)

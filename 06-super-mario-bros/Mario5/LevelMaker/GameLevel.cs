@@ -63,7 +63,7 @@ public class GameLevel(Tilemap tilemap, Tilemap toppers, TextureRegion backgroun
     public void DrawBackground(SpriteBatch spriteBatch, Matrix screenScale)
     {
         float parallaxFactor = 0.5f;
-        float bgOffset = -(Camera.Position.X * parallaxFactor) % Background.Width;
+        float bgOffset = -(int)(Camera.Position.X * parallaxFactor) % Background.Width;
 
         spriteBatch.Begin(transformMatrix: screenScale, samplerState: SamplerState.PointClamp);
         Background.Draw(spriteBatch, new Vector2(bgOffset, 0), Color.White);

@@ -12,7 +12,7 @@ public class Game1 : Core
     private Texture2D _background;
     private Texture2D _ground;
 
-    public Game1() : base("Flappy Bird", 1280, 720, VirtualWidth, VirtualHeight)
+    public Game1() : base("Flappy Bird", 1024, 576, VirtualWidth, VirtualHeight)
     {
     }
 
@@ -36,7 +36,7 @@ public class Game1 : Core
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
 
-        SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix);
+        SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
         SpriteBatch.Draw(_background, Vector2.Zero, Color.White);
         SpriteBatch.Draw(_ground, new Vector2(0, VirtualHeight - _ground.Height), Color.White);
         SpriteBatch.End();

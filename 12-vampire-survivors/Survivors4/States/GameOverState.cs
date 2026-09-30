@@ -23,7 +23,7 @@ public sealed class GameOverState(Game1 game, bool won) : GameStateBase
         string stats = $"Level {run.Level}   Kills {run.Kills}   Time {(int)run.Spawner.Time / 60}:{(int)run.Spawner.Time % 60:00}";
         string again = "Press Enter to play again";
 
-        spriteBatch.Begin();
+        spriteBatch.Begin(samplerState: SamplerState.PointClamp);
         spriteBatch.Draw(Core.Pixel, new Rectangle(0, 0, Game1.VirtualWidth, Game1.VirtualHeight), Color.Black * 0.5f);
         float y = 260;
         foreach (string line in new[] { title, stats, again })

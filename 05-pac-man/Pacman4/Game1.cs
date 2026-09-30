@@ -85,12 +85,12 @@ public class Game1 : Core
         SpriteBatch.End();
     }
 
-    public void BeginMaze() => SpriteBatch.Begin(transformMatrix: Matrix.CreateTranslation(0, MazeTop, 0) * ScreenScaleMatrix);
+    public void BeginMaze() => SpriteBatch.Begin(transformMatrix: Matrix.CreateTranslation(0, MazeTop, 0) * ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
 
     // The score at the top, and the lives left at the bottom.
     public void DrawHud()
     {
-        SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix);
+        SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
         SpriteBatch.DrawString(_font, $"SCORE {World.Score}", new Vector2(16, 8), Color.White);
 
         TextureRegion life = _atlas.GetRegion("pacman-1");
@@ -102,7 +102,7 @@ public class Game1 : Core
     // A message in the corridor below the ghost house, like "READY!".
     public void DrawMessage(string text, Color color)
     {
-        SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix);
+        SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
         Vector2 size = _font.MeasureString(text);
         float y = MazeTop + 16 * Maze.TileSize + (Maze.TileSize - size.Y) / 2;
         SpriteBatch.DrawString(_font, text, new Vector2((VirtualWidth - size.X) / 2, y), color);

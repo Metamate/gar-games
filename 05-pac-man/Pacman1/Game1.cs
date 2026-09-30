@@ -68,14 +68,14 @@ public class Game1 : Core
         GraphicsDevice.Clear(Color.Black);
 
         // The maze starts below the score.
-        SpriteBatch.Begin(transformMatrix: Matrix.CreateTranslation(0, MazeTop, 0) * ScreenScaleMatrix);
+        SpriteBatch.Begin(transformMatrix: Matrix.CreateTranslation(0, MazeTop, 0) * ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
         _mazeView.Draw(SpriteBatch, _world.Maze);
         _pacManView.Draw(SpriteBatch, _world.PacMan);
         foreach (Ghost ghost in _world.Ghosts)
             _ghostView.Draw(SpriteBatch, ghost);
         SpriteBatch.End();
 
-        SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix);
+        SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
         SpriteBatch.DrawString(_font, $"SCORE {_world.Score}", new Vector2(16, 8), Color.White);
         SpriteBatch.End();
 

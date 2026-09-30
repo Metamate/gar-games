@@ -46,7 +46,7 @@ public class Game1 : Core
 
         int width = _level.Max(line => line.Length);
         Matrix centre = Matrix.CreateTranslation((VirtualWidth - width * TileSize) / 2, (VirtualHeight - _level.Length * TileSize) / 2, 0);
-        SpriteBatch.Begin(transformMatrix: centre * ScreenScaleMatrix);
+        SpriteBatch.Begin(transformMatrix: centre * ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
 
         // Each character decides what is drawn in its cell.
         for (int y = 0; y < _level.Length; y++)
