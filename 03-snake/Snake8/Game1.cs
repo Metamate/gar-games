@@ -12,8 +12,7 @@ public class Game1 : Core
     private Tilemap _tilemap;
     private Rectangle _room;
     private Snake _snake;
-    private Rectangle _roomBounds;
-    private Mouse _mouse;
+    private Apple _apple;
 
     public Game1() : base("Snake", 1280, 720, VirtualWidth, VirtualHeight)
     {
@@ -30,18 +29,15 @@ public class Game1 : Core
         // wall, which is two cells tall.
         _room = new Rectangle(1, 2, _tilemap.Columns - 2, _tilemap.Rows - 3);
         _snake = new Snake(atlas.CreateAnimatedSprite("snake-animation"), (int)_tilemap.TileWidth, _room);
-
-        int tileSize = (int)_tilemap.TileWidth;
-        _roomBounds = new Rectangle(_room.X * tileSize, _room.Y * tileSize, _room.Width * tileSize, _room.Height * tileSize);
-        _mouse = new Mouse(atlas.CreateAnimatedSprite("mouse-animation"), _roomBounds);
-        RespawnMouse();
+        _apple = new Apple(atlas.CreateAnimatedSprite("apple-animation"), _room, (int)_tilemap.TileWidth);
+        _apple.MoveToFreeCell(_snake);
     }
 
     protected override void Update(GameTime gameTime)
     {
         HandleInput();
         _snake.Update(gameTime);
-        _mouse.Update(gameTime);
+        _apple.Update(gameTime);
 
         CollisionChecks();
 
@@ -55,7 +51,7 @@ public class Game1 : Core
         SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
         _tilemap.Draw(SpriteBatch);
         _snake.Draw(SpriteBatch);
-        _mouse.Draw(SpriteBatch);
+        _apple.Draw(SpriteBatch);
         SpriteBatch.End();
 
         base.Draw(gameTime);
@@ -83,37 +79,11 @@ public class Game1 : Core
 
     private void CollisionChecks()
     {
-        // If the snake catches the mouse, it eats the mouse and grows, and a new mouse appears.
-        if (_snake.Bounds.Intersects(_mouse.Bounds))
+        // If the snake's head reaches the apple, it eats it and grows, and a new apple appears.
+        if (_snake.Bounds.Intersects(_apple.Bounds))
         {
             _snake.Grow();
-            RespawnMouse();
+            _apple.MoveToFreeCell(_snake);
         }
-
-        // If the mouse leaves the room, it has hit a wall and bounces off it.
-        // The normal points away from the wall, back into the room.
-        if (_mouse.Bounds.Top < _roomBounds.Top)
-        {
-            _mouse.Bounce(Vector2.UnitY);
-        }
-        else if (_mouse.Bounds.Bottom > _roomBounds.Bottom)
-        {
-            _mouse.Bounce(-Vector2.UnitY);
-        }
-
-        if (_mouse.Bounds.Left < _roomBounds.Left)
-        {
-            _mouse.Bounce(Vector2.UnitX);
-        }
-        else if (_mouse.Bounds.Right > _roomBounds.Right)
-        {
-            _mouse.Bounce(-Vector2.UnitX);
-        }
-    }
-
-    private void RespawnMouse()
-    {
-        _mouse.RandomizePosition();
-        _mouse.RandomizeVelocity();
     }
 }

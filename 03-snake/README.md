@@ -21,7 +21,7 @@ steps (e.g. with a diff tool) to see what changed.
 | `Snake5` | Fixed-tick movement | A `Snake` made of grid cells moves by itself, one cell per 200 ms tick; the game reads the keys directly |
 | `Snake6` | Input as actions | A `GameController` maps W/A/S/D and the arrow keys to actions |
 | `Snake7` | Input buffering | Turns are queued and used one per tick, so quick key presses aren't lost |
-| `Snake8` | The mouse | A bouncing mouse with circle collision; eating it makes the snake grow |
+| `Snake8` | The apple | An apple on a free cell, with circle collision; eating it makes the snake grow |
 | `Snake9` | Game over | Walls and the snake's own body end the game (the finished game) |
 
 All steps share the **GARCore** library, which contains the final versions of the reusable
@@ -46,7 +46,7 @@ The finished game, `Snake9`:
 | Atlas, sprite, animation and tilemap classes | `GARCore/Graphics/` |
 | The snake: fixed-tick movement and growth | `Snake.cs` |
 | Keys to actions, with a buffer | `GameController.cs` |
-| The mice | `Mouse.cs` |
+| The apple | `Apple.cs` |
 | The tick accumulator and collisions | `Game1.cs` |
 
 ## Controls

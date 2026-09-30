@@ -10,7 +10,7 @@ public class Game1 : Core
     public const int VirtualWidth = 320;
     public const int VirtualHeight = 180;
     private AnimatedSprite _snake;
-    private AnimatedSprite _mouse;
+    private AnimatedSprite _apple;
 
     public Game1() : base("Snake", 1280, 720, VirtualWidth, VirtualHeight)
     {
@@ -21,14 +21,14 @@ public class Game1 : Core
         // The atlas definition also describes animations: a list of frames (regions) and a delay.
         TextureAtlas atlas = TextureAtlas.FromFile(Content, "images/atlas-definition.xml");
         _snake = atlas.CreateAnimatedSprite("snake-animation");
-        _mouse = atlas.CreateAnimatedSprite("mouse-animation");
+        _apple = atlas.CreateAnimatedSprite("apple-animation");
     }
 
     protected override void Update(GameTime gameTime)
     {
         // Animated sprites must be updated every frame to advance their animation.
         _snake.Update(gameTime);
-        _mouse.Update(gameTime);
+        _apple.Update(gameTime);
 
         base.Update(gameTime);
     }
@@ -39,7 +39,7 @@ public class Game1 : Core
 
         SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
         _snake.Draw(SpriteBatch, new Vector2(140, 80));
-        _mouse.Draw(SpriteBatch, new Vector2(180, 80));
+        _apple.Draw(SpriteBatch, new Vector2(180, 80));
         SpriteBatch.End();
 
         base.Draw(gameTime);

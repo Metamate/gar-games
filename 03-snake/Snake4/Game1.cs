@@ -11,7 +11,7 @@ public class Game1 : Core
     public const int VirtualHeight = 180;
     private Tilemap _tilemap;
     private AnimatedSprite _snake;
-    private AnimatedSprite _mouse;
+    private AnimatedSprite _apple;
 
     public Game1() : base("Snake", 1280, 720, VirtualWidth, VirtualHeight)
     {
@@ -25,13 +25,13 @@ public class Game1 : Core
         _tilemap = Tilemap.FromFile(Content, "images/tilemap-definition.xml");
 
         _snake = atlas.CreateAnimatedSprite("snake-animation");
-        _mouse = atlas.CreateAnimatedSprite("mouse-animation");
+        _apple = atlas.CreateAnimatedSprite("apple-animation");
     }
 
     protected override void Update(GameTime gameTime)
     {
         _snake.Update(gameTime);
-        _mouse.Update(gameTime);
+        _apple.Update(gameTime);
 
         base.Update(gameTime);
     }
@@ -43,7 +43,7 @@ public class Game1 : Core
         SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
         _tilemap.Draw(SpriteBatch);
         _snake.Draw(SpriteBatch, new Vector2(160, 80));
-        _mouse.Draw(SpriteBatch, new Vector2(200, 80));
+        _apple.Draw(SpriteBatch, new Vector2(200, 80));
         SpriteBatch.End();
 
         base.Draw(gameTime);

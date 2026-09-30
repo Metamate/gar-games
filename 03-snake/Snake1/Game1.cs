@@ -10,7 +10,7 @@ public class Game1 : Core
     public const int VirtualWidth = 320;
     public const int VirtualHeight = 180;
     private TextureRegion _snake;
-    private TextureRegion _mouse;
+    private TextureRegion _apple;
 
     public Game1() : base("Snake", 1280, 720, VirtualWidth, VirtualHeight)
     {
@@ -22,7 +22,7 @@ public class Game1 : Core
         // so the rectangles live in data instead of in code.
         TextureAtlas atlas = TextureAtlas.FromFile(Content, "images/atlas-definition.xml");
         _snake = atlas.GetRegion("snake-1");
-        _mouse = atlas.GetRegion("mouse-1");
+        _apple = atlas.GetRegion("apple-1");
     }
 
     protected override void Draw(GameTime gameTime)
@@ -31,7 +31,7 @@ public class Game1 : Core
 
         SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
         _snake.Draw(SpriteBatch, new Vector2(140, 80), Color.White);
-        _mouse.Draw(SpriteBatch, new Vector2(180, 80), Color.White);
+        _apple.Draw(SpriteBatch, new Vector2(180, 80), Color.White);
         SpriteBatch.End();
 
         base.Draw(gameTime);

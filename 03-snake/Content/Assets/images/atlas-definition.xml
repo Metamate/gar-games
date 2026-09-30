@@ -4,20 +4,20 @@
     <Regions>
         <Region name="snake-1" x="0" y="0" width="20" height="20" />
         <Region name="snake-2" x="0" y="20" width="20" height="20" />
-        <Region name="mouse-1" x="20" y="0" width="20" height="20" />
-        <Region name="mouse-2" x="20" y="20" width="20" height="20" />
-        <Region name="mouse-3" x="40" y="0" width="20" height="20" />
+        <Region name="apple-1" x="20" y="0" width="20" height="20" />
+        <Region name="apple-2" x="20" y="20" width="20" height="20" />
+        <Region name="apple-3" x="40" y="0" width="20" height="20" />
     </Regions>
     <Animations>
         <Animation name="snake-animation" delay="200">
             <Frame region="snake-1" />
             <Frame region="snake-2" />
         </Animation>
-        <Animation name="mouse-animation" delay="200">
-            <Frame region="mouse-1" />
-            <Frame region="mouse-2" />
-            <Frame region="mouse-1" />
-            <Frame region="mouse-3" />
+        <Animation name="apple-animation" delay="200">
+            <Frame region="apple-1" />
+            <Frame region="apple-2" />
+            <Frame region="apple-1" />
+            <Frame region="apple-3" />
         </Animation>
     </Animations>
 </TextureAtlas>

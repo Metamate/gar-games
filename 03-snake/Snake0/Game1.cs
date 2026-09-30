@@ -30,7 +30,7 @@ public class Game1 : Core
         SpriteBatch.Draw(_atlas, new Vector2(10, 10), Color.White);
 
         // Draw only part of the atlas by passing a source rectangle.
-        // The snake is the 20x20 area at (0, 0), the mouse is the 20x20 area at (20, 0).
+        // The snake is the 20x20 area at (0, 0), the apple is the 20x20 area at (20, 0).
         // Hardcoding these rectangles everywhere quickly becomes unmanageable...
         SpriteBatch.Draw(_atlas, new Vector2(200, 80), new Rectangle(0, 0, 20, 20), Color.White);
         SpriteBatch.Draw(_atlas, new Vector2(240, 80), new Rectangle(20, 0, 20, 20), Color.White);

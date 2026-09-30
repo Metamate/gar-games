@@ -35,7 +35,7 @@ public class Snake
 
     public Point Head => _segments[0];
 
-    // The head as a circle, to test against the mouse.
+    // The head as a circle, to test against the apple.
     public Circle Bounds => new(
         Head.X * _tileSize + _tileSize / 2,
         Head.Y * _tileSize + _tileSize / 2,
@@ -68,6 +68,9 @@ public class Snake
             _turns.Enqueue(direction);
         }
     }
+
+    // Whether one of the snake's segments is on this cell.
+    public bool Contains(Point cell) => _segments.Contains(cell);
 
     // The snake grows by one segment on its next move.
     public void Grow() => _growth++;
