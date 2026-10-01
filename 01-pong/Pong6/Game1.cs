@@ -6,8 +6,8 @@ namespace Pong6;
 
 public class Game1 : Game
 {
-    private const int WINDOW_WIDTH = 1296;
-    private const int WINDOW_HEIGHT = 729;
+    private const int WINDOW_WIDTH = 1280;
+    private const int WINDOW_HEIGHT = 720;
     private Matrix _screenScaleMatrix;
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
@@ -18,8 +18,8 @@ public class Game1 : Game
     private Ball _ball;
     private string _gameState;
 
-    public const int VIRTUAL_WIDTH = 432;
-    public const int VIRTUAL_HEIGHT = 243;
+    public const int VIRTUAL_WIDTH = 320;
+    public const int VIRTUAL_HEIGHT = 180;
     public static Texture2D Texture { get; private set; }
 
     public Game1()

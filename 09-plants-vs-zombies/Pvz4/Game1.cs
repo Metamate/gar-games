@@ -27,6 +27,7 @@ public class Game1 : Core
     private TextureAtlas _atlas;
     private SpriteFont _font;
     private SpriteFont _titleFont;
+    private SpriteFont _nameFont;
     private float _time;
     private float _skySunTimer;
     private int _nextSpawn;
@@ -52,6 +53,7 @@ public class Game1 : Core
         _atlas = TextureAtlas.FromFile(Content, "images/atlas-definition.xml");
         _font = Content.Load<SpriteFont>("fonts/hud");
         _titleFont = Content.Load<SpriteFont>("fonts/title");
+        _nameFont = Content.Load<SpriteFont>("fonts/name");
         _pixel = new Texture2D(GraphicsDevice, 1, 1);
         _pixel.SetData([Color.White]);
 
@@ -183,7 +185,7 @@ public class Game1 : Core
     // The title screen, over the lawn.
     public void DrawTitle()
     {
-        TitleScreen.Draw(SpriteBatch, _titleFont, _font, "Plants vs. Zombies", "Click a seed, then a cell", VirtualWidth, VirtualHeight);
+        TitleScreen.Draw(SpriteBatch, _nameFont, _titleFont, "Plants vs. Zombies", "Click a seed, then a cell", VirtualWidth, VirtualHeight);
     }
 
     public void DrawMessage(string text)

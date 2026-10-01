@@ -19,6 +19,7 @@ public class Game1 : Core
     private SpriteFont _font;
     private int _levelIndex;
     private SpriteFont _titleFont;
+    private SpriteFont _nameFont;
     // The game opens on its title screen, and starts on Enter.
     private bool _started;
 
@@ -32,6 +33,7 @@ public class Game1 : Core
         _view = new LevelView(new Tileset(new TextureRegion(texture, 0, 0, texture.Width, texture.Height), LevelView.TileSize, LevelView.TileSize));
         _font = Content.Load<SpriteFont>("fonts/hud");
         _titleFont = Content.Load<SpriteFont>("fonts/title");
+        _nameFont = Content.Load<SpriteFont>("fonts/name");
         LoadLevel(0);
     }
 
@@ -75,7 +77,7 @@ public class Game1 : Core
         DrawHud();
         if (!_started)
         {
-            TitleScreen.Draw(SpriteBatch, _titleFont, _font, "Sokoban", "Arrows: move   Z: undo   Y: redo   R: restart", VirtualWidth, VirtualHeight);
+            TitleScreen.Draw(SpriteBatch, _nameFont, _titleFont, "Sokoban", "Arrows: move   Z: undo   Y: redo", VirtualWidth, VirtualHeight);
         }
         SpriteBatch.End();
 

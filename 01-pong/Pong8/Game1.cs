@@ -6,8 +6,8 @@ namespace Pong8;
 
 public class Game1 : Game
 {
-    private const int WINDOW_WIDTH = 1296;
-    private const int WINDOW_HEIGHT = 729;
+    private const int WINDOW_WIDTH = 1280;
+    private const int WINDOW_HEIGHT = 720;
     private Matrix _screenScaleMatrix;
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
@@ -21,8 +21,8 @@ public class Game1 : Game
     private int _player1Score;
     private int _player2Score;
 
-    public const int VIRTUAL_WIDTH = 432;
-    public const int VIRTUAL_HEIGHT = 243;
+    public const int VIRTUAL_WIDTH = 320;
+    public const int VIRTUAL_HEIGHT = 180;
     public static Texture2D Texture { get; private set; }
 
     public Game1()
@@ -166,7 +166,7 @@ public class Game1 : Game
     private static float BounceSpeedY(Ball ball, Paddle paddle)
     {
         float offset = (ball.Position.Y + ball.Height / 2f) - (paddle.Y + paddle.Height / 2f);
-        return offset / (paddle.Height / 2f) * 150;
+        return offset / (paddle.Height / 2f) * 110;
     }
 
     protected override void Draw(GameTime gameTime)

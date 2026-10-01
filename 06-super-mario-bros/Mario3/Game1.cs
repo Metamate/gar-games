@@ -9,14 +9,14 @@ namespace Mario3;
 
 public class Game1 : Core
 {
-    private const int Columns = 16;
-    private const int Rows = 9;
+    private const int Columns = 18;
+    private const int Rows = 10;
 
     private LevelMakerBase _levelMaker;
     private GameLevel _level;
     private Player _player;
 
-    public Game1() : base("Super Mario Bros", 1152, 648, GameSettings.VirtualWidth, GameSettings.VirtualHeight)
+    public Game1() : base("Super Mario Bros", 1280, 720, GameSettings.VirtualWidth, GameSettings.VirtualHeight)
     {
     }
 

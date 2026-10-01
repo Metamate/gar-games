@@ -12,14 +12,17 @@ namespace Pacman4;
 // play, dying and game over. The drawing that all states share lives here.
 public class Game1 : Core
 {
-    public const int VirtualWidth = 560;
-    public const int VirtualHeight = 620;
-    private const int MazeTop = 40;
+    public const int VirtualWidth = 1280;
+    public const int VirtualHeight = 720;
+    // The maze stands in the middle of the screen, with the score above it.
+    private const int MazeLeft = 360;
+    private const int MazeTop = 90;
 
     private readonly StateMachine _states = new();
     private Texture2D _pixel;
     private SpriteFont _font;
     private SpriteFont _titleFont;
+    private SpriteFont _nameFont;
     private TextureAtlas _atlas;
 
     public Game1() : base("Pac-Man", VirtualWidth, VirtualHeight, VirtualWidth, VirtualHeight)
@@ -45,6 +48,7 @@ public class Game1 : Core
         _pixel.SetData([Color.White]);
         _font = Content.Load<SpriteFont>("fonts/hud");
         _titleFont = Content.Load<SpriteFont>("fonts/title");
+        _nameFont = Content.Load<SpriteFont>("fonts/name");
 
         _atlas = TextureAtlas.FromFile(Content, "images/atlas-definition.xml");
         MazeView = new MazeView(_pixel, _atlas);
@@ -89,17 +93,17 @@ public class Game1 : Core
         SpriteBatch.End();
     }
 
-    public void BeginMaze() => SpriteBatch.Begin(transformMatrix: Matrix.CreateTranslation(0, MazeTop, 0) * ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
+    public void BeginMaze() => SpriteBatch.Begin(transformMatrix: Matrix.CreateTranslation(MazeLeft, MazeTop, 0) * ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
 
     // The score at the top, and the lives left at the bottom.
     public void DrawHud()
     {
         SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
-        SpriteBatch.DrawString(_font, $"SCORE {World.Score}", new Vector2(16, 8), Color.White);
+        SpriteBatch.DrawString(_font, $"SCORE {World.Score}", new Vector2(MazeLeft + 16, MazeTop - 32), Color.White);
 
         TextureRegion life = _atlas.GetRegion("pacman-1");
         for (int i = 0; i < World.Lives - 1; i++)
-            life.Draw(SpriteBatch, new Vector2(16 + i * 36, VirtualHeight - 36), Color.White, 0, Vector2.Zero, 1, SpriteEffects.FlipHorizontally, 0);
+            life.Draw(SpriteBatch, new Vector2(MazeLeft + 16 + i * 36, MazeTop + 544), Color.White, 0, Vector2.Zero, 1, SpriteEffects.FlipHorizontally, 0);
         SpriteBatch.End();
     }
 
@@ -117,7 +121,7 @@ public class Game1 : Core
     public void DrawTitle()
     {
         SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
-        TitleScreen.Draw(SpriteBatch, _titleFont, _font, "Pac-Man", "Arrows: move", VirtualWidth, VirtualHeight);
+        TitleScreen.Draw(SpriteBatch, _nameFont, _titleFont, "Pac-Man", "Arrows: move", VirtualWidth, VirtualHeight);
         SpriteBatch.End();
     }
 

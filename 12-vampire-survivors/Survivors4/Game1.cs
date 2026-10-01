@@ -29,6 +29,7 @@ public class Game1 : Core
     public Profiler Profiler { get; } = new() { IsVisible = false };
     public SpriteFont Font { get; private set; }
     public SpriteFont TitleFont { get; private set; }
+    public SpriteFont NameFont { get; private set; }
     public Run CurrentRun { get; private set; }
 
     protected override void LoadContent()
@@ -37,6 +38,7 @@ public class Game1 : Core
         _atlas = TextureAtlas.FromFile(Content, "images/atlas-definition.xml");
         Font = Content.Load<SpriteFont>("fonts/hud");
         TitleFont = Content.Load<SpriteFont>("fonts/title");
+        NameFont = Content.Load<SpriteFont>("fonts/name");
         _debugFont = Content.Load<SpriteFont>("fonts/debug");
 
         // The title screen, over a run that hasn't started yet.

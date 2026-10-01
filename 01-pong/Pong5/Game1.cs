@@ -7,11 +7,11 @@ namespace Pong5;
 
 public class Game1 : Game
 {
-    private const int WINDOW_WIDTH = 1296;
-    private const int WINDOW_HEIGHT = 729;
-    private const int VIRTUAL_WIDTH = 432;
-    private const int VIRTUAL_HEIGHT = 243;
-    private const int PADDLE_SPEED = 200;
+    private const int WINDOW_WIDTH = 1280;
+    private const int WINDOW_HEIGHT = 720;
+    private const int VIRTUAL_WIDTH = 320;
+    private const int VIRTUAL_HEIGHT = 180;
+    private const int PADDLE_SPEED = 150;
     private Matrix _screenScaleMatrix;
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
@@ -46,7 +46,7 @@ public class Game1 : Game
         _texture.SetData([Color.White]);
         _oldKeyboardState = Keyboard.GetState();
         Random random = new();
-        _ballVelocity = new(random.Next(2) == 1 ? 100 : -100, random.Next(-50, 51));
+        _ballVelocity = new(random.Next(2) == 1 ? 75 : -75, random.Next(-40, 41));
         _gameState = "start";
     }
 
@@ -87,7 +87,7 @@ public class Game1 : Game
 
                 _ballPosition = new(VIRTUAL_WIDTH / 2 - 2, VIRTUAL_HEIGHT / 2 - 2);
                 Random random = new();
-                _ballVelocity = new(random.Next(2) == 1 ? 100 : -100, random.Next(-50, 51));
+                _ballVelocity = new(random.Next(2) == 1 ? 75 : -75, random.Next(-40, 41));
             }
         }
 

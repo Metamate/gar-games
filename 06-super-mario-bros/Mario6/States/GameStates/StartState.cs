@@ -15,7 +15,7 @@ public class StartState(Game1 game) : GameStateBase(game)
     public override void Enter()
     {
         var levelMaker = new ComplexLevelMaker(Game.Content);
-        _backgroundLevel = levelMaker.Generate(30, 9);
+        _backgroundLevel = levelMaker.Generate(30, 10);
     }
 
     public override void Update(GameTime gameTime)

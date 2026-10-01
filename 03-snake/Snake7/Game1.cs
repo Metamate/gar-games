@@ -8,14 +8,14 @@ namespace Snake7;
 public class Game1 : Core
 {
     public const int VirtualWidth = 320;
-    public const int VirtualHeight = 176;
+    public const int VirtualHeight = 180;
     // The colour of the screen where no dot is lit.
     private static readonly Color ScreenColor = new(20, 24, 20);
     private Tilemap _tilemap;
     private Rectangle _room;
     private Snake _snake;
 
-    public Game1() : base("Snake", 1280, 704, VirtualWidth, VirtualHeight)
+    public Game1() : base("Snake", 1280, 720, VirtualWidth, VirtualHeight)
     {
     }
 

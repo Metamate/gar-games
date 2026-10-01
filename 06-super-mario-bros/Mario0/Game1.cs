@@ -11,15 +11,15 @@ namespace Mario0;
 public class Game1 : Core
 {
     private const int TileSize = 18;
-    private const int Columns = GameSettings.VirtualWidth / TileSize;
-    private const int Rows = GameSettings.VirtualHeight / TileSize;
+    private const int Columns = 18;
+    private const int Rows = 10;
     private const int GroundHeight = 3;
     private const int GroundTile = 0;
 
     private readonly List<Tileset> _tilesets = [];
     private Tilemap _tilemap;
 
-    public Game1() : base("Super Mario Bros", 1152, 648, GameSettings.VirtualWidth, GameSettings.VirtualHeight)
+    public Game1() : base("Super Mario Bros", 1280, 720, GameSettings.VirtualWidth, GameSettings.VirtualHeight)
     {
     }
 

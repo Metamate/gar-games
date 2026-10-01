@@ -8,7 +8,7 @@ namespace Snake9;
 public class Game1 : Core
 {
     public const int VirtualWidth = 320;
-    public const int VirtualHeight = 176;
+    public const int VirtualHeight = 180;
     // The colour of the screen where no dot is lit.
     private static readonly Color ScreenColor = new(20, 24, 20);
     // The colour of a lit dot, for the title's text.
@@ -24,7 +24,7 @@ public class Game1 : Core
     // The game opens on its title screen, and starts on Enter.
     private bool _started;
 
-    public Game1() : base("Snake", 1280, 704, VirtualWidth, VirtualHeight)
+    public Game1() : base("Snake", 1280, 720, VirtualWidth, VirtualHeight)
     {
     }
 
@@ -135,7 +135,7 @@ public class Game1 : Core
         string text = _score.ToString("D4");
         for (int i = 0; i < text.Length; i++)
         {
-            _digits[text[i] - '0'].Draw(SpriteBatch, new Vector2(6 + i * 4, 170), Color.White);
+            _digits[text[i] - '0'].Draw(SpriteBatch, new Vector2(6 + i * 4, 172), Color.White);
         }
     }
 }

@@ -30,6 +30,7 @@ public class Game1 : Core
     private TextureAtlas _atlas;
     private SpriteFont _font;
     private SpriteFont _titleFont;
+    private SpriteFont _nameFont;
     private Prefabs _prefabs;
 
     public Game1() : base("Angry Birds", 1280, 720, VirtualWidth, VirtualHeight)
@@ -57,6 +58,7 @@ public class Game1 : Core
         _atlas = TextureAtlas.FromFile(Content, "images/atlas-definition.xml");
         _font = Content.Load<SpriteFont>("fonts/hud");
         _titleFont = Content.Load<SpriteFont>("fonts/title");
+        _nameFont = Content.Load<SpriteFont>("fonts/name");
         _pixel = new Texture2D(GraphicsDevice, 1, 1);
         _pixel.SetData([Color.White]);
         Slingshot = new Slingshot(_atlas, _pixel);
@@ -193,7 +195,7 @@ public class Game1 : Core
     // The title screen, over the level.
     public void DrawTitle()
     {
-        TitleScreen.Draw(SpriteBatch, _titleFont, _font, "Angry Birds", "Drag the bird back, and let go", VirtualWidth, VirtualHeight);
+        TitleScreen.Draw(SpriteBatch, _nameFont, _titleFont, "Angry Birds", "Drag the bird back, and let go", VirtualWidth, VirtualHeight);
     }
 
     private void DrawText(string text, Vector2 position)

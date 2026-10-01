@@ -4,11 +4,11 @@ namespace Zelda1;
 
 public static class GameSettings
 {
-    public const int WindowWidth   = 1152;
-    public const int WindowHeight  = 648;
+    public const int WindowWidth   = 1280;
+    public const int WindowHeight  = 720;
 
-    public const int VirtualWidth  = 384;
-    public const int VirtualHeight = 216;
+    public const int VirtualWidth  = 320;
+    public const int VirtualHeight = 180;
 
     public const int TileSize = 16;
 

@@ -7,17 +7,18 @@ namespace Flappy2;
 
 public class Game1 : Core
 {
-    public const int VirtualWidth = 512;
-    public const int VirtualHeight = 288;
+    public const int VirtualWidth = 640;
+    public const int VirtualHeight = 360;
     private const int BackgroundScrollSpeed = 30;
     private const int GroundScrollSpeed = 60;
     private const int BackgroundLoopingPoint = 412;
+    private const int GroundLoopingPoint = 512;
     private float _backgroundScroll;
     private float _groundScroll;
     private Texture2D _background;
     private Texture2D _ground;
 
-    public Game1() : base("Flappy Bird", 1024, 576, VirtualWidth, VirtualHeight)
+    public Game1() : base("Flappy Bird", 1280, 720, VirtualWidth, VirtualHeight)
     {
     }
 
@@ -37,7 +38,7 @@ public class Game1 : Core
         _backgroundScroll += BackgroundScrollSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
         _groundScroll += GroundScrollSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
         _backgroundScroll %= BackgroundLoopingPoint;
-        _groundScroll %= VirtualWidth;
+        _groundScroll %= GroundLoopingPoint;
 
         base.Update(gameTime);
     }

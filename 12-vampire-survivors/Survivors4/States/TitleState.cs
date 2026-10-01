@@ -20,7 +20,7 @@ public sealed class TitleState(Game1 game) : GameStateBase
     public override void DrawHUD(SpriteBatch spriteBatch)
     {
         spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-        TitleScreen.Draw(spriteBatch, game.TitleFont, game.Font, "Vampire Survivors", "Arrows: move", Game1.VirtualWidth, Game1.VirtualHeight);
+        TitleScreen.Draw(spriteBatch, game.NameFont, game.TitleFont, "Vampire Survivors", "Arrows: move", Game1.VirtualWidth, Game1.VirtualHeight);
         spriteBatch.End();
     }
 }

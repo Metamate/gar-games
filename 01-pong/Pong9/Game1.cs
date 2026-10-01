@@ -7,13 +7,14 @@ namespace Pong9;
 
 public class Game1 : Game
 {
-    private const int WINDOW_WIDTH = 1296;
-    private const int WINDOW_HEIGHT = 729;
+    private const int WINDOW_WIDTH = 1280;
+    private const int WINDOW_HEIGHT = 720;
     private Matrix _screenScaleMatrix;
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
     private SpriteFont _font;
     private SpriteFont _fontBig;
+    private SpriteFont _fontTitle;
     private KeyboardState _oldKeyboardState;
     private Paddle _paddle1;
     private Paddle _paddle2;
@@ -24,8 +25,8 @@ public class Game1 : Game
     private int _player2Score;
     private int _servingPlayer;
 
-    public const int VIRTUAL_WIDTH = 432;
-    public const int VIRTUAL_HEIGHT = 243;
+    public const int VIRTUAL_WIDTH = 320;
+    public const int VIRTUAL_HEIGHT = 180;
     public static Texture2D Texture { get; private set; }
 
     public Game1()
@@ -80,6 +81,7 @@ public class Game1 : Game
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         _font = Content.Load<SpriteFont>("font");
         _fontBig = Content.Load<SpriteFont>("font-big");
+        _fontTitle = Content.Load<SpriteFont>("font-title");
     }
 
     protected override void Update(GameTime gameTime)
@@ -92,8 +94,8 @@ public class Game1 : Game
         if (_gameState == "serve")
         {
             _ball.Velocity = _servingPlayer == 1 ?
-                new(_random.Next(140, 200), _random.Next(-50, 51)) :
-                new(-_random.Next(140, 200), _random.Next(-50, 51));
+                new(_random.Next(105, 150), _random.Next(-40, 41)) :
+                new(-_random.Next(105, 150), _random.Next(-40, 41));
         }
 
         if (_gameState == "play")
@@ -178,7 +180,7 @@ public class Game1 : Game
     private static float BounceSpeedY(Ball ball, Paddle paddle)
     {
         float offset = (ball.Position.Y + ball.Height / 2f) - (paddle.Y + paddle.Height / 2f);
-        return offset / (paddle.Height / 2f) * 150;
+        return offset / (paddle.Height / 2f) * 110;
     }
 
     protected override void Draw(GameTime gameTime)
@@ -211,7 +213,7 @@ public class Game1 : Game
 
         if (_gameState == "start")
         {
-            TitleScreen.Draw(_spriteBatch, _fontBig, _font, "Pong", "W/S and Up/Down: move", VIRTUAL_WIDTH, VIRTUAL_HEIGHT);
+            TitleScreen.Draw(_spriteBatch, _fontTitle, _font, "Pong", "W/S and Up/Down: move", VIRTUAL_WIDTH, VIRTUAL_HEIGHT);
         }
 
         _spriteBatch.End();

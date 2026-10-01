@@ -11,13 +11,13 @@ public class Game1 : Core
 {
     // The level is now wider than the screen, so we need a camera (see GameLevel).
     private const int Columns = 50;
-    private const int Rows = 9;
+    private const int Rows = 10;
 
     private LevelMakerBase _levelMaker;
     private GameLevel _level;
     private Player _player;
 
-    public Game1() : base("Super Mario Bros", 1152, 648, GameSettings.VirtualWidth, GameSettings.VirtualHeight)
+    public Game1() : base("Super Mario Bros", 1280, 720, GameSettings.VirtualWidth, GameSettings.VirtualHeight)
     {
     }
 

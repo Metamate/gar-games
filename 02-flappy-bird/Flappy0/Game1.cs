@@ -7,10 +7,10 @@ namespace Flappy0;
 
 public class Game1 : Core
 {
-    public const int VirtualWidth = 512;
-    public const int VirtualHeight = 288;
+    public const int VirtualWidth = 640;
+    public const int VirtualHeight = 360;
 
-    public Game1() : base("Flappy Bird", 1024, 576, VirtualWidth, VirtualHeight)
+    public Game1() : base("Flappy Bird", 1280, 720, VirtualWidth, VirtualHeight)
     {
     }
 

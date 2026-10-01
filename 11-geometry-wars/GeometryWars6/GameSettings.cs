@@ -4,8 +4,8 @@ public static class GameSettings
 {
     public static class Window
     {
-        public const int Width = 1920;
-        public const int Height = 1080;
+        public const int Width = 1280;
+        public const int Height = 720;
     }
 
     public static class Performance

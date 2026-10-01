@@ -6,11 +6,11 @@ namespace Pong4;
 
 public class Game1 : Game
 {
-    private const int WINDOW_WIDTH = 1296;
-    private const int WINDOW_HEIGHT = 729;
-    private const int VIRTUAL_WIDTH = 432;
-    private const int VIRTUAL_HEIGHT = 243;
-    private const int PADDLE_SPEED = 200;
+    private const int WINDOW_WIDTH = 1280;
+    private const int WINDOW_HEIGHT = 720;
+    private const int VIRTUAL_WIDTH = 320;
+    private const int VIRTUAL_HEIGHT = 180;
+    private const int PADDLE_SPEED = 150;
     private Matrix _screenScaleMatrix;
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;

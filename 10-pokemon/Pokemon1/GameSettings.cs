@@ -4,10 +4,10 @@ namespace Pokemon1;
 
 public static class GameSettings
 {
-    public const int WindowWidth = 1152;
-    public const int WindowHeight = 648;
-    public const int VirtualWidth = 384;
-    public const int VirtualHeight = 216;
+    public const int WindowWidth = 1280;
+    public const int WindowHeight = 720;
+    public const int VirtualWidth = 320;
+    public const int VirtualHeight = 180;
     public const int TileSize = 16;
 
     // The game's four shades, darkest to lightest, like a handheld's screen. Every colour on
@@ -17,14 +17,14 @@ public static class GameSettings
     public static readonly Color Mid    = new(142, 139, 183);
     public static readonly Color Paper  = new(181, 176, 221);
 
-    // Level dimensions in tiles (matches the visible viewport at 384×216 with 16px tiles)
-    public const int MapCols = 24;
-    public const int MapRows = 13;
+    // Level dimensions in tiles (what fits the 320×180 screen with 16px tiles)
+    public const int MapCols = 20;
+    public const int MapRows = 11;
 
-    public const int PlayerStartMapX = 9;
-    public const int PlayerStartMapY = 9;
+    public const int PlayerStartMapX = 8;
+    public const int PlayerStartMapY = 6;
 
-    public const int TallGrassStartRow = 10;
+    public const int TallGrassStartRow = 8;
 
     public static readonly int[] TileGrass = { 45, 46 };
     public const int TileTallGrass = 41;

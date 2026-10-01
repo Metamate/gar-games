@@ -9,9 +9,11 @@ namespace Pacman1;
 
 public class Game1 : Core
 {
-    public const int VirtualWidth = 560;
-    public const int VirtualHeight = 620;
-    private const int MazeTop = 40;
+    public const int VirtualWidth = 1280;
+    public const int VirtualHeight = 720;
+    // The maze stands in the middle of the screen, with the score above it.
+    private const int MazeLeft = 360;
+    private const int MazeTop = 90;
 
     private World _world;
     private Texture2D _pixel;
@@ -68,7 +70,7 @@ public class Game1 : Core
         GraphicsDevice.Clear(Color.Black);
 
         // The maze starts below the score.
-        SpriteBatch.Begin(transformMatrix: Matrix.CreateTranslation(0, MazeTop, 0) * ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
+        SpriteBatch.Begin(transformMatrix: Matrix.CreateTranslation(MazeLeft, MazeTop, 0) * ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
         _mazeView.Draw(SpriteBatch, _world.Maze);
         _pacManView.Draw(SpriteBatch, _world.PacMan);
         foreach (Ghost ghost in _world.Ghosts)
@@ -76,7 +78,7 @@ public class Game1 : Core
         SpriteBatch.End();
 
         SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
-        SpriteBatch.DrawString(_font, $"SCORE {_world.Score}", new Vector2(16, 8), Color.White);
+        SpriteBatch.DrawString(_font, $"SCORE {_world.Score}", new Vector2(MazeLeft + 16, MazeTop - 32), Color.White);
         SpriteBatch.End();
 
         base.Draw(gameTime);

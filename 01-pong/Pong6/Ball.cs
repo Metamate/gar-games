@@ -21,7 +21,7 @@ public class Ball
     public void Reset()
     {
         Position = new Vector2(Game1.VIRTUAL_WIDTH / 2 - Width / 2, Game1.VIRTUAL_HEIGHT / 2 - Height / 2);
-        Velocity = new Vector2(random.Next(2) == 1 ? 100 : -100, random.Next(-50, 51));
+        Velocity = new Vector2(random.Next(2) == 1 ? 75 : -75, random.Next(-40, 41));
     }
 
     public void Draw(SpriteBatch spriteBatch)

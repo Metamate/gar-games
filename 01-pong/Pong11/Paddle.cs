@@ -7,7 +7,7 @@ namespace Pong11;
 
 public class Paddle
 {
-    public const int SPEED = 200;
+    public const int SPEED = 150;
 
     public required float X { get; set; }
     public required float Y { get; set; }
