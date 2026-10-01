@@ -44,7 +44,7 @@ public sealed class TitleState : GameStateBase
     {
         spriteBatch.Begin(samplerState: SamplerState.PointClamp);
         TitleScreen.Draw(spriteBatch, _context.Assets.NameFont, _context.Assets.TitleFont, "Geometry Wars", "WASD: move   Mouse: aim and fire",
-            (int)_context.Frame.ScreenSize.X, (int)_context.Frame.ScreenSize.Y);
+            GameSettings.Window.Width, GameSettings.Window.Height);
         spriteBatch.End();
     }
 }

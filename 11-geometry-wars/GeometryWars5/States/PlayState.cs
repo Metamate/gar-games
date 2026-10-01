@@ -81,7 +81,7 @@ public sealed class PlayState : GameStateBase
         {
             string text = "PAUSED";
             Vector2 size = _context.Assets.Font.MeasureString(text);
-            spriteBatch.DrawString(_context.Assets.Font, text, _context.Frame.ScreenSize / 2 - size / 2, Color.White);
+            spriteBatch.DrawString(_context.Assets.Font, text, new Vector2(GameSettings.Window.Width, GameSettings.Window.Height) / 2 - size / 2, Color.White);
         }
 
         spriteBatch.End();
@@ -91,6 +91,6 @@ public sealed class PlayState : GameStateBase
     {
         float width = _context.Assets.Font.MeasureString(text).X;
         spriteBatch.DrawString(_context.Assets.Font, text,
-            new Vector2(_context.Frame.ScreenSize.X - width - 5, y), Color.White);
+            new Vector2(GameSettings.Window.Width - width - 5, y), Color.White);
     }
 }

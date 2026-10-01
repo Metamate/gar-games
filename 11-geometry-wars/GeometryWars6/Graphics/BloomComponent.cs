@@ -18,6 +18,9 @@ namespace GeometryWars6.Graphics
         RenderTarget2D renderTarget1;
         RenderTarget2D renderTarget2;
 
+        readonly int sceneWidth;
+        readonly int sceneHeight;
+
 
         // Choose what display settings the bloom should use.
         public BloomSettings Settings
@@ -54,9 +57,13 @@ namespace GeometryWars6.Graphics
         #region Initialization
 
 
-        public BloomComponent(Game game)
+        // The scene is drawn at width x height, whatever the size of the window. The last
+        // pass scales the result into the window.
+        public BloomComponent(Game game, int width, int height)
             : base(game)
         {
+            sceneWidth = width;
+            sceneHeight = height;
             if (game == null)
                 throw new ArgumentNullException(nameof(game));
         }
@@ -75,8 +82,8 @@ namespace GeometryWars6.Graphics
             // Look up the resolution and format of our main backbuffer.
             PresentationParameters pp = GraphicsDevice.PresentationParameters;
 
-            int width = pp.BackBufferWidth;
-            int height = pp.BackBufferHeight;
+            int width = sceneWidth;
+            int height = sceneHeight;
 
             SurfaceFormat format = pp.BackBufferFormat;
 

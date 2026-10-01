@@ -6,11 +6,14 @@ using GeometryWars6.Services;
 using GeometryWars6.Systems;
 using GeometryWars6.States;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace GeometryWars6;
 
 public sealed class Game1 : Core
 {
+    private static readonly Viewport Arena = new(0, 0, GameSettings.Arena.Width, GameSettings.Arena.Height);
+
     private readonly BloomComponent _bloom;
     private FrameInfo Frame { get; } = new();
     private GameAssets Assets { get; } = new();
@@ -20,7 +23,7 @@ public sealed class Game1 : Core
     public PlayContext PlayContext { get; }
 
     public Game1() : base("Geometry Wars", GameSettings.Window.Width, GameSettings.Window.Height,
-               GameSettings.Window.Width, GameSettings.Window.Height)
+               GameSettings.Arena.Width, GameSettings.Arena.Height)
     {
         Controller = new GameController(Input);
         PlayContext = new PlayContext(Frame, Controller, Assets, Audio, Performance);
@@ -30,7 +33,7 @@ public sealed class Game1 : Core
         Window.AllowUserResizing = false;
         StateStack = new StateStack();
 
-        _bloom = new BloomComponent(this);
+        _bloom = new BloomComponent(this, Arena.Width, Arena.Height);
         Components.Add(_bloom);
         _bloom.Settings = new BloomSettings("", 0.2f, 4f, 2f, 1f, 1.5f, 1f);
     }
@@ -39,7 +42,7 @@ public sealed class Game1 : Core
     {
         base.Initialize();
 
-        Frame.Update(new GameTime(), GraphicsDevice.Viewport);
+        Frame.Update(new GameTime(), Arena);
 
         StateStack.Push(new TitleState(this, PlayContext));
     }
@@ -52,7 +55,7 @@ public sealed class Game1 : Core
     protected override void UpdateGame(GameTime gameTime)
     {
         Controller.Update();
-        Frame.Update(gameTime, GraphicsDevice.Viewport);
+        Frame.Update(gameTime, Arena);
         StateStack.Update(gameTime);
     }
 
