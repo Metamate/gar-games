@@ -12,7 +12,7 @@ steps (e.g. with a diff tool) to see what changed.
 
 | Step | Topic | What's new |
 | --- | --- | --- |
-| `Pokemon0` | Overworld | Two tile layers, and tile-based movement tweened between tiles |
+| `Pokemon0` | Overworld | A small town on two tile layers, with solid tiles, and tile-based movement tweened between tiles |
 | `Pokemon1` | State stack | Title screen, fade transitions and dialogue boxes layered on the stack; species data from JSON |
 | `Pokemon2` | Battles | Random encounters in tall grass, the battle scene, messages and a menu; for now you can only run |
 | `Pokemon3` | Turns & RPG mechanics | Fight: turn order, damage, experience, level-up, fainting; healing at the spring |
@@ -78,6 +78,7 @@ Where to find things:
 | The order of updates each frame | `Game1.cs`, `UpdateGame` |
 | Pushing, popping and drawing states | `GARCore/States/StateStack.cs` |
 | A fade | `States/GameStates/FadeState.cs` |
+| The town, as a map of characters | `World/Level.cs` |
 | Moving from tile to tile | `States/EntityStates/EntityWalkState.cs`, `AttemptMove` |
 | Random encounters | `States/PlayerStates/PlayerWalkState.cs`, `TryStartEncounter` |
 | The healing spring | `States/PlayerStates/PlayerWalkState.cs`, `TryHeal` |
@@ -126,7 +127,8 @@ Or open `Pokemon.slnx` and choose the step to run.
 ## Credits
 
 The overworld art is Kenney's [Monochrome RPG](https://kenney.nl/assets/monochrome-rpg) (CC0), and the
-whole game keeps to its four shades. The monsters are our own designs, brought into those shades, and the
-sounds and music are our own, made for the course.
+whole game keeps to its four shades. The trainer's side and back views, the spring and the path tile are
+ours, made from the pack; the monsters are our own designs, brought into those shades. The sounds and
+music are our own, made for the course.
 The font is [Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P) by CodeMan38,
 under the SIL Open Font License (see `Content/Assets/fonts/retro-OFL.txt`).

@@ -24,15 +24,17 @@ public static class GameSettings
     public const int PlayerStartMapX = 8;
     public const int PlayerStartMapY = 6;
 
-    public const int TallGrassStartRow = 8;
-
     public static readonly int[] TileGrass = { 45, 46 };
     public const int TileTallGrass = 41;
+    public const int TileTree = 0;
+    public const int TileFence = 1;
+    public const int TileSign = 2;
+    public const int TileFlowers = 3;
+    public const int TilePath = 4;
+    // The top-left tile of each house: 3 x 3 tiles in the tilesheet.
+    public const int TileFlatHouse = 8;
+    public const int TilePeakedHouse = 11;
     public const int TileSpring = 47;
-
-    // The healing spring, in tiles
-    public const int SpringMapX = 4;
-    public const int SpringMapY = 4;
 
     // Time (seconds) to tween one tile-step walk
     public const float WalkTweenDuration = 0.5f;

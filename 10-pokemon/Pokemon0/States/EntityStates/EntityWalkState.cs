@@ -27,7 +27,7 @@ public class EntityWalkState : EntityStateBase
 
         Point destination = GetDestination();
 
-        if (!IsInsideMap(destination))
+        if (!IsInsideMap(destination) || Level.IsSolid(destination))
         {
             Entity.ChangeState(new EntityIdleState(Entity));
             Entity.ChangeAnimation(AnimationKeys.Idle(Entity.Direction));

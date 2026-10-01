@@ -13,21 +13,18 @@ public sealed class GameAssets
 
     public Tileset Tileset { get; }
     public TextureAtlas EntityAtlas { get; }
-    public Texture2D ShadowTex { get; }
 
     public GameAssets(
         BitmapFont smallFont,
         BitmapFont mediumFont,
         BitmapFont largeFont,
         Tileset tileset,
-        TextureAtlas entityAtlas,
-        Texture2D shadowTex)
+        TextureAtlas entityAtlas)
     {
         SmallFont = smallFont;
         MediumFont = mediumFont;
         LargeFont = largeFont;
         Tileset = tileset;
         EntityAtlas = entityAtlas;
-        ShadowTex = shadowTex;
     }
 }
