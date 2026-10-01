@@ -1,16 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Pacman4.Routing;
-using Pacman4.Targeting;
+using Pacman5.Routing;
+using Pacman5.Targeting;
 using Microsoft.Xna.Framework;
 
-namespace Pacman4;
+namespace Pacman5;
 
 // Everything in a game of Pac-Man, without the drawing: the maze, Pac-Man, the ghosts and the
 // score. It can run in a unit test, with a small maze and a seeded Random.
 public class World
 {
+    public const int StartingLives = 3;
+
     private int _ghostsEaten;   // since the last power pellet: each is worth twice the last
 
     public World(string mazeText, Random random = null)
@@ -26,6 +28,7 @@ public class World
         Inky = new Ghost(this, "inky", Maze.StartOf('i'), new Point(Maze.Width - 1, Maze.Height + 1), 4, new FlankWithBlinky(), new NearestTile());
         Clyde = new Ghost(this, "clyde", Maze.StartOf('c'), new Point(0, Maze.Height + 1), 8, new ChaseUntilClose(), new NearestTile());
         Ghosts = [Blinky, Pinky, Inky, Clyde];
+        Lives = StartingLives;
 
         ResetPositions();
     }
@@ -40,6 +43,7 @@ public class World
     public ModeSchedule Schedule { get; } = new();
     public Random Random { get; }
     public int Score { get; private set; }
+    public int Lives { get; private set; }
     public bool PacManCaught { get; private set; }
     public bool IsCleared => Maze.DotsLeft == 0;
 
@@ -89,6 +93,15 @@ public class World
     {
         Maze.ResetDots();
         ResetPositions();
+    }
+
+    public void LoseLife() => Lives--;
+
+    public void NewGame()
+    {
+        Score = 0;
+        Lives = StartingLives;
+        NextLevel();
     }
 
     private void EatDots()

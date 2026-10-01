@@ -1,7 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Pacman4.GameStates;
+namespace Pacman5.GameStates;
 
 public class PlayState(Game1 game) : IState
 {

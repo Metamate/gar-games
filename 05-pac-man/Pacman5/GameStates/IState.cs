@@ -1,7 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Pacman4.GameStates;
+namespace Pacman5.GameStates;
 
 // A state of the whole game, as in Flappy Bird.
 public interface IState

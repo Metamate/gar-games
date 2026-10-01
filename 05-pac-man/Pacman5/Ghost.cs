@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using Pacman4.GhostStates;
-using Pacman4.Routing;
-using Pacman4.Targeting;
+using Pacman5.GhostStates;
+using Pacman5.Routing;
+using Pacman5.Targeting;
 using Microsoft.Xna.Framework;
 
-namespace Pacman4;
+namespace Pacman5;
 
 // What a ghost looks like, for the view.
 public enum GhostLook { Normal, Frightened, FrightenedEnding, Eyes }

@@ -1,7 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Pacman4.GameStates;
+namespace Pacman5.GameStates;
 
 // "READY!": a short pause before play starts, after every life lost and every new level.
 public class ReadyState(Game1 game) : IState

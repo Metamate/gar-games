@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
-namespace Pacman4.GhostStates;
+namespace Pacman5.GhostStates;
 
 // Heading for the ghost's own corner of the maze (its scatter target is outside the maze, so
 // it never arrives, and circles the walls near the corner instead).

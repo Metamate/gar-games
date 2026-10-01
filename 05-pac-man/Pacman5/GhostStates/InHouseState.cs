@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
-namespace Pacman4.GhostStates;
+namespace Pacman5.GhostStates;
 
 // Waiting in the ghost house, then leaving it through the door.
 public class InHouseState(float releaseDelay) : GhostState

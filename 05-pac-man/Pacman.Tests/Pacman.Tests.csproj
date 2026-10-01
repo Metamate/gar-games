@@ -10,6 +10,6 @@
   </ItemGroup>
   <ItemGroup>
     <!-- The code under test: the finished game. -->
-    <ProjectReference Include="..\Pacman4\Pacman4.csproj" />
+    <ProjectReference Include="..\Pacman5\Pacman5.csproj" />
   </ItemGroup>
 </Project>

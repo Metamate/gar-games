@@ -6,5 +6,6 @@
   <Project Path="Pacman2/Pacman2.csproj" />
   <Project Path="Pacman3/Pacman3.csproj" />
   <Project Path="Pacman4/Pacman4.csproj" />
+  <Project Path="Pacman5/Pacman5.csproj" />
   <Project Path="Pacman.Tests/Pacman.Tests.csproj" />
 </Solution>

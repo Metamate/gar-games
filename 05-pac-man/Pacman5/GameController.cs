@@ -1,7 +1,7 @@
 using GARCore;
 using Microsoft.Xna.Framework.Input;
 
-namespace Pacman4;
+namespace Pacman5;
 
 // Maps keys to the game's actions, as in Snake. W/A/S/D and the arrow keys both steer.
 public static class GameController
@@ -10,6 +10,7 @@ public static class GameController
     public static bool Down => WasPressed(Keys.S) || WasPressed(Keys.Down);
     public static bool Left => WasPressed(Keys.A) || WasPressed(Keys.Left);
     public static bool Right => WasPressed(Keys.D) || WasPressed(Keys.Right);
+    public static bool Start => WasPressed(Keys.Enter) || WasPressed(Keys.Space);
 
     private static bool WasPressed(Keys key) => Core.Input.Keyboard.WasKeyJustPressed(key);
 }

@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Pacman4.Routing;
+using Pacman5.Routing;
 using Microsoft.Xna.Framework;
 
-namespace Pacman4.GhostStates;
+namespace Pacman5.GhostStates;
 
 // Only the eyes are left: they race back to the ghost house, where the ghost comes back to life.
 // Whatever routing the ghost has, the eyes take the shortest path.

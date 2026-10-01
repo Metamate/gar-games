@@ -16,7 +16,8 @@ steps (e.g. with a diff tool) to see what changed.
 | `Pacman1` | Ghosts, with an enum | Four ghosts with five modes (in the house, scatter, chase, frightened, eaten) as a `GhostMode` enum, and a `switch` in every method |
 | `Pacman2` | The State pattern | Each mode becomes a class in `GhostStates`; `Ghost` forwards to its current state |
 | `Pacman3` | The Strategy pattern | Each ghost gets its own `ITargetStrategy` for chasing (`Targeting`) |
-| `Pacman4` | The whole game | Lives, Pac-Man's death, levels, and game states: title, ready, play, dying, game over (the finished game) |
+| `Pacman4` | Pathfinding | How a ghost gets to its target becomes an `IRouteStrategy` (`Routing`): the arcade rule, or the shortest path, found with A*. Eaten ghosts take the shortest path home |
+| `Pacman5` | The whole game | Lives, Pac-Man's death, levels, and game states: title, ready, play, dying, game over (the finished game) |
 
 ## New in GARCore
 
@@ -25,7 +26,7 @@ their states belong to Pac-Man only.
 
 ## Code Map
 
-The finished game, `Pacman4`:
+The finished game, `Pacman5`:
 
 | To see | Look at |
 | --- | --- |
@@ -34,6 +35,8 @@ The finished game, `Pacman4`:
 | Scatter and chase, over time | `ModeSchedule.cs` |
 | A ghost, and its modes as states | `Ghost.cs`, `GhostStates/` |
 | Where each ghost aims, as strategies | `Targeting/` |
+| How a ghost gets there, as strategies | `Routing/` |
+| A* | `Routing/Pathfinder.cs` |
 | Ready, playing, dying, game over | `GameStates/` |
 | Drawing, apart from the rules | `Views/` |
 | The tests | `Pacman.Tests/` |
@@ -41,8 +44,8 @@ The finished game, `Pacman4`:
 ## Tests
 
 `Pacman.Tests` tests the finished game without starting it: each ghost's targeting strategy
-on its own (`TargetingTests`), the ghost states (`GhostStateTests`), and Pac-Man's movement
-(`PacManTests`). The tests use a small maze of their own (`TestMaze`).
+on its own (`TargetingTests`), the ghost states (`GhostStateTests`), the pathfinder and the
+routing strategies (`PathfinderTests`), and Pac-Man's movement (`PacManTests`). The tests use a small maze of their own (`TestMaze`).
 
 ```sh
 cd 05-pac-man
@@ -82,7 +85,7 @@ A row that is open at both ends is a tunnel.
 | Key | Action |
 | --- | --- |
 | Arrow keys, `W` `A` `S` `D` | Steer |
-| `Enter` or `Space` | Start, and a new game after game over (`Pacman4`) |
+| `Enter` or `Space` | Start, and a new game after game over (`Pacman5`) |
 | `Esc` | Quit |
 
 ## Running a step
@@ -91,7 +94,7 @@ Requires the [.NET 10 SDK](https://dotnet.microsoft.com/download).
 
 ```sh
 cd 05-pac-man
-dotnet run --project Pacman4
+dotnet run --project Pacman5
 ```
 
 Or open `PacMan.slnx` and choose the step to run.

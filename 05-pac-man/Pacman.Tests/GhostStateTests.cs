@@ -1,6 +1,6 @@
 using System;
-using Pacman4;
-using Pacman4.GhostStates;
+using Pacman5;
+using Pacman5.GhostStates;
 using Microsoft.Xna.Framework;
 using Xunit;
 

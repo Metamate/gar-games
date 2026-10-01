@@ -1,7 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Pacman4.GameStates;
+namespace Pacman5.GameStates;
 
 // Pac-Man was caught: everything stops, the ghosts vanish, and Pac-Man shrivels up.
 public class DyingState(Game1 game) : IState

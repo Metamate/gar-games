@@ -9,7 +9,7 @@ public class ChaseState : GhostState
     public override void Update(Ghost ghost, float deltaSeconds) => ghost.Move(Ghost.Speed * deltaSeconds);
 
     public override Point ChooseDirection(Ghost ghost, IReadOnlyList<Point> options)
-        => ghost.Closest(ghost.Targeting.ChooseTarget(ghost, ghost.World), options);
+        => ghost.Toward(ghost.Targeting.ChooseTarget(ghost, ghost.World), options);
 
     public override void OnPhaseChanged(Ghost ghost)
     {

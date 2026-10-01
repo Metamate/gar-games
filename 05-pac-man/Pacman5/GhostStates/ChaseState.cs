@@ -1,20 +1,19 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
-namespace Pacman4.GhostStates;
+namespace Pacman5.GhostStates;
 
-// Heading for the ghost's own corner of the maze (its scatter target is outside the maze, so
-// it never arrives, and circles the walls near the corner instead).
-public class ScatterState : GhostState
+// Hunting Pac-Man. Where exactly the ghost aims is up to its targeting strategy.
+public class ChaseState : GhostState
 {
     public override void Update(Ghost ghost, float deltaSeconds) => ghost.Move(Ghost.Speed * deltaSeconds);
 
     public override Point ChooseDirection(Ghost ghost, IReadOnlyList<Point> options)
-        => ghost.Toward(ghost.ScatterTarget, options);
+        => ghost.Toward(ghost.Targeting.ChooseTarget(ghost, ghost.World), options);
 
     public override void OnPhaseChanged(Ghost ghost)
     {
-        ghost.ChangeState(new ChaseState());
+        ghost.ChangeState(new ScatterState());
         ghost.Reverse();
     }
 
