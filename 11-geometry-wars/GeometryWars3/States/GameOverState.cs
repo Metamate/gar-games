@@ -47,7 +47,7 @@ public sealed class GameOverState : GameStateBase
     {
         spriteBatch.Begin();
 
-        Vector2 center = new Vector2(GameSettings.Window.Width, GameSettings.Window.Height) / 2;
+        Vector2 center = _context.Frame.ScreenSize / 2;
         const float lineSpacing = 60f;
 
         DrawCentered(spriteBatch, "GAME OVER",               center + new Vector2(0, -lineSpacing * 2), Color.White);

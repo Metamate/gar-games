@@ -41,10 +41,6 @@ public sealed class GameController
     public Vector2 MousePosition
         => new(_input.Mouse.X, _input.Mouse.Y);
 
-    // The mouse is in window pixels, and the ship in arena pixels.
-    public Vector2 MouseInArena
-        => MousePosition * GameSettings.Arena.Width / GameSettings.Window.Width;
-
     public void Update()
     {
         var mousePos = _input.Mouse.Position;
@@ -84,7 +80,7 @@ public sealed class GameController
     {
         if (_isAimingWithMouse)
         {
-            Vector2 direction = MouseInArena - shipPosition;
+            Vector2 direction = MousePosition - shipPosition;
             return direction == Vector2.Zero ? Vector2.Zero : Vector2.Normalize(direction);
         }
 

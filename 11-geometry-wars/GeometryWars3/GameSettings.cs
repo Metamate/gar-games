@@ -8,17 +8,10 @@ public static class GameSettings
         public const int Height = 720;
     }
 
-    // The play field. It is larger than the window, and drawn scaled down into it.
-    public static class Arena
-    {
-        public const int Width = 1920;
-        public const int Height = 1080;
-    }
-
     public static class Performance
     {
         public const int MaxParticles = 1024 * 20;
-        public const int MaxGridPoints = 1024 * 2;
+        public const int MaxGridPoints = 1024;
         public const int MaxEntities = 200;
     }
 
@@ -35,10 +28,10 @@ public static class GameSettings
     {
         public static class Spawning
         {
-            public const float ChanceStart = 60f;
-            public const float ChanceMin = 20f;
+            public const float ChanceStart = 90f;
+            public const float ChanceMin = 30f;
             public const float ChanceDecay = 0.005f;
-            public const float MinDistance = 250f;
+            public const float MinDistance = 180f;
         }
     }
 
@@ -46,7 +39,7 @@ public static class GameSettings
     {
         public const float ParticleGravityForce = 10000f;
         public const float ParticleOrbitalForce = 45f;
-        public const float ParticleOrbitalRange = 400f;
+        public const float ParticleOrbitalRange = 300f;
         public const float ParticleOrbitalDamping = 100f;
         public const float ParticleEnemyDamping = 0.94f;
         public const float ParticleDefaultDamping = 0.96f;
@@ -54,7 +47,7 @@ public static class GameSettings
 
     public static class Visuals
     {
-        public const float DeathParticleSpeed = 18f;
+        public const float DeathParticleSpeed = 14f;
         public const float DeathParticleLife = 190f;
         public const float DeathParticleSize = 1.5f;
     }

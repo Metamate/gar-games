@@ -5,15 +5,11 @@ using GeometryWars1.Services;
 using GeometryWars1.Systems;
 using GeometryWars1.States;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace GeometryWars1;
 
 public sealed class Game1 : Core
 {
-    private static readonly Viewport Arena = new(0, 0, GameSettings.Arena.Width, GameSettings.Arena.Height);
-
-    private RenderTarget2D _arena;      // the game is drawn here, then scaled into the window
     private FrameInfo Frame { get; } = new();
     private GameAssets Assets { get; } = new();
     private PerformanceMonitor Performance { get; } = new();
@@ -21,7 +17,7 @@ public sealed class Game1 : Core
     public PlayContext PlayContext { get; }
 
     public Game1() : base("Geometry Wars", GameSettings.Window.Width, GameSettings.Window.Height,
-               GameSettings.Arena.Width, GameSettings.Arena.Height)
+               GameSettings.Window.Width, GameSettings.Window.Height)
     {
         Controller = new GameController(Input);
         PlayContext = new PlayContext(Frame, Controller, Assets, Performance);
@@ -36,7 +32,7 @@ public sealed class Game1 : Core
     {
         base.Initialize();
 
-        Frame.Update(new GameTime(), Arena);
+        Frame.Update(new GameTime(), GraphicsDevice.Viewport);
 
         StateStack.Push(new PlayState(this, PlayContext));
     }
@@ -44,28 +40,20 @@ public sealed class Game1 : Core
     protected override void LoadContent()
     {
         Assets.Load(Content);
-        _arena = new RenderTarget2D(GraphicsDevice, Arena.Width, Arena.Height);
     }
 
     protected override void UpdateGame(GameTime gameTime)
     {
         Controller.Update();
-        Frame.Update(gameTime, Arena);
+        Frame.Update(gameTime, GraphicsDevice.Viewport);
         StateStack.Update(gameTime);
     }
 
     protected override void Draw(GameTime gameTime)
     {
         Performance.Update(gameTime);
-        GraphicsDevice.SetRenderTarget(_arena);
         GraphicsDevice.Clear(Color.Black);
         StateStack.Draw(SpriteBatch);
-
-        GraphicsDevice.SetRenderTarget(null);
-        SpriteBatch.Begin(samplerState: SamplerState.LinearClamp);
-        SpriteBatch.Draw(_arena, DestinationRectangle, Color.White);
-        SpriteBatch.End();
-
         base.Draw(gameTime);
         StateStack.DrawHUD(SpriteBatch);
     }

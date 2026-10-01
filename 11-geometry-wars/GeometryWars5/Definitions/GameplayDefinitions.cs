@@ -62,13 +62,13 @@ public static class GameplayDefinitions
 {
     public static PlayerDefinition Player { get; } = new(
         SpriteId.Player,
-        MoveSpeed: 8f,
+        MoveSpeed: 6f,
         GlowOpacity: 0.15f,
         ColliderRadius: 10f,
         DeathParticleCount: 1200,
         PrimaryWeapon: new TwinBulletPatternDefinition(
             CooldownFrames: 6,
-            Speed: 20f,
+            Speed: 16f,
             Spread: 0.04f,
             OffsetX: 25f,
             OffsetY: 8f));
@@ -78,9 +78,9 @@ public static class GameplayDefinitions
         RigidbodyDamping: 1f,
         ColliderRadius: 10f,
         GridForce: 0.5f,
-        GridRadius: 80f,
+        GridRadius: 60f,
         ExitParticleCount: 30,
-        ExitParticleSpeed: 9f,
+        ExitParticleSpeed: 7f,
         ExitParticleLifetime: 50f,
         ExitParticleScale: 1f);
 
@@ -92,7 +92,7 @@ public static class GameplayDefinitions
             RigidbodyDamping: 0.8f,
             SpawnDelayFrames: 60,
             DeathParticleCount: 120),
-        Acceleration: 1f);
+        Acceleration: 0.8f);
 
     public static WanderEnemyDefinition Wanderer { get; } = new(
         Shell: new EnemyShellDefinition(
@@ -103,18 +103,18 @@ public static class GameplayDefinitions
             SpawnDelayFrames: 60,
             DeathParticleCount: 120),
         TurnRate: 0.1f,
-        Velocity: 0.4f,
+        Velocity: 0.3f,
         OrientationDecay: 0.05f,
         StepsPerTick: 6);
 
     public static BlackHoleDefinition BlackHole { get; } = new(
         SpriteId.BlackHole,
         Hitpoints: 10,
-        GravityRange: 250f,
+        GravityRange: 180f,
         GravityForce: 2f,
-        GridRange: 200f,
+        GridRange: 150f,
         GlowOpacity: 0.4f,
         HitParticleCount: 150,
-        HitParticleMinSpeed: 8f,
-        HitParticleMaxSpeed: 16f);
+        HitParticleMinSpeed: 6f,
+        HitParticleMaxSpeed: 12f);
 }
