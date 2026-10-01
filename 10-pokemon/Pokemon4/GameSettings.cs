@@ -31,9 +31,9 @@ public static class GameSettings
     public const int TileSign = 2;
     public const int TileFlowers = 3;
     public const int TilePath = 4;
-    // The top-left tile of each house: 3 x 3 tiles in the tilesheet.
-    public const int TileFlatHouse = 8;
-    public const int TilePeakedHouse = 11;
+    // The top-left tile of each building in the tilesheet: the house is 3 x 3 tiles, the lab 4 x 3.
+    public const int TileHouse = 8;
+    public const int TileLab = 11;
     public const int TileSpring = 47;
 
     // Time (seconds) to tween one tile-step walk

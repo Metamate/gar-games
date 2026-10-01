@@ -23,15 +23,15 @@ public sealed class Level
     }
 
     // The town, one character per tile: T tree, X fence, S sign, * flowers, = path, # tall grass, ~ the healing spring.
-    // The digits are the nine tiles of the flat-roofed house, the letters a to i those of the peaked one.
+    // The digits are the nine tiles of the house, the letters a to l the twelve of the lab.
     private static readonly string[] Town =
     [
         "TTTTTTTTTTTTTTTTTTTT",
-        "T.123.....abc..*...T",
-        "T.456.....def......T",
-        "T.789S....ghi.XXXX.T",
-        "T..=.......=.......T",
-        "T..=========....~..T",
+        "T.123.....abcd.*...T",
+        "T.456.....efgh.....T",
+        "T.789S....ijkl.XXX.T",
+        "T..=........=......T",
+        "T..==========...~..T",
         "T.*.....=..........T",
         "T.......=......*...T",
         "####################",
@@ -57,8 +57,8 @@ public sealed class Level
                     '*' => new Tile(GameSettings.TileFlowers),
                     '=' => new Tile(GameSettings.TilePath),
                     '~' => new Tile(GameSettings.TileSpring),
-                    >= '1' and <= '9' => new Tile(HouseTile(GameSettings.TileFlatHouse, c - '1'), true),
-                    >= 'a' and <= 'i' => new Tile(HouseTile(GameSettings.TilePeakedHouse, c - 'a'), true),
+                    >= '1' and <= '9' => new Tile(BuildingTile(GameSettings.TileHouse, c - '1', 3), true),
+                    >= 'a' and <= 'l' => new Tile(BuildingTile(GameSettings.TileLab, c - 'a', 4), true),
                     _ => new Tile(grass),
                 });
 
@@ -68,8 +68,8 @@ public sealed class Level
         }
     }
 
-    // A house is 3 x 3 tiles in the tilesheet, which is 8 tiles wide: part 0 to 8, row by row.
-    private static int HouseTile(int first, int part) => first + part / 3 * 8 + part % 3;
+    // A building is a block of tiles in the tilesheet, which is 8 tiles wide. Its parts count row by row.
+    private static int BuildingTile(int first, int part, int width) => first + part / width * 8 + part % width;
 
     // Whether an entity can't step onto this tile.
     public bool IsSolid(Point tile) => BaseLayer.GetTile(tile.X, tile.Y).IsSolid;

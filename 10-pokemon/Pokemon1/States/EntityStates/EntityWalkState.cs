@@ -29,8 +29,7 @@ public class EntityWalkState : EntityStateBase
 
         if (!IsInsideMap(destination) || Level.IsSolid(destination))
         {
-            Entity.ChangeState(new EntityIdleState(Entity));
-            Entity.ChangeAnimation(AnimationKeys.Idle(Entity.Direction));
+            Stop();
             return;
         }
 
@@ -67,7 +66,11 @@ public class EntityWalkState : EntityStateBase
     // logical move is committed.
     protected virtual bool BeforeMove(Point destination) => true;
 
-    protected virtual void OnMovementComplete()
+    protected virtual void OnMovementComplete() => Stop();
+
+    // Back to standing still. The player overrides this, to stand still in its own idle state,
+    // which reads the keys.
+    protected virtual void Stop()
     {
         Entity.ChangeState(new EntityIdleState(Entity));
     }

@@ -33,7 +33,12 @@ public sealed class PlayerWalkState : EntityWalkState
         }
         else
         {
-            Entity.ChangeState(new PlayerIdleState(_player, Level, _stateStack));
+            Stop();
         }
+    }
+
+    protected override void Stop()
+    {
+        Entity.ChangeState(new PlayerIdleState(_player, Level, _stateStack));
     }
 }
