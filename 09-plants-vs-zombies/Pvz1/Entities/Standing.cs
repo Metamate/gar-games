@@ -5,11 +5,11 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Pvz1.Entities;
 
-// Drawing helpers shared by the plants and the zombies.
+// Drawing helpers shared by the defenders and the goblins.
 public static class Standing
 {
-    // One pixel of the art is 4 pixels on screen: breathing moves the sprite by whole art pixels.
-    public const int ArtPixel = 4;
+    // One pixel of the art is 5 pixels on screen: breathing moves the sprite by whole art pixels.
+    public const int ArtPixel = 5;
 
     // A sprite standing on its feet (its bottom centre), breathing, and red when hit.
     public static void Draw(SpriteBatch spriteBatch, TextureRegion sprite, Vector2 feet, float time, bool hit)

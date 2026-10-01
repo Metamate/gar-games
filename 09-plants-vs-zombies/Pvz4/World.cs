@@ -7,58 +7,58 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Pvz4;
 
-// Everything on the lawn is an entity. The world keeps them by role (plants in the grid,
-// zombies, and everything else), so that components can ask it questions.
+// Everything on the field is an entity. The world keeps them by role (defenders in the grid,
+// goblins, and everything else), so that components can ask it questions.
 public class World(TextureAtlas atlas)
 {
-    private readonly Entity[,] _plants = new Entity[Lawn.Columns, Lawn.Rows];
-    private readonly List<Entity> _zombies = [];
+    private readonly Entity[,] _defenders = new Entity[Field.Columns, Field.Rows];
+    private readonly List<Entity> _goblins = [];
     private readonly List<Entity> _others = [];
     private readonly List<Entity> _added = [];
 
     public TextureAtlas Atlas { get; } = atlas;
     public Recipes Recipes { get; } = new(atlas);
-    public int Sun { get; set; } = 150;
-    public bool ZombieReachedHouse => _zombies.Any(zombie => zombie.Position.X < Lawn.Bounds.X - 40);
-    public int ZombieCount => _zombies.Count;
+    public int Gold { get; set; } = 150;
+    public bool GoblinReachedCastle => _goblins.Any(goblin => goblin.Position.X < Field.Bounds.X);
+    public int GoblinCount => _goblins.Count;
 
-    public IEnumerable<Entity> Plants => _plants.Cast<Entity>().Where(plant => plant != null);
+    public IEnumerable<Entity> Defenders => _defenders.Cast<Entity>().Where(defender => defender != null);
 
-    public bool IsFree(Point cell) => _plants[cell.X, cell.Y] == null;
+    public bool IsFree(Point cell) => _defenders[cell.X, cell.Y] == null;
 
-    public void AddPlant(Entity plant, Point cell)
+    public void AddDefender(Entity defender, Point cell)
     {
-        plant.Row = cell.Y;
-        plant.Position = Lawn.CellFeet(cell);
-        _plants[cell.X, cell.Y] = plant;
+        defender.Row = cell.Y;
+        defender.Position = Field.CellFeet(cell);
+        _defenders[cell.X, cell.Y] = defender;
     }
 
-    public void AddZombie(Entity zombie, int row)
+    public void AddGoblin(Entity goblin, int row)
     {
-        zombie.Row = row;
-        zombie.Position = new Vector2(Lawn.Bounds.Right + 60, Lawn.RowFeet(row));
-        _zombies.Add(zombie);
+        goblin.Row = row;
+        goblin.Position = new Vector2(Field.Bounds.Right + 120, Field.RowFeet(row));
+        _goblins.Add(goblin);
     }
 
-    // Peas, suns and effects. Added after the update, as they're often made during it.
+    // Arrows, coins and effects. Added after the update, as they're often made during it.
     public void Add(Entity entity) => _added.Add(entity);
 
-    // The plant in this row at this x, if any.
-    public Entity PlantAt(int row, float x)
+    // The defender in this row at this x, if any.
+    public Entity DefenderAt(int row, float x)
     {
-        if (x < Lawn.Bounds.Left || x >= Lawn.Bounds.Right)
+        if (x < Field.Bounds.Left || x >= Field.Bounds.Right)
             return null;
-        return _plants[(int)(x - Lawn.Bounds.X) / Lawn.CellWidth, row];
+        return _defenders[(int)(x - Field.Bounds.X) / Field.CellWidth, row];
     }
 
-    // The nearest zombie on the lawn in this row, at or to the right of x.
-    public Entity FirstZombieAhead(int row, float x)
-        => _zombies.Where(zombie => zombie.Row == row && zombie.Position.X >= x && zombie.Position.X < Lawn.Bounds.Right + 20)
-                   .OrderBy(zombie => zombie.Position.X)
+    // The nearest goblin on the field in this row, at or to the right of x.
+    public Entity FirstGoblinAhead(int row, float x)
+        => _goblins.Where(goblin => goblin.Row == row && goblin.Position.X >= x && goblin.Position.X < Field.Bounds.Right + 20)
+                   .OrderBy(goblin => goblin.Position.X)
                    .FirstOrDefault();
 
-    public IEnumerable<Entity> ZombiesWithin(Vector2 center, float radius)
-        => _zombies.Where(zombie => Vector2.Distance(zombie.Position + new Vector2(0, -50), center) <= radius);
+    public IEnumerable<Entity> GoblinsWithin(Vector2 center, float radius)
+        => _goblins.Where(goblin => Vector2.Distance(goblin.Position + new Vector2(0, -40), center) <= radius);
 
     public bool TryCollect(Vector2 point)
     {
@@ -67,7 +67,7 @@ public class World(TextureAtlas atlas)
         if (collectible == null)
             return false;
 
-        Sun += collectible.Value;
+        Gold += collectible.Value;
         collectible.Owner.Remove();
         return true;
     }
@@ -75,15 +75,15 @@ public class World(TextureAtlas atlas)
     // One loop for every kind of entity: the world doesn't care what they are.
     public void Update(float deltaSeconds)
     {
-        foreach (Entity entity in Plants.Concat(_zombies).Concat(_others).ToList())
+        foreach (Entity entity in Defenders.Concat(_goblins).Concat(_others).ToList())
             entity.Update(deltaSeconds);
 
-        foreach (Entity plant in Plants.Where(plant => plant.IsRemoved).ToList())
+        foreach (Entity defender in Defenders.Where(defender => defender.IsRemoved).ToList())
         {
-            Point cell = Lawn.CellAt(plant.Position - new Vector2(0, 1)).Value;
-            _plants[cell.X, cell.Y] = null;
+            Point cell = Field.CellAt(defender.Position - new Vector2(0, 1)).Value;
+            _defenders[cell.X, cell.Y] = null;
         }
-        _zombies.RemoveAll(zombie => zombie.IsRemoved);
+        _goblins.RemoveAll(goblin => goblin.IsRemoved);
         _others.RemoveAll(entity => entity.IsRemoved);
         _others.AddRange(_added);
         _added.Clear();
@@ -92,12 +92,12 @@ public class World(TextureAtlas atlas)
     // Row by row, from the back, so that nearer things are drawn on top.
     public void Draw(SpriteBatch spriteBatch)
     {
-        for (int row = 0; row < Lawn.Rows; row++)
+        for (int row = 0; row < Field.Rows; row++)
         {
-            foreach (Entity plant in Plants.Where(plant => plant.Row == row))
-                plant.Draw(spriteBatch);
-            foreach (Entity zombie in _zombies.Where(zombie => zombie.Row == row))
-                zombie.Draw(spriteBatch);
+            foreach (Entity defender in Defenders.Where(defender => defender.Row == row))
+                defender.Draw(spriteBatch);
+            foreach (Entity goblin in _goblins.Where(goblin => goblin.Row == row))
+                goblin.Draw(spriteBatch);
         }
         foreach (Entity entity in _others)
             entity.Draw(spriteBatch);

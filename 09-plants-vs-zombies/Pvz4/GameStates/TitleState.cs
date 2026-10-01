@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Pvz4.GameStates;
 
-// The title screen, over the empty lawn: Enter starts the game.
+// The title screen, over the empty field: Enter starts the game.
 public class TitleState(Game1 game) : IState
 {
     public void Enter() { }

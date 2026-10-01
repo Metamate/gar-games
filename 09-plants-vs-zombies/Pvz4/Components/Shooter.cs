@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 
 namespace Pvz4.Components;
 
-// Shoots peas when there's a zombie ahead in the row: a burst of one or more, then a pause.
+// Shoots arrows when there's a goblin ahead in the row: a burst of one or more, then a pause.
 public class Shooter(float interval, int shots, float damage) : Component
 {
     private const float BurstDelay = 0.2f;
@@ -19,7 +19,7 @@ public class Shooter(float interval, int shots, float damage) : Component
             if (_burstTimer <= 0)
                 Fire();
         }
-        else if (_cooldown <= 0 && World.FirstZombieAhead(Owner.Row, Owner.Position.X) != null)
+        else if (_cooldown <= 0 && World.FirstGoblinAhead(Owner.Row, Owner.Position.X) != null)
         {
             _cooldown = interval;
             _burstLeft = shots;
@@ -29,7 +29,7 @@ public class Shooter(float interval, int shots, float damage) : Component
 
     private void Fire()
     {
-        World.Add(World.Recipes.Pea(World, Owner.Position + new Vector2(34, -62), Owner.Row, damage));
+        World.Add(World.Recipes.Arrow(World, Owner.Position + new Vector2(30, -40), Owner.Row, damage));
         _burstLeft--;
         _burstTimer = BurstDelay;
     }

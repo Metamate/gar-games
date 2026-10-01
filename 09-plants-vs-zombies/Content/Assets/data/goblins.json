@@ -1,0 +1,31 @@
+[
+  {
+    "name": "Goblin",
+    "sprite": "goblin",
+    "health": 10,
+    "speed": 28,
+    "attack": 1
+  },
+  {
+    "name": "Shieldbearer",
+    "sprite": "goblin",
+    "health": 10,
+    "speed": 28,
+    "attack": 1,
+    "armour": {
+      "sprite": "wooden-shield",
+      "health": 18
+    }
+  },
+  {
+    "name": "Ironclad",
+    "sprite": "goblin",
+    "health": 10,
+    "speed": 28,
+    "attack": 1,
+    "armour": {
+      "sprite": "iron-shield",
+      "health": 55
+    }
+  }
+]

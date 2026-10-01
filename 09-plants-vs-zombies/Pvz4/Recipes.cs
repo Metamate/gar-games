@@ -4,17 +4,17 @@ using Microsoft.Xna.Framework;
 
 namespace Pvz4;
 
-// The things that aren't types in the data files: peas, suns and effects.
+// The things that aren't types in the data files: arrows, coins and effects.
 public class Recipes(TextureAtlas atlas)
 {
-    public Entity Pea(World world, Vector2 position, int row, float damage)
+    public Entity Arrow(World world, Vector2 position, int row, float damage)
         => new Entity(world) { Position = position, Row = row }
-            .With(new SpriteRenderer(atlas.GetRegion("pea"), centered: true))
+            .With(new SpriteRenderer(atlas.GetRegion("arrow"), centered: true))
             .With(new Projectile(300, damage));
 
-    public Entity Sun(World world, Vector2 position, int amount)
+    public Entity Coin(World world, Vector2 position, int amount)
         => new Entity(world) { Position = position }
-            .With(new SpriteRenderer(atlas.GetRegion("sun"), centered: true))
+            .With(new SpriteRenderer(atlas.GetRegion("coin"), centered: true))
             .With(new Collectible(amount));
 
     public Entity Explosion(World world, Vector2 position)
@@ -22,7 +22,7 @@ public class Recipes(TextureAtlas atlas)
             .With(new SpriteRenderer(atlas.GetRegion("explosion"), centered: true))
             .With(new Lifetime(0.4f));
 
-    // Sun from the sky: falls to a random spot on the lawn.
-    public Entity FallingSun(World world, float x, float targetY)
-        => Sun(world, new Vector2(x, 100), 25).With(new Faller(targetY, 60));
+    // Gold from the sky: falls to a random spot on the field.
+    public Entity FallingCoin(World world, float x, float targetY)
+        => Coin(world, new Vector2(x, 100), 25).With(new Faller(targetY, 60));
 }

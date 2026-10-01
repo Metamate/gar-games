@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Pvz4;
 
-// A thing on the lawn, made of components. An entity has a position, a row, and a list of
+// A thing on the field, made of components. An entity has a position, a row, and a list of
 // components; what it looks like and what it does is all in the components.
 public class Entity(World world)
 {
@@ -30,7 +30,7 @@ public class Entity(World world)
         return this;
     }
 
-    // Components find each other through their owner: a Walker asks for the Eater.
+    // Components find each other through their owner: a Walker asks for the Attacker.
     public T Get<T>() where T : Component
     {
         foreach (Component component in _components)

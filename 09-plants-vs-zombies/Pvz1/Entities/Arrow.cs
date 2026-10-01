@@ -4,10 +4,10 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Pvz1.Entities;
 
-public class Pea(TextureAtlas atlas, Vector2 position, int row, float damage)
+public class Arrow(TextureAtlas atlas, Vector2 position, int row, float damage)
 {
     private const float Speed = 300;
-    private readonly TextureRegion _sprite = atlas.GetRegion("pea");
+    private readonly TextureRegion _sprite = atlas.GetRegion("arrow");
 
     public Vector2 Position { get; private set; } = position;
     public bool IsUsed { get; private set; }
@@ -15,10 +15,10 @@ public class Pea(TextureAtlas atlas, Vector2 position, int row, float damage)
     public void Update(float deltaSeconds, World world)
     {
         Position += new Vector2(Speed * deltaSeconds, 0);
-        Zombie zombie = world.FirstZombieAhead(row, Position.X - 20);
-        if (zombie != null && zombie.Position.X - Position.X < 20)
+        Goblin goblin = world.FirstGoblinAhead(row, Position.X - 20);
+        if (goblin != null && goblin.Position.X - Position.X < 20)
         {
-            zombie.TakeDamage(damage);
+            goblin.TakeDamage(damage);
             IsUsed = true;
         }
         else if (Position.X > 1300)

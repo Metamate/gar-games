@@ -6,82 +6,82 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Pvz1;
 
-// Everything on the lawn, in one list per class.
+// Everything on the field, in one list per class.
 public class World
 {
-    private readonly Plant[,] _plants = new Plant[Lawn.Columns, Lawn.Rows];
-    private readonly List<Zombie> _zombies = [];
-    private readonly List<Pea> _peas = [];
-    private readonly List<Sun> _suns = [];
+    private readonly Defender[,] _defenders = new Defender[Field.Columns, Field.Rows];
+    private readonly List<Goblin> _goblins = [];
+    private readonly List<Arrow> _arrows = [];
+    private readonly List<Coin> _coins = [];
 
-    public int Sun { get; set; } = 150;
-    public bool ZombieReachedHouse => _zombies.Any(zombie => zombie.Position.X < Lawn.Bounds.X - 40);
+    public int Gold { get; set; } = 150;
+    public bool GoblinReachedCastle => _goblins.Any(goblin => goblin.Position.X < Field.Bounds.X);
 
-    public IEnumerable<Plant> Plants => _plants.Cast<Plant>().Where(plant => plant != null);
+    public IEnumerable<Defender> Defenders => _defenders.Cast<Defender>().Where(defender => defender != null);
 
-    public bool IsFree(Point cell) => _plants[cell.X, cell.Y] == null;
-    public void AddPlant(Plant plant) => _plants[plant.Cell.X, plant.Cell.Y] = plant;
-    public void AddZombie(Zombie zombie) => _zombies.Add(zombie);
-    public void Add(Pea pea) => _peas.Add(pea);
-    public void Add(Sun sun) => _suns.Add(sun);
+    public bool IsFree(Point cell) => _defenders[cell.X, cell.Y] == null;
+    public void AddDefender(Defender defender) => _defenders[defender.Cell.X, defender.Cell.Y] = defender;
+    public void AddGoblin(Goblin goblin) => _goblins.Add(goblin);
+    public void Add(Arrow arrow) => _arrows.Add(arrow);
+    public void Add(Coin coin) => _coins.Add(coin);
 
-    // The plant in this row at this x, if any.
-    public Plant PlantAt(int row, float x)
+    // The defender in this row at this x, if any.
+    public Defender DefenderAt(int row, float x)
     {
-        if (x < Lawn.Bounds.Left || x >= Lawn.Bounds.Right)
+        if (x < Field.Bounds.Left || x >= Field.Bounds.Right)
             return null;
-        return _plants[(int)(x - Lawn.Bounds.X) / Lawn.CellWidth, row];
+        return _defenders[(int)(x - Field.Bounds.X) / Field.CellWidth, row];
     }
 
-    // The nearest zombie on the lawn in this row, at or to the right of x.
-    public Zombie FirstZombieAhead(int row, float x)
-        => _zombies.Where(zombie => zombie.Row == row && zombie.Position.X >= x && zombie.Position.X < Lawn.Bounds.Right + 20)
-                   .OrderBy(zombie => zombie.Position.X)
+    // The nearest goblin on the field in this row, at or to the right of x.
+    public Goblin FirstGoblinAhead(int row, float x)
+        => _goblins.Where(goblin => goblin.Row == row && goblin.Position.X >= x && goblin.Position.X < Field.Bounds.Right + 20)
+                   .OrderBy(goblin => goblin.Position.X)
                    .FirstOrDefault();
 
     public bool TryCollect(Vector2 point)
     {
-        Sun sun = _suns.LastOrDefault(sun => sun.Contains(point));
-        if (sun == null)
+        Coin coin = _coins.LastOrDefault(coin => coin.Contains(point));
+        if (coin == null)
             return false;
 
-        Sun += sun.Value;
-        sun.IsGone = true;
+        Gold += coin.Value;
+        coin.IsGone = true;
         return true;
     }
 
     public void Update(float deltaSeconds)
     {
-        // Loop over copies: plants add peas and suns while we loop.
-        foreach (Plant plant in Plants.ToList())
-            plant.Update(deltaSeconds, this);
-        foreach (Zombie zombie in _zombies.ToList())
-            zombie.Update(deltaSeconds, this);
-        foreach (Pea pea in _peas.ToList())
-            pea.Update(deltaSeconds, this);
-        foreach (Sun sun in _suns.ToList())
-            sun.Update(deltaSeconds);
+        // Loop over copies: defenders add arrows and coins while we loop.
+        foreach (Defender defender in Defenders.ToList())
+            defender.Update(deltaSeconds, this);
+        foreach (Goblin goblin in _goblins.ToList())
+            goblin.Update(deltaSeconds, this);
+        foreach (Arrow arrow in _arrows.ToList())
+            arrow.Update(deltaSeconds, this);
+        foreach (Coin coin in _coins.ToList())
+            coin.Update(deltaSeconds);
 
-        foreach (Plant plant in Plants.Where(plant => plant.IsDead).ToList())
-            _plants[plant.Cell.X, plant.Cell.Y] = null;
-        _zombies.RemoveAll(zombie => zombie.IsDead);
-        _peas.RemoveAll(pea => pea.IsUsed);
-        _suns.RemoveAll(sun => sun.IsGone);
+        foreach (Defender defender in Defenders.Where(defender => defender.IsDead).ToList())
+            _defenders[defender.Cell.X, defender.Cell.Y] = null;
+        _goblins.RemoveAll(goblin => goblin.IsDead);
+        _arrows.RemoveAll(arrow => arrow.IsUsed);
+        _coins.RemoveAll(coin => coin.IsGone);
     }
 
     // Row by row, from the back, so that nearer things are drawn on top.
     public void Draw(SpriteBatch spriteBatch)
     {
-        for (int row = 0; row < Lawn.Rows; row++)
+        for (int row = 0; row < Field.Rows; row++)
         {
-            foreach (Plant plant in Plants.Where(plant => plant.Row == row))
-                plant.Draw(spriteBatch);
-            foreach (Zombie zombie in _zombies.Where(zombie => zombie.Row == row))
-                zombie.Draw(spriteBatch);
+            foreach (Defender defender in Defenders.Where(defender => defender.Row == row))
+                defender.Draw(spriteBatch);
+            foreach (Goblin goblin in _goblins.Where(goblin => goblin.Row == row))
+                goblin.Draw(spriteBatch);
         }
-        foreach (Pea pea in _peas)
-            pea.Draw(spriteBatch);
-        foreach (Sun sun in _suns)
-            sun.Draw(spriteBatch);
+        foreach (Arrow arrow in _arrows)
+            arrow.Draw(spriteBatch);
+        foreach (Coin coin in _coins)
+            coin.Draw(spriteBatch);
     }
 }

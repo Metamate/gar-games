@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 
 namespace Pvz4.Components;
 
-// Falls down to a point, then stays there: sun from the sky.
+// Falls down to a point, then stays there: gold from the sky.
 public class Faller(float targetY, float speed) : Component
 {
     public override void Update(float deltaSeconds)

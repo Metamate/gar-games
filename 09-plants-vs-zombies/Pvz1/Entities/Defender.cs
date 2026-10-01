@@ -4,16 +4,16 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Pvz1.Entities;
 
-// The base class of every plant: a cell on the lawn, health, and a sprite. What a plant does
+// The base class of every defender: a cell on the field, health, and a sprite. What a defender does
 // is up to its subclass.
-public abstract class Plant(Point cell, TextureRegion sprite, float health)
+public abstract class Defender(Point cell, TextureRegion sprite, float health)
 {
     private float _time;
     private float _hitTime;
 
     public Point Cell { get; } = cell;
     public int Row => Cell.Y;
-    public Vector2 Position => Lawn.CellFeet(Cell);
+    public Vector2 Position => Field.CellFeet(Cell);
     public float Health { get; private set; } = health;
     public bool IsDead => Health <= 0;
 

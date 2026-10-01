@@ -5,35 +5,35 @@ using Microsoft.Xna.Framework;
 namespace Pvz2;
 
 // Recipes: each kind of thing in the game is an entity with a list of components. There is no
-// class per plant or zombie. A Repeater is a Peashooter with a different number; a Conehead
-// is a Zombie with an Armour.
+// class per defender or goblin. A Wizard is an Archer with a different number; a Shieldbearer
+// is a Goblin with an Armour.
 public class Recipes(TextureAtlas atlas)
 {
-    public Entity Sunflower(World world) => Plant(world, "sunflower", 6).With(new SunProducer(12, 25));
-    public Entity Peashooter(World world) => Plant(world, "peashooter", 6).With(new Shooter(1.4f, 1, 1));
-    public Entity Repeater(World world) => Plant(world, "repeater", 6).With(new Shooter(1.4f, 2, 1));
-    public Entity WallNut(World world) => Plant(world, "wall-nut", 40);
+    public Entity Chest(World world) => Defender(world, "chest", 6).With(new GoldProducer(9, 25));
+    public Entity Archer(World world) => Defender(world, "archer", 6).With(new Shooter(1.4f, 1, 1));
+    public Entity Wizard(World world) => Defender(world, "wizard", 6).With(new Shooter(1.4f, 2, 1));
+    public Entity Knight(World world) => Defender(world, "knight", 40);
 
-    public Entity Zombie(World world)
+    public Entity Goblin(World world)
         => new Entity(world)
-            .With(new SpriteRenderer(atlas.GetRegion("zombie")))
+            .With(new SpriteRenderer(atlas.GetRegion("goblin")))
             .With(new Health(10))
-            .With(new Walker(16))
-            .With(new Eater(1));
+            .With(new Walker(28))
+            .With(new Attacker(1));
 
-    public Entity Conehead(World world) => Zombie(world).With(new Armour(18, atlas.GetRegion("cone")));
+    public Entity Shieldbearer(World world) => Goblin(world).With(new Armour(18, atlas.GetRegion("wooden-shield")));
 
-    public Entity Pea(World world, Vector2 position, int row, float damage)
+    public Entity Arrow(World world, Vector2 position, int row, float damage)
         => new Entity(world) { Position = position, Row = row }
-            .With(new SpriteRenderer(atlas.GetRegion("pea"), centered: true))
+            .With(new SpriteRenderer(atlas.GetRegion("arrow"), centered: true))
             .With(new Projectile(300, damage));
 
-    public Entity Sun(World world, Vector2 position, int amount)
+    public Entity Coin(World world, Vector2 position, int amount)
         => new Entity(world) { Position = position }
-            .With(new SpriteRenderer(atlas.GetRegion("sun"), centered: true))
+            .With(new SpriteRenderer(atlas.GetRegion("coin"), centered: true))
             .With(new Collectible(amount));
 
-    private Entity Plant(World world, string sprite, float health)
+    private Entity Defender(World world, string sprite, float health)
         => new Entity(world)
             .With(new SpriteRenderer(atlas.GetRegion(sprite)))
             .With(new Health(health));

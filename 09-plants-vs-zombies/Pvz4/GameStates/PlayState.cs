@@ -12,12 +12,12 @@ public class PlayState(Game1 game) : IState
     {
         game.UpdatePlay((float)gameTime.ElapsedGameTime.TotalSeconds);
 
-        if (game.World.ZombieReachedHouse)
+        if (game.World.GoblinReachedCastle)
         {
             game.EndState.Won = false;
             game.ChangeState(game.EndState);
         }
-        else if (game.AllZombiesSpawned && game.World.ZombieCount == 0)
+        else if (game.AllGoblinsSpawned && game.World.GoblinCount == 0)
         {
             game.EndState.Won = true;
             game.ChangeState(game.EndState);

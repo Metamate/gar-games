@@ -12,17 +12,17 @@ public class Game1 : Core
 {
     public const int VirtualWidth = 1280;
     public const int VirtualHeight = 720;
-    private const float FirstZombie = 15;
-    private const float ZombieInterval = 10;
+    private const float FirstGoblin = 15;
+    private const float GoblinInterval = 6;
 
     private readonly Random _random = new();
     private World _world;
-    private SeedBar _seedBar;
+    private CardBar _cardBar;
     private Texture2D _background;
     private Texture2D _pixel;
     private TextureAtlas _atlas;
     private SpriteFont _font;
-    private float _zombieTimer;
+    private float _goblinTimer;
     private bool _lost;
 
     public Game1() : base("Plants vs. Zombies", 1280, 720, VirtualWidth, VirtualHeight)
@@ -38,16 +38,16 @@ public class Game1 : Core
         _pixel.SetData([Color.White]);
 
         NewGame();
-        _seedBar = new SeedBar(_atlas, _pixel, _font);
-        _seedBar.Add("Sunflower", "sunflower", 50);
-        _seedBar.Add("Peashooter", "peashooter", 100);
-        _seedBar.Add("Wall-nut", "wall-nut", 50);
+        _cardBar = new CardBar(_atlas, _pixel, _font);
+        _cardBar.Add("Chest", "chest", 50);
+        _cardBar.Add("Archer", "archer", 100);
+        _cardBar.Add("Knight", "knight", 50);
     }
 
     private void NewGame()
     {
         _world = new World();
-        _zombieTimer = FirstZombie;
+        _goblinTimer = FirstGoblin;
         _lost = false;
     }
 
@@ -60,43 +60,43 @@ public class Game1 : Core
         {
             float deltaSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
             Vector2 mouse = MousePosition();
-            if (Input.Mouse.WasLeftButtonJustPressed && !_world.TryCollect(mouse) && !_seedBar.TrySelect(mouse, _world.Sun))
-                Plant(mouse);
+            if (Input.Mouse.WasLeftButtonJustPressed && !_world.TryCollect(mouse) && !_cardBar.TrySelect(mouse, _world.Gold))
+                Place(mouse);
 
-            SpawnZombies(deltaSeconds);
+            SpawnGoblins(deltaSeconds);
             _world.Update(deltaSeconds);
-            _lost = _world.ZombieReachedHouse;
+            _lost = _world.GoblinReachedCastle;
         }
 
         base.Update(gameTime);
     }
 
-    private void Plant(Vector2 mouse)
+    private void Place(Vector2 mouse)
     {
-        if (_seedBar.Selected == null || Lawn.CellAt(mouse) is not Point cell || !_world.IsFree(cell))
+        if (_cardBar.Selected == null || Field.CellAt(mouse) is not Point cell || !_world.IsFree(cell))
             return;
 
-        Plant plant = _seedBar.Selected.Name switch
+        Defender defender = _cardBar.Selected.Name switch
         {
-            "Sunflower" => new Sunflower(cell, _atlas),
-            "Peashooter" => new Peashooter(cell, _atlas),
-            _ => new WallNut(cell, _atlas),
+            "Chest" => new Chest(cell, _atlas),
+            "Archer" => new Archer(cell, _atlas),
+            _ => new Knight(cell, _atlas),
         };
-        _world.AddPlant(plant);
-        _world.Sun -= _seedBar.Selected.Cost;
-        _seedBar.Deselect();
+        _world.AddDefender(defender);
+        _world.Gold -= _cardBar.Selected.Cost;
+        _cardBar.Deselect();
     }
 
-    // For now, a zombie every few seconds, in a random row.
-    private void SpawnZombies(float deltaSeconds)
+    // For now, a goblin every few seconds, in a random row.
+    private void SpawnGoblins(float deltaSeconds)
     {
-        _zombieTimer -= deltaSeconds;
-        if (_zombieTimer > 0)
+        _goblinTimer -= deltaSeconds;
+        if (_goblinTimer > 0)
             return;
 
-        _zombieTimer = ZombieInterval;
-        int row = _random.Next(Lawn.Rows);
-        _world.AddZombie(new Zombie(_atlas, row));
+        _goblinTimer = GoblinInterval;
+        int row = _random.Next(Field.Rows);
+        _world.AddGoblin(new Goblin(_atlas, row));
     }
 
     protected override void Draw(GameTime gameTime)
@@ -106,37 +106,37 @@ public class Game1 : Core
         SpriteBatch.Draw(_background, Vector2.Zero, Color.White);
         _world.Draw(SpriteBatch);
         DrawCursor(MousePosition());
-        _seedBar.Draw(SpriteBatch, _world.Sun);
-        DrawSun();
+        _cardBar.Draw(SpriteBatch, _world.Gold);
+        DrawGold();
         if (_lost)
-            DrawMessage("The zombies ate your brains! Press Enter to try again.");
+            DrawMessage("The goblins are over the wall! Press Enter to try again.");
         SpriteBatch.End();
 
         base.Draw(gameTime);
     }
 
-    // Highlight the cell under the mouse, and show where the chosen plant would go.
+    // Highlight the cell under the mouse, and show where the chosen defender would go.
     private void DrawCursor(Vector2 mouse)
     {
-        if (Lawn.CellAt(mouse) is not Point cell)
+        if (Field.CellAt(mouse) is not Point cell)
             return;
 
-        SpriteBatch.Draw(_pixel, Lawn.CellBounds(cell), Color.White * 0.2f);
-        if (_seedBar.Selected is { } packet && _world.IsFree(cell))
+        SpriteBatch.Draw(_pixel, Field.CellBounds(cell), Color.White * 0.2f);
+        if (_cardBar.Selected is { } card && _world.IsFree(cell))
         {
-            TextureRegion icon = packet.Icon;
-            icon.Draw(SpriteBatch, Lawn.CellFeet(cell), Color.White * 0.5f, 0, new Vector2(icon.Width / 2f, icon.Height), 1, SpriteEffects.None, 0);
+            TextureRegion icon = card.Icon;
+            icon.Draw(SpriteBatch, Field.CellFeet(cell), Color.White * 0.5f, 0, new Vector2(icon.Width / 2f, icon.Height), 1, SpriteEffects.None, 0);
         }
     }
 
-    private void DrawSun()
+    private void DrawGold()
     {
-        SpriteBatch.Draw(_pixel, new Rectangle(16, 16, 108, 110), new Color(80, 50, 25));
-        TextureRegion sun = _atlas.GetRegion("sun");
-        sun.Draw(SpriteBatch, new Vector2(70, 52), Color.White, 0, new Vector2(sun.Width / 2f, sun.Height / 2f), 1, SpriteEffects.None, 0);
-        string text = _world.Sun.ToString();
+        SpriteBatch.Draw(_pixel, new Rectangle(16, 25, 108, 110), new Color(80, 50, 25));
+        TextureRegion coin = _atlas.GetRegion("coin");
+        coin.Draw(SpriteBatch, new Vector2(70, 65), Color.White, 0, new Vector2(coin.Width / 2f, coin.Height / 2f), 1, SpriteEffects.None, 0);
+        string text = _world.Gold.ToString();
         Vector2 size = _font.MeasureString(text);
-        SpriteBatch.DrawString(_font, text, new Vector2(70 - size.X / 2, 88), Color.White);
+        SpriteBatch.DrawString(_font, text, new Vector2(70 - size.X / 2, 103), Color.White);
     }
 
     private void DrawMessage(string text)

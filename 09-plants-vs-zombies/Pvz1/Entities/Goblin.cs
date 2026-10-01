@@ -4,18 +4,18 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Pvz1.Entities;
 
-// Walks left along its row, and eats the plants in its way. Health, damage and drawing are
-// the same as a plant's, but a zombie isn't a plant, so it has its own copy of them.
-public class Zombie(TextureAtlas atlas, int row)
+// Walks left along its row, and attacks the defenders in its way. Health, damage and drawing are
+// the same as a defender's, but a goblin isn't a defender, so it has its own copy of them.
+public class Goblin(TextureAtlas atlas, int row)
 {
-    private const float Speed = 16;
-    private const float Bite = 1;   // damage per second
-    private readonly TextureRegion _sprite = atlas.GetRegion("zombie");
+    private const float Speed = 28;
+    private const float Attack = 1;   // damage per second
+    private readonly TextureRegion _sprite = atlas.GetRegion("goblin");
     private float _time;
     private float _hitTime;
 
     public int Row { get; } = row;
-    public Vector2 Position { get; private set; } = new(Lawn.Bounds.Right + 60, Lawn.RowFeet(row));
+    public Vector2 Position { get; private set; } = new(Field.Bounds.Right + 120, Field.RowFeet(row));
     public float Health { get; private set; } = 10;
     public bool IsDead => Health <= 0;
 
@@ -30,9 +30,9 @@ public class Zombie(TextureAtlas atlas, int row)
         _time += deltaSeconds;
         _hitTime -= deltaSeconds;
 
-        Plant plant = world.PlantAt(Row, Position.X - 30);
-        if (plant != null)
-            plant.TakeDamage(Bite * deltaSeconds);
+        Defender defender = world.DefenderAt(Row, Position.X - 40);
+        if (defender != null)
+            defender.TakeDamage(Attack * deltaSeconds);
         else
             Position -= new Vector2(Speed * deltaSeconds, 0);
     }

@@ -1,18 +1,18 @@
 [
   {
-    "name": "Sunflower",
-    "sprite": "sunflower",
+    "name": "Chest",
+    "sprite": "chest",
     "cost": 50,
     "recharge": 7.5,
     "health": 6,
-    "sunProducer": {
-      "interval": 12,
+    "goldProducer": {
+      "interval": 9,
       "amount": 25
     }
   },
   {
-    "name": "Peashooter",
-    "sprite": "peashooter",
+    "name": "Archer",
+    "sprite": "archer",
     "cost": 100,
     "recharge": 7.5,
     "health": 6,
@@ -23,15 +23,15 @@
     }
   },
   {
-    "name": "Wall-nut",
-    "sprite": "wall-nut",
+    "name": "Knight",
+    "sprite": "knight",
     "cost": 50,
     "recharge": 30,
     "health": 40
   },
   {
-    "name": "Repeater",
-    "sprite": "repeater",
+    "name": "Wizard",
+    "sprite": "wizard",
     "cost": 200,
     "recharge": 7.5,
     "health": 6,
@@ -42,8 +42,8 @@
     }
   },
   {
-    "name": "Cherry Bomb",
-    "sprite": "cherry-bomb",
+    "name": "Bomb",
+    "sprite": "bomb",
     "cost": 150,
     "recharge": 50,
     "health": 100,

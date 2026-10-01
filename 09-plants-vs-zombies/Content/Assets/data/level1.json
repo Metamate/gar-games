@@ -1,90 +1,118 @@
 {
-  "startingSun": 150,
-  "skySunInterval": 9,
+  "startingGold": 150,
+  "skyGoldInterval": 7,
   "spawns": [
     {
-      "time": 20,
-      "zombie": "Zombie"
+      "time": 6,
+      "goblin": "Goblin"
     },
     {
-      "time": 34,
-      "zombie": "Zombie"
+      "time": 14,
+      "goblin": "Goblin"
     },
     {
-      "time": 48,
-      "zombie": "Zombie"
+      "time": 22,
+      "goblin": "Goblin"
     },
     {
-      "time": 62,
-      "zombie": "Zombie"
+      "time": 29,
+      "goblin": "Goblin"
     },
     {
-      "time": 72,
-      "zombie": "Conehead"
+      "time": 36,
+      "goblin": "Goblin"
     },
     {
-      "time": 82,
-      "zombie": "Zombie"
+      "time": 44,
+      "goblin": "Shieldbearer"
     },
     {
-      "time": 92,
-      "zombie": "Conehead"
+      "time": 50,
+      "goblin": "Goblin"
     },
     {
-      "time": 102,
-      "zombie": "Zombie"
+      "time": 57,
+      "goblin": "Goblin"
+    },
+    {
+      "time": 63,
+      "goblin": "Shieldbearer"
+    },
+    {
+      "time": 69,
+      "goblin": "Goblin"
+    },
+    {
+      "time": 75,
+      "goblin": "Ironclad"
+    },
+    {
+      "time": 80,
+      "goblin": "Goblin"
+    },
+    {
+      "time": 86,
+      "goblin": "Shieldbearer"
+    },
+    {
+      "time": 90,
+      "goblin": "Goblin"
+    },
+    {
+      "time": 95,
+      "goblin": "Shieldbearer"
+    },
+    {
+      "time": 100,
+      "goblin": "Ironclad"
+    },
+    {
+      "time": 104,
+      "goblin": "Goblin"
+    },
+    {
+      "time": 108,
+      "goblin": "Shieldbearer"
     },
     {
       "time": 112,
-      "zombie": "Conehead"
+      "goblin": "Goblin"
+    },
+    {
+      "time": 115,
+      "goblin": "Ironclad"
+    },
+    {
+      "time": 118,
+      "goblin": "Shieldbearer"
     },
     {
       "time": 122,
-      "zombie": "Zombie"
+      "goblin": "Goblin"
     },
     {
-      "time": 129,
-      "zombie": "Conehead"
+      "time": 124,
+      "goblin": "Ironclad"
+    },
+    {
+      "time": 128,
+      "goblin": "Shieldbearer"
+    },
+    {
+      "time": 130,
+      "goblin": "Goblin"
+    },
+    {
+      "time": 134,
+      "goblin": "Ironclad"
     },
     {
       "time": 136,
-      "zombie": "Buckethead"
+      "goblin": "Shieldbearer"
     },
     {
-      "time": 143,
-      "zombie": "Zombie"
-    },
-    {
-      "time": 150,
-      "zombie": "Conehead"
-    },
-    {
-      "time": 157,
-      "zombie": "Buckethead"
-    },
-    {
-      "time": 164,
-      "zombie": "Conehead"
-    },
-    {
-      "time": 167,
-      "zombie": "Buckethead"
-    },
-    {
-      "time": 170,
-      "zombie": "Zombie"
-    },
-    {
-      "time": 173,
-      "zombie": "Conehead"
-    },
-    {
-      "time": 176,
-      "zombie": "Buckethead"
-    },
-    {
-      "time": 179,
-      "zombie": "Zombie"
+      "time": 140,
+      "goblin": "Ironclad"
     }
   ]
 }

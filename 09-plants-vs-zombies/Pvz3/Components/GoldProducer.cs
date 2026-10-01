@@ -2,8 +2,8 @@ using Microsoft.Xna.Framework;
 
 namespace Pvz3.Components;
 
-// Makes a sun every few seconds.
-public class SunProducer(float interval, int amount) : Component
+// Makes a coin every few seconds.
+public class GoldProducer(float interval, int amount) : Component
 {
     private float _timer = interval / 2;
 
@@ -14,6 +14,6 @@ public class SunProducer(float interval, int amount) : Component
             return;
 
         _timer = interval;
-        World.Add(World.Recipes.Sun(World, Owner.Position + new Vector2(0, -50), amount));
+        World.Add(World.Recipes.Coin(World, Owner.Position + new Vector2(0, -70), amount));
     }
 }

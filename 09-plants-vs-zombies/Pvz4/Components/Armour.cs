@@ -4,10 +4,11 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Pvz4.Components;
 
-// A cone or a bucket: extra health, worn on the head until it's knocked off.
+// A shield: extra health, held in front until it breaks.
 public class Armour(float health, TextureRegion sprite) : Component
 {
-    private const float HeadHeight = 104;
+    // Where the shield is held: in front of the goblin, at its middle.
+    private static readonly Vector2 Hold = new(-25, -15);
 
     public float Current { get; private set; } = health;
     public bool IsIntact => Current > 0;
@@ -28,7 +29,7 @@ public class Armour(float health, TextureRegion sprite) : Component
             return;
 
         float rise = Owner.Get<SpriteRenderer>()?.Rise ?? 0;
-        Vector2 head = Owner.Position + new Vector2(-2, -HeadHeight - rise);
-        sprite.Draw(spriteBatch, head, Color.White, 0, new Vector2(sprite.Width / 2f, sprite.Height), 1, SpriteEffects.None, 0);
+        Vector2 hold = Owner.Position + Hold - new Vector2(0, rise);
+        sprite.Draw(spriteBatch, hold, Color.White, 0, new Vector2(sprite.Width / 2f, sprite.Height), 1, SpriteEffects.None, 0);
     }
 }

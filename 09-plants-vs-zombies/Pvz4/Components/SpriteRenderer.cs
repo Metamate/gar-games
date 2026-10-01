@@ -5,15 +5,15 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Pvz4.Components;
 
-// Draws the entity. Standing sprites (plants, zombies) stand on their feet and breathe;
-// centred ones (peas, suns) are drawn around their position.
+// Draws the entity. Standing sprites (defenders, goblins) stand on their feet and breathe;
+// centred ones (arrows, coins) are drawn around their position.
 public class SpriteRenderer(TextureRegion sprite, bool centered = false) : Component
 {
     private readonly float _phase = Random.Shared.NextSingle() * MathHelper.TwoPi;
     private float _time;
 
-    // One pixel of the art is 4 pixels on screen, so breathing rises by whole art pixels.
-    private const int ArtPixel = 4;
+    // One pixel of the art is 5 pixels on screen, so breathing rises by whole art pixels.
+    private const int ArtPixel = 5;
 
     public float Rise => !centered && MathF.Sin(_time * 3 + _phase) > 0 ? ArtPixel : 0;
 
