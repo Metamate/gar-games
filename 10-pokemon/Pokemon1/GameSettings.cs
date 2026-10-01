@@ -22,7 +22,7 @@ public static class GameSettings
     public const int MapRows = 11;
 
     public const int PlayerStartMapX = 8;
-    public const int PlayerStartMapY = 6;
+    public const int PlayerStartMapY = 7;
 
     public static readonly int[] TileGrass = { 45, 46 };
     public const int TileTallGrass = 41;
@@ -31,9 +31,10 @@ public static class GameSettings
     public const int TileSign = 2;
     public const int TileFlowers = 3;
     public const int TilePath = 4;
-    // The top-left tile of each building in the tilesheet: the house is 3 x 3 tiles, the lab 4 x 3.
-    public const int TileHouse = 8;
-    public const int TileLab = 11;
+    public const int TileRoofTip = 5;
+    // The top-left tile of each house in the tilesheet: 3 x 3 tiles, and 3 x 4 under the roof's tip.
+    public const int TileFlatHouse = 8;
+    public const int TilePeakedHouse = 11;
 
     // Time (seconds) to tween one tile-step walk
     public const float WalkTweenDuration = 0.5f;

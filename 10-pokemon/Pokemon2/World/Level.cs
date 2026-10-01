@@ -23,20 +23,21 @@ public sealed class Level
     }
 
     // The town, one character per tile: T tree, X fence, S sign, * flowers, = path, # tall grass.
-    // The digits are the nine tiles of the house, the letters a to l the twelve of the lab.
+    // The digits are the nine tiles of the flat-roofed house; the letters a to l are the twelve of the
+    // peaked one, and ^ is the tip of its roof.
     private static readonly string[] Town =
     [
         "TTTTTTTTTTTTTTTTTTTT",
-        "T.123.....abcd.*...T",
-        "T.456.....efgh.....T",
-        "T.789S....ijkl.XXX.T",
-        "T..=........=......T",
-        "T..==========......T",
-        "T.*.....=..........T",
-        "T.......=......*...T",
-        "####################",
-        "####################",
-        "####################"
+        "T..........^.......T",
+        "T.........abc..*...T",
+        "T.123.....def......T",
+        "T.456.....ghi......T",
+        "T.789S....jkl.XXX..T",
+        "T..=.......=.......T",
+        "T..=========.......T",
+        "T.*.....=....######T",
+        "T.......=....######T",
+        "TTTTTTTT=TTTT######T"
     ];
 
     private void GenerateMaps()
@@ -56,8 +57,9 @@ public sealed class Level
                     'S' => new Tile(GameSettings.TileSign, true),
                     '*' => new Tile(GameSettings.TileFlowers),
                     '=' => new Tile(GameSettings.TilePath),
-                    >= '1' and <= '9' => new Tile(BuildingTile(GameSettings.TileHouse, c - '1', 3), true),
-                    >= 'a' and <= 'l' => new Tile(BuildingTile(GameSettings.TileLab, c - 'a', 4), true),
+                    '^' => new Tile(GameSettings.TileRoofTip, true),
+                    >= '1' and <= '9' => new Tile(HouseTile(GameSettings.TileFlatHouse, c - '1'), true),
+                    >= 'a' and <= 'l' => new Tile(HouseTile(GameSettings.TilePeakedHouse, c - 'a'), true),
                     _ => new Tile(grass),
                 });
 
@@ -67,8 +69,8 @@ public sealed class Level
         }
     }
 
-    // A building is a block of tiles in the tilesheet, which is 8 tiles wide. Its parts count row by row.
-    private static int BuildingTile(int first, int part, int width) => first + part / width * 8 + part % width;
+    // A house is a block of tiles, 3 wide, in the tilesheet, which is 8 tiles wide. Its parts count row by row.
+    private static int HouseTile(int first, int part) => first + part / 3 * 8 + part % 3;
 
     // Whether an entity can't step onto this tile.
     public bool IsSolid(Point tile) => BaseLayer.GetTile(tile.X, tile.Y).IsSolid;
