@@ -6,7 +6,7 @@ namespace Flappy7;
 public class PipePair
 {
     private const int PipeSpeed = 60;
-    public const int PipeGap = 90;
+    public const int PipeGap = 100;
     private Pipe _topPipe;
     private Pipe _bottomPipe;
     private float _x;
