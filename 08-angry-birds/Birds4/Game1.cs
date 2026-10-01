@@ -182,7 +182,7 @@ public class Game1 : Core
         {
             float t = i * 0.07f;
             Vector2 position = start + velocity * t + new Vector2(0, Gravity) * t * t / 2;
-            dot.Draw(SpriteBatch, position - new Vector2(dot.Width / 2f, dot.Height / 2f), Color.White * (1 - i / 14f));
+            dot.Draw(SpriteBatch, position - new Vector2(dot.Width / 2f, dot.Height / 2f), Color.White * (1 - i / 24f));
         }
     }
 
