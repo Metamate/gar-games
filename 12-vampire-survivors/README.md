@@ -87,6 +87,7 @@ choose the step to run.
 
 ## Credits
 
-The art is our own. The game is inspired by poncle's Vampire Survivors. The font is
+The art is Kenney's [1-Bit Pack](https://kenney.nl/assets/1-bit-pack) (CC0), each sprite in a colour of
+its own; the bolt, the gem and the aura are ours, in the same style. The game is inspired by poncle's Vampire Survivors. The font is
 [Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P) by CodeMan38, under the
 SIL Open Font License (see `Content/Assets/fonts/retro-OFL.txt`).
