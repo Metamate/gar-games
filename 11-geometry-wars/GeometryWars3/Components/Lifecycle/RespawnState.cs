@@ -11,7 +11,6 @@ public sealed class RespawnState : Component
 {
     private readonly IScoreTracker _score;
     private int _framesUntilRespawn;
-    private Transform _transform;
     private Sprite _sprite;
 
     public event Action Died;
@@ -26,7 +25,6 @@ public sealed class RespawnState : Component
 
     public override void OnStart(Entity owner)
     {
-        _transform = owner.Transform;
         _sprite = owner.GetComponent<Sprite>();
     }
 

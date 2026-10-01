@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Zelda7.Audio;
-using Zelda7.Graphics;
 using Zelda7.Entities;
 using Zelda7.Input;
 using Zelda7.States.EntityStates;

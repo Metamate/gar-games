@@ -1,5 +1,4 @@
 using GARCore.ECS.Components;
-using GeometryWars1.Components.Lifecycle;
 using GARCore.Physics;
 using GARCore.ECS;
 using GeometryWars1.Input;

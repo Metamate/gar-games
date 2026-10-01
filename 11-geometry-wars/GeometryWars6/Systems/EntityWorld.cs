@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using GeometryWars6.Components.Identity;
 using GeometryWars6.Components.Lifecycle;
 using GARCore.ECS;
 using Microsoft.Xna.Framework;

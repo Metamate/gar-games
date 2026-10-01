@@ -1,5 +1,4 @@
-﻿using System;
-using GARCore.Input;
+﻿using GARCore.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;

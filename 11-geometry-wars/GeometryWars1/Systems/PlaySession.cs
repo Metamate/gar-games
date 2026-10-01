@@ -1,7 +1,5 @@
 using System;
-using System.IO;
 using GARCore.ECS;
-using GARCore.Particles;
 using GeometryWars1.Services;
 using Microsoft.Xna.Framework;
 

@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Pokemon4;
 using Pokemon4.Entities;
 using Pokemon4.Input;
 using Pokemon4.States.EntityStates;

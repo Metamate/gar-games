@@ -1,14 +1,10 @@
-using System;
 using GeometryWars0.Definitions;
-using GeometryWars0.Components.Identity;
 using GeometryWars0.Components.Input;
 using GeometryWars0.Components.Physics;
 using GARCore.Physics;
 using GeometryWars0.Components.Visuals;
 using GARCore.ECS;
-using GARCore.Particles;
 using GeometryWars0.Services;
-using GeometryWars0.Utils;
 using Microsoft.Xna.Framework;
 
 namespace GeometryWars0.Systems;

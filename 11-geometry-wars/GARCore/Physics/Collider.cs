@@ -1,5 +1,4 @@
 using GARCore.ECS.Components;
-using GARCore.ECS;
 
 namespace GARCore.Physics;
 

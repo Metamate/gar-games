@@ -1,5 +1,4 @@
 using GARCore.Graphics;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace Pokemon0;
 

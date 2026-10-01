@@ -20,9 +20,6 @@ public class Game1 : Core
     private const int BoxTile = 3;
     private const int BoxOnGoalTile = 4;
     private const int PlayerDownTile = 5;
-    private const int PlayerUpTile = 6;
-    private const int PlayerRightTile = 8;
-    private const int PlayerLeftTile = 7;
 
     private Tileset _tiles;
     private string[] _level;

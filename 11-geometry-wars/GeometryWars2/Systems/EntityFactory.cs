@@ -9,9 +9,7 @@ using GeometryWars2.Components.Physics;
 using GARCore.Physics;
 using GeometryWars2.Components.Visuals;
 using GARCore.ECS;
-using GARCore.Particles;
 using GeometryWars2.Services;
-using GeometryWars2.Utils;
 using Microsoft.Xna.Framework;
 
 namespace GeometryWars2.Systems;

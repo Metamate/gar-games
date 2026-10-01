@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Pokemon2;
 using Pokemon2.Battle;
 using Pokemon2.Definitions;
 using Pokemon2.Entities;

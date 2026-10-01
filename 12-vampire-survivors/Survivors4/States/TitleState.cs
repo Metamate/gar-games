@@ -1,4 +1,3 @@
-using GARCore;
 using GARCore.Graphics;
 using GARCore.States;
 using Microsoft.Xna.Framework;

@@ -11,7 +11,6 @@ using GeometryWars3.Components.Visuals;
 using GARCore.ECS;
 using GARCore.Particles;
 using GeometryWars3.Services;
-using GeometryWars3.Utils;
 using Microsoft.Xna.Framework;
 
 namespace GeometryWars3.Systems;

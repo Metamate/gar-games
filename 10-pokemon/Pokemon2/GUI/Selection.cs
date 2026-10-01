@@ -2,10 +2,8 @@ using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Pokemon2;
 using Pokemon2.Input;
 using GARCore.Graphics;
-using GARCore.GUI;
 
 namespace Pokemon2.GUI;
 

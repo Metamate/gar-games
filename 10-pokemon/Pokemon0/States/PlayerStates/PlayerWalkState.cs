@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework;
 using Pokemon0;
 using Pokemon0.Entities;
 using Pokemon0.Input;

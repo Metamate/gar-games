@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Pvz2.Components;
 using GARCore;
 using GARCore.Graphics;
 using Microsoft.Xna.Framework;

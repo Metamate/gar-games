@@ -1,4 +1,3 @@
-using System;
 using GeometryWars1.Definitions;
 using GeometryWars1.Components.Combat;
 using GeometryWars1.Components.Identity;
@@ -8,9 +7,7 @@ using GeometryWars1.Components.Physics;
 using GARCore.Physics;
 using GeometryWars1.Components.Visuals;
 using GARCore.ECS;
-using GARCore.Particles;
 using GeometryWars1.Services;
-using GeometryWars1.Utils;
 using Microsoft.Xna.Framework;
 
 namespace GeometryWars1.Systems;

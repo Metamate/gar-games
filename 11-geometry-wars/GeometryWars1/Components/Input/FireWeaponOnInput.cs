@@ -1,6 +1,4 @@
-using System;
 using GARCore.ECS.Components;
-using GeometryWars1.Components.Lifecycle;
 using GeometryWars1.Components.Combat;
 using GARCore.ECS;
 using GeometryWars1.Input;

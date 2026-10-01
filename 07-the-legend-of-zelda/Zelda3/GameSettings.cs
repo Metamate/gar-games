@@ -63,7 +63,6 @@ public static class GameSettings
     public const int TileTopRightCorner    =  4;
     public const int TileBottomLeftCorner  = 22;
     public const int TileBottomRightCorner = 23;
-    public const int TileEmpty             = 18;
 
     public static readonly int[] TileFloors =
     [

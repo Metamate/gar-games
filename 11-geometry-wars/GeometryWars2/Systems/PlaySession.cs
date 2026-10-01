@@ -2,7 +2,6 @@ using System;
 using System.IO;
 using GeometryWars2.Components.Lifecycle;
 using GARCore.ECS;
-using GARCore.Particles;
 using GeometryWars2.Services;
 using Microsoft.Xna.Framework;
 

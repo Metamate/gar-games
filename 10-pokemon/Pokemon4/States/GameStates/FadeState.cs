@@ -1,5 +1,4 @@
 using System;
-using Pokemon4;
 using GARCore;
 using GARCore.States;
 using Microsoft.Xna.Framework;

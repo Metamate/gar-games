@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Pokemon1;
 using Pokemon1.Entities;
 using Pokemon1.World;
 

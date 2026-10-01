@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework;
 using Pokemon1.Entities;
 
 namespace Pokemon1.States.EntityStates;

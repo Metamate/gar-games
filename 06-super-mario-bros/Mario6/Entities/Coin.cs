@@ -1,7 +1,6 @@
 using GARCore.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Mario6.LevelMaker;
 
 namespace Mario6.Entities;
 

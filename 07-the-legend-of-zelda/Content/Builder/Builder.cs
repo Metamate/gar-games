@@ -9,7 +9,6 @@
 ///    https://docs.monogame.net/articles/getting_started/content_pipeline/content_builder_project.html
 /// </remarks>
 
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content.Pipeline;
 using Microsoft.Xna.Framework.Content.Pipeline.Audio;
 using Microsoft.Xna.Framework.Content.Pipeline.Processors;

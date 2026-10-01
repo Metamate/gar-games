@@ -1,7 +1,6 @@
 using GARCore.ECS.Components;
 using GeometryWars4.Components.Identity;
 using GeometryWars4.Components.Lifecycle;
-using GARCore.Physics;
 using GARCore.ECS;
 
 namespace GeometryWars4.Components.Combat;

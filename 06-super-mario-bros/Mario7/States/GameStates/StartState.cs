@@ -1,8 +1,6 @@
-using GARCore;
 using GARCore.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using Mario7.Input;
 using Mario7.LevelMaker;
 

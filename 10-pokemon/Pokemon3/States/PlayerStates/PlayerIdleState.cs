@@ -2,7 +2,6 @@ using Microsoft.Xna.Framework;
 using Pokemon3.Entities;
 using Pokemon3.Input;
 using Pokemon3.States.EntityStates;
-using Pokemon3.States.GameStates;
 using Pokemon3.World;
 using GARCore.States;
 

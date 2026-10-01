@@ -19,7 +19,6 @@ public class Snake
     private readonly Sprite _body;
     private readonly AnimatedSprite _head;
     private readonly int _tileSize;
-    private readonly Rectangle _room;
     private readonly List<Point> _segments = [];
     private readonly Queue<Point> _turns = new();
     private Point _direction;
@@ -33,7 +32,6 @@ public class Snake
         // The head turns around its centre to face where the snake goes.
         _head.CenterOrigin();
         _tileSize = tileSize;
-        _room = room;
         Reset(room.Center);
     }
 

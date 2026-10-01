@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using GARCore.Graphics;
 using Microsoft.Xna.Framework;

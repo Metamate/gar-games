@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
-using GeometryWars3.Components.Identity;
 using GeometryWars3.Components.Lifecycle;
 using GARCore.ECS;
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace GeometryWars3.Systems;

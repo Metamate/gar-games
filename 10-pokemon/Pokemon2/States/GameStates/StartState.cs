@@ -1,9 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Pokemon2;
 using Pokemon2.Definitions;
 using Pokemon2.Input;
-using Pokemon2.Mons;
 using GARCore.States;
 using GARCore;
 using GARCore.Graphics;

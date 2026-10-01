@@ -43,8 +43,6 @@ public static class GameSettings
 
     public static class Physics
     {
-        public const float BulletGridForce = 0.5f;
-        public const float BulletGridRadius = 80f;
         public const float ParticleGravityForce = 10000f;
         public const float ParticleOrbitalForce = 45f;
         public const float ParticleOrbitalRange = 400f;

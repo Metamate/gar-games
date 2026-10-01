@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Zelda5.Graphics;
 using Zelda5.Entities;
 using Zelda5.Input;
 using Zelda5.States.EntityStates;

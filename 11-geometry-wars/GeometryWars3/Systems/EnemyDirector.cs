@@ -1,5 +1,4 @@
 using System;
-using GARCore.ECS;
 using GeometryWars3.Services;
 using Microsoft.Xna.Framework;
 

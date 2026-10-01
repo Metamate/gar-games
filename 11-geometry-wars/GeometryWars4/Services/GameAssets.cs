@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using GeometryWars4.Definitions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;

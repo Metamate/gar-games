@@ -5,7 +5,6 @@ using GARCore.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Pokemon1.Entities;
 using Pokemon1.Mons;
 
 namespace Pokemon1.Definitions;

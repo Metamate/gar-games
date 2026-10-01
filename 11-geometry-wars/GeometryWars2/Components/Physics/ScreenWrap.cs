@@ -1,7 +1,6 @@
 using GARCore.ECS.Components;
 using GARCore.ECS;
 using GeometryWars2.Services;
-using Microsoft.Xna.Framework;
 
 namespace GeometryWars2.Components.Physics;
 

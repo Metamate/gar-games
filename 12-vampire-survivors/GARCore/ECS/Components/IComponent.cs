@@ -1,4 +1,3 @@
-using GARCore.ECS;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace GARCore.ECS.Components;

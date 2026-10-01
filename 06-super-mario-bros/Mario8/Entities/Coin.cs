@@ -1,7 +1,6 @@
 using GARCore.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Mario8.LevelMaker;
 using Mario8.Audio;
 
 namespace Mario8.Entities;
