@@ -44,6 +44,7 @@ public static class GameSettings
 
     // Room generation
     public const int RoomEnemyCount = 6;
+    public const int SpawnDistance  = 4 * TileSize;     // nothing starts closer to the player than this
 
     // Entity AI: movement timing and idle probability
     public const int EntityMoveDurationMin = 1;     // seconds (inclusive)

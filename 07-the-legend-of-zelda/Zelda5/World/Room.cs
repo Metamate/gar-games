@@ -25,7 +25,7 @@ public class Room
     // Shared RNG exposed so entity states can use it
     public Random Random { get; } = new();
 
-    public Room(Player player, Tileset tileset)
+    public Room(Player player, Tileset tileset, Vector2 playerStart)
     {
         _player = player;
         _tilemap = new Tilemap(tileset, GameSettings.MapWidth, GameSettings.MapHeight)
@@ -33,8 +33,8 @@ public class Room
             Position = new Vector2(GameSettings.MapRenderOffsetX, GameSettings.MapRenderOffsetY)
         };
         GenerateWallsAndFloors();
-        GenerateEntities();
-        GenerateObjects();
+        GenerateEntities(playerStart);
+        GenerateObjects(playerStart);
         GenerateDoorways();
     }
 
@@ -80,9 +80,22 @@ public class Room
         );
     }
 
-    private void GenerateEntities()
+    // A random place in the room, but not right next to where the player comes in.
+    private Vector2 SpawnPosition(Vector2 playerStart)
     {
         var (minX, maxX, minY, maxY) = GetSpawnBounds();
+        Vector2 position;
+        do
+        {
+            position = new Vector2(Random.Next(minX, maxX + 1), Random.Next(minY, maxY + 1));
+        }
+        while (Vector2.Distance(position, playerStart) < GameSettings.SpawnDistance);
+
+        return position;
+    }
+
+    private void GenerateEntities(Vector2 playerStart)
+    {
         var enemyTypes = EntityDefinitions.EnemyTypes.ToArray();
 
         for (int i = 0; i < GameSettings.RoomEnemyCount; i++)
@@ -92,7 +105,7 @@ public class Room
 
             var enemy = new Enemy
             {
-                Position = new Vector2(Random.Next(minX, maxX + 1), Random.Next(minY, maxY + 1)),
+                Position = SpawnPosition(playerStart),
                 Width = stats.Width,
                 Height = stats.Height,
                 WalkSpeed = stats.WalkSpeed,
@@ -107,9 +120,8 @@ public class Room
         }
     }
 
-    private void GenerateObjects()
+    private void GenerateObjects(Vector2 playerStart)
     {
-        var (minX, maxX, minY, maxY) = GetSpawnBounds();
 
         var stats = GameObjectDefinitions.GetStats("switch");
         var switchObj = new GameObject(
@@ -120,7 +132,7 @@ public class Room
             width: stats.Width,
             height: stats.Height
         );
-        switchObj.Position = new Vector2(Random.Next(minX, maxX + 1), Random.Next(minY, maxY + 1));
+        switchObj.Position = SpawnPosition(playerStart);
 
         // Behaviour is wired here rather than inside GameObject because objects are
         // data-driven (defined in XML). A subclass per object type would defeat that purpose.

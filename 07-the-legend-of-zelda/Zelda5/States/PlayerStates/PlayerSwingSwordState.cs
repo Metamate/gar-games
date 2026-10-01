@@ -49,19 +49,20 @@ public class PlayerSwingSwordState(Player player, Dungeon dungeon) : EntityState
             }
         }
 
+        // Allow rapid re-swinging. This is checked before the swing ends, so a press on its
+        // last frame isn't lost.
+        if (GameController.SwingSword)
+        {
+            _player.ChangeState(new PlayerSwingSwordState(_player, _dungeon));
+            return;
+        }
+
         // When the non-looping swing animation has completed, return to idle
         // (animation is already advanced by Entity.Update called before State.Update)
         if (_player.Sprite != null && _player.Sprite.TimesPlayed > 0)
         {
             _player.Sprite.TimesPlayed = 0;
             _player.ChangeState(new PlayerIdleState(_player, _dungeon));
-            return;
-        }
-
-        // Allow rapid re-swinging
-        if (GameController.SwingSword)
-        {
-            _player.ChangeState(new PlayerSwingSwordState(_player, _dungeon));
         }
     }
 

@@ -37,7 +37,7 @@ public class PlayState(Game1 game) : GameStateBase(game)
         foreach (var (key, anim) in EntityDefinitions.CreatePlayerAnimations())
             _player.Animations.Add(key, anim);
 
-        _dungeon = new Dungeon(_player, () => new Room(_player, _tileset));
+        _dungeon = new Dungeon(_player, playerStart => new Room(_player, _tileset, playerStart));
 
         _dungeon.OnPlayerDied += OnPlayerDied;
 

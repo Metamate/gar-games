@@ -36,7 +36,7 @@ public class PlayState(Game1 game) : GameStateBase(game)
         foreach (var (key, anim) in EntityDefinitions.CreatePlayerAnimations())
             _player.Animations.Add(key, anim);
 
-        _room = new Room(_player, _tileset);
+        _room = new Room(_player, _tileset, _player.Position);
 
         _player.ChangeState(new PlayerIdleState(_player, _room));
     }

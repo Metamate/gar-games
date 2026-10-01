@@ -25,20 +25,23 @@ public class PlayerWalkState(Player player, Dungeon dungeon) : EntityWalkState(p
                          GameController.Up    ? Direction.Up    :
                          GameController.Down  ? Direction.Down  : null;
 
+        if (dir is not null)
+            _player.Direction = dir.Value;
+
+        // The sword comes first, so a press isn't lost on the frame the player stops.
+        if (GameController.SwingSword)
+        {
+            _player.ChangeState(new PlayerSwingSwordState(_player, _dungeon));
+            return;
+        }
+
         if (dir is null)
         {
             _player.ChangeState(new PlayerIdleState(_player, _dungeon));
             return;
         }
 
-        _player.Direction = dir.Value;
         _player.ChangeAnimation(AnimationKeys.Walk(dir.Value));
-
-        if (GameController.SwingSword)
-        {
-            _player.ChangeState(new PlayerSwingSwordState(_player, _dungeon));
-            return;
-        }
 
         // Apply movement and wall collision (from EntityWalkState)
         base.Update(gameTime);

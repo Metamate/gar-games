@@ -13,7 +13,7 @@ namespace Zelda7.World;
 public class Dungeon
 {
     private readonly Player _player;
-    private readonly Func<Room> _roomFactory;
+    private readonly Func<Vector2, Room> _roomFactory;
 
     public Room CurrentRoom { get; private set; }
     private Room _nextRoom;
@@ -35,16 +35,17 @@ public class Dungeon
     // Fired when PlayerDied event is forwarded from Room
     public event Action OnPlayerDied;
 
-    public Dungeon(Player player, Func<Room> roomFactory)
+    public Dungeon(Player player, Func<Vector2, Room> roomFactory)
     {
         _player = player;
         _roomFactory = roomFactory;
-        CurrentRoom = CreateRoom();
+        CurrentRoom = CreateRoom(_player.Position);
     }
 
-    private Room CreateRoom()
+    // playerStart is where the player stands when the room comes into play.
+    private Room CreateRoom(Vector2 playerStart)
     {
-        var room = _roomFactory();
+        var room = _roomFactory(playerStart);
         room.OnPlayerDied += () => OnPlayerDied?.Invoke();
         return room;
     }
@@ -55,7 +56,7 @@ public class Dungeon
 
         _shifting = true;
         _shiftDirection = direction;
-        _nextRoom = CreateRoom();
+        _nextRoom = CreateRoom(EntryPosition(direction));
 
         // All doors in the incoming room start open so the player walks through
         foreach (var d in _nextRoom.Doorways)
@@ -103,6 +104,26 @@ public class Dungeon
             .Finish(FinishShift);
     }
 
+    // Where the player stands in the next room, after walking through a doorway in this
+    // direction: just inside the opposite wall, in line with the doorway.
+    private Vector2 EntryPosition(Direction direction)
+    {
+        int ts   = GameSettings.TileSize;
+        int offX = GameSettings.MapRenderOffsetX;
+        int offY = GameSettings.MapRenderOffsetY;
+        int mapW = GameSettings.MapWidth;
+        int mapH = GameSettings.MapHeight;
+
+        return direction switch
+        {
+            Direction.Left  => _player.Position with { X = offX + mapW * ts - ts - _player.Width },
+            Direction.Right => _player.Position with { X = offX + ts },
+            Direction.Up    => _player.Position with { Y = offY + mapH * ts - ts - _player.Height },
+            Direction.Down  => _player.Position with { Y = offY + _player.Height / 2f },
+            _ => _player.Position
+        };
+    }
+
     private void FinishShift()
     {
         _shifting = false;
@@ -111,32 +132,9 @@ public class Dungeon
         CurrentRoom = _nextRoom;
         _nextRoom = null;
 
-        int ts   = GameSettings.TileSize;
-        int offX = GameSettings.MapRenderOffsetX;
-        int offY = GameSettings.MapRenderOffsetY;
-        int mapW = GameSettings.MapWidth;
-        int mapH = GameSettings.MapHeight;
-
-        // Snap player to the correct entry point in the new room
-        switch (_shiftDirection)
-        {
-            case Direction.Left:
-                _player.Position = _player.Position with { X = offX + mapW * ts - ts - _player.Width };
-                _player.Direction = Direction.Left;
-                break;
-            case Direction.Right:
-                _player.Position = _player.Position with { X = offX + ts };
-                _player.Direction = Direction.Right;
-                break;
-            case Direction.Up:
-                _player.Position = _player.Position with { Y = offY + mapH * ts - ts - _player.Height };
-                _player.Direction = Direction.Up;
-                break;
-            case Direction.Down:
-                _player.Position = _player.Position with { Y = offY + _player.Height / 2f };
-                _player.Direction = Direction.Down;
-                break;
-        }
+        // Snap player to the entry point in the new room
+        _player.Position = EntryPosition(_shiftDirection);
+        _player.Direction = _shiftDirection;
 
         // Lock the new room's doors until the player presses the switch
         foreach (var d in CurrentRoom.Doorways)
