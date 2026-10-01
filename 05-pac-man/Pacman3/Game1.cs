@@ -67,7 +67,7 @@ public class Game1 : Core
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.Clear(Color.Black);
+        GraphicsDevice.Clear(MazeView.GroundColor);
 
         // The maze starts below the score.
         SpriteBatch.Begin(transformMatrix: Matrix.CreateTranslation(MazeLeft, MazeTop, 0) * ScreenScaleMatrix, samplerState: SamplerState.PointClamp);

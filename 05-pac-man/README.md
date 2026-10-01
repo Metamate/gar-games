@@ -99,6 +99,7 @@ Or open `PacMan.slnx` and choose the step to run.
 ## Credits
 
 The ghosts' behaviour follows the original arcade game, as described in
-[The Pac-Man Dossier](https://pacman.holenet.info/). The maze and the art are our own. The font is
+[The Pac-Man Dossier](https://pacman.holenet.info/). The maze and the art are our own: Pac-Man is a beetle seen from above, and the
+ghosts are one-eyed wisps in the original's four colours. The font is
 [Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P) by CodeMan38, under the
 SIL Open Font License (see `Content/Assets/fonts/retro-OFL.txt`).

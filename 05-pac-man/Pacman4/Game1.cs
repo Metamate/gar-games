@@ -73,7 +73,7 @@ public class Game1 : Core
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.Clear(Color.Black);
+        GraphicsDevice.Clear(MazeView.GroundColor);
         _states.Draw(SpriteBatch);
         base.Draw(gameTime);
     }

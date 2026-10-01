@@ -4,12 +4,13 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Pacman4.Views;
 
-// Draws the maze: walls as blue outlines, the ghost house door, the dots and power pellets.
+// Draws the maze: walls as outlines, the ghost house door, the dots and power pellets.
 // The walls aren't images: each wall tile draws a line along every side that faces an open tile.
 public class MazeView(Texture2D pixel, TextureAtlas atlas)
 {
-    public static readonly Color WallColor = new(33, 33, 255);
-    private static readonly Color DoorColor = new(255, 184, 255);
+    public static readonly Color GroundColor = new(16, 18, 40);
+    public static readonly Color WallColor = new(60, 200, 184);
+    private static readonly Color DoorColor = new(250, 200, 80);
     private const int Inset = 6;
     private const int Thickness = 4;
     private const int Size = Maze.TileSize;
