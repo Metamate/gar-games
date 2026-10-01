@@ -15,8 +15,8 @@ public sealed class Player : Entity
         Width  = GameSettings.TileSize;
         Height = GameSettings.TileSize;
         X      = MapX * GameSettings.TileSize;
-        // Offset Y so the sprite visually stands on the tile, not above it
-        Y      = MapY * GameSettings.TileSize - Height / 2f;
+        // A little above its tile, so the figure stands on the ground instead of lying flat on it.
+        Y      = MapY * GameSettings.TileSize - GameSettings.EntityLift;
 
         foreach (var (key, anim) in ContentLoader.CreateEntityAnimations(entityAtlas))
             Animations[key] = anim;

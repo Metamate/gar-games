@@ -42,8 +42,7 @@ public class EntityWalkState : EntityStateBase
         Entity.MapY = destination.Y;
 
         float targetX = destination.X * GameSettings.TileSize;
-        // Subtract half the entity height so the sprite stands on the tile, not above it
-        float targetY = destination.Y * GameSettings.TileSize - Entity.Height / 2f;
+        float targetY = destination.Y * GameSettings.TileSize - GameSettings.EntityLift;
 
         Locator.Tweens.Tween(GameSettings.WalkTweenDuration)
             .Add(v => Entity.X = v, Entity.X, targetX)

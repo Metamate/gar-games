@@ -21,6 +21,9 @@ public static class GameSettings
     public const int MapCols = 20;
     public const int MapRows = 11;
 
+    // Entities are drawn this many pixels above their tile, as in the original games.
+    public const int EntityLift = 4;
+
     public const int PlayerStartMapX = 8;
     public const int PlayerStartMapY = 7;
 
