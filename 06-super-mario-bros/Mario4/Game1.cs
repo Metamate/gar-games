@@ -10,8 +10,8 @@ namespace Mario4;
 public class Game1 : Core
 {
     // The level is now wider than the screen, so we need a camera (see GameLevel).
-    private const int Columns = 50;
-    private const int Rows = 10;
+    private const int Columns = 60;
+    private const int Rows = 14;
 
     private LevelMakerBase _levelMaker;
     private GameLevel _level;

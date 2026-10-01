@@ -11,9 +11,9 @@ namespace Mario0;
 public class Game1 : Core
 {
     private const int TileSize = 18;
-    private const int Columns = 18;
-    private const int Rows = 10;
-    private const int GroundHeight = 3;
+    private const int Columns = 24;
+    private const int Rows = 14;
+    private const int GroundHeight = 5;
     private const int GroundTile = 0;
 
     private readonly List<Tileset> _tilesets = [];

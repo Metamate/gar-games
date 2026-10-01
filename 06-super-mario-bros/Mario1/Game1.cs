@@ -7,8 +7,8 @@ namespace Mario1;
 
 public class Game1 : Core
 {
-    private const int Columns = 18;
-    private const int Rows = 10;
+    private const int Columns = 24;
+    private const int Rows = 14;
 
     private LevelMakerBase _levelMaker;
     private GameLevel _level;

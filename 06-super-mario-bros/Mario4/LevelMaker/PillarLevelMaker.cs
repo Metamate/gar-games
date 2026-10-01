@@ -10,7 +10,7 @@ public class PillarLevelMaker(ContentManager content) : LevelMakerBase(content)
         Tilemap = new(Tilesets[Random.Shared.Next(Tilesets.Count)], columns, rows);
         Toppers = new(Toppersets[Random.Shared.Next(Toppersets.Count)], columns, rows);
 
-        int groundHeight = 3;
+        int groundHeight = 5;
         int pillarHeight = 2;
         float pillarChance = 0.15f;
 

@@ -10,7 +10,7 @@ public class PitLevelMaker(ContentManager content) : LevelMakerBase(content)
         Tilemap = new(Tilesets[Random.Shared.Next(Tilesets.Count)], columns, rows);
         Toppers = new(Toppersets[Random.Shared.Next(Toppersets.Count)], columns, rows);
 
-        int groundHeight = 3;
+        int groundHeight = 5;
         float pitChance = 0.2f;
 
         for (int x = 0; x < columns; x++)

@@ -14,7 +14,7 @@ public class ComplexLevelMaker(ContentManager content) : LevelMakerBase(content)
 
         GameLevel level = new(Tilemap, Toppers, GetRandomBackground());
 
-        int groundHeight = 3;
+        int groundHeight = 5;
         int pillarHeight = 2;
         float pitChance = 0.15f;
         float pillarChance = 0.15f;

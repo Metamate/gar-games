@@ -16,7 +16,7 @@ public class PlayState(Game1 game) : GameStateBase(game)
     public override void Enter()
     {
         _levelMaker = new ComplexLevelMaker(Game.Content);
-        _currentLevel = _levelMaker.Generate(50, 10);
+        _currentLevel = _levelMaker.Generate(60, 14);
 
         TextureAtlas playerAtlas = TextureAtlas.FromFile(Game.Content, "images/player.xml");
         _player = new Player(playerAtlas, _currentLevel);
