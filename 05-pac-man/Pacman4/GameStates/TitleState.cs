@@ -18,6 +18,6 @@ public class TitleState(Game1 game) : IState
     public void Draw(SpriteBatch spriteBatch)
     {
         game.DrawWorld(drawPacMan: false, drawGhosts: false);
-        game.DrawTitle("Pac-Man", Color.Yellow);
+        game.DrawTitle();
     }
 }

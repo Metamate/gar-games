@@ -18,6 +18,9 @@ public class Game1 : Core
     private readonly CommandHistory _history = new();
     private SpriteFont _font;
     private int _levelIndex;
+    private SpriteFont _titleFont;
+    // The game opens on its title screen, and starts on Enter.
+    private bool _started;
 
     public Game1() : base("Sokoban", 1280, 720, VirtualWidth, VirtualHeight)
     {
@@ -28,11 +31,19 @@ public class Game1 : Core
         Texture2D texture = Content.Load<Texture2D>("images/tiles");
         _view = new LevelView(new Tileset(new TextureRegion(texture, 0, 0, texture.Width, texture.Height), LevelView.TileSize, LevelView.TileSize));
         _font = Content.Load<SpriteFont>("fonts/hud");
+        _titleFont = Content.Load<SpriteFont>("fonts/title");
         LoadLevel(0);
     }
 
     protected override void Update(GameTime gameTime)
     {
+        if (!_started)
+        {
+            _started = GameController.Continue;
+            base.Update(gameTime);
+            return;
+        }
+
         if (_level.IsSolved)
         {
             if (GameController.Continue)
@@ -62,6 +73,10 @@ public class Game1 : Core
 
         SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
         DrawHud();
+        if (!_started)
+        {
+            TitleScreen.Draw(SpriteBatch, _titleFont, _font, "Sokoban", "Arrows: move   Z: undo   Y: redo   R: restart", VirtualWidth, VirtualHeight);
+        }
         SpriteBatch.End();
 
         base.Draw(gameTime);
@@ -102,10 +117,6 @@ public class Game1 : Core
     {
         SpriteBatch.DrawString(_font, $"Level {_levelIndex + 1} / {LevelCount}", new Vector2(24, 16), Color.White);
         DrawRightAligned($"Moves: {_history.Count}", 16);
-
-        string help = "Arrows / WASD: move    Z: undo    Y: redo    R: restart";
-        Vector2 size = _font.MeasureString(help);
-        SpriteBatch.DrawString(_font, help, new Vector2((VirtualWidth - size.X) / 2, VirtualHeight - size.Y - 12), Color.Gray);
 
         if (_level.IsSolved)
         {

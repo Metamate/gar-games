@@ -40,6 +40,14 @@ public class Builder : ContentBuilder
             PremultiplyAlpha = true,
         });
 
+        // A .spritefont describes a font, a size and a set of characters.
+        // The builder renders those characters into a texture.
+        content.Include<WildcardRule>("*.spritefont", new FontDescriptionImporter(), new FontDescriptionProcessor
+        {
+            PremultiplyAlpha = true,
+            TextureFormat = TextureProcessorOutputFormat.Compressed,
+        });
+
         // The atlas and tilemap definitions are read by our own code at runtime,
         // so they are copied as they are instead of being built.
         content.IncludeCopy<WildcardRule>("*.xml");

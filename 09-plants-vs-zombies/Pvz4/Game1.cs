@@ -180,15 +180,10 @@ public class Game1 : Core
         SpriteBatch.DrawString(_font, text, new Vector2(70 - size.X / 2, 88), Color.White);
     }
 
-    // The title screen's text: the name in the title font over a dark band, "Press Enter" below.
-    public void DrawTitle(string title)
+    // The title screen, over the lawn.
+    public void DrawTitle()
     {
-        SpriteBatch.Draw(_pixel, new Rectangle(260, 300, 900, 160), Color.Black * 0.6f);
-        Vector2 size = _titleFont.MeasureString(title);
-        SpriteBatch.DrawString(_titleFont, title, new Vector2((int)((VirtualWidth - size.X) / 2), 332), Color.White);
-        const string prompt = "Press Enter";
-        size = _font.MeasureString(prompt);
-        SpriteBatch.DrawString(_font, prompt, new Vector2((int)((VirtualWidth - size.X) / 2), 404), Color.White);
+        TitleScreen.Draw(SpriteBatch, _titleFont, _font, "Plants vs. Zombies", "Click a seed, then a cell", VirtualWidth, VirtualHeight);
     }
 
     public void DrawMessage(string text)

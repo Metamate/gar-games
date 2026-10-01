@@ -20,6 +20,6 @@ public class TitleState(Game1 game) : IState
     public void Draw(SpriteBatch spriteBatch)
     {
         game.DrawGame(showCursor: false);
-        game.DrawTitle("Plants vs. Zombies");
+        game.DrawTitle();
     }
 }

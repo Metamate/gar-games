@@ -6,60 +6,27 @@ using Pokemon3.Input;
 using Pokemon3.Mons;
 using GARCore.States;
 using GARCore;
+using GARCore.Graphics;
 
 namespace Pokemon3.States.GameStates;
 
-// Title screen. A random Pokemon sprite slides across the screen every 3 seconds.
-// Press Enter/Space to start the game.
+// The title screen: the overworld behind the name, the controls and "Press Enter".
 public sealed class StartState : GameStateBase
 {
     private readonly StateStack _stack;
-    private Texture2D _currentSprite;
-    private float _spriteX;
-    private float _spriteY;
 
-    private static readonly Color BgColor    = GameSettings.Paper;
-    private static readonly Color TitleColor = GameSettings.Ink;
+    // The game behind the title: a play state that is drawn, but never updated.
+    private readonly PlayState _preview;
 
     public StartState(StateStack stack)
     {
         _stack = stack;
+        _preview = new PlayState(stack);
     }
 
     public override void Enter()
     {
-        PickRandomSprite();
-        _spriteX = GameSettings.VirtualWidth / 2f - 32f;
-        _spriteY = GameSettings.VirtualHeight / 2f - 36f;
-
-        // Cycle to a new random pokemon sprite every 3 seconds
-        Locator.Tweens.Every(3f, CycleSprite);
-    }
-
-    private void PickRandomSprite()
-    {
-        var species = PokemonDefinitions.GetRandom();
-        _currentSprite = ContentLoader.GetPokemonSprite(species.BattleSpriteFront);
-    }
-
-    private void CycleSprite()
-    {
-        Locator.Tweens.Tween(0.2f)
-            .Add(v => _spriteX = v, _spriteX, -64f)
-            .Finish(() =>
-            {
-                PickRandomSprite();
-                _spriteX = GameSettings.VirtualWidth;
-                _spriteY = GameSettings.VirtualHeight / 2f - 36f;
-
-                Locator.Tweens.Tween(0.2f)
-                    .Add(v => _spriteX = v, _spriteX, GameSettings.VirtualWidth / 2f - 32f);
-            });
-    }
-
-    public override void Exit()
-    {
-        Locator.Tweens.Clear();
+        _preview.Enter();
     }
 
     public override void Update(GameTime gameTime)
@@ -73,7 +40,7 @@ public sealed class StartState : GameStateBase
                     _stack.Push(new PlayState(_stack));
                     _stack.Push(new DialogueState(_stack,
                         "Welcome to the world of Pokemon! Walk in the tall grass to fight monsters. " +
-                        "Rest at the spring to heal. Press Enter or Space to dismiss messages."));
+                        "Rest at the spring to heal."));
                     _stack.Push(new FadeState(_stack, Color.White, GameSettings.FadeDuration, 1f, 0f, () => { }));
                 }));
         }
@@ -81,32 +48,11 @@ public sealed class StartState : GameStateBase
 
     public override void Draw(SpriteBatch spriteBatch)
     {
+        _preview.Draw(spriteBatch);
+
         Core.BeginDraw(spriteBatch);
-
-        spriteBatch.Draw(Core.Pixel,
-            new Rectangle(0, 0, GameSettings.VirtualWidth, GameSettings.VirtualHeight),
-            BgColor);
-
-        spriteBatch.Draw(Locator.Assets.ShadowTex,
-            new Vector2(GameSettings.VirtualWidth / 2f - 72, GameSettings.VirtualHeight / 2f + 4),
-            Color.White);
-
-        if (_currentSprite != null)
-            spriteBatch.Draw(_currentSprite, new Vector2(_spriteX, _spriteY), Color.White);
-
-        var titleSize    = Locator.Assets.LargeFont.MeasureString("Pokemon");
-        var subtitleSize = Locator.Assets.MediumFont.MeasureString("Press Enter");
-
-        Locator.Assets.LargeFont.Draw(spriteBatch, "Pokemon",
-            new Vector2(GameSettings.VirtualWidth / 2f - titleSize.X / 2f,
-                        GameSettings.VirtualHeight / 2f - 72f),
-            TitleColor);
-
-        Locator.Assets.MediumFont.Draw(spriteBatch, "Press Enter",
-            new Vector2(GameSettings.VirtualWidth / 2f - subtitleSize.X / 2f,
-                        GameSettings.VirtualHeight / 2f + 68f),
-            TitleColor);
-
+        TitleScreen.Draw(spriteBatch, Locator.Assets.MediumFont, Locator.Assets.SmallFont, "Pokemon", "Arrows: move   Enter: choose",
+            GameSettings.VirtualWidth, GameSettings.VirtualHeight, GameSettings.Paper, GameSettings.Mid, GameSettings.Ink);
         spriteBatch.End();
     }
 }

@@ -190,15 +190,10 @@ public class Game1 : Core
         DrawText(text, new Vector2((VirtualWidth - size.X) / 2, 200));
     }
 
-    // The title screen's text: the name in the title font over a dark band, "Press Enter" below.
-    public void DrawTitle(string title)
+    // The title screen, over the level.
+    public void DrawTitle()
     {
-        SpriteBatch.Draw(_pixel, new Rectangle(0, 232, VirtualWidth, 160), Color.Black * 0.6f);
-        Vector2 size = _titleFont.MeasureString(title);
-        SpriteBatch.DrawString(_titleFont, title, new Vector2((int)((VirtualWidth - size.X) / 2), 264), Color.White);
-        const string prompt = "Press Enter";
-        size = _font.MeasureString(prompt);
-        DrawText(prompt, new Vector2((int)((VirtualWidth - size.X) / 2), 336));
+        TitleScreen.Draw(SpriteBatch, _titleFont, _font, "Angry Birds", "Drag the bird back, and let go", VirtualWidth, VirtualHeight);
     }
 
     private void DrawText(string text, Vector2 position)

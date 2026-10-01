@@ -226,11 +226,7 @@ public class Game1 : Game
 
         string output = "";
 
-        if (_gameState == "start")
-        {
-            output = "First to 10 wins. Press Enter to start.";
-        }
-        else if (_gameState == "serve")
+        if (_gameState == "serve")
         {
             output = $"Player {_servingPlayer} serves. Press Enter.";
         }
@@ -244,12 +240,23 @@ public class Game1 : Game
 
         _spriteBatch.Begin(transformMatrix: _screenScaleMatrix, samplerState: SamplerState.PointClamp);
         _spriteBatch.DrawString(_font, output, position, Color.White);
-        _spriteBatch.DrawString(_fontBig, _player1Score.ToString(), new Vector2(VIRTUAL_WIDTH / 2 - 50, VIRTUAL_HEIGHT / 3), Color.White);
-        _spriteBatch.DrawString(_fontBig, _player2Score.ToString(), new Vector2(VIRTUAL_WIDTH / 2 + 30, VIRTUAL_HEIGHT / 3), Color.White);
+
+        // The scores would show through the title's band, so they wait for the game to start.
+        if (_gameState != "start")
+        {
+            _spriteBatch.DrawString(_fontBig, _player1Score.ToString(), new Vector2(VIRTUAL_WIDTH / 2 - 50, VIRTUAL_HEIGHT / 3), Color.White);
+            _spriteBatch.DrawString(_fontBig, _player2Score.ToString(), new Vector2(VIRTUAL_WIDTH / 2 + 30, VIRTUAL_HEIGHT / 3), Color.White);
+        }
 
         _paddle1.Draw(_spriteBatch);
         _paddle2.Draw(_spriteBatch);
         _ball.Draw(_spriteBatch);
+
+        if (_gameState == "start")
+        {
+            TitleScreen.Draw(_spriteBatch, _fontBig, _font, "Pong", "W/S and Up/Down: move", VIRTUAL_WIDTH, VIRTUAL_HEIGHT);
+        }
+
         _spriteBatch.End();
 
         base.Draw(gameTime);

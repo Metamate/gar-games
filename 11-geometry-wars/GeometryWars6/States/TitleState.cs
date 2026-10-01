@@ -1,3 +1,4 @@
+using GARCore.Graphics;
 using GARCore.States;
 using GeometryWars6.Services;
 using Microsoft.Xna.Framework;
@@ -17,6 +18,19 @@ public sealed class TitleState : GameStateBase
         _context = context;
     }
 
+    // The game behind the title: a play state that is drawn, but never updated.
+    private PlayState _preview;
+
+    public override void Enter()
+    {
+        _preview = new PlayState(_game, _context);
+        _preview.Enter();
+    }
+
+    public override void Exit() => _preview.Exit();
+
+    public override void Draw(SpriteBatch spriteBatch) => _preview.Draw(spriteBatch);
+
     public override void Update(GameTime gameTime)
     {
         if (_context.Controller.WasConfirmPressed)
@@ -29,15 +43,8 @@ public sealed class TitleState : GameStateBase
     public override void DrawHUD(SpriteBatch spriteBatch)
     {
         spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-        Vector2 center = _context.Frame.ScreenSize / 2;
-        DrawCentered(spriteBatch, _context.Assets.TitleFont, "Geometry Wars", center - new Vector2(0, 48), new Color(120, 220, 255));
-        DrawCentered(spriteBatch, _context.Assets.Font, "Press Enter", center + new Vector2(0, 40), Color.White);
+        TitleScreen.Draw(spriteBatch, _context.Assets.TitleFont, _context.Assets.Font, "Geometry Wars", "WASD: move   Mouse: aim and fire",
+            (int)_context.Frame.ScreenSize.X, (int)_context.Frame.ScreenSize.Y);
         spriteBatch.End();
-    }
-
-    private static void DrawCentered(SpriteBatch spriteBatch, SpriteFont font, string text, Vector2 center, Color color)
-    {
-        Vector2 size = font.MeasureString(text);
-        spriteBatch.DrawString(font, text, Vector2.Floor(center - size / 2), color);
     }
 }

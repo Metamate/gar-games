@@ -16,7 +16,7 @@ steps (e.g. with a diff tool) to see what changed.
 | `Sokoban1` | Rules apart from drawing | `Level` holds the state and the rules (walk, push); `LevelView` draws it; a `GameController` maps keys to moves |
 | `Sokoban2` | Command | Every move is a `MoveCommand` object; the game keeps a list of them to count the moves |
 | `Sokoban3` | Undo and redo | Commands can `Undo`; a `CommandHistory` keeps an undo stack and a redo stack (`Z` / `Y`) |
-| `Sokoban4` | The whole game | Seven levels, restart, a move counter and a level-complete message (the finished game) |
+| `Sokoban4` | The whole game | A title screen, seven levels, restart, a move counter and a level-complete message (the finished game) |
 
 ## New in GARCore
 
@@ -58,7 +58,7 @@ The assets all steps share:
 Content/Assets/
 ├── images/tiles.png         # The tilesheet: 64×64 tiles, 3 columns
 ├── levels/level1.txt …      # The levels, as plain text
-└── fonts/hud.spritefont     # The HUD font (Sokoban4), made from retro.ttf
+└── fonts/*.spritefont       # The HUD and title fonts (Sokoban4), made from retro.ttf
 ```
 
 `Builder.cs` builds the tilesheet and the font, and copies the level files as they are,
@@ -83,7 +83,7 @@ To add a level, add `level8.txt` and raise `LevelCount` in `Sokoban4/Game1.cs`.
 | `Z` or `Backspace` | Undo (from `Sokoban3`) |
 | `Y` | Redo (from `Sokoban3`) |
 | `R` | Restart the level (`Sokoban4`) |
-| `Enter` | Next level, once solved (`Sokoban4`) |
+| `Enter` | Start, and the next level once solved (`Sokoban4`) |
 | `Esc` | Quit |
 
 ## Running a step

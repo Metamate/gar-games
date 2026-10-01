@@ -1,3 +1,4 @@
+using GARCore.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Zelda1.Input;
@@ -6,16 +7,16 @@ namespace Zelda1.States.GameStates;
 
 public class StartState(Game1 game) : GameStateBase(game)
 {
-    private const string Title    = "The Legend of Zelda";
-    private const string Subtitle = "Press Enter";
-
-    private Vector2 _titlePos;
-    private Vector2 _subtitlePos;
+    // The game behind the title: a play state that is drawn, but never updated.
+    private PlayState _preview;
 
     public override void Enter()
     {
-        (_titlePos, _subtitlePos) = CalculateTitleLayout(Title, Subtitle);
+        _preview = new PlayState(Game);
+        _preview.Enter();
     }
+
+    public override void Exit() => _preview.Exit();
 
     public override void Update(GameTime gameTime)
     {
@@ -25,9 +26,11 @@ public class StartState(Game1 game) : GameStateBase(game)
 
     public override void Draw(SpriteBatch spriteBatch)
     {
+        _preview.Draw(spriteBatch);
+
         spriteBatch.Begin(transformMatrix: Game.ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
-        spriteBatch.DrawString(Game1.TitleFont, Title,    _titlePos,    Color.White);
-        spriteBatch.DrawString(Game1.DefaultFont, Subtitle, _subtitlePos, Color.White);
+        TitleScreen.Draw(spriteBatch, Game1.TitleFont, Game1.DefaultFont, "The Legend of Zelda", "Arrows: move",
+            GameSettings.VirtualWidth, GameSettings.VirtualHeight);
         spriteBatch.End();
     }
 }

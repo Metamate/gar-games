@@ -23,7 +23,7 @@ steps (e.g. with a diff tool) to see what changed.
 | `Snake6` | Input as actions | A `GameController` maps W/A/S/D and the arrow keys to actions |
 | `Snake7` | Input buffering | Turns are queued and used one per tick, so quick key presses aren't lost |
 | `Snake8` | Food and score | Food on a free cell, with circle collision; eating it makes the snake grow and adds a point, drawn with digits from the atlas |
-| `Snake9` | Game over | Walls and the snake's own body end the game and reset the score (the finished game) |
+| `Snake9` | Game over | Walls and the snake's own body end the game and reset the score; a title screen (the finished game) |
 
 All steps share the **GARCore** library, which contains the final versions of the reusable
 classes (`TextureAtlas`, `Sprite`, `AnimatedSprite`, `Tilemap`, `Circle`, input, …).
@@ -56,6 +56,7 @@ The finished game, `Snake9`:
 | --- | --- |
 | `W` `A` `S` `D` | Turn (from `Snake5`) |
 | Arrow keys | Turn (from `Snake6`) |
+| `Enter` | Start (`Snake9`) |
 | `Esc` | Quit |
 
 ## Running a step
@@ -71,4 +72,6 @@ Or open `Snake.slnx` and choose the step to run.
 
 ## Credits
 
-The art is our own, made for the course.
+The art is our own, made for the course. The title screen's font is
+[Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P) by CodeMan38, under the
+SIL Open Font License (see `Content/Assets/fonts/retro-OFL.txt`).

@@ -21,6 +21,6 @@ public class TitleState(Game1 game) : IState
     public void Draw(SpriteBatch spriteBatch)
     {
         game.DrawWorld();
-        game.DrawTitle("Angry Birds");
+        game.DrawTitle();
     }
 }

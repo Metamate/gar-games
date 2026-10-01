@@ -1,4 +1,5 @@
 using GARCore;
+using GARCore.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -26,9 +27,6 @@ public class TitleState(Game1 game) : IState
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        string title = "Flappy Bird";
-        Art.DrawCentred(spriteBatch, Art.Font, title, new Vector2(Game1.VirtualWidth / 2, Game1.VirtualHeight / 2 - 40));
-        string prompt = "Press Enter";
-        Art.DrawCentred(spriteBatch, Art.SmallFont, prompt, new Vector2(Game1.VirtualWidth / 2, Game1.VirtualHeight / 2 + 12));
+        TitleScreen.Draw(spriteBatch, Art.Font, Art.SmallFont, "Flappy Bird", "Space or click: flap", Game1.VirtualWidth, Game1.VirtualHeight);
     }
 }

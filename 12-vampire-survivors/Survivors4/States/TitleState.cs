@@ -1,4 +1,5 @@
 using GARCore;
+using GARCore.Graphics;
 using GARCore.States;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -18,12 +19,8 @@ public sealed class TitleState(Game1 game) : GameStateBase
 
     public override void DrawHUD(SpriteBatch spriteBatch)
     {
-        const string title = "Vampire Survivors";
-        const string prompt = "Press Enter";
         spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-        spriteBatch.Draw(Core.Pixel, new Rectangle(0, 0, Game1.VirtualWidth, Game1.VirtualHeight), Color.Black * 0.5f);
-        spriteBatch.DrawString(game.TitleFont, title, new Vector2((int)((Game1.VirtualWidth - game.TitleFont.MeasureString(title).X) / 2), 200), Color.White);
-        spriteBatch.DrawString(game.Font, prompt, new Vector2((int)((Game1.VirtualWidth - game.Font.MeasureString(prompt).X) / 2), 264), Color.White);
+        TitleScreen.Draw(spriteBatch, game.TitleFont, game.Font, "Vampire Survivors", "Arrows: move", Game1.VirtualWidth, Game1.VirtualHeight);
         spriteBatch.End();
     }
 }

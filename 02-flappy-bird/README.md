@@ -38,6 +38,8 @@ later repository's `GARCore` keeps everything from the previous session and adds
 - `Core`: a `Game` base class with a window, a virtual resolution and screen scaling.
 - `Input/InputManager`, `Input/KeyboardInfo`, `Input/MouseInfo`: keyboard and mouse state
   with "just pressed" and "just released" checks.
+- `Graphics/TitleScreen`: the title screen every game opens on: the name, the controls and
+  "Press Enter", on a dark band over the game.
 
 ## Code Map
 

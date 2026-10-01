@@ -113,16 +113,11 @@ public class Game1 : Core
         SpriteBatch.End();
     }
 
-    // The title screen's text: the name in the title font over a dark band, "Press Enter" below.
-    public void DrawTitle(string title, Color color)
+    // The title screen, over the maze.
+    public void DrawTitle()
     {
         SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
-        SpriteBatch.Draw(_pixel, new Rectangle(0, VirtualHeight / 2 - 72, VirtualWidth, 128), Color.Black * 0.75f);
-        Vector2 size = _titleFont.MeasureString(title);
-        SpriteBatch.DrawString(_titleFont, title, new Vector2((int)((VirtualWidth - size.X) / 2), VirtualHeight / 2 - 48), color);
-        const string prompt = "Press Enter";
-        size = _font.MeasureString(prompt);
-        SpriteBatch.DrawString(_font, prompt, new Vector2((int)((VirtualWidth - size.X) / 2), VirtualHeight / 2 + 16), Color.White);
+        TitleScreen.Draw(SpriteBatch, _titleFont, _font, "Pac-Man", "Arrows: move", VirtualWidth, VirtualHeight);
         SpriteBatch.End();
     }
 

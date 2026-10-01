@@ -11,12 +11,18 @@ public class Game1 : Core
     public const int VirtualHeight = 88;
     // The colour of the screen where no dot is lit.
     private static readonly Color ScreenColor = new(20, 24, 20);
+    // The colour of a lit dot, for the title's text.
+    private static readonly Color LitColor = new(120, 230, 90);
     private Tilemap _tilemap;
     private Rectangle _room;
     private Snake _snake;
     private Food _food;
     private TextureRegion[] _digits;
     private int _score;
+    private SpriteFont _font;
+    private SpriteFont _titleFont;
+    // The game opens on its title screen, and starts on Enter.
+    private bool _started;
 
     public Game1() : base("Snake", 1280, 704, VirtualWidth, VirtualHeight)
     {
@@ -41,10 +47,20 @@ public class Game1 : Core
         {
             _digits[i] = atlas.GetRegion($"digit-{i}");
         }
+
+        _font = Content.Load<SpriteFont>("fonts/font");
+        _titleFont = Content.Load<SpriteFont>("fonts/font-big");
     }
 
     protected override void Update(GameTime gameTime)
     {
+        if (!_started)
+        {
+            _started = GameController.Start;
+            base.Update(gameTime);
+            return;
+        }
+
         HandleInput();
         _snake.Update(gameTime);
         _food.Update(gameTime);
@@ -63,6 +79,11 @@ public class Game1 : Core
         _snake.Draw(SpriteBatch);
         _food.Draw(SpriteBatch);
         DrawScore();
+
+        if (!_started)
+        {
+            TitleScreen.Draw(SpriteBatch, _titleFont, _font, "Snake", "Arrows: turn", VirtualWidth, VirtualHeight, LitColor, band: ScreenColor);
+        }
         SpriteBatch.End();
 
         base.Draw(gameTime);
