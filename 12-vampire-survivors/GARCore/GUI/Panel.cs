@@ -13,9 +13,8 @@ public sealed class Panel
     public float Height { get; set; }
     public bool  Visible { get; set; } = true;
 
-    // Every panel shares these, so a game sets its look once.
-    public static Color BorderColor { get; set; } = Color.White;
-    public static Color FillColor   { get; set; } = new(56, 56, 56);
+    public Color BorderColor { get; set; } = Color.White;
+    public Color FillColor   { get; set; } = new(56, 56, 56);
 
     public Panel(float x, float y, float width, float height)
     {

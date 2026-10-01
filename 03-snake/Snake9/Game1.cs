@@ -82,7 +82,7 @@ public class Game1 : Core
 
         if (!_started)
         {
-            TitleScreen.Draw(SpriteBatch, _titleFont, _font, "Snake", "Arrows: turn", VirtualWidth, VirtualHeight, LitColor, band: ScreenColor);
+            TitleScreen.Draw(SpriteBatch, _titleFont, _font, "Snake", "Arrows: turn", VirtualWidth, VirtualHeight, LitColor, ScreenColor);
         }
         SpriteBatch.End();
 

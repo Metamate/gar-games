@@ -213,12 +213,35 @@ public class Game1 : Game
 
         if (_gameState == "start")
         {
-            TitleScreen.Draw(_spriteBatch, _fontTitle, _font, "Pong", "W/S and Up/Down: move", VIRTUAL_WIDTH, VIRTUAL_HEIGHT);
+            DrawTitle();
         }
 
         _spriteBatch.End();
 
         base.Draw(gameTime);
+    }
+
+    // The title screen: the name, the controls and "Press Enter", on a dark band over the court.
+    private void DrawTitle()
+    {
+        string name = "Pong";
+        string controls = "W/S and Up/Down: move";
+        string prompt = "Press Enter";
+        Vector2 nameSize = _fontTitle.MeasureString(name);
+        Vector2 controlsSize = _font.MeasureString(controls);
+        Vector2 promptSize = _font.MeasureString(prompt);
+
+        // One line of text between the rows, and above and below them.
+        int gap = (int)promptSize.Y;
+        int total = (int)(nameSize.Y + gap + controlsSize.Y + gap + promptSize.Y);
+        int top = (VIRTUAL_HEIGHT - total) / 2;
+        int controlsTop = top + (int)nameSize.Y + gap;
+        int promptTop = top + total - (int)promptSize.Y;
+
+        _spriteBatch.Draw(Texture, new Rectangle(0, top - gap, VIRTUAL_WIDTH, total + 2 * gap), Color.Black * 0.75f);
+        _spriteBatch.DrawString(_fontTitle, name, new Vector2((int)((VIRTUAL_WIDTH - nameSize.X) / 2), top), Color.White);
+        _spriteBatch.DrawString(_font, controls, new Vector2((int)((VIRTUAL_WIDTH - controlsSize.X) / 2), controlsTop), Color.White * 0.7f);
+        _spriteBatch.DrawString(_font, prompt, new Vector2((int)((VIRTUAL_WIDTH - promptSize.X) / 2), promptTop), Color.White);
     }
 
     private void UpdateScreenScaleMatrix()

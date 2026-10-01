@@ -1,4 +1,3 @@
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -12,21 +11,17 @@ public static class TitleScreen
 
     private static Texture2D _pixel;
 
+    // White text on a dark band.
+    public static void Draw(SpriteBatch spriteBatch, SpriteFont titleFont, SpriteFont font, string name, string controls,
+        int width, int height)
+    {
+        Draw(spriteBatch, titleFont, font, name, controls, width, height, Color.White, Color.Black * 0.75f);
+    }
+
     // Call between Begin and End, after drawing the game. The width and height are the
     // game's virtual resolution. The controls are drawn dimmer than the name and the prompt.
     public static void Draw(SpriteBatch spriteBatch, SpriteFont titleFont, SpriteFont font, string name, string controls,
-        int width, int height, Color? text = null, Color? dim = null, Color? band = null)
-    {
-        Draw(spriteBatch, titleFont.MeasureString, (s, position, color) => spriteBatch.DrawString(titleFont, s, position, color),
-            font.MeasureString, (s, position, color) => spriteBatch.DrawString(font, s, position, color),
-            name, controls, width, height, text, dim, band);
-    }
-
-    // The layout, whichever kind of font measures and draws the text.
-    private static void Draw(SpriteBatch spriteBatch,
-        Func<string, Vector2> measureTitle, Action<string, Vector2, Color> drawTitle,
-        Func<string, Vector2> measure, Action<string, Vector2, Color> draw,
-        string name, string controls, int width, int height, Color? text, Color? dim, Color? band)
+        int width, int height, Color text, Color band)
     {
         if (_pixel == null)
         {
@@ -34,21 +29,20 @@ public static class TitleScreen
             _pixel.SetData([Color.White]);
         }
 
-        Color textColor = text ?? Color.White;
-        Vector2 nameSize = measureTitle(name);
-        Vector2 controlsSize = measure(controls);
-        Vector2 promptSize = measure(Prompt);
+        Vector2 nameSize = titleFont.MeasureString(name);
+        Vector2 controlsSize = font.MeasureString(controls);
+        Vector2 promptSize = font.MeasureString(Prompt);
 
         // One line of text between the rows, and above and below them.
         int gap = (int)promptSize.Y;
         int total = (int)(nameSize.Y + gap + controlsSize.Y + gap + promptSize.Y);
         int top = (height - total) / 2;
+        int controlsTop = top + (int)nameSize.Y + gap;
+        int promptTop = top + total - (int)promptSize.Y;
 
-        spriteBatch.Draw(_pixel, new Rectangle(0, top - gap, width, total + 2 * gap), band ?? Color.Black * 0.75f);
-        drawTitle(name, Centred(nameSize, width, top), textColor);
-        draw(controls, Centred(controlsSize, width, top + (int)nameSize.Y + gap), dim ?? textColor * 0.7f);
-        draw(Prompt, Centred(promptSize, width, top + total - (int)promptSize.Y), textColor);
+        spriteBatch.Draw(_pixel, new Rectangle(0, top - gap, width, total + 2 * gap), band);
+        spriteBatch.DrawString(titleFont, name, new Vector2((int)((width - nameSize.X) / 2), top), text);
+        spriteBatch.DrawString(font, controls, new Vector2((int)((width - controlsSize.X) / 2), controlsTop), text * 0.7f);
+        spriteBatch.DrawString(font, Prompt, new Vector2((int)((width - promptSize.X) / 2), promptTop), text);
     }
-
-    private static Vector2 Centred(Vector2 size, int width, int y) => new((int)((width - size.X) / 2), y);
 }

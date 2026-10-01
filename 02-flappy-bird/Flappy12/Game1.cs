@@ -34,6 +34,8 @@ public class Game1 : Core
     protected override void LoadContent()
     {
         Art.LoadContent(Content);
+        Art.Pixel = new Texture2D(GraphicsDevice, 1, 1);
+        Art.Pixel.SetData([Color.White]);
         Audio.Instance.LoadContent(Content);
     }
 

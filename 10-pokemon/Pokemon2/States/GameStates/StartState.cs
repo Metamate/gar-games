@@ -50,8 +50,30 @@ public sealed class StartState : GameStateBase
         _preview.Draw(spriteBatch);
 
         Core.BeginDraw(spriteBatch);
-        TitleScreen.Draw(spriteBatch, Locator.Assets.MediumFont, Locator.Assets.SmallFont, "Pokemon", "Arrows: move   Enter: choose",
-            GameSettings.VirtualWidth, GameSettings.VirtualHeight, GameSettings.Paper, GameSettings.Mid, GameSettings.Ink);
+        DrawTitle(spriteBatch, "Pokemon", "Arrows: move   Enter: choose");
         spriteBatch.End();
+    }
+
+    // The same layout as GARCore's TitleScreen, with this game's bitmap fonts and its shades.
+    private static void DrawTitle(SpriteBatch spriteBatch, string name, string controls)
+    {
+        BitmapFont titleFont = Locator.Assets.MediumFont;
+        BitmapFont font = Locator.Assets.SmallFont;
+        Vector2 nameSize = titleFont.MeasureString(name);
+        Vector2 controlsSize = font.MeasureString(controls);
+        Vector2 promptSize = font.MeasureString(TitleScreen.Prompt);
+
+        // One line of text between the rows, and above and below them.
+        int width = GameSettings.VirtualWidth;
+        int gap = (int)promptSize.Y;
+        int total = (int)(nameSize.Y + gap + controlsSize.Y + gap + promptSize.Y);
+        int top = (GameSettings.VirtualHeight - total) / 2;
+        int controlsTop = top + (int)nameSize.Y + gap;
+        int promptTop = top + total - (int)promptSize.Y;
+
+        spriteBatch.Draw(Core.Pixel, new Rectangle(0, top - gap, width, total + 2 * gap), GameSettings.Ink);
+        titleFont.Draw(spriteBatch, name, new Vector2((int)((width - nameSize.X) / 2), top), GameSettings.Paper);
+        font.Draw(spriteBatch, controls, new Vector2((int)((width - controlsSize.X) / 2), controlsTop), GameSettings.Mid);
+        font.Draw(spriteBatch, TitleScreen.Prompt, new Vector2((int)((width - promptSize.X) / 2), promptTop), GameSettings.Paper);
     }
 }

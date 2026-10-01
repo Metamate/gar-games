@@ -30,7 +30,7 @@ public sealed class Textbox
     {
         X = x; Y = y; Width = width; Height = height;
         _font  = font;
-        _panel = new Panel(x, y, width, height);
+        _panel = new Panel(x, y, width, height) { BorderColor = GameSettings.Paper, FillColor = GameSettings.Ink };
 
         _allLines = WrapText(font, text, width - GameSettings.TextboxPadding * 3);
         ShowNextPage();

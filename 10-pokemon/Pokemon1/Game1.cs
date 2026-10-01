@@ -41,9 +41,6 @@ public sealed class Game1 : Core
         var entityAtlas = TextureAtlas.FromGrid(Content.Load<Texture2D>("images/entities"), GameSettings.TileSize, GameSettings.TileSize);
         var shadowTex   = TextureFactory.CreateEllipse(GraphicsDevice, 72, 24, GameSettings.Mid);
 
-        Panel.BorderColor = GameSettings.Paper;
-        Panel.FillColor   = GameSettings.Ink;
-
         Locator.Provide(new GameAssets(
             smallFont,
             mediumFont,

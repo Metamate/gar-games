@@ -33,8 +33,8 @@ public sealed class SamplesScreen
             new("Change colour", ChangeColour),
         }, Locator.Assets.SmallFont, Locator.Assets.CursorTex);
 
-        _panel = new Panel(168, 34, 208, 44);
-        _bar = new ProgressBar(176, 118, 192, 8, BarColours[0], BarMax, BarMax);
+        _panel = new Panel(160, 34, 152, 44);
+        _bar = new ProgressBar(168, 118, 144, 8, BarColours[0], BarMax, BarMax);
     }
 
     public void Update()
@@ -51,8 +51,8 @@ public sealed class SamplesScreen
 
     private void ShowMessage()
     {
-        var (x, y) = Layout.GetPosition(Anchor.BottomCenter, 368, 64, 0, -6);
-        _textbox = new Textbox(x, y, 368, 64,
+        var (x, y) = Layout.GetPosition(Anchor.BottomCenter, 304, 64, 0, -6);
+        _textbox = new Textbox(x, y, 304, 64,
             "A textbox wraps its text to fit, and shows three lines at a time. Press Enter for the " +
             "next page. When the last page is gone, the textbox closes itself, and the menu gets " +
             "the input back. Until then, the menu waits.",
@@ -79,15 +79,15 @@ public sealed class SamplesScreen
         _menu.Draw(spriteBatch);
 
         _panel.Draw(spriteBatch);
-        small.Draw(spriteBatch, "A panel: the box", new Vector2(176, 44), Color.White);
-        small.Draw(spriteBatch, "behind every widget", new Vector2(176, 58), Color.White);
+        small.Draw(spriteBatch, "A panel: the box", new Vector2(168, 44), Color.White);
+        small.Draw(spriteBatch, "behind a widget", new Vector2(168, 58), Color.White);
 
-        small.Draw(spriteBatch, $"HP {(int)System.MathF.Round(_bar.Value)} / {BarMax}", new Vector2(176, 102), Color.White);
+        small.Draw(spriteBatch, $"HP {(int)System.MathF.Round(_bar.Value)} / {BarMax}", new Vector2(168, 102), Color.White);
         _bar.Draw(spriteBatch);
 
         if (_textbox != null)
             _textbox.Draw(spriteBatch);
         else
-            small.Draw(spriteBatch, "Arrows: move    Enter: choose    Esc: quit", new Vector2(8, 200), new Color(160, 160, 160));
+            small.Draw(spriteBatch, "Enter: choose   Esc: quit", new Vector2(8, 166), new Color(160, 160, 160));
     }
 }

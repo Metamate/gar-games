@@ -36,6 +36,8 @@ Compared with the core in [02-flappy-bird](../02-flappy-bird/):
   of a texture, sprites and frame animation, defined in XML.
 - `Graphics/Tileset`, `Tilemap`: a grid of tile IDs drawn from a tileset, defined in XML.
 - `Circle`: circle-circle collision.
+- `Graphics/TitleScreen`: the title screen every game opens on: the name, the controls and
+  "Press Enter", on a dark band over the game.
 
 ## Code Map
 

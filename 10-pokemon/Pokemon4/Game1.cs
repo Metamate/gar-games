@@ -41,9 +41,6 @@ public sealed class Game1 : Core
         var tileset     = new Tileset(new TextureRegion(tileTex, 0, 0, tileTex.Width, tileTex.Height), GameSettings.TileSize, GameSettings.TileSize);
         var entityAtlas = TextureAtlas.FromGrid(Content.Load<Texture2D>("images/entities"), GameSettings.TileSize, GameSettings.TileSize);
         var cursorTex   = Content.Load<Texture2D>("images/cursor");
-
-        Panel.BorderColor = GameSettings.Paper;
-        Panel.FillColor   = GameSettings.Ink;
         var shadowTex   = TextureFactory.CreateEllipse(GraphicsDevice, 72, 24, GameSettings.Mid);
 
         Locator.Provide(new GameAssets(

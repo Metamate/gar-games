@@ -82,7 +82,7 @@ public sealed class BattleState : GameStateBase
             ExpColor, PlayerPokemon.CurrentExp, PlayerPokemon.ExpToLevel);
 
         var panelPos = Layout.GetPosition(Anchor.BottomLeft, GameSettings.VirtualWidth, 64);
-        _bottomPanel = new Panel(panelPos.X, panelPos.Y, GameSettings.VirtualWidth, 64);
+        _bottomPanel = new Panel(panelPos.X, panelPos.Y, GameSettings.VirtualWidth, 64) { BorderColor = GameSettings.Paper, FillColor = GameSettings.Ink };
     }
 
     public override void Update(GameTime gameTime)

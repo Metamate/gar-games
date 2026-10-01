@@ -14,7 +14,7 @@ public sealed class Menu
     public Menu(float x, float y, float width, float height,
                 List<Selection.MenuItem> items, BitmapFont font, Texture2D cursor)
     {
-        _panel     = new Panel(x, y, width, height);
+        _panel     = new Panel(x, y, width, height) { BorderColor = GameSettings.Paper, FillColor = GameSettings.Ink };
         _selection = new Selection(x, y, width, height, items, font, cursor);
     }
 
