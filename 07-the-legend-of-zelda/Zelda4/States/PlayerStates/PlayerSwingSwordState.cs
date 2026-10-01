@@ -1,3 +1,4 @@
+using GARCore.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Zelda4.Entities;
@@ -69,7 +70,9 @@ public class PlayerSwingSwordState(Player player, Room room) : EntityStateBase(p
     public override void Draw(SpriteBatch spriteBatch)
     {
         _player.DrawSprite(spriteBatch);
-        // DebugDraw.FillRect(spriteBatch, _swordHitbox, Color.Red * 0.4f); // sword hitbox
-        // DebugDraw.FillRect(spriteBatch, _player.Hurtbox, Color.Green * 0.4f); // player hurtbox
+
+        // With debug drawing on (F1), outline the sword's hitbox and the player's hurtbox.
+        DebugDraw.Rectangle(spriteBatch, _swordHitbox, Color.Red);
+        DebugDraw.Rectangle(spriteBatch, _player.Hurtbox, Color.Lime);
     }
 }

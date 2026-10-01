@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Flappy12;
 
-// A Singleton: exactly one Audio object exists, reached through Audio.Instance.
+// A Singleton: only one Audio object exists, reached through Audio.Instance.
 // Compare with the static Art class: both give global access, but Audio is an object,
 // so it could implement an interface or be passed to the code that needs it.
 public class Audio

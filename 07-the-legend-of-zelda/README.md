@@ -50,7 +50,7 @@ Zelda7/
 ├── World/                # Room, Dungeon, Doorway
 ├── Definitions/          # Loaders for the XML data files
 ├── Input/GameController.cs  # Keys mapped to game actions
-├── Graphics/             # Camera, DebugDraw
+├── Graphics/Camera.cs
 └── Audio/SoundManager.cs
 ```
 
@@ -92,6 +92,7 @@ main sheets.
 | --- | --- |
 | Arrow keys, `W` `A` `S` `D` | Walk |
 | `Space` | Swing the sword |
+| `F1` | Debug drawing: the sword's hitbox and the player's hurtbox during a swing (from `Zelda3`) |
 | `Enter` | Start, and continue after game over |
 | `Esc` | Quit |
 

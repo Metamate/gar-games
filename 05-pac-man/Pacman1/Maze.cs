@@ -39,7 +39,8 @@ public class Maze
     public Point PacManStart => _starts['P'];
     public Point StartOf(char ghost) => _starts[ghost];
 
-    // Where eaten ghosts go: the tile just outside the door, then the middle of the house.
+    // The tile just outside the door, where ghosts leave to, and the middle of the house, where
+    // eaten ghosts return to.
     public Point DoorOutside { get; private set; }
     public Point HouseCenter { get; private set; }
 

@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Zelda5.Definitions;
 using Zelda5.Entities;
+using Zelda5.Input;
 using Zelda5.States.PlayerStates;
 using Zelda5.World;
 
@@ -51,6 +52,9 @@ public class PlayState(Game1 game) : GameStateBase(game)
 
     public override void Update(GameTime gameTime)
     {
+        if (GameController.ToggleDebug)
+            DebugDraw.Enabled = !DebugDraw.Enabled;
+
         _dungeon.Update(gameTime);
     }
 

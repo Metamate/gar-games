@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 
 namespace Sokoban4.Commands;
 
-// Remembers what the move did (walk or push), so that it can be undone exactly.
+// Remembers what the move did (walk or push), so that it can be undone.
 public class MoveCommand(Level level, Point direction) : ICommand
 {
     private MoveResult _result;

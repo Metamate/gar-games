@@ -1,7 +1,7 @@
 namespace GeometryWars6.Definitions;
 
-// Typed gameplay definitions
-// they hold reusable content data, while the runtime behavior still lives in code.
+// Typed gameplay definitions: they hold reusable content data, while the runtime behaviour
+// lives in code.
 public sealed record TwinBulletPatternDefinition(
     int CooldownFrames,
     float Speed,

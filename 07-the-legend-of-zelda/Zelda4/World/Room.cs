@@ -134,7 +134,7 @@ public class Room
         );
         switchObj.Position = SpawnPosition(playerStart);
 
-        // Behaviour is wired here rather than inside GameObject because objects are
+        // Behaviour is wired here, outside GameObject, because objects are
         // data-driven (defined in XML). A subclass per object type would defeat that purpose.
         switchObj.OnCollide += () =>
         {
@@ -157,7 +157,7 @@ public class Room
         Doorways.Add(new Doorway(Direction.Right, false, _tilemap.Tileset));
     }
 
-    // Collision is handled here rather than in a separate system because each
+    // Collision is handled here, with no separate system, because each
     // interaction type has different consequences (damage, doors, death) that
     // require access to room-level state.  Sword–enemy collision lives in
     // PlayerSwingSwordState because it is tightly coupled to the swing animation.

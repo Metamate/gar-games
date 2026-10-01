@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace Pacman5.GhostStates;
 
-// Hunting Pac-Man. Where exactly the ghost aims is up to its targeting strategy.
+// Hunting Pac-Man. Where the ghost aims is up to its targeting strategy.
 public class ChaseState : GhostState
 {
     public override void Update(Ghost ghost, float deltaSeconds) => ghost.Move(Ghost.Speed * deltaSeconds);

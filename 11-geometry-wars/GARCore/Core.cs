@@ -58,7 +58,7 @@ public class Core : Game
     //
     // Game logic runs in fixed steps of TargetElapsedTime (1/60 s by default), however
     // often the game renders. With MonoGame's fixed timestep on (the default) that is
-    // exactly one step per frame. A game can turn it off to render as fast as possible
+    // one step per frame. A game can turn it off to render as fast as possible
     // and still keep a stable simulation.
     protected sealed override void Update(GameTime gameTime)
     {

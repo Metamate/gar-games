@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Sokoban.Tests;
 
-// Tests for undo and redo: after undoing, the level must be exactly as it was.
+// Tests for undo and redo: after undoing, the level must be as it was before the move.
 public class UndoTests
 {
     private const string Corridor = """

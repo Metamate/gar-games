@@ -1,7 +1,7 @@
 namespace Pokemon4.Mons;
 
 // Represents an attack or action a Pokemon can perform in battle.
-// Extracts the hardcoded animation timings and names into a data object.
+// Its name, its power and the timings of its animation are data, in one object.
 public sealed class Move
 {
     public string Name { get; }

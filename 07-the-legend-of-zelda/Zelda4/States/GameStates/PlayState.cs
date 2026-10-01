@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Zelda4.Definitions;
 using Zelda4.Entities;
+using Zelda4.Input;
 using Zelda4.States.PlayerStates;
 using Zelda4.World;
 
@@ -50,6 +51,9 @@ public class PlayState(Game1 game) : GameStateBase(game)
 
     public override void Update(GameTime gameTime)
     {
+        if (GameController.ToggleDebug)
+            DebugDraw.Enabled = !DebugDraw.Enabled;
+
         _room.Update(gameTime);
     }
 

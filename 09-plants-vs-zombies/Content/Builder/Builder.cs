@@ -44,7 +44,7 @@ public class Builder : ContentBuilder
             TextureFormat = TextureProcessorOutputFormat.Compressed,
         });
 
-        // The atlas definition and the game data (plants, zombies, the level) are read by our own
+        // The atlas definition and the game data (defenders, goblins, the level) are read by our own
         // code at runtime,
         // so they are copied as they are instead of being built.
         content.IncludeCopy<WildcardRule>("*.xml");

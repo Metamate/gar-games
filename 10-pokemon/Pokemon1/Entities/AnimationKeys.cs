@@ -1,7 +1,7 @@
 namespace Pokemon1.Entities;
 
 // Compile-time constants for entity animation keys.
-// Centralises the naming convention so typos become build errors rather than silent bugs.
+// Centralises the naming convention so typos become build errors instead of silent bugs.
 public static class AnimationKeys
 {
     public const string WalkDown  = "walk-down";

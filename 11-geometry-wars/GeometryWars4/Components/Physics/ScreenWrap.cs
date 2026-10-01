@@ -6,7 +6,7 @@ namespace GeometryWars4.Components.Physics;
 
 // Wraps an entity to the opposite edge when it leaves the screen.
 // Alternative to ClampToScreen: clamp stops at the edge, wrap teleports.
-// Not currently assigned to any entity; kept as a teaching alternative.
+// No entity uses it: it is here for comparison.
 public sealed class ScreenWrap : Component
 {
     private readonly FrameInfo _frame;

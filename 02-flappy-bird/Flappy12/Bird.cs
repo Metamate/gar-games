@@ -31,7 +31,7 @@ public class Bird(Vector2 position)
 
     public bool Collides(Pipe pipe)
     {
-        // the hardcoded offsets are to make the collision box a bit smaller than the bird sprite
+        // The offsets make the collision box a little smaller than the bird's sprite.
         return Position.X + 1 < pipe.Position.X + Art.Pipe.Width &&
             Position.X + Art.Bird.Width - 1 > pipe.Position.X &&
             Position.Y + 1 < pipe.Position.Y + Art.Pipe.Height &&

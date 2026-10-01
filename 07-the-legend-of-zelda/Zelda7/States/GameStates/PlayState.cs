@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Zelda7.Audio;
 using Zelda7.Definitions;
 using Zelda7.Entities;
+using Zelda7.Input;
 using Zelda7.States.PlayerStates;
 using Zelda7.World;
 
@@ -67,6 +68,9 @@ public class PlayState(Game1 game) : GameStateBase(game)
 
     public override void Update(GameTime gameTime)
     {
+        if (GameController.ToggleDebug)
+            DebugDraw.Enabled = !DebugDraw.Enabled;
+
         _dungeon.Update(gameTime);
     }
 

@@ -33,7 +33,7 @@ public static class Extensions
         return new Vector2(length * (float)Math.Cos(theta), length * (float)Math.Sin(theta));
     }
 
-    // Returns this vector scaled to exactly the given length.
+    // Returns this vector scaled to the given length.
     public static Vector2 ScaleTo(this Vector2 vector, float length)
     {
         float lengthSq = vector.LengthSquared();

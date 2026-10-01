@@ -35,8 +35,8 @@ public class EntityWalkState : EntityStateBase
         if (!BeforeMove(destination))
             return;
 
-        // Grid position updates immediately, for tile-based logic (encounters, collision)
-        // always uses the destination tile, while X/Y tween smoothly for visuals.
+        // The grid position updates at once, so tile-based logic (encounters, collision)
+        // always uses the destination tile, while X and Y tween smoothly for the visuals.
         Entity.MapX = destination.X;
         Entity.MapY = destination.Y;
 
