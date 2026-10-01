@@ -16,7 +16,7 @@ steps (e.g. with a diff tool) to see what changed.
 | `Pacman1` | Ghosts, with an enum | Four ghosts with five modes (in the house, scatter, chase, frightened, eaten) as a `GhostMode` enum, and a `switch` in every method |
 | `Pacman2` | The State pattern | Each mode becomes a class in `GhostStates`; `Ghost` forwards to its current state |
 | `Pacman3` | The Strategy pattern | Each ghost gets its own `ITargetStrategy` for chasing (`Targeting`) |
-| `Pacman4` | Pathfinding | How a ghost gets to its target becomes an `IRouteStrategy` (`Routing`): the arcade rule, or the shortest path, found with A*. Eaten ghosts take the shortest path home |
+| `Pacman4` | Routing | How a ghost gets to its target becomes an `IRouteStrategy` (`Routing`): the arcade rule, or the shortest path, found with A*. Eaten ghosts take the shortest path home |
 | `Pacman5` | The whole game | Lives, Pac-Man's death, levels, and game states: title, ready, play, dying, game over (the finished game) |
 
 ## New in GARCore

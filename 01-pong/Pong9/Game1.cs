@@ -211,9 +211,13 @@ public class Game1 : Game
         _paddle2.Draw(_spriteBatch);
         _ball.Draw(_spriteBatch);
 
+        // The title screen: a dark band over the court, with the name, the controls and the prompt.
         if (_gameState == "start")
         {
-            DrawTitle();
+            _spriteBatch.Draw(Texture, new Rectangle(0, 58, VIRTUAL_WIDTH, 64), Color.Black * 0.75f);
+            DrawCentred(_fontTitle, "Pong", 66);
+            DrawCentred(_font, "W/S and Up/Down: move", 90);
+            DrawCentred(_font, "Press Enter", 106);
         }
 
         _spriteBatch.End();
@@ -221,27 +225,11 @@ public class Game1 : Game
         base.Draw(gameTime);
     }
 
-    // The title screen: the name, the controls and "Press Enter", on a dark band over the court.
-    private void DrawTitle()
+    // Draws a line of text in the middle of the screen, with its top at y.
+    private void DrawCentred(SpriteFont font, string text, int y)
     {
-        string name = "Pong";
-        string controls = "W/S and Up/Down: move";
-        string prompt = "Press Enter";
-        Vector2 nameSize = _fontTitle.MeasureString(name);
-        Vector2 controlsSize = _font.MeasureString(controls);
-        Vector2 promptSize = _font.MeasureString(prompt);
-
-        // One line of text between the rows, and above and below them.
-        int gap = (int)promptSize.Y;
-        int total = (int)(nameSize.Y + gap + controlsSize.Y + gap + promptSize.Y);
-        int top = (VIRTUAL_HEIGHT - total) / 2;
-        int controlsTop = top + (int)nameSize.Y + gap;
-        int promptTop = top + total - (int)promptSize.Y;
-
-        _spriteBatch.Draw(Texture, new Rectangle(0, top - gap, VIRTUAL_WIDTH, total + 2 * gap), Color.Black * 0.75f);
-        _spriteBatch.DrawString(_fontTitle, name, new Vector2((int)((VIRTUAL_WIDTH - nameSize.X) / 2), top), Color.White);
-        _spriteBatch.DrawString(_font, controls, new Vector2((int)((VIRTUAL_WIDTH - controlsSize.X) / 2), controlsTop), Color.White * 0.7f);
-        _spriteBatch.DrawString(_font, prompt, new Vector2((int)((VIRTUAL_WIDTH - promptSize.X) / 2), promptTop), Color.White);
+        int x = (int)(VIRTUAL_WIDTH - font.MeasureString(text).X) / 2;
+        _spriteBatch.DrawString(font, text, new Vector2(x, y), Color.White);
     }
 
     private void UpdateScreenScaleMatrix()

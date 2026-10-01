@@ -25,6 +25,11 @@ public class TitleState(Game1 game) : IState
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        Art.DrawTitle(spriteBatch, "Flappy Bird", "Space or click: flap", Game1.VirtualWidth, Game1.VirtualHeight);
+        // A dark band over the game, with the name, the controls and the prompt.
+        int middle = Game1.VirtualWidth / 2;
+        spriteBatch.Draw(Art.Pixel, new Rectangle(0, 116, Game1.VirtualWidth, 128), Color.Black * 0.75f);
+        Art.DrawCentred(spriteBatch, Art.Font, "Flappy Bird", new Vector2(middle, 148));
+        Art.DrawCentred(spriteBatch, Art.SmallFont, "Space or click: flap", new Vector2(middle, 188));
+        Art.DrawCentred(spriteBatch, Art.SmallFont, "Press Enter", new Vector2(middle, 220));
     }
 }

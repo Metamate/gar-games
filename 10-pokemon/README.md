@@ -55,7 +55,7 @@ Pokemon4/
 │   │                     # BattleMessageState, FadeState, DialogueState
 │   ├── EntityStates/     # EntityStateBase, EntityWalkState, EntityIdleState
 │   └── PlayerStates/     # PlayerIdleState, PlayerWalkState
-└── World/Level.cs        # The two tile layers and the player
+└── World/                # Level (the two tile layers and the player), Town (its layout)
 ```
 
 A good order to read it in:
@@ -79,7 +79,7 @@ Where to find things:
 | The order of updates each frame | `Game1.cs`, `UpdateGame` |
 | Pushing, popping and drawing states | `GARCore/States/StateStack.cs` |
 | A fade | `States/GameStates/FadeState.cs` |
-| The town, as a map of characters | `World/Level.cs` |
+| The town, as a map of characters | `World/Town.cs` |
 | Moving from tile to tile | `States/EntityStates/EntityWalkState.cs`, `AttemptMove` |
 | Random encounters | `States/PlayerStates/PlayerWalkState.cs`, `TryStartEncounter` |
 | The healing spring | `States/PlayerStates/PlayerWalkState.cs`, `TryHeal` |
