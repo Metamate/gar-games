@@ -20,10 +20,7 @@ public class PlayerWalkState(Player player, Dungeon dungeon) : EntityWalkState(p
     public override void Update(GameTime gameTime)
     {
         // Map input to direction; transition to idle if no key is held
-        Direction? dir = GameController.Left  ? Direction.Left  :
-                         GameController.Right ? Direction.Right :
-                         GameController.Up    ? Direction.Up    :
-                         GameController.Down  ? Direction.Down  : null;
+        Direction? dir = GameController.WalkDirection(_player.Direction);
 
         if (dir is not null)
             _player.Direction = dir.Value;
