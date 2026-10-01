@@ -8,8 +8,8 @@ namespace Snake5;
 
 public class Game1 : Core
 {
-    public const int VirtualWidth = 160;
-    public const int VirtualHeight = 88;
+    public const int VirtualWidth = 320;
+    public const int VirtualHeight = 176;
     // The colour of the screen where no dot is lit.
     private static readonly Color ScreenColor = new(20, 24, 20);
     private Tilemap _tilemap;

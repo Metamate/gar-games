@@ -7,8 +7,8 @@ namespace Snake8;
 
 public class Game1 : Core
 {
-    public const int VirtualWidth = 160;
-    public const int VirtualHeight = 88;
+    public const int VirtualWidth = 320;
+    public const int VirtualHeight = 176;
     // The colour of the screen where no dot is lit.
     private static readonly Color ScreenColor = new(20, 24, 20);
     private Tilemap _tilemap;
@@ -105,7 +105,7 @@ public class Game1 : Core
         string text = _score.ToString("D4");
         for (int i = 0; i < text.Length; i++)
         {
-            _digits[text[i] - '0'].Draw(SpriteBatch, new Vector2(6 + i * 4, 82), Color.White);
+            _digits[text[i] - '0'].Draw(SpriteBatch, new Vector2(6 + i * 4, 170), Color.White);
         }
     }
 }

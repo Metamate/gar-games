@@ -19,7 +19,7 @@ steps (e.g. with a diff tool) to see what changed.
 | `Snake2` | Sprites | `Sprite` wraps a region with colour, rotation, scale and origin; the head spins |
 | `Snake3` | Animation | `AnimatedSprite` plays animations defined in the atlas |
 | `Snake4` | The room | The room is drawn from `tilemap-definition.xml` |
-| `Snake5` | Fixed-tick movement | A `Snake` made of grid cells moves by itself, one cell per 200 ms tick, its head turned to face where it goes; the game reads the keys directly |
+| `Snake5` | Fixed-tick movement | A `Snake` made of grid cells moves by itself, one cell per 100 ms tick, its head turned to face where it goes; the game reads the keys directly |
 | `Snake6` | Input as actions | A `GameController` maps W/A/S/D and the arrow keys to actions |
 | `Snake7` | Input buffering | Turns are queued and used one per tick, so quick key presses aren't lost |
 | `Snake8` | Food and score | Food on a free cell, with circle collision; eating it makes the snake grow and adds a point, drawn with digits from the atlas |

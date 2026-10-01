@@ -7,8 +7,8 @@ namespace Snake3;
 
 public class Game1 : Core
 {
-    public const int VirtualWidth = 160;
-    public const int VirtualHeight = 88;
+    public const int VirtualWidth = 320;
+    public const int VirtualHeight = 176;
     // The colour of the screen where no dot is lit.
     private static readonly Color ScreenColor = new(20, 24, 20);
     private AnimatedSprite _head;
@@ -40,8 +40,8 @@ public class Game1 : Core
         GraphicsDevice.Clear(ScreenColor);
 
         SpriteBatch.Begin(transformMatrix: ScreenScaleMatrix, samplerState: SamplerState.PointClamp);
-        _head.Draw(SpriteBatch, new Vector2(72, 40));
-        _food.Draw(SpriteBatch, new Vector2(88, 40));
+        _head.Draw(SpriteBatch, new Vector2(144, 80));
+        _food.Draw(SpriteBatch, new Vector2(176, 80));
         SpriteBatch.End();
 
         base.Draw(gameTime);

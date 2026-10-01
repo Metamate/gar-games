@@ -12,7 +12,7 @@ namespace Snake9;
 public class Snake
 {
     // The snake moves one cell per tick, however often the game updates.
-    private static readonly TimeSpan TickDuration = TimeSpan.FromMilliseconds(200);
+    private static readonly TimeSpan TickDuration = TimeSpan.FromMilliseconds(100);
     private const int StartLength = 3;
     private const int MaxBufferedTurns = 2;
 
