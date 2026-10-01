@@ -1,7 +1,7 @@
 # Pac-Man
 
-The code for session **05 Pac-Man** of the Game Architecture (GAR) course: Pac-Man with the
-arcade ghosts. The [session page](https://metamate.github.io/gar/sessions/05-pac-man/)
+The code for session **05 Pac-Man** of the Game Architecture (GAR) course: a maze chase game
+like Pac-Man, with the arcade ghosts' behaviour. The [session page](https://metamate.github.io/gar/sessions/05-pac-man/)
 explains the ideas; this README shows where to find them in the code.
 
 ## Steps

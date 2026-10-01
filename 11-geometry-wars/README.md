@@ -1,7 +1,7 @@
 # Geometry Wars
 
 The code for session **11 Geometry Wars** of the Game Architecture (GAR) course: a
-twin-stick shooter with hundreds of entities built from components. The [session
+twin-stick shooting game like Geometry Wars, with hundreds of entities built from components. The [session
 page](https://metamate.github.io/gar/sessions/11-geometry-wars/) explains the ideas; this
 README shows where to find them in the code.
 

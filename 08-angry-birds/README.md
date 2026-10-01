@@ -1,7 +1,7 @@
 # Angry Birds
 
-The code for session **08 Angry Birds** of the Game Architecture (GAR) course: Angry Birds
-on the Box2D physics engine. The [session
+The code for session **08 Angry Birds** of the Game Architecture (GAR) course: a physics puzzle
+game like Angry Birds, on the Box2D physics engine. The [session
 page](https://metamate.github.io/gar/sessions/08-angry-birds/) explains the ideas; this
 README shows where to find them in the code.
 

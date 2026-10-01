@@ -1,6 +1,7 @@
 # Pokemon
 
-The code for session **10 Pokemon** of the Game Architecture (GAR) course: a turn-based RPG.
+The code for session **10 Pokemon** of the Game Architecture (GAR) course: a turn-based
+role-playing game like Pokemon.
 The [session page](https://metamate.github.io/gar/sessions/10-pokemon/) explains the ideas;
 this README shows where to find them in the code.
 

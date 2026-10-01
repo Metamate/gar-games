@@ -1,7 +1,7 @@
 # Vampire Survivors
 
-The code for session **12 Vampire Survivors** of the Game Architecture (GAR) course: a
-survivor game with thousands of enemies. The [session
+The code for session **12 Vampire Survivors** of the Game Architecture (GAR) course: an
+auto-shooting game like Vampire Survivors, with thousands of enemies. The [session
 page](https://metamate.github.io/gar/sessions/12-vampire-survivors/) explains the ideas;
 this README shows where to find them in the code.
 

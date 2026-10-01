@@ -1,7 +1,7 @@
 # Flappy Bird
 
-The code for session **02 Flappy Bird** of the Game Architecture (GAR) course: Flappy Bird
-on a reusable core library. The [session
+The code for session **02 Flappy Bird** of the Game Architecture (GAR) course: an endless flying
+game like Flappy Bird, on a reusable core library. The [session
 page](https://metamate.github.io/gar/sessions/02-flappy-bird/) explains the ideas; this
 README shows where to find them in the code.
 

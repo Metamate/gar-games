@@ -1,7 +1,7 @@
 # Snake
 
-The code for session **03 Snake** of the Game Architecture (GAR) course: a snake eating
-its way around a walled room in lit dots, like the phone game, with its art and room
+The code for session **03 Snake** of the Game Architecture (GAR) course: a grow-and-avoid
+game like Snake, in lit dots like the phone game, with its art and room
 defined as data. The [session
 page](https://metamate.github.io/gar/sessions/03-snake/) explains the ideas; this README
 shows where to find them in the code.

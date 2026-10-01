@@ -1,7 +1,7 @@
 # Pong
 
-The code for session **01 Pong** of the Game Architecture (GAR) course: a two-player Pong,
-built exercise by exercise. The [session
+The code for session **01 Pong** of the Game Architecture (GAR) course: a table tennis game
+like Pong, built exercise by exercise. The [session
 page](https://metamate.github.io/gar/sessions/01-pong/) explains the ideas; this README
 shows where to find them in the code.
 

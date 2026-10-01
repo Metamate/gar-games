@@ -1,7 +1,7 @@
 # Sokoban
 
-The code for session **04 Sokoban** of the Game Architecture (GAR) course: Sokoban with undo
-and redo. The [session page](https://metamate.github.io/gar/sessions/04-sokoban/) explains
+The code for session **04 Sokoban** of the Game Architecture (GAR) course: a box-pushing puzzle
+game like Sokoban, with undo and redo. The [session page](https://metamate.github.io/gar/sessions/04-sokoban/) explains
 the ideas; this README shows where to find them in the code.
 
 ## Steps

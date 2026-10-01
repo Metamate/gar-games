@@ -1,7 +1,7 @@
 # The Legend of Zelda
 
 The code for session **07 The Legend of Zelda** of the Game Architecture (GAR) course: a
-top-down dungeon crawler. The [session
+dungeon adventure game like The Legend of Zelda. The [session
 page](https://metamate.github.io/gar/sessions/07-the-legend-of-zelda/) explains the ideas;
 this README shows where to find them in the code.
 

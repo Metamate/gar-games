@@ -1,7 +1,7 @@
 # Plants vs. Zombies
 
 The code for session **09 Plants vs. Zombies** of the Game Architecture (GAR) course: a
-lawn-defence game built from components. The [session
+tower defence game like Plants vs. Zombies, built from components. The [session
 page](https://metamate.github.io/gar/sessions/09-plants-vs-zombies/) explains the ideas;
 this README shows where to find them in the code.
 

@@ -1,7 +1,7 @@
 # Super Mario Bros
 
-The code for session **06 Super Mario Bros** of the Game Architecture (GAR) course: a 2D
-platformer with generated levels. The [session
+The code for session **06 Super Mario Bros** of the Game Architecture (GAR) course: a platform
+game like Super Mario Bros, with generated levels. The [session
 page](https://metamate.github.io/gar/sessions/06-super-mario-bros/) explains the ideas; this
 README shows where to find them in the code.
 
