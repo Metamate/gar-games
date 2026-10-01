@@ -1,4 +1,5 @@
 using GARCore;
+using GARCore.GUI;
 using GARCore.Graphics;
 using GARCore.States;
 using Microsoft.Xna.Framework;
@@ -38,7 +39,10 @@ public sealed class Game1 : Core
         var tileTex     = Content.Load<Texture2D>("images/tiles");
         var tileset     = new Tileset(new TextureRegion(tileTex, 0, 0, tileTex.Width, tileTex.Height), GameSettings.TileSize, GameSettings.TileSize);
         var entityAtlas = TextureAtlas.FromGrid(Content.Load<Texture2D>("images/entities"), GameSettings.TileSize, GameSettings.TileSize);
-        var shadowTex   = TextureFactory.CreateEllipse(GraphicsDevice, 72, 24, new Color(45, 184, 45, 124));
+        var shadowTex   = TextureFactory.CreateEllipse(GraphicsDevice, 72, 24, GameSettings.Mid);
+
+        Panel.BorderColor = GameSettings.Paper;
+        Panel.FillColor   = GameSettings.Ink;
 
         Locator.Provide(new GameAssets(
             smallFont,
@@ -71,7 +75,7 @@ public sealed class Game1 : Core
     {
         // Draw the whole game at the virtual resolution first.
         GraphicsDevice.SetRenderTarget(_renderTarget);
-        GraphicsDevice.Clear(Color.Black);
+        GraphicsDevice.Clear(GameSettings.Ink);
         StateStack.Draw(SpriteBatch);
         GraphicsDevice.SetRenderTarget(null);
 
@@ -81,7 +85,7 @@ public sealed class Game1 : Core
             0,
             GraphicsDevice.PresentationParameters.BackBufferWidth,
             GraphicsDevice.PresentationParameters.BackBufferHeight);
-        GraphicsDevice.Clear(Color.Black);
+        GraphicsDevice.Clear(GameSettings.Ink);
         SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
         SpriteBatch.Draw(_renderTarget, DestinationRectangle, Color.White);
         SpriteBatch.End();

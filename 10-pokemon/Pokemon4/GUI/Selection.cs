@@ -74,7 +74,7 @@ public sealed class Selection
             // Centre text within the width
             float textWidth = _font.MeasureString(_items[i].Text).X;
             float centredX  = X + (Width - textWidth) / 2f;
-            _font.Draw(spriteBatch, _items[i].Text, new Vector2(centredX, paddedY), Color.White);
+            _font.Draw(spriteBatch, _items[i].Text, new Vector2(centredX, paddedY), GameSettings.Paper);
 
             currentY += gapHeight;
         }

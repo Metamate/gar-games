@@ -70,7 +70,7 @@ public sealed class Textbox
             _font.Draw(spriteBatch, _displayLines[i],
                 new Vector2(X + GameSettings.TextboxPadding,
                             Y + GameSettings.TextboxPadding + i * (_font.LineHeight + 2)),
-                Color.White);
+                GameSettings.Paper);
         }
     }
 

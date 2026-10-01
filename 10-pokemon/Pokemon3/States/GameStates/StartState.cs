@@ -18,8 +18,8 @@ public sealed class StartState : GameStateBase
     private float _spriteX;
     private float _spriteY;
 
-    private static readonly Color BgColor    = new(188, 188, 188);
-    private static readonly Color TitleColor = new(24, 24, 24);
+    private static readonly Color BgColor    = GameSettings.Paper;
+    private static readonly Color TitleColor = GameSettings.Ink;
 
     public StartState(StateStack stack)
     {

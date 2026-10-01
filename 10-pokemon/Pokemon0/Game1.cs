@@ -59,7 +59,7 @@ public sealed class Game1 : Core
     {
         // Draw the whole game at the virtual resolution first.
         GraphicsDevice.SetRenderTarget(_renderTarget);
-        GraphicsDevice.Clear(Color.Black);
+        GraphicsDevice.Clear(GameSettings.Ink);
         StateStack.Draw(SpriteBatch);
         GraphicsDevice.SetRenderTarget(null);
 
@@ -69,7 +69,7 @@ public sealed class Game1 : Core
             0,
             GraphicsDevice.PresentationParameters.BackBufferWidth,
             GraphicsDevice.PresentationParameters.BackBufferHeight);
-        GraphicsDevice.Clear(Color.Black);
+        GraphicsDevice.Clear(GameSettings.Ink);
         SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
         SpriteBatch.Draw(_renderTarget, DestinationRectangle, Color.White);
         SpriteBatch.End();

@@ -4,7 +4,7 @@ using GARCore;
 
 namespace GARCore.GUI;
 
-// A bordered panel background (white outer, dark inner rectangle).
+// A bordered panel background: an outer border and an inner fill.
 public sealed class Panel
 {
     public float X      { get; set; }
@@ -13,7 +13,9 @@ public sealed class Panel
     public float Height { get; set; }
     public bool  Visible { get; set; } = true;
 
-    private static readonly Color InnerColor = new(56, 56, 56);
+    // Every panel shares these, so a game sets its look once.
+    public static Color BorderColor { get; set; } = Color.White;
+    public static Color FillColor   { get; set; } = new(56, 56, 56);
 
     public Panel(float x, float y, float width, float height)
     {
@@ -26,14 +28,14 @@ public sealed class Panel
     {
         if (!Visible) return;
 
-        // Outer white border
+        // Outer border
         spriteBatch.Draw(Core.Pixel,
             new Rectangle((int)X, (int)Y, (int)Width, (int)Height),
-            Color.White);
+            BorderColor);
 
-        // Inner dark fill
+        // Inner fill
         spriteBatch.Draw(Core.Pixel,
             new Rectangle((int)X + 2, (int)Y + 2, (int)Width - 4, (int)Height - 4),
-            InnerColor);
+            FillColor);
     }
 }

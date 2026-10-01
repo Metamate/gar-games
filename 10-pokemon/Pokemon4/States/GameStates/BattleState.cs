@@ -44,9 +44,9 @@ public sealed class BattleState : GameStateBase
     private const int ShadowRy        = 24;
     private const int OpponentShadowY = 60;
 
-    private static readonly Color BattleBg = new(214, 214, 214);
-    private static readonly Color HpColor  = new(189, 32, 32);
-    private static readonly Color ExpColor = new(32, 32, 189);
+    private static readonly Color BattleBg = GameSettings.Paper;
+    private static readonly Color HpColor  = GameSettings.Ink;
+    private static readonly Color ExpColor = GameSettings.Shadow;
 
     public BattleState(Player player, StateStack stack)
     {
@@ -148,12 +148,12 @@ public sealed class BattleState : GameStateBase
             Locator.Assets.SmallFont.Draw(spriteBatch,
                 $"LV {PlayerPokemon.Level}",
                 new Vector2(PlayerHealthBar.X, PlayerHealthBar.Y - 10),
-                Color.Black);
+                GameSettings.Ink);
 
             Locator.Assets.SmallFont.Draw(spriteBatch,
                 $"LV {OpponentPokemon.Level}",
                 new Vector2(OpponentHealthBar.X, OpponentHealthBar.Y + 8),
-                Color.Black);
+                GameSettings.Ink);
         }
 
         _bottomPanel.Draw(spriteBatch);

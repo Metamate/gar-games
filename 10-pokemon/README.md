@@ -125,6 +125,8 @@ Or open `Pokemon.slnx` and choose the step to run.
 
 ## Credits
 
-The art, sounds and music are our own, made for the course; the monsters are original designs.
+The overworld art is Kenney's [Monochrome RPG](https://kenney.nl/assets/monochrome-rpg) (CC0), and the
+whole game keeps to its four shades. The monsters are our own designs, brought into those shades, and the
+sounds and music are our own, made for the course.
 The font is [Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P) by CodeMan38,
 under the SIL Open Font License (see `Content/Assets/fonts/retro-OFL.txt`).
