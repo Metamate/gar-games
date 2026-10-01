@@ -15,7 +15,7 @@ public class Game1 : Core
     public const int VirtualWidth = 1280;
     public const int VirtualHeight = 720;
     // The maze stands in the middle of the screen, with the score above it.
-    private const int MazeLeft = 360;
+    private const int MazeLeft = 280;
     private const int MazeTop = 90;
 
     private readonly StateMachine _states = new();
