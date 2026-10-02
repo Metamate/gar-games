@@ -44,7 +44,6 @@ public abstract class LevelMakerBase
     public Tileset GetRandomTopperset() => GetRandom(Toppersets);
     public TextureRegion GetRandomBackground() => GetRandom(Backgrounds);
     public TextureRegion GetRandomBush() => GetRandom(Bushes);
-    public TextureRegion GetRandomCoin() => GetRandom(Coins);
     public TextureRegion GetRandomMysteryBox() => GetRandom(MysteryBoxes);
 
     public List<TextureRegion> GetTextureRegionsFromFile(string file, int columns, int rows)

@@ -17,10 +17,6 @@ public static class GameSettings
     public const int MapRenderOffsetX = (VirtualWidth  - MapWidth  * TileSize) / 2;
     public const int MapRenderOffsetY = (VirtualHeight - MapHeight * TileSize) / 2;
 
-    // UI text layout
-    public const float  UiTitleYOffset    = -10f;
-    public const float  UiSubtitleSpacing =   5f;
-
     // Tile IDs (0-based)
     public const int TileTopLeftCorner     =  3;
     public const int TileTopRightCorner    =  4;

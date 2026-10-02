@@ -23,7 +23,7 @@ public sealed class PlayState : GameStateBase
     public override void Enter()
     {
         _paused = false;
-        _session = new PlaySession(_context, _context.Frame.Viewport.Bounds);
+        _session = new PlaySession(_context);
     }
 
     public override void Exit()

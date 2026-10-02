@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Pokemon4.Definitions;
 using Pokemon4.Input;
 using GARCore.States;
 using GARCore;

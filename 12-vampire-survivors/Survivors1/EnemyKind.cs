@@ -9,5 +9,4 @@ public sealed record EnemyKind(string Sprite, float Speed, float Radius, float H
     public static readonly EnemyKind Ogre = new("ogre", 40, 24, 14, 15, 5);
 
     public static readonly EnemyKind[] All = [Bat, Skeleton, Ogre];
-    public const float MaxRadius = 24;
 }

@@ -16,7 +16,6 @@ public sealed class PerformanceMonitor
 
     public void Toggle() => IsVisible = !IsVisible;
 
-    public int FPS => _fps;
     public string MemoryMB => (_totalMemory / 1024.0 / 1024.0).ToString("F2");
 
     public void Update(GameTime gameTime)

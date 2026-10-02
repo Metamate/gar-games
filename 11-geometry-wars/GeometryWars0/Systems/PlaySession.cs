@@ -1,7 +1,6 @@
 using System;
 using GARCore.ECS;
 using GeometryWars0.Services;
-using Microsoft.Xna.Framework;
 
 namespace GeometryWars0.Systems;
 
@@ -13,7 +12,7 @@ public sealed class PlaySession
     public Entity Player { get; }
     private bool _isShutdown;
 
-    public PlaySession(PlayContext context, Rectangle viewportBounds)
+    public PlaySession(PlayContext context)
     {
         Entities = new EntityWorld();
 

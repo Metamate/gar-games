@@ -115,7 +115,7 @@ public sealed class BattleState : GameStateBase
             {
                 _stack.Push(new BattleMessageState(_stack,
                     $"Go, {PlayerPokemon.Name}!",
-                    () => _stack.Push(new BattleMenuState(_stack, this))));
+                    () => _stack.Push(new BattleMenuState(_stack))));
             }));
     }
 

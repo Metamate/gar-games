@@ -9,21 +9,19 @@ namespace GeometryWars1.States;
 // The main game loop state where combat and movement occur.
 public sealed class PlayState : GameStateBase
 {
-    private readonly Game1 _game;
     private readonly PlayContext _context;
     private PlaySession _session;
     private bool _paused;
 
-    public PlayState(Game1 game, PlayContext context)
+    public PlayState(PlayContext context)
     {
-        _game = game;
         _context = context;
     }
 
     public override void Enter()
     {
         _paused = false;
-        _session = new PlaySession(_context, _context.Frame.Viewport.Bounds);
+        _session = new PlaySession(_context);
     }
 
     public override void Exit()

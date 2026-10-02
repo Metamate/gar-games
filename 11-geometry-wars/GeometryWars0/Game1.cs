@@ -34,7 +34,7 @@ public sealed class Game1 : Core
 
         Frame.Update(new GameTime(), GraphicsDevice.Viewport);
 
-        StateStack.Push(new PlayState(this, PlayContext));
+        StateStack.Push(new PlayState(PlayContext));
     }
 
     protected override void LoadContent()

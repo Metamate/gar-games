@@ -27,7 +27,6 @@ public sealed class PhysicsBody
     public float Radius { get; }    // for circles, in pixels (0 for boxes)
     public bool IsCircle => Radius > 0;
     public BodyType Type { get; }
-    public bool IsStatic => Type == BodyType.Static;
 
     public Vector2 Position => Units.ToPixels(b2Body_GetPosition(Id));
 

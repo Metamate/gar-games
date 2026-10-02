@@ -34,9 +34,6 @@ public sealed class PhysicsWorld : IDisposable
 
     public IReadOnlyList<PhysicsBody> Bodies => _bodies;
 
-    // Nothing is moving any more: every body has gone to sleep.
-    public bool IsSettled => b2World_GetAwakeBodyCount(_world) == 0;
-
     public PhysicsBody CreateBox(Vector2 center, Vector2 size, float rotation, PhysicsMaterial material, object owner = null, BodyType type = BodyType.Dynamic)
     {
         B2BodyDef bodyDef = b2DefaultBodyDef();

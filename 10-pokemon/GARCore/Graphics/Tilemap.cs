@@ -58,12 +58,6 @@ public class Tilemap
         return GetTile(index);
     }
 
-    public Tile PointToTile(Vector2 point)
-    {
-        return GetTileAt(point.X, point.Y) ?? 
-            throw new ArgumentOutOfRangeException(nameof(point), "Point is outside the bounds of the tilemap.");
-    }
-
     public Vector2 TileToPoint(int column, int row)
     {
         return Position + new Vector2(column * TileWidth, row * TileHeight);

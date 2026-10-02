@@ -11,13 +11,11 @@ namespace Pokemon2.States.GameStates;
 public sealed class BattleMenuState : GameStateBase
 {
     private readonly StateStack _stack;
-    private readonly BattleState _battleState;
     private readonly Menu _menu;
 
-    public BattleMenuState(StateStack stack, BattleState battleState)
+    public BattleMenuState(StateStack stack)
     {
         _stack = stack;
-        _battleState = battleState;
 
         var menuPos = Layout.GetPosition(Anchor.BottomRight, 96, 64);
         _menu = new Menu(

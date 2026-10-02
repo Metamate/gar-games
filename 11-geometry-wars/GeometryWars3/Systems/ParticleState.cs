@@ -41,14 +41,6 @@ public record struct ParticleState
     public static ParticleState JitteredTrail(Vector2 velocity, float lengthMultiplier = 1f)
         => new(velocity, lengthMultiplier, stretchFromSpeed: 0.1f);
 
-    // General-purpose burst particle that drifts, damps, and responds to gravity.
-    public static ParticleState DriftingBurst(Vector2 velocity, float lengthMultiplier = 1f)
-        => new(velocity, lengthMultiplier);
-
-    // Burst particle that ignores gravity forces and simply flies outward.
-    public static ParticleState UnboundBurst(Vector2 velocity, float lengthMultiplier = 1f)
-        => new(velocity, lengthMultiplier, affectedByGravity: false);
-
     public static void UpdateParticle(ParticleInstance<ParticleState> particle, IReadOnlyList<Entity> blackHoles, FrameInfo frame)
     {
         var vel = particle.State.Velocity;

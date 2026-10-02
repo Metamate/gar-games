@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
@@ -23,8 +22,4 @@ public static class PokemonDefinitions
         using var stream = TitleContainer.OpenStream(path);
         All = JsonSerializer.Deserialize<List<PokemonSpecies>>(stream, JsonOptions);
     }
-
-    // Returns a random species.
-    public static PokemonSpecies GetRandom()
-        => All[Random.Shared.Next(All.Count)];
 }

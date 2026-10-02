@@ -1,4 +1,3 @@
-using Pokemon1;
 using Pokemon1.Entities;
 using Pokemon1.Input;
 using Pokemon1.States.EntityStates;

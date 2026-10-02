@@ -37,7 +37,6 @@ public class Maze
     public int DotsLeft => _dots.Count + _pellets.Count;
 
     public Point PacManStart => _starts['P'];
-    public Point StartOf(char ghost) => _starts[ghost];
 
     // The tile just outside the door, where ghosts leave to, and the middle of the house, where
     // eaten ghosts return to.
@@ -51,7 +50,6 @@ public class Maze
 
     // Pac-Man can't enter the ghost house. Ghosts can, but only some pass the door.
     public bool BlocksPacMan(Point cell) => IsWall(cell) || IsInHouse(cell);
-    public bool BlocksGhost(Point cell, bool canUseDoor) => IsWall(cell) || (IsDoor(cell) && !canUseDoor);
 
     // Through the tunnel: a column left of the maze is the rightmost column, and so on.
     public Point Wrap(Point cell) => new(((cell.X % Width) + Width) % Width, cell.Y);

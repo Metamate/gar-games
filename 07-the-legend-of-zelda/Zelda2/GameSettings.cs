@@ -34,10 +34,6 @@ public static class GameSettings
     public const int EntityMoveDurationMax = 6;     // seconds (exclusive upper bound for Next())
     public const int EntityIdleChance      = 3;     // 1-in-N chance to go idle after a move
 
-    // UI text layout
-    public const float  UiTitleYOffset    = -10f;
-    public const float  UiSubtitleSpacing =   5f;
-
     // Tile IDs (0-based)
     public const int TileTopLeftCorner     =  3;
     public const int TileTopRightCorner    =  4;

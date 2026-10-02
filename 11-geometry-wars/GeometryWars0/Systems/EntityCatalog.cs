@@ -11,12 +11,10 @@ internal sealed class EntityCatalog
 {
     private readonly List<Entity> _entities = [];
     private readonly List<Entity> _enemies = [];
-    private readonly List<Entity> _bullets = [];
     private readonly List<Entity> _blackHoles = [];
 
     public IReadOnlyList<Entity> Entities => _entities;
     public IReadOnlyList<Entity> Enemies => _enemies;
-    public IReadOnlyList<Entity> Bullets => _bullets;
     public IReadOnlyList<Entity> BlackHoles => _blackHoles;
 
     public int Count => _entities.Count;
@@ -26,8 +24,7 @@ internal sealed class EntityCatalog
     {
         _entities.Add(entity);
 
-        if (entity.HasComponent<BulletTag>()) _bullets.Add(entity);
-        else if (entity.HasComponent<BlackHoleTag>()) _blackHoles.Add(entity);
+        if (entity.HasComponent<BlackHoleTag>()) _blackHoles.Add(entity);
         else if (entity.HasComponent<EnemyTag>()) _enemies.Add(entity);
     }
 
@@ -38,7 +35,6 @@ internal sealed class EntityCatalog
 
         _entities.Clear();
         _enemies.Clear();
-        _bullets.Clear();
         _blackHoles.Clear();
     }
 
@@ -57,7 +53,6 @@ internal sealed class EntityCatalog
         }
 
         _entities.RemoveAll(entity => entity.IsExpired);
-        _bullets.RemoveAll(bullet => bullet.IsExpired);
         _enemies.RemoveAll(enemy => enemy.IsExpired);
         _blackHoles.RemoveAll(blackHole => blackHole.IsExpired);
     }

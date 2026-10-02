@@ -1,7 +1,6 @@
 using System;
 using GARCore.ECS;
 using GeometryWars1.Services;
-using Microsoft.Xna.Framework;
 
 namespace GeometryWars1.Systems;
 
@@ -14,7 +13,7 @@ public sealed class PlaySession
     public Entity Player { get; }
     private bool _isShutdown;
 
-    public PlaySession(PlayContext context, Rectangle viewportBounds)
+    public PlaySession(PlayContext context)
     {
         Entities = new EntityWorld();
         BulletSpawner = new BulletSpawner(Entities);

@@ -37,12 +37,6 @@ public static class ContentLoader
         _animationsFile = JsonSerializer.Deserialize<EntityAnimationsFile>(stream, JsonOptions);
     }
 
-    // Retrieve a pre-loaded Pokemon battle sprite by its content path key.
-    public static Texture2D GetPokemonSprite(string key)
-        => _pokemonTextures.TryGetValue(key, out var tex)
-            ? tex
-            : throw new KeyNotFoundException($"Pokemon sprite not found: '{key}'");
-
     // Build the walk + idle animation set from the shared entity atlas.
     public static Dictionary<string, Animation> CreateEntityAnimations(TextureAtlas atlas)
     {

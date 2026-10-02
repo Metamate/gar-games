@@ -4,7 +4,6 @@ using GeometryWars3.Components.Lifecycle;
 using GARCore.ECS;
 using GARCore.Particles;
 using GeometryWars3.Services;
-using Microsoft.Xna.Framework;
 
 namespace GeometryWars3.Systems;
 
@@ -23,7 +22,7 @@ public sealed class PlaySession
 
     public bool IsPlayerRespawning => _playerRespawnState.IsRespawning;
 
-    public PlaySession(PlayContext context, Rectangle viewportBounds)
+    public PlaySession(PlayContext context)
     {
         Score = new ScoreTracker(context.Frame, Path.Combine(AppContext.BaseDirectory, "highscore.txt"));
 

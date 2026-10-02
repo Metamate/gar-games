@@ -4,7 +4,6 @@ using System.Text.Json;
 using GARCore.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
-using Pokemon0.Entities;
 
 namespace Pokemon0.Definitions;
 

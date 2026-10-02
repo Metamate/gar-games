@@ -11,7 +11,6 @@ public sealed class FrameInfo
 
     public Vector2 ScreenSize => new(Viewport.Width, Viewport.Height);
     public float TotalSeconds => (float)Time.TotalGameTime.TotalSeconds;
-    public float ElapsedSeconds => (float)Time.ElapsedGameTime.TotalSeconds;
 
     public void Update(GameTime time, Viewport viewport)
     {

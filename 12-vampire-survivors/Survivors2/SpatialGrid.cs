@@ -11,8 +11,6 @@ public sealed class SpatialGrid(float cellSize)
 {
     private readonly Dictionary<Point, List<(int Item, Vector2 Position)>> _cells = [];
 
-    public float CellSize => cellSize;
-
     // Empties every cell, but keeps the lists to fill again: no new lists every frame. Cells
     // the player has left far behind are dropped once in a while.
     public void Clear()

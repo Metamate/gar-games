@@ -25,10 +25,6 @@ public static class GameSettings
     public const float PlayerSpriteOffsetY = 12f;   // 8 px of room in the frame for the sword, and the head 4 px above the collision box (perspective)
     public const float PlayerSwordOffsetX  = 8f;    // sword sprite (32px) centred over collision box (16px)
 
-    // UI text layout
-    public const float  UiTitleYOffset    = -10f;
-    public const float  UiSubtitleSpacing =   5f;
-
     // Tile IDs (0-based)
     public const int TileTopLeftCorner     =  3;
     public const int TileTopRightCorner    =  4;

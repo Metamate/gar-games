@@ -39,11 +39,6 @@ public class TextureAtlas
         return _regions[name];
     }
 
-    public bool RemoveRegion(string name)
-    {
-        return _regions.Remove(name);
-    }
-
     public void Clear()
     {
         _regions.Clear();
@@ -143,11 +138,6 @@ public class TextureAtlas
     public Animation GetAnimation(string animationName)
     {
         return _animations[animationName];
-    }
-
-    public bool RemoveAnimation(string animationName)
-    {
-        return _animations.Remove(animationName);
     }
 
     public AnimatedSprite CreateAnimatedSprite(string animationName)

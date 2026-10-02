@@ -34,10 +34,6 @@ public sealed class GameController
         => _input.Keyboard.WasKeyJustPressed(Keys.Enter) ||
            _input.GamePad.WasButtonJustPressed(Buttons.A);
 
-    public bool WasExitPressed
-        => _input.Keyboard.WasKeyJustPressed(Keys.Escape) ||
-           _input.GamePad.WasButtonJustPressed(Buttons.Back);
-
     public Vector2 MousePosition
         => new(_input.Mouse.X, _input.Mouse.Y);
 
