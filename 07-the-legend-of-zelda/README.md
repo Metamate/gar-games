@@ -76,7 +76,7 @@ Where to find things:
 
 The XML files refer to tiles and frames by their number in a sprite sheet.
 `Tools/LabelTiles.cs` writes each tile's number onto a copy of a sheet, so you can look
-them up. It is a standalone script (it needs the .NET 10 SDK), not part of the game:
+them up. It is a standalone script outside the game (it needs the .NET 10 SDK).
 
 ```sh
 cd 07-the-legend-of-zelda/Tools

@@ -5,7 +5,7 @@ namespace Zelda6.Entities;
 public class Player : Entity
 {
     // Collision is restricted to the bottom half of the sprite to give a
-    // top-down perspective feel: the "feet" collide, not the head.
+    // top-down perspective feel: only the "feet" collide.
     public Rectangle Hurtbox
     {
         get

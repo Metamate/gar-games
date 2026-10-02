@@ -20,7 +20,7 @@ public class MouseInfo
         CurrentState = Mouse.GetState();
     }
 
-    // The position in window coordinates, not in the game's virtual resolution.
+    // The position in window coordinates. The game's virtual resolution is a different space.
     public int X => CurrentState.X;
     public int Y => CurrentState.Y;
     public Point Position => CurrentState.Position;

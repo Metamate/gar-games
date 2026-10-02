@@ -20,7 +20,7 @@ public class LevelView(Tileset tiles)
     private const int PlayerRightTile = 8;
     private const int PlayerLeftTile = 7;
 
-    // Which way the player faces. This is only about drawing, so it lives here, not in Level.
+    // Which way the player faces. This is only about drawing, so it lives here.
     public Point Facing { get; set; } = Direction.Down;
 
     public void Draw(SpriteBatch spriteBatch, Level level)

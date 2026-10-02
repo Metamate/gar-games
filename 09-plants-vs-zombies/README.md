@@ -44,7 +44,7 @@ The finished game, `Pvz4`:
 
 ## Tests
 
-`Pvz.Tests` tests the finished game's components one at a time, namely health, armour that takes
+`Pvz.Tests` tests the finished game's components one at a time: health, armour that takes
 damage first, and a lifetime that runs out. Each test builds an entity with only the
 components it needs, without a field, textures or a running game. Small components make
 that possible.
